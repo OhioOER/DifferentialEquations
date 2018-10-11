@@ -1,0 +1,29 @@
+%% You can put user macros here
+%% However, you cannot make new environments
+
+\listfiles
+
+\graphicspath{{./}{firstExample/}{secondExample/}}
+
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usepackage{tikz-cd}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows}
+\usetkzobj{all}
+\pgfplotsset{compat=1.13} % prevents compile error.
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\dfn}{\textit}
+\newcommand{\dotp}{\cdot}
+\newcommand{\id}{\text{id}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+ 
+\newtheorem{general}{Generalization}
+\newtheorem{initprob}{Exploration Problem}
+
+\tikzstyle geometryDiagrams=[ultra thick,color=blue!50!black]
+
+\usepackage{mathtools}
