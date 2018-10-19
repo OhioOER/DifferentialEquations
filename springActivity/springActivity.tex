@@ -2,22 +2,80 @@
 
 \input{../preamble.tex}
 
-\title{Spring Activity}
+\title{An Application of a Linear Second Order Homogeneous Differential Equation
+}
 
 \begin{document}
 
 \begin{abstract}
-Spring activity by Justin
+This is an example activity with a spring-mass system
 \end{abstract}
-
-
-After completing this section, students should know everything about springs.
-
-
 
 
 \maketitle
 
-This is an activity about springs.
+A Mass Oscillating on a Spring
+The purpose of this exercise is to deepen your understanding of linear second order homogeneous differential equations through a modeling application involving a spring/mass system.  The mass on a spring is a good model problem to understand many related application problems for which this mathematical model applies.  This activity will instruct you on how to measure and model your own system, connecting the physical behavior of the model system with the mathematical features first introduced in Chapter 5 of Trench’s text.
+The spring should hang from above by some fixture such as a hook.  A longer rubber band or several smaller bands tied together can be a decent substitute for a spring.  The mass could be a roll of coins, a coffee mug (don’t use your favorite one), a stapler, a can of food, or any attachable small dense object.
+Figure 1 below demonstrates the situation when the mass is hung on a spring of length , stretching it by a distance   Any movement of the mass can be measured from this equilibrium position.  We make the arbitrary choice to call the upward direction positive, as noted in the figure.  
+
+\begin{center}
+\includegraphics[scale=0.5]{spring-mass.png}
+\end{center}
+
+Figure 1 – Spring in Equilibrium Position Stretched by Mass
+Before we employ Physics to construct a model for the motion of this mass on a spring, take a minute to consider what would happen if we pulled the mass down a bit further and then released it.  
+•	How will the position of the mass change as a function of time?  
+•	Can you make a sketch of this motion (position vs. time)?  Try to make a sketch.
+•	What type of elementary function might best describe the motion?  
+o	Exponential, Linear, Quadratic or other Polynomial, Trigonometric, Logarithmic, or something else?
+•	Describe the distances and key features of your sketch with as much detail as possible.
+•	Will the motion continue indefinitely or will certain features change over time?
+Newton’s 2nd Law states that the sum of the forces acting on a body, otherwise known as the net force, will equal the mass of that body times the acceleration it experiences:
+
+This means that if all of the forces acting on the mass are quantified and the mass is known, it’s acceleration can be found.  This important equation from Physics will lead directly to a differential equation which can then be solved.  Recall that acceleration is the second derivative of position with respect to time.  We will use the convention that “up” is positive consistently as we account for forces and motion.  Force and acceleration are in bold because they are vector quantities that can account for multiple directions.  However, we will only consider one dimension of up and down in our analysis.  
+One force always acting on the body is the force of gravity, which acts downward and is equal to the mass  times the gravititational constant  (which is about ).  This force is also simply called the weight.  We will need to estimate the weight of the mass you have chosen to use.    
+Mass of object ():
+Weight of the mass (): 
+Another force acting on the body is the upward pull by the spring.  Hooke’s Law states that this force will be equal to a “spring constant” which we call  multiplied by the amount the spring is stretched.  This means that the force of the spring will be linearly proportional to the amount of stretch it experiences at any time.  The units of the spring constant are force per length such as .  We can find the amount of stretch by measuring the distance from the unstretched position of the bottom of the spring (with no mass attached) to its equilibrium position where the mass is hanging motionless from the spring.  This is the distance between the two dashed lines in the diagram above.  Use a ruler or meter stick to measure the length that the spring stretches due to the weight of the mass.  Be sure to measure consistently at the bottom of the spring.
+Distance of stretch: 
+Spring constant ():  
+When the mass is hanging motionless from the spring, the weight of the mass (acting downward) and the force of the spring (acting upward) are equal in magnitude and opposite in direction.  
+	
+Because these forces cancel each other exactly, Newton’s 2nd law shows that the acceleration of the mass is zero.  We say that the mass is at equilibrium.  We can now consider any changes relative to this equilibrium position.
+If the mass is moved downward any further, the spring stretches.  The spring will then pull upward with more force on the mass.  Since movement downward (in the negative  direction) causes this force to act upward, this additional force is .  The two negatives will cancel, given a positive number, which – by our convention – is upward.  
+If the mass is moved upward, the spring is compressed.  The spring would push downward on the mass.  Since movement upward (in the positive  direction) causes a spring force downward, the additional force is again .  
+If the mass is released with a non-zero initial position, the spring will oscillate due to this alternating force which always seeks to move the mass back towards the equilibrium position.  The restoring force would always accelerate the mass in the direction of the equilibrium position, but the mass would then develop enough velocity to pass this position and move an equal distance beyond it.  If there were no air resistance or dissipation of energy (sometimes known as dampening), the system would oscillate forever.  We will neglect dampening for now.
+As noted above, the two forces  and  will always cancel each other, leaving only the additional force .  Newton’s 2nd Law says that 
+
+Since acceleration is the second derivative of position with respect to time, this results in the following second order homogeneous linear differential equation:
+
+This can be rearranged into a standard form:
+
+The solution of this differential equation is:
+
+Do you remember how we find this solution?  If not, re-read section 5.2 of Trench’s book.  To confirm that it works, plug it back into the differential equation to check it.  To do this, you will need to take the first and then the second derivative of the solution.  Notice how the second derivatives of both trigonometric functions involve the negative of themselves and that the chain rule will “bring out” the square root term twice.  These attributes of the solution are necessary to make this differential equation true.
+If the initial position of the mass is recorded at  and it is released with no initial velocity, only the first term – the cosine term – in this equation is kept because the second constant will be zero.  
+The quantity  is referred to as the circular frequency, and has units of radians per second.  Taking this value and dividing by 2 gives the frequency in Hertz (Hz) which means cycles per second.  The inverse of this quantity in Hertz is the period of the motion, which is the time in seconds for one complete cycle.
+Use your measured quantities for your specific system, forming and solving the differential equation as above.  Compare your estimate of the period to the actual result by measuring the time the mass takes to oscillate through at least one cycle.  You will make a more accurate measurement if you record the time needed to complete three or more cycles.
+An Example from the Kitchen
+I don’t happen to have a nice long spring available, so I’ll use a long rubber band with a small can of cream of mushroom soup.  The can is labelled as containing or (), which we can use as an estimate of the mass.  To find the weight, we can multiply  by , giving .  I measure the length of the stretch of the spring to be  or .  The spring constant  is .  Calculating the  term as , the differential equation becomes:
+
+This has a solution 
+
+If I pull the can down  and release it with no initial velocity, two constants can be shown to be  and , respectively.  The first number comes from the initial position and the second comes from the initial velocity.  It is necessary to differentiate this equation once before applying the second initial condition that effectively says .  The final undamped solution becomes
+
+(insert graph here)
+The period of this motion predicted by the model is .  In my experiment at home, I estimated the period to be about .  This is a reasonable match.  However, I did note that with the rubber band, the motion dampens out significantly from its initial amplitude of around  after the first few cycles.  Our choice to ignore air resistance and energy dissipation is clearly unreasonable, even though the period of the motion predicted by the model seems like a decent match for the period in the real system.
+(insert embedded Ximera calculations to check students math and plot motion for inputs of m,  , and initial positions)
+
+
+(follow-up exercise with damping?)
+
+
+
+
+
+
 
 \end{document}
