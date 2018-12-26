@@ -164,6 +164,8 @@
 \newcommand {\gathered }[0]{\def \MT_gathered_pre: {\hfil }\def \MT_gathered_post: {\hfil }\def \MT_gathered_env_end: {}\MT_gathered_env }
 \newcommand {\splitfrac }[2]{\genfrac {}{}{0pt}{1}{\textstyle ##1\quad \hfill }{\textstyle \hfill \quad \mathstrut ##2}}
 \newcommand {\splitdfrac }[2]{\genfrac {}{}{0pt}{0}{##1\quad \hfill }{\hfill \quad \mathstrut ##2}}
+\newcommand {\reserved@a }[2]{}
+\newcommand {\HyperFirstAtBeginDocument }[0]{\AtBeginDocument }
 \newcommand {\vnameref  }[1]{\unskip ~\nameref {##1}\@vpageref [\unskip ]{##1}}
 \newcommand {\ref  }[0]{\@ifstar \@refstar \T@ref }
 \newcommand {\pageref  }[0]{\@ifstar \@pagerefstar \T@pageref }

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.11)  26 DEC 2018 18:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.11)  26 DEC 2018 18:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1195,13 +1195,11 @@ LaTeX Warning: No \author given.
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package hyperref Warning: old toc file detected, not used; run LaTeX again.
-
+(./main.toc)
 \tf@toc=\write10
 \openout10 = `main.toc'.
 
-[2
+ [2
 
 ] (./springActivity/springActivity.tex
 LaTeX Font Info:    Try loading font information for U+msa on input line 16.
@@ -1407,10 +1405,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 16.
  ) 
 Here is how much of TeX's memory you used:
- 35172 strings out of 492646
- 819282 string characters out of 6129563
- 1040712 words of memory out of 5000000
- 38312 multiletter control sequences out of 15000+600000
+ 35175 strings out of 492646
+ 819307 string characters out of 6129563
+ 1040826 words of memory out of 5000000
+ 38313 multiletter control sequences out of 15000+600000
  14362 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,8n,103p,919b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1426,7 +1424,7 @@ l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local
 l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
 /texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on main.pdf (7 pages, 145315 bytes).
+Output written on main.pdf (7 pages, 145301 bytes).
 PDF statistics:
  102 PDF objects out of 1000 (max. 8388607)
  80 compressed objects within 1 object stream
