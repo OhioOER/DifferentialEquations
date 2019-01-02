@@ -20,22 +20,46 @@ Let's first consider the problem of finding the general solution of an ODE symbo
 \[
 \frac{dx}{dt} = t - x
 \]
-The following Sage cell shows how to solve this ODE symbolically:
+
+The Sage function \texttt{desolve} is used to find symbolic solutions of ODEs. The following Sage cell shows how to solve the ODE above:
 
 \begin{sageCell}
 t = var('t')
 x = function('x')(t)
 de = diff(x, t) ==  t - x
-gen_sol = desolve(de, [x, t])
-gen_sol
+soln = desolve(de, [x, t])
+soln
 \end{sageCell}
 
-Clicking the \texttt{Evaluate} button will execute the cell and compute the general solution of the differential equation. Just to make sure that everything is working, enter the solution of the equation in the answer cell below:
+Clicking the \texttt{Evaluate} button will execute the cell and compute the general solution of the differential equation. 
 
-\begin{exercise} In the answer box below, enter the general solution of the differential equation, using $C$ for the constant of integration.
+\begin{problem} In the answer box below, enter the general solution of the differential equation 
 
-  The general solution of the DE is: $\answer{((t - 1)e^{t} + C)e^{-t}}$.
-\end{exercise}
+Use the variable $C$ for the constant of integration.
+
+The general solution of the DE is: $\answer{((t - 1)e^{t} + C)e^{-t}}$.
+\end{problem}
+
+\emph{Hint}: If you are getting an error, you are probably trying to enter $\_C$ as your constant of integration. Use the variable $C$ instead.
+
+We can also use the \texttt{desolve} function to find the solution of initial value problems. Let's, for example, consider the problem:
+\[
+\frac{dx}{dt} = t - x,\quad x(1) = 3
+\]
+
+The following Sage cell demonstrates how to solve this problem:
+
+\begin{sageCell}
+t = var('t')
+x = function('x')(t)
+de = diff(x, t) ==  t - x
+soln = desolve(de, [x, t])
+soln
+\end{sageCell}
+
+\begin{problem} 
+The general solution of the initial value problem is is: $\answer{((t - 1)e^{t} + 3*e)e^{-t}}$.
+\end{problem}
 
 
 
