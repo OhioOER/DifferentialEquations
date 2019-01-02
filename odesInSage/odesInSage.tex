@@ -133,7 +133,7 @@ x = var('x')
 r, C = 0.2, 32
 h = 2.2
 de = r * x *(1 - x/C) - h
-tvalues = srange(0, 10, 0.1)
+tvalues = srange(0, 20, 0.2)
 ic = 15
 xvalues = desolve_odeint(de, ic, tvalues, x)
 points(zip(tvalues, xvalues))
@@ -149,13 +149,26 @@ points(zip(tvalues, xvalues))
 \end{problem}
 
 \begin{problem} 
-Change the value of $h$ in the cell above to 1.5 and run the cell again. In this case, the population $x(t)$:
+Change the value of $h$ in the cell above to 1.5 and run the cell again. Experiment with the maximum value of $t$ specified in the statement:
+\[
+\mathtt{tvalues = srange(0, 20, 0.2)}
+\]
+Notice that, as you increase the maximum value of $t$, you may also want to increase the value of the step-size. Answer the following question based on your experiments:
+
+For the harvesting rate $h=2.2$ the population $x(t)$:
 \begin{multipleChoice}
 \choice{Grows without bound as $t\to\infty$.}
 \choice[correct]{Stabilizes near a certain positive value as $t\to\infty$.}
 \choice{Becomes extinct at a certain finite value of $t$.}
 \choice{Oscillates around some value as $t\to\infty$.}
 \end{multipleChoice}
+\end{problem}
+
+\begin{problem} It is of interest to determine what is the largest value of the harvesting rate $h$ we can choose so that we have a stable population in the model. Experiment with different values in the Sage cell above to determine this value approximately to three decimal places. 
+
+Notice that you may also have to adjust the maximum value of the time variable $t$, since the differential equation becomes unstable for certain values of $h$, which leads to numerical errors in the computation.
+
+The maximum value of the harvesting rate, to three decimal places is: $\answer{1.593}$
 \end{problem}
 
 \end{document}
