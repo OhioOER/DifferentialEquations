@@ -58,14 +58,31 @@ soln
 \end{sageCell}
 
 \begin{problem} 
-The  solution of the initial value problem is is: $\answer{((t - 1)e^{t} + 3e)e^{-t}}$.
+The  solution of the initial value problem is: $\answer{((t - 1)e^{t} + 3e)e^{-t}}$.
 \end{problem}
 
-If we need specific values of the solution, we can access them as shown in the following cell:
+If we need a single numerical value of the solution, we can compute it as shown in the cell below:
+\begin{sageCell}
+soln(3.2).n()
+\end{sageCell}
+
+\begin{problem} Use the Sage cell above to compute the following values for the solution of the IVP:
+
+\[x(3.2)=\answer{2.53240947508700}\]
+
+\[x(1.4)=\answer{2.41096013810692}\]
+
+\[x(0.75)=\answer{3.60207625006322}\]
 
 \begin{sageCell}
 [soln(tval).n() for tval in srange(1, 5, 0.1)]
 \end{sageCell}
+
+The output of the previous cell is a \emph{list}, with the values of the solution in a specified range. The range is defined by the Sage expression:
+\[
+\mathtt{srange(1, 5, 0.1)}
+\]
+This defines a range 
 
 
 
