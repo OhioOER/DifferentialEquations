@@ -53,8 +53,8 @@ The following Sage cell demonstrates how to solve this problem:
 t = var('t')
 x = function('x')(t)
 de = diff(x, t) ==  t - x
-soln = desolve(de, [x, t])
-soln
+gen_sol = desolve(de, [x, t], ics=[1,3])
+gen_sol
 \end{sageCell}
 
 \begin{problem} 
