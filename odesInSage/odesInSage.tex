@@ -4,7 +4,7 @@
 
 
 
-\title{Modeling a spring-mass system}
+\title{Solving ODEs with Sage}
 \author{Anna Davis, Just Greenly, , L. Felipe Martins, Paul Zachlin}
 
 \begin{document}
@@ -17,6 +17,14 @@ This activity shows how to use Sage to solve differential equations.
 \maketitle
 
 Let's first consider the problem of solving an ODE symbolically. The following Sage cell shows how to do that:
+
+\begin{sageCell}
+t = var('t')
+x = function('x')(t)
+de = diff(x, t) + x - 1
+gen_sol = desolve(de, [x, t])
+gen_sol
+\end{sageCell}
 
 
 \end{document}
