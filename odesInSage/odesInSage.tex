@@ -16,15 +16,28 @@ This activity shows how to use Sage to solve differential equations.
 
 \maketitle
 
-Let's first consider the problem of solving an ODE symbolically. The following Sage cell shows how to do that:
+Let's first consider the problem of finding the general solution of an ODE symbolically. As an example, let's consider the differential equation:
+\[
+\frac{dx}{dt} = t - x
+\]
+The following Sage cell shows how to solve this ODE symbolically:
 
 \begin{sageCell}
 t = var('t')
 x = function('x')(t)
-de = diff(x, t) + x - 1
+de = diff(x, t) ==  t - x
 gen_sol = desolve(de, [x, t])
 gen_sol
 \end{sageCell}
+
+Clicking the \texttt{Evaluate} button will execute the cell and compute the general solution of the differential equation. Just to make sure that everything is working, enter the solution of the equation in the answer cell below:
+
+\begin{exercise}
+  The general solution of the DE is: $\answer{((t - 1)*e^t + _C)*e^(-t)}$.
+\end{exercise}
+
+
+
 
 
 \end{document}
