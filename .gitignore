@@ -1,5 +1,5 @@
 # macOS folder
-**/.DS_Store
+**/*.DS_Store
 # build artifacts
 metadata.json
 **/*.png
