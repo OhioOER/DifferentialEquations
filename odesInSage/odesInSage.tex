@@ -106,10 +106,25 @@ plot(soln(t), (t, 1, 5))
 
 The value of $x(4)$ is in the interval:
 \wordChoice{\choice{$[1,1.5)$}, \choice{$[1.5,2)$}, \choice{$[2,2.5)$}, 
-\choice{$[2.5,3)$}, \choice{$[3,3.5)$}, \choice[correct]{$[3.5,4)$}, \choice{$[4,4.5)$},
+\choice{$[2.5,3)$}, \choice[correct]{$[3,3.5)$}, \choice{$[3.5,4)$}, \choice{$[4,4.5)$},
 \choice{$[4.5,5)$}}
 
 \end{problem}
+
+In an applied problem, a symbolic solution will rarely be available, and one has to resort to numerical solutions. As an example, let's consider the following model for a population with harvesting:
+\[
+\frac{dx}{dt}=rx\left(1-\frac{x}{t}\right)-h
+\]
+In this equation, the parameter $h$ represents a harvesting rate (in units of number of individuals per unit of time). Let's first try to solve this equation symbolically in Sage, for the parameter values $r=0.2$, $C=32$, $h=2.2$ and  the initial condition $x(0)=15$:
+
+\begin{sageCell}
+t = var('t')
+x = function('x')(t)
+r, C, h = 0.2, 32, 2.2
+de = diff(x, t) == r * x *(1 - x/C) - h
+soln = desolve(de, [x, t], ics=[0,15])
+soln
+\end{sageCell}
 
 
 \end{document}
