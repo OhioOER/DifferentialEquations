@@ -126,7 +126,7 @@ soln = desolve(de, [x, t], ics=[0,15])
 soln
 \end{sageCell}
 
-Evaluating the cell above, we can see that the symbolic solution looks quite complicated. Notice that the function that represents the solution, $x(t)$ appears in the right-hand side of the equation. In other words, this the solution is given in implicit form. In cases like this, it may be preferable to use a numerical method. This can be done in Sage as shown in the following cell, using the function $\mathtt{desolve\_odeint}$. Notice that the interface for this function differs in a significant way from the function $\mathtt{odeint}$
+Evaluating the cell above, we can see that the symbolic solution looks quite complicated. Notice that the function that represents the solution, $x(t)$, has not been isolated in the left-hand side of the equation. In other words, this the solution is given in implicit form. In cases like this, it may be preferable to use a numerical method. This can be done in Sage as shown in the following cell, using the function $\mathtt{desolve\_odeint}$. Notice that the interface for this function differs in a significant way from the function $\mathtt{odeint}$
 
 \begin{sageCell}
 x = var('x')
