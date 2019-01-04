@@ -1,0 +1,23 @@
+# macOS folder
+**/.DS_Store
+# build artifacts
+metadata.json
+**/*.png
+**/*.svg
+**/*.4ct
+**/*.4tc
+**/*.aux
+**/*.auxlock
+**/*.dvi
+**/*.html
+**/*.ids
+**/*.idv
+**/*.jax
+**/*.log
+**/*.lg
+**/*.out
+**/*.oc
+**/*.tmp
+**/*.xref
+**/*.pdf
+**/*figure*

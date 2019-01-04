@@ -38,12 +38,27 @@ This activity will instruct you on how to measure and model your own system, con
 
 
 
-Figure $\ref{fig:spring-mass-system}$ below demonstrates the situation when the mass is hung on a spring of length , stretching it by a distance   Any movement of the mass can be measured from this equilibrium position.  We make the arbitrary choice to call the upward direction positive, as noted in the figure.  
+The figure below demonstrates the situation when the mass is hung on a spring of length $L$, stretching it by a distance $\Delta L$.   Any movement of the mass can be measured from this equilibrium position.  We make the arbitrary choice to call the upward direction positive.  
 
+%\begin{center}
+%    \includegraphics[scale=0.5]{spring-mass.png}
+%\end{center}    
 \begin{center}
-    \includegraphics[scale=0.5]{spring-mass.png}
-\end{center}    
-
+\begin{tikzpicture}
+\node[circle,fill=gray,inner sep=2.5mm] (a) at (0,0) {};
+\node[] (b) at (2,2) {};
+\draw[line width=1pt,gray, dashed](0,0)--(3.5,0) node[right]{Equilibrium Position $y=0$};
+\draw[line width=1pt,gray, dashed](2,2)--(3.5,2) node[right]{Unstretched Position};
+\draw[line width=1pt,gray, -stealth](2.5,1)node[right]{$\Delta L$}--(2.5,0);
+\draw[line width=1pt,gray, -stealth](2.7,3.5)--(2.7,2);
+\draw[line width=1pt,gray, -stealth](2.7,3.5)node[right]{$L$}--(2.7,5);
+\draw[line width=1pt,gray, -stealth](2.5,1)--(2.5,2);
+\draw[decoration={aspect=0.3, segment length=3mm, amplitude=3mm,coil},decorate] (0,5) -- (a); 
+\draw[decoration={aspect=0.3, segment length=1.5mm, amplitude=3mm,coil},decorate] (2,5) -- (b); 
+\fill [pattern = north east lines] (-1,5) rectangle (3,5.2);
+\draw[thick] (-1,5) -- (3,5);
+\end{tikzpicture}
+\end{center}
 To set up the system, the spring should hang from above by some fixture such as a hook. Place the spring near a wall, and attach the measuring tape behind the spring. If using a recording device, set it up some distance away, in such a way that both the spring-mass system and the measuring tape are visible. The image below illustrates a possible setup.
 
 \section{Model for the spring-mass system}
