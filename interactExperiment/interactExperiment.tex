@@ -1,0 +1,29 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Experiment with Sage interacts}
+\author{Anna Davis, Justin Greenly, L. Felipe Martins, Paul Zachlin}
+
+\begin{document}
+
+\begin{abstract}
+This activity demonstrates the use of a Sage interact.
+
+\end{abstract}
+
+\maketitle
+
+Press the $\mathtt{Evaluate}$ button to execute the interact.
+
+\begin{sageCell}
+@interact
+def _(f=input_box(x^2, width=20),
+      color=color_selector(widget='colorpicker', label=''),
+      axes=True,
+      fill=True,
+      zoom=range_slider(-3, 3, default=(-3,3))):
+    show(plot(f, (x,zoom[0], zoom[1]), color=color, axes=axes, fill=fill))
+\end{sageCell}
+
+\end{document}

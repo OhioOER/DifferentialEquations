@@ -1,0 +1,8 @@
+\contentsline {section}{Modeling a spring-mass system}{3}{section*.1}
+\contentsline {section}{Introduction}{4}{section*.2}
+\contentsline {section}{Model for the spring-mass system}{4}{section*.3}
+\contentsline {section}{Running the experiment with the system}{7}{section*.4}
+\contentsline {section}{Spring in Equilibrium Position Stretched by Mass}{7}{section*.5}
+\contentsline {section}{Solving ODEs with Sage}{8}{section*.6}
+\contentsline {section}{Experiment with Sage interacts}{14}{section*.7}
+\contentsfinish 
