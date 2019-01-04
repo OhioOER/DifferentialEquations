@@ -21,3 +21,5 @@ metadata.json
 **/*.xref
 **/*.pdf
 **/*figure*
+**/*.synctex.gz
+
