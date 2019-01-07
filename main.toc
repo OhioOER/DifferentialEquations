@@ -3,6 +3,7 @@
 \contentsline {section}{Model for the spring-mass system}{4}{section*.3}
 \contentsline {section}{Running the experiment with the system}{7}{section*.4}
 \contentsline {section}{Spring in Equilibrium Position Stretched by Mass}{7}{section*.5}
-\contentsline {section}{Solving ODEs with Sage}{8}{section*.6}
-\contentsline {section}{Experiment with Sage interacts}{14}{section*.7}
+\contentsline {section}{Hot Potato}{8}{section*.6}
+\contentsline {section}{Solving ODEs with Sage}{12}{section*.7}
+\contentsline {section}{Experiment with Sage interacts}{18}{section*.8}
 \contentsfinish 
