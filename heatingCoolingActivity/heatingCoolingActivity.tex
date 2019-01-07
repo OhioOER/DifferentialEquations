@@ -1,0 +1,137 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+
+
+\title{Hot Potato}
+\author{Just Greenly, L. Felipe Martins}
+
+\begin{document}
+
+\begin{abstract}
+This lab describes an activity with a spring-mass system, designed to explore concepts related to modeling a real world system with wide applicability.
+\end{abstract}
+
+\maketitle
+
+\section*{Demo of Answers with Feedback}
+\begin{problem}
+Consider what Newton’s Law of Heating would predict for a potato heated in an oven.  Examine the differential equation, and remember that k and Tm are constants.  At what point during the heating process will the rate of change of temperature be the smallest or the largest?  How will this rate change over time?  Which of the following plots of temperature vs. time most closely represents the behavior predicted by this law?
+
+
+  Enter the ID number $(n=1, 2, 3, 4)$ of the correct graph. 
+  $$n = \answer[format=integer,id=n]{3}$$
+  
+   \begin{feedback}[n&lt;2]
+    This answer is not correct.  Note that the final rate of change of temperature is too steep and the initial rate of change is too small.  The temperature should asymptotically approach the temperature of the medium because Newton’s Law of Heating shows that $T'$ will get very small as T approaches $T_m$.  This plot suggests that the temperature of the object might actually exceed the temperature of the surroundings, which is impossible.
+  \end{feedback}
+ 
+  \begin{feedback}[n&et;2]
+    This answer is not correct, although it is close to the correct answer.  As the temperature of the object approaches that of the medium, the slope does in fact approach zero.  Thus, this final attribute is correct.  Note that Newton’s Law of Heating predicts that the initial slope will be the greatest because the initial difference between $T$ and $T_m$ is larger than after some heating has occurred.  This law does not predict any lag in the beginning of the heating process, although in reality some lag may occur if the temperature of the inside of a larger object takes a bit longer to begin heating up. 
+  \end{feedback}
+ 
+  \begin{feedback}[correct]
+    Correct!  The initial slope will be the greatest because the initial difference between $T$ and $T_m$ is larger than after some heating has occurred.  As the temperature of the object approaches that of the medium, the slope approaches zero.  Newton’s Law for Heating thus predicts that the plot of temperature vs. time should be concave downward.  Take the derivative of both sides of the differential equation to see that $T''$ is equal to $–k$.  Since the second derivative is a constant negative value, the curve is concave downward.
+  \end{feedback}
+  
+  \begin{feedback}[n&gt;3]
+    This answer is not correct because it does not show how the rate of temperature change will – itself – vary during the heating process.  Note that the final rate of change of temperature should be small and the initial rate of change should be larger.  The temperature should asymptotically approach the temperature of the medium because Newton’s Law of Heating shows that $T'$ will become very small as T approaches $T_m$.
+  \end{feedback}
+ 
+  \begin{center}  
+  \begin{tikzpicture}  
+    \begin{axis}[  
+        xmin=0,  
+        xmax=1,  
+        ymin=0,  
+        ymax=1,  
+        ticks=none,
+        %axis lines=center,  
+        xlabel=time,  
+        ylabel=Temperature,  
+        %every axis y label/.style={at=(current axis.above origin),anchor=south},  
+        %every axis x label/.style={at=(current axis.right of origin),anchor=west},  
+      ]  
+      \addplot [ultra thick, blue, smooth] {x^2+0.1};  
+    \end{axis}  
+    \node[] at (-0.5, 5.5)  (r3)    {$T_m$};
+    \node[] at (-0.5, 0.6)  (r3)    {$T_0$};
+    
+    \node[red] at (1.5, 5.2)  (r3)    {Graph ID: $n=1$};
+  \end{tikzpicture}  
+\end{center}
+
+\begin{center}  
+  \begin{tikzpicture}  
+    \begin{axis}[  
+        xmin=0,  
+        xmax=2,  
+        ymin=0,  
+        ymax=2,  
+        ticks=none,
+        %axis lines=center,  
+        xlabel=time,  
+        ylabel=Temperature,  
+        %every axis y label/.style={at=(current axis.above origin),anchor=south},  
+        %every axis x label/.style={at=(current axis.right of origin),anchor=west},  
+      ]  
+      \addplot [ultra thick, blue, smooth] {2/(1+exp(-3.3*x+2.5))};  
+    \end{axis}  
+    \node[] at (-0.5, 5.5)  (r3)    {$T_m$};
+    \node[] at (-0.5, 0.6)  (r3)    {$T_0$};
+    
+    \node[red] at (1.5, 5.2)  (r3)    {Graph ID: $n=2$};
+  \end{tikzpicture}  
+\end{center}
+
+\begin{center}  
+  \begin{tikzpicture}  
+    \begin{axis}[  
+        xmin=0.1,  
+        xmax=1,  
+        ymin=0.1,  
+        ymax=1,  
+        ticks=none,
+        %axis lines=center,  
+        xlabel=time,  
+        ylabel=Temperature,  
+        %every axis y label/.style={at=(current axis.above origin),anchor=south},  
+        %every axis x label/.style={at=(current axis.right of origin),anchor=west},  
+      ]  
+      \addplot [ultra thick, blue, smooth] {1-0.9*exp(-4*x)};  
+    \end{axis}  
+    \node[] at (-0.5, 5.5)  (r3)    {$T_m$};
+    \node[] at (-0.5, 0.6)  (r3)    {$T_0$};
+    
+    \node[red] at (1.5, 5.2)  (r3)    {Graph ID: $n=3$};
+  \end{tikzpicture}  
+\end{center}
+
+\begin{center}  
+  \begin{tikzpicture}  
+    \begin{axis}[  
+        xmin=0,  
+        xmax=1,  
+        ymin=0,  
+        ymax=1,  
+        ticks=none,
+        %axis lines=center,  
+        xlabel=time,  
+        ylabel=Temperature,  
+        %every axis y label/.style={at=(current axis.above origin),anchor=south},  
+        %every axis x label/.style={at=(current axis.right of origin),anchor=west},  
+      ]  
+      \addplot [ultra thick, blue, smooth] {0.9*x+0.1};  
+    \end{axis}  
+    \node[] at (-0.5, 5.5)  (r3)    {$T_m$};
+    \node[] at (-0.5, 0.6)  (r3)    {$T_0$};
+    
+    \node[red] at (1.5, 5.2)  (r3)    {Graph ID: $n=4$};
+  \end{tikzpicture}  
+\end{center}
+ 
+ 
+\end{problem}
+
+\end{document}
