@@ -1,3 +1,4 @@
+%!TEX root = ../main.tex
 \documentclass{ximera}
 
 \input{../preamble.tex}
@@ -27,6 +28,36 @@ We first enter the data using Sage lists, and plot the data:
 days = srange(0, 14)
 infected = [  1,   3,  25, 72, 222, 282, 256, 
             233, 189, 123, 70,  25,  11,   4]
+points(zip(days, infected))
+\end{sageCell}
+
+We now want to solve the system of differential equations:
+\[
+\frac{dI}{dt}=pk(763-I-R)-rI,\quad\frac{dR}{dt}=rI
+\]
+with the initial condition:
+\[
+I(0)=1,\quad R(0)=0.
+\]
+
+Solution method 1: Sage function $\mathtt{desolve_system_rk4}:
+
+\begin{sageCell}
+I, R, t = var('I R t')
+r = 0.5206
+k = 0.0473
+p = 0.07
+NPop = 763
+deI = p*k*I*(NPop-I-R) - r*I
+deR = r*I
+t0, I0, R0 = 0.0, 1.0, 0.0
+soln = desolve_system_rk4([deI, deR], (I, R), 
+                          ics=[t0, I0, R0], ivar=t,
+                          end_points=13, step=0.1)
+tIvalues = [[p[0],p[1]] for p in soln]
+g = points(zip(days, infected), size=48, color='red')
+g += line(tIvalues)
+g.show()
 \end{sageCell}
 
 \end{document}
