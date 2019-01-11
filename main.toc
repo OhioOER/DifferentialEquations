@@ -6,5 +6,5 @@
 \contentsline {section}{Hot Potato}{8}{section*.6}
 \contentsline {section}{Solving ODEs with Sage}{12}{section*.7}
 \contentsline {section}{Experiment with Sage interacts}{18}{section*.8}
-======
+\contentsline {section}{Epidemic Model}{19}{section*.9}
 \contentsfinish 

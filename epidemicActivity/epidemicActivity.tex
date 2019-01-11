@@ -1,0 +1,32 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Epidemic Model}
+\author{Anna Davis, Justin Greenly, L. Felipe Martins, Paul Zachlin}
+
+\begin{document}
+
+\begin{abstract}
+Activity with a model for an epidemic. Based on: (*** add source ***)
+\end{abstract}
+
+\maketitle
+
+The table below contains information on the number of bedridden students:
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+Time (in days)           & 0 & 1 &  2 &  3 &  4 &    5 &   6  \\\hlineNumber of Bedridden Boys & 1 & 3 & 25 & 72 & 222 & 282 & 256 \\\hline\hline
+Time (in days) &             7 &   8 &   9 & 10 & 11 & 12 & 13\\\hline
+Number of Bedridden Boys & 233 & 189 & 123 & 70 & 25 & 11 &  4\\\hline
+\end{tabular}
+
+We first enter the data using Sage lists, and plot the data:
+
+\begin{sageCell}
+days = srange(0, 14)
+infected = [  1,   3,  25, 72, 222, 282, 256, 
+            233, 189, 123, 70,  25,  11,   4]
+\end{sageCell}
+
+\end{document}
