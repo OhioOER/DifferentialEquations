@@ -50,7 +50,7 @@ I(0)=1,\quad R(0)=0:
 \]
 
 \begin{sageCell}
-I, R, t = var('I R')
+I, R = var('I R')
 r = 0.5206
 k = 0.0473
 p = 0.07
@@ -59,8 +59,10 @@ desyst = [p*k*I*(N-I-R) - r*I, r*I]
 ics = [1, 0]
 tvalues = srange(0.0, 13.0, 0.1)
 soln = desolve_odeint(desyst, ics, tvalues, [I, R])
-g = points(zip(days, infected), size=48, color='red')
-g += line(zip(tvalues, soln[:,0]), color='blue')
+g = points(zip(days, infected), 
+           size=48, color='red')
+g += line(zip(tvalues, soln[:,0]), 
+          color='blue')
 g.show()
 \end{sageCell}
 
