@@ -56,6 +56,7 @@ k = 0.0473
 p = 0.07
 N = 763
 desyst = [p*k*I*(N-I-R) - r*I, r*I]
+ics = [1, 0]
 tvalues = srange(0.0, 13.0, 0.1)
 soln = desolve_odeint(desyst, ics, tvalues, [I, R])
 g = points(zip(days, infected), size=48, color='red')
