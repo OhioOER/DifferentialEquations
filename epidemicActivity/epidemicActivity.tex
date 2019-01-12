@@ -107,4 +107,30 @@ def _(r=slider(0,1,0.01,0.4),
     g.show(xmin=0, xmax=13, ymin=0, ymax=350)
 \end{sageOutput}
 
+The next interact uses $\mathtt{odeint}$, and also adds a value for the sum of square errors:
+
+\begin{sageCell}
+days = srange(0, 14)
+infected = [  1,   3,  25, 72, 222, 282, 256, 
+            233, 189, 123, 70,  25,  11,   4]
+I, R = var('I R')
+NPop = 763
+@interact
+def _(r=slider(0,1,0.01,0.01),
+      k=slider(0,0.2,0.001,0.01)):
+    p = 0.07
+    N = 763    
+    ics = [1.0, 0.0]
+    desyst = [p*k*I*(N-I-R) - r*I, r*I]
+    tvalues = srange(0.0, 13.0, 0.1)
+    soln = desolve_odeint(desyst, ics, tvalues, [I, R])
+    g = points(zip(days, infected), size=48, color='red')
+    g += line(zip(tvalues, soln[:,0]), color='blue')
+    g.show(xmin=0, xmax=13, ymin=0, ymax=300)
+    soln = desolve_odeint(desyst, ics, days, [I, R])
+    Ivalues = soln[:,0]
+    sse = sum((infected-Ivalues)^2)
+    pretty_print(html('Sum of squared errors: {}'.format(sse)))
+\end{sageCell}
+
 \end{document}
