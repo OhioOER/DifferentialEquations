@@ -1,4 +1,3 @@
-
 \contentsline {section}{Modeling a spring-mass system}{3}{section*.1}
 \contentsline {section}{Introduction}{4}{section*.2}
 \contentsline {section}{Model for the spring-mass system}{4}{section*.3}
