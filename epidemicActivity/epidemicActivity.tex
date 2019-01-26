@@ -1,0 +1,180 @@
+%!TEX root = ../main.tex
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{An Epidemics Model}
+\author{Anna Davis, Justin Greenly, L. Felipe Martins, Paul Zachlin}
+
+\begin{document}
+
+\begin{abstract}
+Activity with a model for an epidemic. Based on: (*** add source ***)
+\end{abstract}
+
+\maketitle
+
+The table below contains information on the number of bedridden students among the total population of $N=763$ students, taken from the paper *****
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+Time (in days)           & 0 & 1 &  2 &  3 &  4 &    5 &   6  \\\hline
+Number of Bedridden Boys & 1 & 3 & 25 & 72 & 222 & 282 & 256 \\\hline\hline
+Time (in days) &             7 &   8 &   9 & 10 & 11 & 12 & 13\\\hline
+Number of Bedridden Boys & 233 & 189 & 123 & 70 & 25 & 11 &  4\\\hline
+\end{tabular}
+
+We first enter the data using Sage lists, and plot the data:
+
+\begin{sageCell}
+days = srange(0, 14)
+infected = [  1,   3,  25, 72, 222, 282, 256, 
+            233, 189, 123, 70,  25,  11,   4]
+points(zip(days, infected))
+\end{sageCell}
+
+We now want to solve the system of differential equations:
+\[
+\frac{dI}{dt}=pk(763-I-R)-rI,\quad\frac{dR}{dt}=rI
+\]
+with the initial condition:
+\[
+I(0)=1,\quad R(0)=0.
+\]
+
+The next Sage cell demonstrates how to solve the system of differential equations for the following values of the parameters:
+\[
+r = 0.5206,\quad k = 0.0473,\quad p = 0.07
+\]
+and the initial conditions:
+\[
+I(0)=1,\quad R(0)=0:
+\]
+
+\begin{sageCell}
+I, R = var('I R')
+r = 0.5206
+k = 0.0473
+p = 0.07
+N = 763
+desyst = [p*k*I*(N-I-R) - r*I, r*I]
+ics = [1, 0]
+tvalues = srange(0.0, 13.0, 0.1)
+soln = desolve_odeint(desyst, ics, tvalues, [I, R])
+g = points(zip(days, infected),size=48, color='red')
+g += line(zip(tvalues, soln[:,0]),color='blue')
+g.show()\end{sageCell}
+
+Click the $\mathtt{Evaluate}$ button to compute the solution and plot the solution.
+
+To fit the model to the data, we would like to find the values of the parameters that minimize the sum of squared errors. Use the sliders in the interactive display below to try to guess what are the optimal values of $k$ and $r$, where we assume that $p=0.07$:
+
+\begin{sageOutput}
+days = srange(0, 14)
+infected = [  1,   3,  25, 72, 222, 282, 256, 
+            233, 189, 123, 70,  25,  11,   4]
+I, R = var('I R')
+NPop = 763
+@interact
+def _(r=slider(0,1,0.01,0.01),
+      k=slider(0,0.2,0.001,0.01)):
+    p = 0.07
+    N = 763    
+    ics = [1.0, 0.0]
+    desyst = [p*k*I*(N-I-R) - r*I, r*I]
+    tvalues = srange(0.0, 13.0, 0.1)
+    soln = desolve_odeint(desyst, ics, tvalues, [I, R])
+    g = points(zip(days, infected), size=48, color='red')
+    g += line(zip(tvalues, soln[:,0]), color='blue')
+    g.show(xmin=0, xmax=13, ymin=0, ymax=300)
+    soln = desolve_odeint(desyst, ics, days, [I, R])
+    Ivalues = soln[:,0]
+    sse = sum((infected-Ivalues)^2)
+    pretty_print(html('Sum of squared errors: {}'.format(sse)))
+\end{sageOutput}
+
+\begin{problem}
+The values that minimize the sum of squared errors are:
+
+$r=\answer{0.49}$
+
+$k=\answer{0.037}$
+\end{problem}
+
+\end{document}
+
+%Solution method 1: Sage function $\mathtt{desolve\_system\_rk4}$:
+%
+%
+%This is the same thing in an interact, so the student can use the sliders instead of entering the values:
+%\begin{sageCell}
+%days = srange(0, 14)
+%infected = [  1,   3,  25, 72, 222, 282, 256,
+%            233, 189, 123, 70,  25,  11,   4]
+%I, R, t = var('I R t')
+%NPop = 763
+%@interact
+%def _(r=slider(0,1,0.01,0.4),
+%      k=slider(0,0.1,0.001,0.02)):
+%    p = 0.07
+%    deI = p*k*I*(NPop-I-R) - r*I
+%    deR = r*I
+%    t0, I0, R0 = 0.0, 1.0, 0.0
+%    soln = desolve_system_rk4([deI, deR], (I, R),
+%                               ics=[t0, I0, R0], ivar=t,
+%                               end_points=13, step=0.1)
+%    tIvalues = [[s[0],s[1]] for s in soln]
+%    g = points(zip(days, infected), size=48, color='red')
+%    g += line(tIvalues)
+%    g.show(xmin=0, xmax=13, ymin=0, ymax=350)
+%\end{sageCell}
+%
+%The next demo is the same interact, but the code is hidden:
+%
+%\begin{sageOutput}
+%days = srange(0, 14)
+%infected = [  1,   3,  25, 72, 222, 282, 256,
+%            233, 189, 123, 70,  25,  11,   4]
+%I, R, t = var('I R t')
+%NPop = 763
+%@interact
+%def _(r=slider(0,1,0.01,0.4),
+%      k=slider(0,0.1,0.001,0.02)):
+%    p = 0.07
+%    deI = p*k*I*(NPop-I-R) - r*I
+%    deR = r*I
+%    t0, I0, R0 = 0.0, 1.0, 0.0
+%    soln = desolve_system_rk4([deI, deR], (I, R),
+%                               ics=[t0, I0, R0], ivar=t,
+%                               end_points=13, step=0.1)
+%    tIvalues = [[s[0],s[1]] for s in soln]
+%    g = points(zip(days, infected), size=48, color='red')
+%    g += line(tIvalues)
+%    g.show(xmin=0, xmax=13, ymin=0, ymax=350)
+%\end{sageOutput}
+%
+%The next interact uses $\mathtt{odeint}$, and also adds a value for the sum of square errors:
+%
+%\begin{sageCell}
+%days = srange(0, 14)
+%infected = [  1,   3,  25, 72, 222, 282, 256, 
+%            233, 189, 123, 70,  25,  11,   4]
+%I, R = var('I R')
+%NPop = 763
+%@interact
+%def _(r=slider(0,1,0.01,0.01),
+%      k=slider(0,0.2,0.001,0.01)):
+%    p = 0.07
+%    N = 763    
+%    ics = [1.0, 0.0]
+%    desyst = [p*k*I*(N-I-R) - r*I, r*I]
+%    tvalues = srange(0.0, 13.0, 0.1)
+%    soln = desolve_odeint(desyst, ics, tvalues, [I, R])
+%    g = points(zip(days, infected), size=48, color='red')
+%    g += line(zip(tvalues, soln[:,0]), color='blue')
+%    g.show(xmin=0, xmax=13, ymin=0, ymax=300)
+%    soln = desolve_odeint(desyst, ics, days, [I, R])
+%    Ivalues = soln[:,0]
+%    sse = sum((infected-Ivalues)^2)
+%    pretty_print(html('Sum of squared errors: {}'.format(sse)))
+%\end{sageCell}
+
