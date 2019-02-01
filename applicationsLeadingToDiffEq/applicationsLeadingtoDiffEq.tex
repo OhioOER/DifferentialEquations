@@ -210,25 +210,25 @@ Therefore $\lim_{t\to\infty}T(t)=T_m$, independent of $T_0$.
 Figure~\ref{figure:1.1.2} shows typical graphs of $T$ versus $t$ for
 various values of  $T_0$.
 
-\begin{image}
-{\def\length{sqrt(1+(x+y)^2)}
-\begin{tikzpicture}
-  \begin{axis}
-  [      xmin=-1, xmax=10,ymin=-1,ymax=8,domain=0:10,view={0}{90},
-      axis lines =center, xlabel=$t$, ylabel=$T$, ticks=none
-      ]
-    \addplot[penColor,very thick]{3+3*e^(-0.5*x)};
-    \addplot[penColor,very thick]{3+2*e^(-0.5*x)};
-    \addplot[penColor,very thick]{3+e^(-0.5*x)};
-    \addplot[penColor,very thick]{3-e^(-0.5*x)};
-    \addplot[penColor,very thick]{3-2*e^(-0.5*x)};
-    \addplot[penColor,very thick]{3-3*e^(-0.5*x)};
-    \addplot[penColor,dashed]{3};
-    
-    \node[] at (-0.5, 3)  (r3)    {$T_m$};
-\end{axis}
-\end{tikzpicture}}
-\end{image}
+%\begin{image}
+%{\def\length{sqrt(1+(x+y)^2)}
+%\begin{tikzpicture}
+%  \begin{axis}
+%  [      xmin=-1, xmax=10,ymin=-1,ymax=8,domain=0:10,view={0}{90},
+%      axis lines =center, xlabel=$t$, ylabel=$T$, ticks=none
+%      ]
+%    \addplot[penColor,very thick]{3+3*e^(-0.5*x)};
+%    \addplot[penColor,very thick]{3+2*e^(-0.5*x)};
+%    \addplot[penColor,very thick]{3+e^(-0.5*x)};
+%    \addplot[penColor,very thick]{3-e^(-0.5*x)};
+%    \addplot[penColor,very thick]{3-2*e^(-0.5*x)};
+%    \addplot[penColor,very thick]{3-3*e^(-0.5*x)};
+%    \addplot[penColor,dashed]{3};
+%    
+%    \node[] at (-0.5, 3)  (r3)    {$T_m$};
+%\end{axis}
+%\end{tikzpicture}}
+%\end{image}
 
 Assuming that the medium remains at constant temperature seems
 reasonable if we're considering a cup of coffee cooling in a room, but
