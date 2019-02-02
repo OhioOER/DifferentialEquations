@@ -70,10 +70,11 @@ All the examples in this section deal with functions of time, which we
  denote by $t$. If $y$ is a function of $t$,  $y'$
 denotes the derivative of $y$ with respect to $t$;   thus,
 $$
-y'={dy\over dt}.
+y'=\frac{dy}{dt}.
 $$
 
-\boxit{Population Growth and Decay}
+%\boxit{Population Growth and Decay}
+\textbf{Population Growth and Decay}
 
 \noindent
 Although the number of members of a population (people in a given
@@ -170,14 +171,16 @@ various values of  $P_0$.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[bb=-78 148 689 643,width=5.67in,height=3.66in,keepaspectratio]{fig010101}
+  %\includegraphics[bb=-78 148 689 643,width=5.67in,height=3.66in,keepaspectratio]{fig010101}
 \color{blue}
   \caption{ Solutions of the logistic equation}
   \label{figure:1.1.1}
 \end{figure}
 
 
-\boxit{Newton's Law of Cooling}
+% Changed by Felipe
+%\boxit{Newton's Law of Cooling}
+\textbf{Newton's Law of Cooling}
 
 \noindent
 According to
@@ -207,25 +210,25 @@ Therefore $\lim_{t\to\infty}T(t)=T_m$, independent of $T_0$.
 Figure~\ref{figure:1.1.2} shows typical graphs of $T$ versus $t$ for
 various values of  $T_0$.
 
-\begin{image}
-{\def\length{sqrt(1+(x+y)^2)}
-\begin{tikzpicture}
-  \begin{axis}
-  [      xmin=-1, xmax=10,ymin=-1,ymax=8,domain=0:10,view={0}{90},
-      axis lines =center, xlabel=$t$, ylabel=$T$, ticks=none
-      ]
-    \addplot[penColor,very thick]{3+3*e^(-0.5*x)};
-    \addplot[penColor,very thick]{3+2*e^(-0.5*x)};
-    \addplot[penColor,very thick]{3+e^(-0.5*x)};
-    \addplot[penColor,very thick]{3-e^(-0.5*x)};
-    \addplot[penColor,very thick]{3-2*e^(-0.5*x)};
-    \addplot[penColor,very thick]{3-3*e^(-0.5*x)};
-    \addplot[penColor,dashed]{3};
-    
-    \node[] at (-0.5, 3)  (r3)    {$T_m$};
-\end{axis}
-\end{tikzpicture}}
-\end{image}
+%\begin{image}
+%{\def\length{sqrt(1+(x+y)^2)}
+%\begin{tikzpicture}
+%  \begin{axis}
+%  [      xmin=-1, xmax=10,ymin=-1,ymax=8,domain=0:10,view={0}{90},
+%      axis lines =center, xlabel=$t$, ylabel=$T$, ticks=none
+%      ]
+%    \addplot[penColor,very thick]{3+3*e^(-0.5*x)};
+%    \addplot[penColor,very thick]{3+2*e^(-0.5*x)};
+%    \addplot[penColor,very thick]{3+e^(-0.5*x)};
+%    \addplot[penColor,very thick]{3-e^(-0.5*x)};
+%    \addplot[penColor,very thick]{3-2*e^(-0.5*x)};
+%    \addplot[penColor,very thick]{3-3*e^(-0.5*x)};
+%    \addplot[penColor,dashed]{3};
+%    
+%    \node[] at (-0.5, 3)  (r3)    {$T_m$};
+%\end{axis}
+%\end{tikzpicture}}
+%\end{image}
 
 Assuming that the medium remains at constant temperature seems
 reasonable if we're considering a cup of coffee cooling in a room, but
@@ -263,7 +266,9 @@ T={aT_0+a_mT_{m0}\over
 a+a_m}+{a_m(T_0-T_{m0})\over a+a_m}e^{-k(1+a/a_m)t}.
 $$
 
-\boxit{Glucose Absorption by the Body}
+
+%\boxit{Glucose Absorption by the Body}
+\textbf{Glucose Absorption by the Body}
 
 \noindent
 Glucose is absorbed by
@@ -308,7 +313,9 @@ Graphs of  this function are similar to those in
 Figure~\ref{figure:1.1.2}.
 (Why?)
 
-\boxit{Spread of Epidemics}
+
+%\boxit{Spread of Epidemics}
+\textbf{Spread of Epidemics}
 
 \noindent
 One model for the spread of epidemics assumes that the number of
@@ -334,7 +341,8 @@ Figure~\ref{figure:1.1.1}.
 Since $\lim_{t\to\infty}I(t)=S$, this model predicts that all the
 susceptible people eventually become infected.
 
-\boxit{Newton's Second Law of Motion}
+%\boxit{Newton's Second Law of Motion}
+\textbf{Newton's Second Law of Motion}
 
 \noindent
 
@@ -350,7 +358,7 @@ point on Earth's surface, measured positive upward. In many
 applications, there are three kinds of forces that may act on the
 object:
 
-\begin{alist}
+\begin{enumerate}
 \item % (a)
 A force such as gravity that depends only on the position $y$,
 which we write as $-p(y)$, where $p(y)>0$ if $y\ge0$.
@@ -364,7 +372,7 @@ always in the direction opposite to the velocity.
 \item % (c)
 A force $f=f(t)$, exerted from an external source (such as a towline
 from a helicopter) that depends only on $t$.
-\end{alist}
+\end{enumerate}
 
 In this case, Newton's second law implies that
 $$
@@ -378,7 +386,9 @@ Since the  second (and no higher) order derivative of $y$ occurs in
 this equation, we say that it is a {\color{blue}\it second order differential
 equation\/}.
 
-\boxit{Interacting Species: Competition}
+
+%\boxit{Interacting Species: Competition}
+\textbf{Interacting Species: Competition}
 
 \noindent
 Let $P=P(t)$ and $Q=Q(t)$ be the populations of two species at time
@@ -412,7 +422,7 @@ increasing $t$.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[bb=-78 148 689 643,width=5.67in,height=3.66in,keepaspectratio]{fig010103}
+  %\includegraphics[bb=-78 148 689 643,width=5.67in,height=3.66in,keepaspectratio]{fig010103}
 \color{blue}
   \caption{ Populations of competing species}
   \label{figure:1.1.3}
