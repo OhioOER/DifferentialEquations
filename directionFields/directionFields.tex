@@ -106,6 +106,7 @@ plane and compute what the slope of a solution at those points will
 be. Repeating this process, we can generate a \textit{slope field}.
 The slope field for the differential equation $y' = x+y$ looks like
 this:
+
 \begin{image}
 \begin{tikzpicture}
 \def\length{sqrt(1+(x+y)^2)}
@@ -176,6 +177,84 @@ def _(a=input_box(1, width=5),b=input_box(1, width=5)):
 
 \begin{question}\label{quest:slopefieldsguess}
 Which of the five slope fields corresponds to the equation $y'=y^2$
+
+\begin{selectAll}
+\choice[correct]{
+{\def\length{sqrt(1+(y^2+y)^2)}
+\begin{tikzpicture}[framed,scale=.5,baseline=9ex]
+  \begin{axis}[
+      xmin=-3, xmax=3,ymin=-3,ymax=3,domain=-3:3,view={0}{90},
+      axis lines =center, xlabel=$x$, ylabel=$y$,
+      every axis y label/.style={at=(current axis.above origin),anchor=south},
+      every axis x label/.style={at=(current axis.right of origin),anchor=west},
+      axis on top,
+    ]
+    \addplot3 [penColor, quiver={u={1/\length}, v={(y^2+y)/(\length)},scale arrows=.2},samples=20] {0};
+]  \end{axis}
+\end{tikzpicture}}}
+ 
+\choice{{\def\length{sqrt(1+(x-y)^2)}
+\begin{tikzpicture}[framed,scale=.5,baseline=9ex]
+  \begin{axis}[
+      xmin=-3, xmax=3,ymin=-3,ymax=3,domain=-3:3,view={0}{90},
+      axis lines =center, xlabel=$x$, ylabel=$y$,
+      every axis y label/.style={at=(current axis.above origin),anchor=south},
+      every axis x label/.style={at=(current axis.right of origin),anchor=west},
+      axis on top,
+    ]
+    \addplot3 [penColor, quiver={u={1/\length}, v={(x-y)/(\length)},scale arrows=.2},samples=20] {0};
+]  \end{axis}
+\end{tikzpicture}}}
+ 
+\choice{{\def\length{sqrt(1+(x)^2)}
+\begin{tikzpicture}[framed,scale=.5,baseline=9ex]
+  \begin{axis}[
+      xmin=-3, xmax=3,ymin=-3,ymax=3,domain=-3:3,view={0}{90},
+      axis lines =center, xlabel=$x$, ylabel=$y$,
+      every axis y label/.style={at=(current axis.above origin),anchor=south},
+      every axis x label/.style={at=(current axis.right of origin),anchor=west},
+      axis on top,
+    ]
+    \addplot3 [penColor, quiver={u={1/\length}, v={(x)/(\length)},scale arrows=.2},samples=20] {0};
+]  \end{axis}
+\end{tikzpicture}}}
+ 
+\choice[correct]{{\def\length{sqrt(1+(y)^2)}
+\begin{tikzpicture}[framed,scale=.5,baseline=9ex]
+  \begin{axis}[
+      xmin=-3, xmax=3,ymin=-3,ymax=3,domain=-3:3,view={0}{90},
+      axis lines =center, xlabel=$x$, ylabel=$y$,
+      every axis y label/.style={at=(current axis.above origin),anchor=south},
+      every axis x label/.style={at=(current axis.right of origin),anchor=west},
+      axis on top,
+    ]
+    \addplot3 [penColor, quiver={u={1/\length}, v={(y)/(\length)},scale arrows=.2},samples=20] {0};
+]  \end{axis}
+\end{tikzpicture}}}
+ 
+\choice{{\def\length{sqrt(1+(-x/y)^2)}
+\begin{tikzpicture}[framed,scale=.5,baseline=9ex]
+  \begin{axis}[
+      xmin=-3, xmax=3,ymin=-3,ymax=3,domain=-3:3,view={0}{90},
+      axis lines =center, xlabel=$x$, ylabel=$y$,
+      every axis y label/.style={at=(current axis.above origin),anchor=south},
+      every axis x label/.style={at=(current axis.right of origin),anchor=west},
+      axis on top,
+    ]
+    \addplot3 [penColor, quiver={u={1/\length}, v={(-x/y)/(\length)},scale arrows=.2},samples=20] {0};
+]  \end{axis}
+\end{tikzpicture}}}
+\end{selectAll}
+
+
+
+
+
+
+
+
+
+
 %\begin{multipleChoice}
 %\choice[correct]{{\def\length{sqrt(1+(y^2+y)^2)}
 %%\begin{tikzpicture}[framed,scale=.5,baseline=9ex]
