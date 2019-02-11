@@ -1,0 +1,284 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\begin{document}
+\section{Identifying Linear First-Order DEs}
+
+We say that a first-order equation is \emph{linear} if it can be expressed in the form:
+\begin{equation}
+\label{eq:linear-first-order-de}
+y'+p(x)y=f(x)
+\end{equation}
+The following are examples of linear equations:
+\begin{itemize}
+\item $\displaystyle y'+2y=xe^{-2x}$: this equation is linear. Comparing with~\ref{eq:linear-first-order-de}, we see that $p(x)=2$ and $f(x)=e^{2x}$.
+\item $\displaystyle x^2y'+3y=x^2$: this equation is not in the form~\ref{eq:linear-first-order-de}. However, we can divide the equation by $x^2$, obtaining:
+\[
+y'+\frac{1}{x^2}y=1,
+\]
+which is in the form~\ref{eq:linear-first-order-de}. We conclude that the equation is linear, and we can see directly that $p(x)=\frac{1}{x^2}$ and $f(x)=1$.
+\end{itemize}
+Notice that the form of a linear equation is quite rigid. A rule of thumb is that the only terms that depend on $y$ that can appear in a first-order linear equation are of the form:
+\[
+a(x)y\quad\text{or}\quad b(x)y'.
+\]
+We call these terms \emph{linear}. Any other kind of first-order term is \emph{nonlinear}. So, for example:
+\begin{itemize}
+\item $\displaystyle xy'+3y^2=2x$ is not linear, because of the nonlinear term $y^2$.
+\item $\displaystyle yy' = 3$ is not linear, because of the nonlinear term $yy'$.
+\item $\displaystyle y'+xe^y=12$ is not linear, because of the nonlinear term $e^y$.
+\end{itemize}
+
+In the next sections we develop a general method for solving linear first-order equations.
+
+\section{A Special Kind of Linear Equation}
+We now want to devise a method to find the general solution of a linear DE of first order. With the goal of developing intuition about the method, we start with an equation of very special form.
+
+Let's consider the following DE:
+\begin{equation}
+\label{eq:linear-de-example1}
+x^2y'+2xy=\cos x.
+\end{equation}
+This equation is not in the form~\ref{eq:linear-first-order-de}, but it actually easier to solve it using the form above. Notice the following ``coincidence'':
+\[
+\frac{d}{dx}[x^2]=2x.
+\]
+In words, we can express this remarkable coincidence as:
+
+\begin{center}
+\emph{The derivative of the function multiplying $y'$ is equal to the function multiplying $y$}. 
+\end{center}
+
+(Repeat this to yourself until you fully understand what it means.)
+
+This coincidence allows us to rewrite the left-hand side of the equation in a very convenient form. Using the product rule we have:
+\[
+\frac{d}{dx}\left[x^2y(x)\right]=x^2y'(x)+2xy(x).
+\]
+Using this, \ref{eq:linear-de-example1} becomes:
+\[
+\frac{d}{dx}\left[x^2y(x)\right]=\cos x
+\]
+The nice thing is that this equation can be directly integrated:
+\[
+\int \frac{d}{dx}\left[x^2y(x)\right]\, dx = \int \cos x\,dx,
+\]
+so that:
+\[
+x^2y(x)=\sin x + C,
+\]
+where $C$ is an arbitrary constant. We can write the solution in explicit form by dividing by $x^2$:
+\[
+y(x)=\frac{\sin x + C}{x^2}
+\]
+Notice that this solution will only be defined on intervals that do not contain the value $x=0$. Typically, the right interval is determined by an initial condition. For example, the solution of the differential equation that satisfies the initial condition $y(\pi)=2$ is:
+\[
+y(x)=\frac{\sin x + 2\pi^2}{x^2}\text{ for $x$ in the interval $(0,\infty)$}.
+\]
+We choose the interval $(0,\infty)$ because this interval contains the value $x=\pi$, where the initial condition is specified.
+
+It is not too difficult to identify the general case in which this method can be applied. The differential equation must be in the special form:
+\begin{equation}
+\label{eq:linear-equation-special}
+m(x)y'+m'(x)y=g(x)
+\end{equation}
+where $m(x)$ is a function of the variable $x$ only. Then, the equation can be rewritten as:
+\[
+\frac{d}{dx}\left[m(x)y(x)\right]=g(x),
+\]
+which can be directly integrated. Equation~\ref{eq:linear-equation-special} seems to be of a very special kind. In the next section we will see that there is a method to transform any equation of the form~\ref{eq:linear-first-order-de} into an equivalent equation of the form~\ref{eq:linear-equation-special}.
+
+\section{General Method --- An Example}
+
+We now want to move in the direction of finding a general method to solve equations like~\ref{eq:linear--first-order-de}. Let's consider the DE:
+\[
+y'+\frac{4}{x}y=1
+\]
+We would like to make this equation have the same pattern as~\ref{eq:linear-equation-special}. We can achieve this by multiplying the equation by a function $m(x)$ to be determined:
+\begin{equation}
+\label{eq:integrating-factor-example}
+m(x)y'+\frac{4}{x}m(x)y=m(x)
+\end{equation}
+Comparing~\ref{eq:linear-equation-special} and~\ref{eq:integrating-factor-example}, we see that we need:
+\[
+m'(x)=\frac{4}{x}m(x)
+\]
+This is a first order separable equation, so we write it as:
+\[
+\frac{dm}{m}=\frac{4}{x}.
+\]
+Integrating we get:
+\[
+\ln|m(x)|=4\ln|x|+C
+\]
+We can simplify the work a bit by noticing that we only need \emph{one} particular solution for $m(x)$, so we can choose $C=0$:
+\[
+\ln|m(x)|=4\ln|x|.
+\]
+It's now easy to see that this can be solved algebraically to yield:
+\[
+m(x)=x^4.
+\]
+Let's now go back to~\ref{eq:integrating-factor-example} and plug in the function $m(x)$ we found above:
+\[
+x^4y'+4x^3y=x^4.
+\]
+As expected, this equation presents the same pattern observed in equation~\ref{eq:linear-de-example1}, and we can rewrite it as:
+\[
+\frac{d}{dx}\left[x^4y(x)\right] = x^4.
+\]
+Integrating this we get:
+\[
+x^4y(x)=\frac{x^5}{5}+C,
+\]
+and we get the following explicit general solution:
+\[
+y(x)=\frac{x}{6}+\frac{C}{x^4}.
+\]
+In the next section we will see how we can simplify this solution method.
+
+\section{A Streamlined Method}
+
+The goal of this section is to present the \emph{method of integrating factors}, a streamlined procedure for the solution of a linear first order DE. The method is simply a reorganization of the procedure illustrated in the previous section.
+
+To find the general solution of a first order linear DE such as~\ref{eq:linear-first-order-de}, we can proceed as follows:
+
+\begin{enumerate}
+\item Compute $\displaystyle \alpha(x)=\int p(x)\,dx$. It is safe to ignore the constant of integration here.
+\item Let $\displaystyle m(x)=e^{\alpha(x)}$, which is called the \emph{integrating factor}.
+\item Multiply both sides of~\ref{eq:linear-first-order-de}, obtaining the equation:
+\[
+m(x)y'+m(x)p(x)y=m(x)f(x)
+\]
+\item Rewrite the left-hand side of this equation as a derivative, leaving the right-hand side unchanged:
+\[
+\frac{d}{dt}[m(x)y(x)]=m(x)f(x)
+\]
+\item Integrate:
+\[
+m(x)y(x)=\int m(x)f(x)\,dx
+\]
+Notice that, here, you have to add an integration constant to the antiderivative.
+\item Solve the equation explicitly for $y(x)$. Notice that this is always possible because $m(x)\ne 0$ for all $x$, since $m(x)$ is an exponential. 
+\end{enumerate}
+
+Let's now consider some examples.
+
+\begin{example} Find the general solution of the DE:
+\[
+y'+3y=e^{-x}
+\]
+
+\emph{Solution}: For this equation, we have $p(x)=3$ and $f(x)=e^{-2x}$. Following the steps outlined above:
+
+\begin{enumerate}
+\item Compute $\alpha(x)=\int p(x)\,dx=\int 3\,dx=3x$. (No constant of integration needed here!)
+\item Compute the integrating factor: $m(x)=e^{\alpha(x)}=e^{3x}$.
+\item Multiply both sides of the equation by the integrating factor $m(x)$:
+\[
+3y'+3e^{3x}=e^{3x}e^{-x}=e^{2x}.
+\]
+\item Rewrite the left-hand side as $\frac{d}{dt}[m(x)y(x)]$:
+\[
+\frac{d}{dt}\left[e^{3x}y(x)\right]=e^{2x}
+\]
+\item Integrate:
+\[
+e^{3x}y(x)=\int e^{2x}\,dx=\frac{1}{2}e^{2x}+C.
+\]
+\item Solve explicitly for $y(x)$:
+\[
+y(x)=e^{-3x}\left(\frac{1}{2}e^{2x}+C\right)=\frac{1}{2}e^{-x}+Ce^{-3x}.
+\]
+\end{enumerate}
+We conclude that the general solution of the initial value problem is:
+\[
+y(x)=\frac{1}{2}e^{-x}+Ce^{-3x}.
+\]
+\end{example}
+
+\begin{example}
+Find the solution of the IVP:
+\[
+ty'-y=t^2e^{-t},\quad y(2)=3
+\]
+
+\emph{Solution}. We first need the general solution of the DE. Start by dividing both sides of the equation by $t$:
+\[
+y'-\frac{1}{t}y=te^{-t}
+\]
+Notice that the equation has a singularity at $t=0$, since the coefficient of $y$ has a vertical asymptote when $t-0$. This means that solutions to the DE will be only defined on an interval that does not contain zero. Since the initial condition is specified at $t=2$, which is positive, it is natural to assume that $t>0$.
+
+So, we have: $p(t)=-\frac{1}{t}$ and $f(t)=te^{-t}$. We are now ready to find the general solution by the method of integrating factors:
+\begin{enumerate}
+\item Compute $\alpha(t)=\int p(t)\,dt=\int -\frac{1}{t}\,dt=-\ln t$, where we used the assumption that $t>0$.
+\item Evaluate $m(t)=e^{\alpha(t)}=e^{-\ln t}=(e^{\ln t})^{-1}=\frac{1}{t}$.
+\item Multiply both sides of the equation by $m(t)$:
+\[
+\frac{1}{t}y'-\frac{1}{t^2}y=e^{-t}.
+\]
+\item Rewrite the left-hand side as $\frac{d}{dt}[m(t)y(t)]$:
+\[
+\frac{d}{dt}\left[\frac{1}{t}y(t)\right]=e^{-t}
+\]
+\item Integrate:
+\[
+\frac{1}{t}y(t)=\int e^{-t}=-e^{-t}+C
+\]
+\item Solve for $y(t)$:
+\[
+y(t)=\frac{C-e^{-t}}{t}
+\]
+Notice that, as expected, solutions will not be defined at $t=0$.
+\end{enumerate}
+Once we have the general solution, we can plug in the initial condition:
+\[
+y(2)=\frac{C-e^{-2}}{2}=3
+\]
+Solving for $C$ we get:
+\[
+C = 6+e^{-2}
+\]
+Plugging this back into the formula for $y(x)$, we get the solution of the IVP:
+\[
+y(x)=\frac{6+e^{-2}-e^{-t}}{t}
+\]
+\end{example}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
