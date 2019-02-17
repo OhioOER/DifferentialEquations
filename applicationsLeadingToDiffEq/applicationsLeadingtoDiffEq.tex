@@ -5,10 +5,10 @@
 \title{Applications Leading to Differential Equations}
 
 
-\begin{document}
+\begin{document} %\label{Module 3-ABC}
 
 \begin{abstract}
-Need an abstract
+We discuss population growth, Newton's law of cooling, glucose absorption, and spread of epidemics as phenomena that can be modeled with differential equations.
 \end{abstract}
 
 \maketitle
@@ -17,13 +17,13 @@ Need an abstract
 
 In order to apply mathematical methods to a physical or ``real life''
 problem, we must  formulate the problem in mathematical
-terms; that is, we must construct a {\color{blue}\it mathematical
-model\/} for the
+terms; that is, we must construct a \textit{mathematical
+model} for the
 problem. Many physical problems concern relationships between changing
 quantities. Since rates of change are represented mathematically by
 derivatives, mathematical models often involve equations relating an
 unknown function and one or more of its derivatives. Such equations
-are  {\color{blue}\it differential equations}. They are the subject of this
+are  \textit{differential equations}. They are the subject of this
 book.
 
 Much of calculus is devoted to learning mathematical techniques that
@@ -73,10 +73,9 @@ $$
 y'=\frac{dy}{dt}.
 $$
 
-%\boxit{Population Growth and Decay}
-\textbf{Population Growth and Decay}
 
-\noindent
+\subsection*{Population Growth and Decay}
+
 Although the number of members of a population (people in a given
 country, bacteria in a laboratory culture, wildflowers in a forest,
 etc.)
@@ -93,20 +92,17 @@ where $a$ is a continuous function of $P$ that represents the rate of
 change of population per unit time per individual.
 In the
 \href{http://en.wikipedia.org/wiki/Thomas_Robert_Malthus}
-{\color{blue}\it Malthusian model},
+{\textit{Malthusian model}},
  it is assumed that
 $a(P)$ is a constant, so \eqref{eq:1.1.1} becomes
 \begin{equation} \label{eq:1.1.2}
 P'=aP.
 \end{equation}
-\color{blue}
-(When you see a name in blue italics, just click on it for
-information about the person.)
-\color{black}
+
 This model assumes that the numbers of births and deaths per unit time
 are both proportional to the population. The constants of
-proportionality are  the {\color{blue}\it birth rate\/} (births per unit
-time per individual) and the {\color{blue}\it death rate\/} (deaths per unit time
+proportionality are  the \textit{birth rate} (births per unit
+time per individual) and the \textit{death rate} (deaths per unit time
 per individual);     $a$ is the birth rate minus the death rate.
 You  learned in calculus that if $c$ is any constant then
 \begin{equation} \label{eq:1.1.3}
@@ -122,7 +118,7 @@ P(t)=P_0e^{at}.
 $$
 This implies that
 $$
-\lim_{t\to\infty}P(t)=\left\{\begin{array}{cl}\infty&\mbox{ if
+\lim_{t\rightarrow\infty}P(t)=\left\{\begin{array}{cl}\infty&\mbox{ if
 }a>0,\\ 0&\mbox{ if }a<0;    \end{array}\right.
 $$
 that is, the population approaches infinity if the birth rate exceeds
@@ -144,8 +140,8 @@ accounts for limitations of space and resources that tend to oppose
 the rate of population growth as the population increases.
  Perhaps the most famous model of this kind is the
 \href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Verhulst.html}
-{\color{blue}\it Verhulst
- model\/}, where \eqref{eq:1.1.2} is
+{\textit{Verhulst
+ model}}, where \eqref{eq:1.1.2} is
 replaced by
 \begin{equation} \label{eq:1.1.4}
 P'=aP(1-\alpha P),
@@ -157,11 +153,13 @@ Therefore the growth is approximately exponential;     however, as $P$
 increases, the ratio $P'/P$  decreases as opposing factors
 become significant.
 
-Equation~\eqref{eq:1.1.4} is  the {\color{blue}\it logistic equation\/}. You
-will learn how to solve it in Section~1.2. (See
-Exercise~2.2.~\hspace*{-3pt}\ref{exer:2.2.28}.) The solution is
+Equation~\eqref{eq:1.1.4} is  the \textit{logistic equation}. 
+
+%You will learn how to solve it in Section~1.2. (SeeExercise~2.2.~\hspace*{-3pt}\ref{exer:2.2.28}.) 
+
+The solution to the logistic equation is
 $$
-P={P_0\over\alpha P_0+(1-\alpha P_0)e^{-at}},
+P=\frac{P_0}{\alpha P_0+(1-\alpha P_0)e^{-at}},
 $$
 where $P_0=P(0)>0$. Therefore
 $\lim_{t\to\infty}P(t)=1/\alpha$, independent of $P_0$.
@@ -169,24 +167,20 @@ $\lim_{t\to\infty}P(t)=1/\alpha$, independent of $P_0$.
 Figure~\ref{figure:1.1.1} shows typical graphs of $P$ versus $t$ for
 various values of  $P_0$.
 
-\begin{figure}[h]
-  \centering
-  %\includegraphics[bb=-78 148 689 643,width=5.67in,height=3.66in,keepaspectratio]{fig010101}
-\color{blue}
+\begin{center}
+\begin{figure}
+  \includegraphics[height=1.5in]{fig010101.jpg}
   \caption{ Solutions of the logistic equation}
   \label{figure:1.1.1}
 \end{figure}
+\end{center}
 
 
-% Changed by Felipe
-%\boxit{Newton's Law of Cooling}
-\textbf{Newton's Law of Cooling}
+\subsection*{Newton's Law of Cooling}
 
-\noindent
 According to
 \href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Newton.html}
-{\color{blue}\it Newton's
-law of cooling},  the temperature of a
+{\textit{Newton's law of cooling}},  the temperature of a
 body changes at a rate proportional to the difference between the
 temperature of the body and the temperature of the surrounding medium.
  Thus, if  $T_m$ is the temperature of the
@@ -210,27 +204,15 @@ Therefore $\lim_{t\to\infty}T(t)=T_m$, independent of $T_0$.
 Figure~\ref{figure:1.1.2} shows typical graphs of $T$ versus $t$ for
 various values of  $T_0$.
 
-%\begin{image}
-%{\def\length{sqrt(1+(x+y)^2)}
-%\begin{tikzpicture}
-%  \begin{axis}
-%  [      xmin=-1, xmax=10,ymin=-1,ymax=8,domain=0:10,view={0}{90},
-%      axis lines =center, xlabel=$t$, ylabel=$T$, ticks=none
-%      ]
-%    \addplot[penColor,very thick]{3+3*e^(-0.5*x)};
-%    \addplot[penColor,very thick]{3+2*e^(-0.5*x)};
-%    \addplot[penColor,very thick]{3+e^(-0.5*x)};
-%    \addplot[penColor,very thick]{3-e^(-0.5*x)};
-%    \addplot[penColor,very thick]{3-2*e^(-0.5*x)};
-%    \addplot[penColor,very thick]{3-3*e^(-0.5*x)};
-%    \addplot[penColor,dashed]{3};
-%    
-%    \node[] at (-0.5, 3)  (r3)    {$T_m$};
-%\end{axis}
-%\end{tikzpicture}}
-%\end{image}
+\begin{center}
+\begin{figure}
+  \includegraphics[height=1.5in]{fig010102.jpg}
+  \caption{ Temperature according to Newton's Law of Cooling}
+  \label{figure:1.1.2}
+\end{figure}
+\end{center}
 
-Assuming that the medium remains at constant temperature seems
+Assuming that the medium remains at constant temperature seems 
 reasonable if we're considering a cup of coffee cooling in a room, but
  not if we're cooling a huge cauldron of molten
 metal in the same room. The difference between the two situations is
@@ -259,18 +241,15 @@ T'=-k\left(1+{a\over a_m}\right)T
 +k\left(T_{m0}+{a\over a_m}T_0\right)
 $$
 for the temperature of the object.  After learning to solve linear
-first order  equations, you'll be able to show
-(Exercise~4.2.~\hspace*{-3pt}\ref{exer:4.2.17}) that
+first order  equations, you'll be able to find that
+%(Exercise~4.2.~\hspace*{-3pt}\ref{exer:4.2.17}) 
 $$
-T={aT_0+a_mT_{m0}\over
-a+a_m}+{a_m(T_0-T_{m0})\over a+a_m}e^{-k(1+a/a_m)t}.
+T=\frac{aT_0+a_mT_{m0}}
+{a+a_m}+\frac{a_m(T_0-T_{m0})}{a+a_m}e^{-k(1+a/a_m)t}.
 $$
 
+\subsection*{Glucose Absorption by the Body}
 
-%\boxit{Glucose Absorption by the Body}
-\textbf{Glucose Absorption by the Body}
-
-\noindent
 Glucose is absorbed by
 the body at a rate proportional to the amount of glucose present in
 the bloodstream. Let $\lambda$ denote the (positive) constant of
@@ -302,22 +281,22 @@ G'=-\lambda G+r,
 \end{equation}
 where the first term on the right is due to the absorption of the
 glucose by the body and the second term is due to the injection.
- After you've studied Section~2.1,
-you'll be able to show (Exercise~2.1.~\hspace*{-3pt}\ref{exer:2.1.43}) that the solution
+ Later,
+you'll be able to solve the equation and find %(Exercise~2.1.~\hspace*{-3pt}\ref{exer:2.1.43}) 
+that the solution
 of
 \eqref{eq:1.1.9} that satisfies $G(0)=G_0$ is
 $$
-G={r\over\lambda}+\left(G_0-{r\over\lambda}\right)e^{-\lambda t}.
+G=\frac{r}{\lambda}+\left(G_0-\frac{r}{\lambda}\right)e^{-\lambda t}.
 $$
 Graphs of  this function are similar to those in
 Figure~\ref{figure:1.1.2}.
 (Why?)
 
 
-%\boxit{Spread of Epidemics}
-\textbf{Spread of Epidemics}
 
-\noindent
+\subsection*{Spread of Epidemics}
+
 One model for the spread of epidemics assumes that the number of
 people infected changes at a rate proportional to the product of the
 number of people already infected and the number of people who are
@@ -332,23 +311,20 @@ $$
 where $r$ is a positive constant. Assuming that $I(0)=I_0$,
 the solution of this equation is
 $$
-I={SI_0\over I_0+(S-I_0)e^{-rSt}}
+I=\frac{SI_0}{I_0+(S-I_0)e^{-rSt}}
 $$
-(Exercise~2.2.~\hspace*{-3pt}\ref{exer:2.2.29}).
+%(Exercise~2.2.~\hspace*{-3pt}\ref{exer:2.2.29}).
  Graphs of this function are similar to those in
 Figure~\ref{figure:1.1.1}.
 (Why?)
 Since $\lim_{t\to\infty}I(t)=S$, this model predicts that all the
 susceptible people eventually become infected.
 
-%\boxit{Newton's Second Law of Motion}
-\textbf{Newton's Second Law of Motion}
-
-\noindent
+\subsection*{Newton's Second Law of Motion}
 
 According to
 \href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Newton.html}
-{\color{blue}\it Newton's second law of motion},  the
+{\textit{Newton's second law of motion}},  the
 instantaneous acceleration
 $a$ of an object with constant mass $m$ is related to the force $F$
 acting on the object by the equation $F=ma$. For simplicity, let's
@@ -387,16 +363,15 @@ this equation, we say that it is a {\color{blue}\it second order differential
 equation\/}.
 
 
-%\boxit{Interacting Species: Competition}
-\textbf{Interacting Species: Competition}
 
-\noindent
+\subsection*{Interacting Species: Competition}
+
 Let $P=P(t)$ and $Q=Q(t)$ be the populations of two species at time
 $t$, and assume that each population would grow exponentially if the
 other didn't exist; that is, in the absence of competition we would
 have
 \begin{equation} \label{eq:1.1.10}
-P'=aP \mbox{\quad and \quad}Q'=bQ,
+P'=aP \quad\text{and}\quad Q'=bQ,
 \end{equation}
 where $a$ and $b$ are positive constants. One way to model the effect
 of competition is to assume that the growth rate per individual of
@@ -409,7 +384,7 @@ Q'&=&-\beta P+bQ,
 where $\alpha$ and $\beta$ are positive constants. (Since negative
 population doesn't make sense, this system works only while $P$ and
 $Q$ are both positive.) Now suppose   $P(0)=P_0>0$ and
-$Q(0)=Q_0>0$. It can be shown (Exercise~10.4.~\hspace*{-3pt}\ref{exer:10.4.42})
+$Q(0)=Q_0>0$. It can be shown %(Exercise~10.4.~\hspace*{-3pt}\ref{exer:10.4.42})
 that there's a  positive constant $\rho$ such that if
 $(P_0,Q_0)$ is above the line $L$ through the origin with slope $\rho$,
 then the species with population $P$ becomes extinct in finite time,
@@ -420,15 +395,17 @@ Q=Q(t),\ t>0$.
  The arrows indicate direction along the curves with
 increasing $t$.
 
-\begin{figure}[h]
-  \centering
-  %\includegraphics[bb=-78 148 689 643,width=5.67in,height=3.66in,keepaspectratio]{fig010103}
-\color{blue}
+\begin{center}
+\begin{figure}
+  \includegraphics[height=1.5in]{fig010103.jpg}
   \caption{ Populations of competing species}
   \label{figure:1.1.3}
 \end{figure}
+\end{center}
 
+\section*{Text Source}
+Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
 
-
+\href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
 
 \end{document}
