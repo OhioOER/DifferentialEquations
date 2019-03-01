@@ -8,49 +8,54 @@
 \begin{document}
 
 \begin{abstract}
-Solution of linear first-order differential equations by the method of integrating factors.
+We develop a technique for solving first-order linear differential equations.
 \end{abstract}
 
 \maketitle
 
-\section*{Identifying Linear First-Order DEs}
+\section*{Linear First-Order Differential Equations}
+\subsection*{Identifying Linear First-Order Differential Equations}
 
-We say that a first-order equation is \emph{linear} if it can be expressed in the form:
+We say that a first-order equation is \textit{linear} if it can be expressed in the form:
 \begin{equation}
 \label{eq:linear-first-order-de}
 y'+p(x)y=f(x)
 \end{equation}
-The following are examples of linear equations:
-\begin{itemize}
-\item $\displaystyle y'+2y=xe^{-2x}$: this equation is linear. Comparing with~\ref{eq:linear-first-order-de}, we see that $p(x)=2$ and $f(x)=e^{2x}$.
-\item $\displaystyle x^2y'+3y=x^2$: this equation is not in the form~\ref{eq:linear-first-order-de}. However, we can divide the equation by $x^2$, obtaining:
-\[
+\begin{example}\label{ex:linearex1}
+$$y'+2y=xe^{-2x}$$
+This equation is linear. Comparing with~\eqref{eq:linear-first-order-de}, we see that $p(x)=2$ and $f(x)=xe^{-2x}$.
+\end{example}
+
+\begin{example}\label{ex:linearex2}
+$$x^2y'+3y=x^2$$
+This equation is not in the form of~\eqref{eq:linear-first-order-de}. However, we can divide the equation by $x^2$, obtaining:
+$$
 y'+\frac{1}{x^2}y=1,
-\]
-which is in the form~\ref{eq:linear-first-order-de}. We conclude that the equation is linear, and we can see directly that $p(x)=\frac{1}{x^2}$ and $f(x)=1$.
-\end{itemize}
+$$
+which is in the form of~\eqref{eq:linear-first-order-de}. We conclude that the equation is linear, and we can see directly that $p(x)=\frac{1}{x^2}$ and $f(x)=1$.
+\end{example}
 Notice that the form of a linear equation is quite rigid. A rule of thumb is that the only terms that depend on $y$ that can appear in a first-order linear equation are of the form:
 \[
 a(x)y\quad\text{or}\quad b(x)y'.
 \]
-We call these terms \emph{linear}. Any other kind of first-order term is \emph{nonlinear}. So, for example:
+We call these terms \textit{linear}. Any other kind of first-order term is \textit{nonlinear}. So, for example:
 \begin{itemize}
 \item $\displaystyle xy'+3y^2=2x$ is not linear, because of the nonlinear term $y^2$.
 \item $\displaystyle yy' = 3$ is not linear, because of the nonlinear term $yy'$.
 \item $\displaystyle y'+xe^y=12$ is not linear, because of the nonlinear term $e^y$.
 \end{itemize}
 
-In the next sections we develop a general method for solving linear first-order equations.
+In the following sections we develop a general method for solving linear first-order equations.
 
-\section*{A Special Kind of Linear Equation}
-We now want to devise a method to find the general solution of a linear DE of first order. With the goal of developing intuition about the method, we start with an equation of very special form.
+\subsection*{A Special Kind of Linear Equation}
+We now want to devise a method to find the general solution of a linear first order differential equation. With the goal of developing intuition about the method, we start with an equation of very special form.
 
 Let's consider the following DE:
 \begin{equation}
 \label{eq:linear-de-example1}
 x^2y'+2xy=\cos x.
 \end{equation}
-This equation is not in the form~\ref{eq:linear-first-order-de}, but it actually easier to solve it using the form above. Notice the following ``coincidence'':
+This equation is not in the form~\ref{eq:linear-first-order-de}, but it is actually easier to solve it using the form above. Notice the following ``coincidence'':
 \[
 \frac{d}{dx}[x^2]=2x.
 \]
@@ -99,7 +104,7 @@ where $m(x)$ is a function of the variable $x$ only. Then, the equation can be r
 \]
 which can be directly integrated. Equation~\ref{eq:linear-equation-special} seems to be of a very special kind. In the next section we will see that there is a method to transform any equation of the form~\ref{eq:linear-first-order-de} into an equivalent equation of the form~\ref{eq:linear-equation-special}.
 
-\section*{General Method --- An Example}
+\subsection*{General Method --- An Example}
 
 We now want to move in the direction of finding a general method to solve equations like~\ref{eq:linear--first-order-de}. Let's consider the DE:
 \[
@@ -148,15 +153,15 @@ y(x)=\frac{x}{6}+\frac{C}{x^4}.
 \]
 In the next section we will see how we can simplify this solution method.
 
-\section*{A Streamlined Method}
+\subsection*{A Streamlined Method}
 
-The goal of this section is to present the \emph{method of integrating factors}, a streamlined procedure for the solution of a linear first order DE. The method is simply a reorganization of the procedure illustrated in the previous section.
+The goal of this section is to present the \textit{method of integrating factors}, a streamlined procedure for the solution of a linear first order differential equation. The method is simply a reorganization of the procedure illustrated in the previous section.
 
-To find the general solution of a first order linear DE such as~\ref{eq:linear-first-order-de}, we can proceed as follows:
+To find the general solution of a first order linear differential equation such as~\ref{eq:linear-first-order-de}, we can proceed as follows:
 
 \begin{enumerate}
-\item Compute $\displaystyle \alpha(x)=\int p(x)\,dx$. It is safe to ignore the constant of integration here.
-\item Let $\displaystyle m(x)=e^{\alpha(x)}$, which is called the \emph{integrating factor}.
+\item Compute $\alpha(x)=\int p(x)\,dx$. It is safe to ignore the constant of integration here.
+\item Let $m(x)=e^{\alpha(x)}$, which is called the \emph{integrating factor}.
 \item Multiply both sides of~\ref{eq:linear-first-order-de}, obtaining the equation:
 \[
 m(x)y'+m(x)p(x)y=m(x)f(x)
@@ -175,12 +180,14 @@ Notice that, here, you have to add an integration constant to the antiderivative
 
 Let's now consider some examples.
 
-\begin{example} Find the general solution of the DE:
+\begin{example} 
+Find the general solution of the DE:
 \[
 y'+3y=e^{-x}
 \]
 
-\emph{Solution}: For this equation, we have $p(x)=3$ and $f(x)=e^{-2x}$. Following the steps outlined above:
+\begin{explanation}
+For this equation, we have $p(x)=3$ and $f(x)=e^{-2x}$. Following the steps outlined above:
 
 \begin{enumerate}
 \item Compute $\alpha(x)=\int p(x)\,dx=\int 3\,dx=3x$. (No constant of integration needed here!)
@@ -189,23 +196,24 @@ y'+3y=e^{-x}
 \[
 3y'+3e^{3x}=e^{3x}e^{-x}=e^{2x}.
 \]
-\item Rewrite the left-hand side as $\frac{d}{dt}[m(x)y(x)]$:
+\item Rewrite the left-hand side as $\frac{d}{dx}[m(x)y(x)]$:
 \[
-\frac{d}{dt}\left[e^{3x}y(x)\right]=e^{2x}
+\frac{d}{dx}\left[e^{3x}y(x)\right]=e^{2x}
 \]
 \item Integrate:
 \[
-e^{3x}y(x)=\int e^{2x}\,dx=\frac{1}{2}e^{2x}+C.
+e^{3x}y(x)=\int e^{2x}\,dx=\answer{\frac{1}{2}}e^{2x}+C.
 \]
 \item Solve explicitly for $y(x)$:
 \[
-y(x)=e^{-3x}\left(\frac{1}{2}e^{2x}+C\right)=\frac{1}{2}e^{-x}+Ce^{-3x}.
+y(x)=e^{-3x}\left(\frac{1}{2}e^{2x}+C\right)=\frac{1}{2}e^{\answer{-x}}+Ce^{\answer{-3x}}.
 \]
 \end{enumerate}
 We conclude that the general solution of the initial value problem is:
 \[
 y(x)=\frac{1}{2}e^{-x}+Ce^{-3x}.
 \]
+\end{explanation}
 \end{example}
 
 \begin{example}
@@ -214,7 +222,8 @@ Find the solution of the IVP:
 ty'-y=t^2e^{-t},\quad y(2)=3
 \]
 
-\emph{Solution}. We first need the general solution of the DE. Start by dividing both sides of the equation by $t$:
+\begin{explanation}
+We first need the general solution of the DE. Start by dividing both sides of the equation by $t$:
 \[
 y'-\frac{1}{t}y=te^{-t}
 \]
@@ -238,57 +247,63 @@ So, we have: $p(t)=-\frac{1}{t}$ and $f(t)=te^{-t}$. We are now ready to find th
 \]
 \item Solve for $y(t)$:
 \[
-y(t)=\frac{C-e^{-t}}{t}
+y(t)=-te^{-t}+Ct
 \]
-Notice that, as expected, solutions will not be defined at $t=0$.
+
+% \[
+% y(t)=\frac{C-e^{-t}}{t}
+% \]
+% Notice that, as expected, solutions will not be defined at $t=0$.
+
 \end{enumerate}
 Once we have the general solution, we can plug in the initial condition:
 \[
-y(2)=\frac{C-e^{-2}}{2}=3
+y(2)=-2e^{-2}-2C=3
 \]
 Solving for $C$ we get:
 \[
-C = 6+e^{-2}
+C = \frac{3}{2}+e^{-2}
 \]
-Plugging this back into the formula for $y(x)$, we get the solution of the IVP:
+Using this constant, we can now write the particular solution to the IVP:
 \[
-y(x)=\frac{6+e^{-2}-e^{-t}}{t}
+y(t)=-te^{-t}+(1.5+e^{-2})t, \quad t>0
 \]
+
+We conclude this example by providing an interactive Sage cell which will display the particular solution to the IVP where $y(a)=b$.  If you change the values of $a$ or $b$, you will get a different solution curve, but notice that these curves are valid only for $t>0$ or $t<0$.
+
+\begin{sageCell}
+@interact
+def _(a=input_box(1, width=5),b=input_box(1, width=5)):
+    x,y=var('x,y')
+    v=plot_slope_field((x*e^(-x)+(y/x)),(x,-1,5),(y,-5,5),headaxislength=3, headlength=3)
+    c=(b/a)+e^(-a)
+    d=plot(-x*e^(-x)+c*x,(x,-1,3))
+    p=point((a,b),rgbcolor=hue(1))
+    show(v+d+p)
+\end{sageCell}
+
+% \begin{image}
+% {\def\length{sqrt(1+(x+y)^2)}
+% \begin{tikzpicture}
+%   \begin{axis}[
+%       xmin=0, xmax=3,ymin=0,ymax=4,domain=0.1:6,view={0}{90},
+%       axis lines =center, xlabel=$t$, ylabel=$y$,
+%       every axis y label/.style={at=(current axis.above origin),anchor=south},
+%       every axis x label/.style={at=(current axis.right of origin),anchor=west},
+%       axis on top,
+%     ]
+%     \addplot3 [blue, quiver={u={1/\length}, v={(x*e^(-x)+(y/x))/(\length)},scale arrows=.2},samples=20] {0};
+%     \addplot[blue,very thick]{-x*e^(-x)+(1.5+e^(-2))*x};
+%     \filldraw[fill=red]  (2,3) circle (0.05);
+
+% ]  \end{axis}
+% \end{tikzpicture}}
+% \end{image}
+
+\end{explanation}
+
 \end{example}
+
+\section*{Text Source}
+Felipe L. Martins, Lecture Notes
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
