@@ -1,0 +1,404 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Euler's Method}
+
+
+\begin{document}%\label{Module 5-1}
+
+\begin{abstract}
+Need Abstract
+\end{abstract}
+
+\maketitle
+
+\section*{Euler's Method}
+
+\subsection*{Introduction}
+%from Mooculus
+In science and mathematics, finding exact solutions to differential
+equations is not always possible.  We have already seen that slope
+fields give us a powerful way to understand the qualitative features
+of solutions.  Sometimes we need a more precise quantitative
+understanding, meaning we would like numerical approximations of the
+solutions.
+
+%from Trench
+If an initial value problem
+\begin{equation} \label{eq:3.1.1}
+y'=f(x,y),\quad y(x_0)=y_0
+ \end{equation}
+can't be solved analytically,
+ it's necessary to resort to
+numerical methods to obtain useful  approximations to a solution.
+
+The simplest numerical method for solving \eqref{eq:3.1.1} is
+\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Euler.html}
+\dfn{Euler's method}.
+This method is so crude that it
+is seldom used in practice;     however, its simplicity makes it useful
+for illustrative purposes.
+
+Euler's method is based on the assumption that the tangent line to the
+integral curve of \eqref{eq:3.1.1} at $(x_i,y(x_i))$ approximates the
+integral curve over the interval $[x_i,x_{i+1}]$.
+ Since the slope of the integral curve of
+\eqref{eq:3.1.1} at $(x_i,y(x_i))$ is $y'(x_i)=f(x_i,y(x_i))$, the
+equation of the tangent line to the integral curve at $(x_i,y(x_i))$
+is
+\begin{equation} \label{eq:3.1.2}
+y=y(x_i)+f(x_i,y(x_i))(x-x_i).
+\end{equation}
+
+Setting $x=x_{i+1}=x_i+h$ in \eqref{eq:3.1.2} yields
+\begin{equation} \label{eq:3.1.3}
+y_{i+1}=y(x_i)+hf(x_i,y(x_i))
+\end{equation}
+as an approximation to $y(x_{i+1})$. Since $y(x_0)=y_0$ is known, we
+can use \eqref{eq:3.1.3} with $i=0$ to compute
+$$
+y_1=y_0+hf(x_0,y_0).
+$$
+However, setting $i=1$ in \eqref{eq:3.1.3} yields
+$$
+y_2=y(x_1)+hf(x_1,y(x_1)),
+$$
+which isn't  useful, since we don't know $y(x_1)$. Therefore
+we replace $y(x_1)$ by its approximate value $y_1$ and redefine
+$$
+y_2=y_1+hf(x_1,y_1).
+$$
+Having computed $y_2$, we can  compute
+$$
+y_3=y_2+hf(x_2,y_2).
+$$
+In general, Euler's method starts with the known value $y(x_0)=y_0$
+and computes $y_1, y_2, \ldots, y_n$ successively using the
+ formula
+\begin{equation} \label{eq:3.1.4}
+y_{i+1}=y_i+hf(x_i,y_i),\quad 0\le i\le n-1.
+\end{equation}
+
+The next example illustrates the computational procedure
+indicated in Euler's method.
+
+%from Mooculus
+\begin{example}\label{ex:eulerIntro1}
+Consider the following differential equation
+$$
+y' = x+y,\quad y(0)=1$$
+
+Let us approximate the solution using just two subintervals
+$$
+\left[0,\frac{1}{2}\right]\qquad\text{and}\qquad \left[\frac{1}{2},1\right].
+$$
+Since $y'(0) = 1$, we know that
+$$
+y\left(\frac{1}{2}\right)\approx y(0)+\frac{1}{2}\cdot y'(0)= 1+ \frac{1}{2}\cdot 1 = \frac{3}{2}
+$$
+by \eqref{eq:3.1.3}.
+\begin{image}
+  \begin{tikzpicture}
+    \begin{axis}[
+        domain=0:1, xmin =0,xmax=1.1,ymax=3,ymin=-.2,
+        width=6in,
+        height=3in,
+        %xticklabels={$1$,$1.5$,$2$, $2.5$, $3$},
+        %% ytick style={draw=none},
+        %% yticklabels={},
+        axis lines=center, xlabel=$t$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+          ]
+      \addplot [draw=blue,ultra thick] plot coordinates {(0,1) (.5,1.5)};
+    \end{axis}
+\end{tikzpicture}
+\end{image}
+But now, we have
+$$
+y'\left(\frac{1}{2}\right) \approx \frac{1}{2}+\frac{3}{2} = 2
+$$
+so
+$$
+y(1) \approx  y\left(\frac{1}{2}\right)+\frac{1}{2} \cdot 2= \frac{5}{2}
+$$
+\begin{image}
+  \begin{tikzpicture}
+    \begin{axis}[
+        domain=0:1, xmin =0,xmax=1.1,ymax=3,ymin=-.2,
+        width=6in,
+        height=3in,
+        %xticklabels={$1$,$1.5$,$2$, $2.5$, $3$},
+        %% ytick style={draw=none},
+        %% yticklabels={},
+        axis lines=center, xlabel=$t$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+          ]
+      \addplot [draw=blue,ultra thick] plot coordinates {(0,1) (.5,1.5)};
+      \addplot [draw=blue,ultra thick] plot coordinates {(.5,1.5) (1,2.5)};
+    \end{axis}
+\end{tikzpicture}
+\end{image}
+Plotting our approximation with the actual solution we find:
+\begin{image}
+  \begin{tikzpicture}
+    \begin{axis}[
+        domain=0:1, xmin =0,xmax=1.1,ymax=3,ymin=-.2,
+        width=6in,
+        height=3in,
+        %xticklabels={$1$,$1.5$,$2$, $2.5$, $3$},
+        %% ytick style={draw=none},
+        %% yticklabels={},
+        axis lines=center, xlabel=$t$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+          ]
+      \addplot [draw=blue,very thick] plot coordinates {(0,1) (.5,1.5)};
+      \addplot [draw=blue,very thick] plot coordinates {(.5,1.5) (1,2.5)};
+      \addplot [draw=red,ultra thick] {2*e^x-x-1};
+    \end{axis}
+\end{tikzpicture}
+\end{image}
+
+
+This approximation could be improved by using more subintervals.  Use the Sage Cell below to increase the number of subintervals to improve the approximation.
+
+\begin{sageCell}% Anna
+@interact
+def _(endPoint=input_box(1, width=5),numberOfIntervals=input_box(1, width=5)):
+    a=var('a')
+    b=function('b')(a)
+    de = diff(b,a) ==  a+b
+    soln = desolve(de, [b, a], ics=[0,1])
+    P3=plot(soln(a), (a, 0, endPoint), color='red')
+
+    from sage.calculus.desolvers import eulers_method
+    x,y = PolynomialRing(QQ,2,"xy").gens()
+    pts=eulers_method(x+y,0,1,endPoint/numberOfIntervals,endPoint-(endPoint/numberOfIntervals),algorithm="none")
+
+    P1 = list_plot(pts)
+    P2 = line(pts)
+
+    (P1+P2+P3).show()
+\end{sageCell}
+
+\end{example}
+
+%Anna's example
+\begin{example}\label{ex:eulerIntro2}
+Use Euler's method to approximate $y$ on $[0,1]$ where $\d x = .25$ for
+the differential equation
+$$
+y'=x-y
+$$
+where $y(0) = 1$.
+\begin{explanation}
+
+Fill out the following table for Euler's method using $4$
+subintervals.
+\[
+\begin{array}{l|l}
+   x & y \\ \hline
+   0   & 1 \\
+   0.25 & \answer{0.75} \\
+   \answer{0.5} & \answer{5/8}  \\
+   \answer{0.75} & \answer{19/32} \\
+   1 & \frac{81}{128}
+\end{array}
+\]
+Thus $y(1) \approx \answer{81/128}$.
+
+The Sage Cell below illustrates your work graphically.  You can adjust the number of subintervals to see how the approximation is affected.  You can also change the the interval, just for fun.
+
+\begin{sageCell}% Anna
+@interact
+def _(endPoint=input_box(1, width=5),numberOfIntervals=input_box(4, width=5)):
+    a=var('a')
+    b=function('b')(a)
+    de = diff(b,a) ==  a-b
+    soln = desolve(de, [b, a], ics=[0,1])
+    P3=plot(soln(a), (a, 0, endPoint), color='red')
+
+    from sage.calculus.desolvers import eulers_method
+    x,y = PolynomialRing(QQ,2,"xy").gens()
+    pts=eulers_method(x-y,0,1,endPoint/numberOfIntervals,endPoint-(endPoint/numberOfIntervals),algorithm="none")
+    
+    tableOfValues=eulers_method(x-y,0,1,endPoint/numberOfIntervals,endPoint,algorithm="table")
+    P1 = list_plot(pts)
+    P2 = line(pts)
+
+    (P1+P2+P3).show()
+\end{sageCell}
+
+\end{explanation}
+\end{example}
+
+
+\subsection*{Sources of Error}
+
+When using numerical methods we're interested in
+computing approximate values of the solution of \eqref{eq:3.1.1} at
+equally spaced points $x_0, x_1, \ldots, x_n=b$ in an interval
+$[x_0,b]$.
+ Thus,
+$$
+x_i=x_0+ih,\quad i=0,1, \dots,n,
+$$
+where
+$$
+h=\frac{b-x_0}{n}.
+$$
+We'll denote the approximate values of the solution at these points
+by $y_0, y_1, \ldots, y_n$;   thus, $y_i$ is an approximation to
+$y(x_i)$.
+We'll call
+$$
+e_i=y(x_i)-y_i
+$$
+the \dfn{error at the $i$th step}. Because of the initial
+condition
+$y(x_0)=y_0$, we'll always have $e_0=0$. However, in general
+$e_i\neq 0$ if $i>0$.
+
+We encounter two sources of error
+in applying a numerical method to solve an initial value problem:
+\begin{itemize}
+\item
+The formulas defining the method are based on some sort of
+approximation. Errors due to the inaccuracy of the approximation are
+called \dfn{truncation errors}.
+\item
+Computers do arithmetic with a fixed number of digits, and therefore
+make errors in evaluating the formulas defining the numerical methods.
+Errors due to the computer's inability to do exact arithmetic are
+called \dfn{roundoff errors}.
+\end{itemize}
+
+Since a careful analysis of roundoff error is beyond the scope of this
+book, we'll consider only truncation errors.
+
+\begin{example}\label{example:3.1.2}
+Use Euler's method with step sizes $h=0.1$, $h=0.05$, and $h=0.025$ to
+find approximate values of the solution of the initial value problem
+$$
+y'+2y=x^3e^{-2x},\quad y(0)=1
+$$
+at $x=0, 0.1, 0.2, 0.3, \ldots, 1.0$. Compare these approximate
+values
+with the values of the exact solution
+\begin{equation} \label{eq:3.1.6}
+y={e^{-2x}\over4}(x^4+4),
+\end{equation}
+which can be obtained by the method of Module 1-B. (Verify.)
+
+
+
+\begin{explanation}
+The table below shows the values of the exact solution
+\eqref{eq:3.1.6} at the specified points, and the approximate values of
+the solution at these points obtained by Euler's method with step
+sizes $h=0.1$, $h=0.05$, and $h=0.025$. In examining this table, keep
+in mind that the approximate values in the column corresponding to
+$h=.05$ are actually the results of 20 steps with Euler's method. We
+haven't listed the estimates of the solution obtained for
+$x=0.05, 0.15, \dots $, since there's nothing to compare them with in
+the column corresponding to $h=0.1$. Similarly, the approximate values
+in the column corresponding to $h=0.025$ are actually the results of
+$40$ steps with Euler's method.
+
+
+$$
+\begin{array}{|l|l|l|l|l|}
+\hline
+x & h=0.1 & h=0.05 & h=0.025 & \text{Exact}\\ \hline
+0.0 & 1.000000000 & 1.000000000 & 1.000000000 & 1.000000000 \\
+0.1 & 0.800000000 & 0.810005655 & 0.814518349 & 0.818751221 \\
+0.2 & 0.640081873 & 0.656266437 & 0.663635953 & 0.670588174 \\
+0.3 & 0.512601754 & 0.532290981 & 0.541339495 & 0.549922980 \\
+0.4 & 0.411563195 & 0.432887056 & 0.442774766 & 0.452204669 \\
+0.5 & 0.332126261 & 0.353785015 & 0.363915597 & 0.373627557 \\
+0.6 & 0.270299502 & 0.291404256 & 0.301359885 & 0.310952904 \\
+0.7 & 0.222745397 & 0.242707257 & 0.252202935 & 0.261398947 \\
+0.8 & 0.186654593 & 0.205105754 & 0.213956311 & 0.222570721 \\
+0.9 & 0.159660776 & 0.176396883 & 0.184492463 & 0.192412038 \\
+1.0 & 0.139778910 & 0.154715925 & 0.162003293 & 0.169169104\\
+\hline
+\end{array}
+$$
+
+You can see that decreasing the step size
+improves the accuracy of Euler's method. For example,
+$$
+y_{\text{exact}}(1)-y_{\text{approx}}(1)\approx
+\left\{\begin{array}{l}
+.0293\text{ with }h=0.1,\\
+.0144\text{ with }h=0.05,\\
+.0071\text{ with }h=0.025.
+\end{array}\right.
+$$
+Based on this scanty evidence, you might guess that the error in
+approximating the exact solution at a \textit{fixed value of} $x$ by
+Euler's method is roughly halved when the step size is halved. You can
+find more evidence to support this conjecture by examining
+the table below which lists the approximate values of
+$y_{\text{exact}}-y_{\text{approx}}$ at
+$x=0.1, 0.2, \dots, 1.0$.
+
+$$
+\begin{array}{|l|l|l|l|}
+\hline
+x & h=0.1 & h=0.05 & h=0.025\\ \hline
+0.1 & 0.0187 & 0.0087 & 0.0042\\
+0.2 & 0.0305 & 0.0143 & 0.0069\\
+0.3 & 0.0373 & 0.0176 & 0.0085\\
+0.4 & 0.0406 & 0.0193 & 0.0094\\
+0.5 & 0.0415 & 0.0198 & 0.0097\\
+0.6 & 0.0406 & 0.0195 & 0.0095\\
+0.7 & 0.0386 & 0.0186 & 0.0091\\
+0.8 & 0.0359 & 0.0174 & 0.0086\\
+0.9 & 0.0327 & 0.0160 & 0.0079\\
+1.0 & 0.0293 & 0.0144 & 0.0071\\
+\hline
+\end{array}
+$$
+
+Use the Sage Cell below to explore the error visually by changing the size ($h$) of the subintervals.
+
+\begin{sageCell} % Anna
+@interact
+def _(h=input_box(0.1, width=5)):
+    a=var('a')
+    b=function('b')(a)
+    de = diff(b,a) ==  (a^3)*e^(-2*a)-2*b
+    soln = desolve(de, [b, a], ics=[0,1])
+    P3=plot(soln(a), (a, 0, 1), color='red')
+
+    from sage.calculus.desolvers import eulers_method
+    x,y = PolynomialRing(QQ,2,"xy").gens()
+    pts=eulers_method((x^3)*e^(-2*x)-2*y,0,1,h,1-h,algorithm="none")
+
+    P1 = list_plot(pts)
+    P2 = line(pts)
+
+    (P1+P2+P3).show()
+\end{sageCell}
+
+\href{https://docs.google.com/spreadsheets/d/1aE9Nh2VZpG2zJI70yeJpjNZDdxxaqFA8qwoZakjrK-M/edit?usp=sharing}{Spreadsheet}% Paul
+
+\end{explanation}
+\end{example}
+
+
+
+
+
+
+
+\section*{Text Source}
+\href{https://github.com/mooculus/calculus}{MOOCulus},
+\href{https://github.com/mooculus/calculus/blob/a5d5bc54f341b1f3224dde40168188e81032ef65/differentialEquations/digInDifferentialEquations.tex#L1}{Numerical Methods} (CC-BY-NC-SA)
+
+
+\end{document}
