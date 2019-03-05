@@ -86,8 +86,7 @@ indicated in Euler's method.
 %from Mooculus
 \begin{example}\label{ex:eulerIntro1}
 Consider the following differential equation
-$$
-y' = x+y,\quad y(0)=1$$
+$$y' = x+y,\quad y(0)=1$$
 
 Let us approximate the solution using just two subintervals
 $$
@@ -111,7 +110,8 @@ by \eqref{eq:3.1.3}.
             every axis y label/.style={at=(current axis.above origin),anchor=south},
             every axis x label/.style={at=(current axis.right of origin),anchor=west},
           ]
-      \addplot [draw=blue,ultra thick] plot coordinates {(0,1) (.5,1.5)};
+          \draw[blue] (0,1)--(0.5, 1.5);
+      %\addplot [blue,very thick] plot coordinates {(0,1) (.5,1.5)};
     \end{axis}
 \end{tikzpicture}
 \end{image}
@@ -136,8 +136,10 @@ $$
             every axis y label/.style={at=(current axis.above origin),anchor=south},
             every axis x label/.style={at=(current axis.right of origin),anchor=west},
           ]
-      \addplot [draw=blue,ultra thick] plot coordinates {(0,1) (.5,1.5)};
-      \addplot [draw=blue,ultra thick] plot coordinates {(.5,1.5) (1,2.5)};
+        \draw[blue] (0,1)--(0.5, 1.5);
+        \draw[blue] (0.5,1.5)--(1, 2.5);
+      %\addplot [draw=blue,ultra thick] plot coordinates {(0,1) (.5,1.5)};
+      %\addplot [draw=blue,ultra thick] plot coordinates {(.5,1.5) (1,2.5)};
     \end{axis}
 \end{tikzpicture}
 \end{image}
@@ -155,9 +157,11 @@ Plotting our approximation with the actual solution we find:
             every axis y label/.style={at=(current axis.above origin),anchor=south},
             every axis x label/.style={at=(current axis.right of origin),anchor=west},
           ]
-      \addplot [draw=blue,very thick] plot coordinates {(0,1) (.5,1.5)};
-      \addplot [draw=blue,very thick] plot coordinates {(.5,1.5) (1,2.5)};
-      \addplot [draw=red,ultra thick] {2*e^x-x-1};
+      %\addplot [draw=blue,very thick] plot coordinates {(0,1) (.5,1.5)};
+      %\addplot [draw=blue,very thick] plot coordinates {(.5,1.5) (1,2.5)};
+      \draw[blue] (0,1)--(0.5, 1.5);
+      \draw[blue] (0.5,1.5)--(1, 2.5);
+      \addplot [red, very thick] {2*e^x-x-1};
     \end{axis}
 \end{tikzpicture}
 \end{image}
