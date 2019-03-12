@@ -97,24 +97,25 @@ $$
 y\left(\frac{1}{2}\right)\approx y(0)+\frac{1}{2}\cdot y'(0)= 1+ \frac{1}{2}\cdot 1 = \frac{3}{2}
 $$
 by \eqref{eq:3.1.3}.
-\begin{image}
-  \begin{tikzpicture}
-    \begin{axis}[
-        domain=0:1, xmin =0,xmax=1.1,ymax=3,ymin=-.2,
-        width=6in,
-        height=3in,
-        %xticklabels={$1$,$1.5$,$2$, $2.5$, $3$},
-        %% ytick style={draw=none},
-        %% yticklabels={},
-        axis lines=center, xlabel=$t$, ylabel=$y$,
-            every axis y label/.style={at=(current axis.above origin),anchor=south},
-            every axis x label/.style={at=(current axis.right of origin),anchor=west},
-          ]
-          \draw[blue] (0,1)--(0.5, 1.5);
-      %\addplot [blue,very thick] plot coordinates {(0,1) (.5,1.5)};
-    \end{axis}
-\end{tikzpicture}
-\end{image}
+% Commented out by Felipe
+%\begin{image}
+%  \begin{tikzpicture}
+%    \begin{axis}[
+%        domain=0:1, xmin =0,xmax=1.1,ymax=3,ymin=-.2,
+%        width=6in,
+%        height=3in,
+%        %xticklabels={$1$,$1.5$,$2$, $2.5$, $3$},
+%        %% ytick style={draw=none},
+%        %% yticklabels={},
+%        axis lines=center, xlabel=$t$, ylabel=$y$,
+%            every axis y label/.style={at=(current axis.above origin),anchor=south},
+%            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+%          ]
+%          \draw[blue] (0,1)--(0.5, 1.5);
+%      %\addplot [blue,very thick] plot coordinates {(0,1) (.5,1.5)};
+%    \end{axis}
+%\end{tikzpicture}
+%\end{image}
 But now, we have
 $$
 y'\left(\frac{1}{2}\right) \approx \frac{1}{2}+\frac{3}{2} = 2
@@ -123,70 +124,73 @@ so
 $$
 y(1) \approx  y\left(\frac{1}{2}\right)+\frac{1}{2} \cdot 2= \frac{5}{2}
 $$
-\begin{image}
-  \begin{tikzpicture}
-    \begin{axis}[
-        domain=0:1, xmin =0,xmax=1.1,ymax=3,ymin=-.2,
-        width=6in,
-        height=3in,
-        %xticklabels={$1$,$1.5$,$2$, $2.5$, $3$},
-        %% ytick style={draw=none},
-        %% yticklabels={},
-        axis lines=center, xlabel=$t$, ylabel=$y$,
-            every axis y label/.style={at=(current axis.above origin),anchor=south},
-            every axis x label/.style={at=(current axis.right of origin),anchor=west},
-          ]
-        \draw[blue] (0,1)--(0.5, 1.5);
-        \draw[blue] (0.5,1.5)--(1, 2.5);
-      %\addplot [draw=blue,ultra thick] plot coordinates {(0,1) (.5,1.5)};
-      %\addplot [draw=blue,ultra thick] plot coordinates {(.5,1.5) (1,2.5)};
-    \end{axis}
-\end{tikzpicture}
-\end{image}
+% Commented out by Felipe
+%\begin{image}
+%  \begin{tikzpicture}
+%    \begin{axis}[
+%        domain=0:1, xmin =0,xmax=1.1,ymax=3,ymin=-.2,
+%        width=6in,
+%        height=3in,
+%        %xticklabels={$1$,$1.5$,$2$, $2.5$, $3$},
+%        %% ytick style={draw=none},
+%        %% yticklabels={},
+%        axis lines=center, xlabel=$t$, ylabel=$y$,
+%            every axis y label/.style={at=(current axis.above origin),anchor=south},
+%            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+%          ]
+%        \draw[blue] (0,1)--(0.5, 1.5);
+%        \draw[blue] (0.5,1.5)--(1, 2.5);
+%      %\addplot [draw=blue,ultra thick] plot coordinates {(0,1) (.5,1.5)};
+%      %\addplot [draw=blue,ultra thick] plot coordinates {(.5,1.5) (1,2.5)};
+%    \end{axis}
+%\end{tikzpicture}
+%\end{image}
 Plotting our approximation with the actual solution we find:
-\begin{image}
-  \begin{tikzpicture}
-    \begin{axis}[
-        domain=0:1, xmin =0,xmax=1.1,ymax=3,ymin=-.2,
-        width=6in,
-        height=3in,
-        %xticklabels={$1$,$1.5$,$2$, $2.5$, $3$},
-        %% ytick style={draw=none},
-        %% yticklabels={},
-        axis lines=center, xlabel=$t$, ylabel=$y$,
-            every axis y label/.style={at=(current axis.above origin),anchor=south},
-            every axis x label/.style={at=(current axis.right of origin),anchor=west},
-          ]
-      %\addplot [draw=blue,very thick] plot coordinates {(0,1) (.5,1.5)};
-      %\addplot [draw=blue,very thick] plot coordinates {(.5,1.5) (1,2.5)};
-      \draw[blue] (0,1)--(0.5, 1.5);
-      \draw[blue] (0.5,1.5)--(1, 2.5);
-      \addplot [red, very thick] {2*e^x-x-1};
-    \end{axis}
-\end{tikzpicture}
-\end{image}
+% Commented out by Felipe
+%\begin{image}
+%  \begin{tikzpicture}
+%    \begin{axis}[
+%        domain=0:1, xmin =0,xmax=1.1,ymax=3,ymin=-.2,
+%        width=6in,
+%        height=3in,
+%        %xticklabels={$1$,$1.5$,$2$, $2.5$, $3$},
+%        %% ytick style={draw=none},
+%        %% yticklabels={},
+%        axis lines=center, xlabel=$t$, ylabel=$y$,
+%            every axis y label/.style={at=(current axis.above origin),anchor=south},
+%            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+%          ]
+%      %\addplot [draw=blue,very thick] plot coordinates {(0,1) (.5,1.5)};
+%      %\addplot [draw=blue,very thick] plot coordinates {(.5,1.5) (1,2.5)};
+%      \draw[blue] (0,1)--(0.5, 1.5);
+%      \draw[blue] (0.5,1.5)--(1, 2.5);
+%      \addplot [red, very thick] {2*e^x-x-1};
+%    \end{axis}
+%\end{tikzpicture}
+%\end{image}
 
 
 This approximation could be improved by using more subintervals.  Use the Sage Cell below to increase the number of subintervals to improve the approximation.
 
-\begin{sageCell}% Anna
-@interact
-def _(endPoint=input_box(1, width=5),numberOfIntervals=input_box(1, width=5)):
-    a=var('a')
-    b=function('b')(a)
-    de = diff(b,a) ==  a+b
-    soln = desolve(de, [b, a], ics=[0,1])
-    P3=plot(soln(a), (a, 0, endPoint), color='red')
-
-    from sage.calculus.desolvers import eulers_method
-    x,y = PolynomialRing(QQ,2,"xy").gens()
-    pts=eulers_method(x+y,0,1,endPoint/numberOfIntervals,endPoint-(endPoint/numberOfIntervals),algorithm="none")
-
-    P1 = list_plot(pts)
-    P2 = line(pts)
-
-    (P1+P2+P3).show()
-\end{sageCell}
+% Commented out by Felipe
+%\begin{sageCell}% Anna
+%@interact
+%def _(endPoint=input_box(1, width=5),numberOfIntervals=input_box(1, width=5)):
+%    a=var('a')
+%    b=function('b')(a)
+%    de = diff(b,a) ==  a+b
+%    soln = desolve(de, [b, a], ics=[0,1])
+%    P3=plot(soln(a), (a, 0, endPoint), color='red')
+%
+%    from sage.calculus.desolvers import eulers_method
+%    x,y = PolynomialRing(QQ,2,"xy").gens()
+%    pts=eulers_method(x+y,0,1,endPoint/numberOfIntervals,endPoint-(endPoint/numberOfIntervals),algorithm="none")
+%
+%    P1 = list_plot(pts)
+%    P2 = line(pts)
+%
+%    (P1+P2+P3).show()
+%\end{sageCell}
 
 \end{example}
 
@@ -216,25 +220,26 @@ Thus $y(1) \approx \answer{81/128}$.
 
 The Sage Cell below illustrates your work graphically.  You can adjust the number of subintervals to see how the approximation is affected.  You can also change the the interval, just for fun.
 
-\begin{sageCell}% Anna
-@interact
-def _(endPoint=input_box(1, width=5),numberOfIntervals=input_box(4, width=5)):
-    a=var('a')
-    b=function('b')(a)
-    de = diff(b,a) ==  a-b
-    soln = desolve(de, [b, a], ics=[0,1])
-    P3=plot(soln(a), (a, 0, endPoint), color='red')
-
-    from sage.calculus.desolvers import eulers_method
-    x,y = PolynomialRing(QQ,2,"xy").gens()
-    pts=eulers_method(x-y,0,1,endPoint/numberOfIntervals,endPoint-(endPoint/numberOfIntervals),algorithm="none")
-    
-    tableOfValues=eulers_method(x-y,0,1,endPoint/numberOfIntervals,endPoint,algorithm="table")
-    P1 = list_plot(pts)
-    P2 = line(pts)
-
-    (P1+P2+P3).show()
-\end{sageCell}
+% Commented out by Felipe
+%\begin{sageCell}% Anna
+%@interact
+%def _(endPoint=input_box(1, width=5),numberOfIntervals=input_box(4, width=5)):
+%    a=var('a')
+%    b=function('b')(a)
+%    de = diff(b,a) ==  a-b
+%    soln = desolve(de, [b, a], ics=[0,1])
+%    P3=plot(soln(a), (a, 0, endPoint), color='red')
+%
+%    from sage.calculus.desolvers import eulers_method
+%    x,y = PolynomialRing(QQ,2,"xy").gens()
+%    pts=eulers_method(x-y,0,1,endPoint/numberOfIntervals,endPoint-(endPoint/numberOfIntervals),algorithm="none")
+%    
+%    tableOfValues=eulers_method(x-y,0,1,endPoint/numberOfIntervals,endPoint,algorithm="table")
+%    P1 = list_plot(pts)
+%    P2 = line(pts)
+%
+%    (P1+P2+P3).show()
+%\end{sageCell}
 
 \end{explanation}
 \end{example}
@@ -370,24 +375,25 @@ $$
 
 Use the Sage Cell below to explore the error visually by changing the size ($h$) of the subintervals.
 
-\begin{sageCell} % Anna
-@interact
-def _(h=input_box(0.1, width=5)):
-    a=var('a')
-    b=function('b')(a)
-    de = diff(b,a) ==  (a^3)*e^(-2*a)-2*b
-    soln = desolve(de, [b, a], ics=[0,1])
-    P3=plot(soln(a), (a, 0, 1), color='red')
-
-    from sage.calculus.desolvers import eulers_method
-    x,y = PolynomialRing(QQ,2,"xy").gens()
-    pts=eulers_method((x^3)*e^(-2*x)-2*y,0,1,h,1-h,algorithm="none")
-
-    P1 = list_plot(pts)
-    P2 = line(pts)
-
-    (P1+P2+P3).show()
-\end{sageCell}
+% Commented out by Felipe
+%\begin{sageCell} % Anna
+%@interact
+%def _(h=input_box(0.1, width=5)):
+%    a=var('a')
+%    b=function('b')(a)
+%    de = diff(b,a) ==  (a^3)*e^(-2*a)-2*b
+%    soln = desolve(de, [b, a], ics=[0,1])
+%    P3=plot(soln(a), (a, 0, 1), color='red')
+%
+%    from sage.calculus.desolvers import eulers_method
+%    x,y = PolynomialRing(QQ,2,"xy").gens()
+%    pts=eulers_method((x^3)*e^(-2*x)-2*y,0,1,h,1-h,algorithm="none")
+%
+%    P1 = list_plot(pts)
+%    P2 = line(pts)
+%
+%    (P1+P2+P3).show()
+%\end{sageCell}
 
 \href{https://docs.google.com/spreadsheets/d/1aE9Nh2VZpG2zJI70yeJpjNZDdxxaqFA8qwoZakjrK-M/edit?usp=sharing}{Spreadsheet}% Paul
 
