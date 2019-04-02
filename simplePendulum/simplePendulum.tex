@@ -36,7 +36,9 @@ To begin, we will neglect air resistance.  Newton’s second law of motion stipu
 $$mL\theta''=-mg \sin\theta $$
 Cancelling mass on each side and writing in standard form gives:
 $$\theta ''+\frac{g}{L} \sin\theta=0$$
-When the angle θ is small, perhaps less than 15°, then sin⁡θ≈θ.  This is referred to as the “small angle approximation.”  This greatly simplifies the differential equation:.
+% Changes by Felipe follow.
+When the angle $\theta$ is small, perhaps less than $15^{\text o}$, then $\sin \theta\approx \theta$. 
+This is referred to as the \emph{small angle approximation}. This greatly simplifies the differential equation:
 \begin{equation}\label{eq:simplePend1}\theta''+\frac{g}{L}\theta=0\end{equation}
 
 \begin{problem}
@@ -84,14 +86,16 @@ Before proceeding, let’s consider the assumptions and simplifications behind t
     \end{multipleChoice}
 \end{problem}
 
-Since we are expecting some damping, it will be good to record the experiment over several minutes, perhaps up to around five minutes.  Marks made on a nearby surface or a ruler or tape measure starting at the center position will help visualize the extent of the dampening as the oscillations decay in amplitude.  For small θ angles and sufficient lengths of string, the distance measured with these markings will be proportional to the angle.  Thus, it isn’t necessary to use a protractor  After our experiment, we will update the mathematical treatment to account for dampening.  For now, however, let’s estimate the period of the motion and see if it changes perceptibly over many cycles.  It may be best to conduct the experiment with another person to count oscillations, record data, or hold a video recording device.  It is recommended that only small angle oscillations be investigated.  Starting the object a distance of $20$ cm from the center position may be best for a string length of $1$ m.  You should simply release the object without imparting any initial velocity.  
+% Changes by Felipe in next paragraph: angle \theta, apostrofe.
+Since we are expecting some damping, it will be good to record the experiment over several minutes, perhaps up to around five minutes.  Marks made on a nearby surface or a ruler or tape measure starting at the center position will help visualize the extent of the dampening as the oscillations decay in amplitude.  For small angles $\theta$ and sufficient lengths of string, the distance measured with these markings will be proportional to the angle.  Thus, it isn't necessary to use a protractor.  After our experiment, we will update the mathematical treatment to account for dampening.  
+For now, however, let's estimate the period of the motion and see if it changes perceptibly over many cycles.  It may be best to conduct the experiment with another person to count oscillations, record data, or hold a video recording device.  It is recommended that only small angle oscillations be investigated.  Starting the object a distance of $20$ cm from the center position may be best for a string length of $1$ m.  You should simply release the object without imparting any initial velocity.  
 The example in the following video provides a demonstration and a sample source of data.
 
 %%%% insert videos 
 
 \subsubsection*{Analysis of the Period}
 
-A careful analysis of the video shows that $116$ oscillations occurred over four minutes ($240$ s).  We can estimate the average period by taking the total time in seconds and dividing by the total number of oscillations.  This average period is found to be about $2.07$ s, which is only slightly larger than our prediction of two seconds using the mathematical analysis above.  If we break the video down into segments, we find that this average period T does not increase or decrease in any noticeable way.  At first approximation, the period (and therefore the frequency) appears to be constant with time.  Using the formulas developed above, we could mathematically express our solution in either of the following two ways, the second being the amplitude phase form:
+A careful analysis of the video shows that $116$ oscillations occurred over four minutes ($240$ s).  We can estimate the average period by taking the total time in seconds and dividing by the total number of oscillations.  This average period is found to be about $2.07$ s, which is only slightly larger than our prediction of two seconds using the mathematical analysis above.  If we break the video down into segments, we find that this average period $T$ does not increase or decrease in any noticeable way.  At first approximation, the period (and therefore the frequency) appears to be constant with time.  Using the formulas developed above, we could mathematically express our solution in either of the following two ways, the second being the amplitude phase form:
 
 $$\theta\approx 11.3\cos (3.132t)+0.0104\sin (3.132t)\approx 11.3\cos(3.132t-0.00092)$$
 
@@ -119,10 +123,12 @@ The net result of all of these considerations is the solution to the differentia
 
 $$\theta=e^{\frac{-\alpha}{2L}t}\left[c_1\cos \left(\frac{\sqrt{4Lg-\alpha^2}}{2L}t\right)+c_2\sin\left(\frac{\sqrt{4Lg-\alpha^2}}{2L}t\right)\right]$$
 
-There are still sine and cosine terms but there is also a decaying exponential that will limit the effective amplitude of oscillation, dampening it towards zero as time progresses.  Many oscillations occur, but each subsequent oscillation is slightly smaller than the one preceding it.  The decaying exponential term in the front defines the “envelope” of the solution: 
+There are still sine and cosine terms but there is also a decaying exponential that will limit the effective amplitude of oscillation, dampening it towards zero as time progresses.  Many oscillations occur, but each subsequent oscillation is slightly smaller than the one preceding it.  The decaying exponential term in the front defines
+the \emph{envelope} of the solution: 
 
+% Needs fixing! (Felipe)
 $$\theta=\pm\theta_0 e^{\frac{-\alpha}{2L}t}$$
-We must find the value of α that would correspond to a halving of the amplitude (from $11.3^\circ$ to $5.7^\circ$) in $240$ s, as is depicted in the chart below: 
+We must find the value of \emph{what symbol goes here? (Felipe)} that would correspond to a halving of the amplitude (from $11.3^\circ$ to $5.7^\circ$) in $240$ s, as is depicted in the chart below: 
 \begin{image}
  \includegraphics[height=1.5in]{simplePendulum.jpg}
 \end{image}
