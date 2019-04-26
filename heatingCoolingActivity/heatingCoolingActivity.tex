@@ -3,22 +3,30 @@
 
 \input{../preamble.tex}
 
-
-
-\title{Hot Potato}
+\title{Hot Potato! Activity on heating and cooling}
 \author{Anna Davis, Justin Greenly, L. Felipe Martins, Paul Zachlin}
 
 \begin{document}
 
 \begin{abstract}
-This lab describes an activity with a spring-mass system, designed to explore concepts related to modeling a real world system with wide applicability.
+An experiment involving Newton's Law of Cooling.
 \end{abstract}
 
 \maketitle
 
-\section*{Demo of Answers with Feedback}
+The purpose of this exercise is to deepen your understanding of Newton's Law of Heating (and Cooling) which is reviewed in Trench's text in Section 4.2.  A hands-on activity will help to supplement and apply the background theory.  Students will record and predict the temperature of a potato baking in the oven and then subsequently left out to cool.  This experimental activity requires the use of an oven thermometer, preferably a digital one that has a wire to allow readings with a closed oven door.  If you have or can borrow a thermometer, you can conduct this experiment in your own kitchen.  Particularly hungry students will opt to bake a few potatoes and also be ready with some sour cream or blue cheese dressing.  Students without access to an oven may try the same experiment with the potato submerged in boiling water.
+Overview
+In Section 4.2 of Trench's text, Newton's Law of Cooling is summarized a first order differential equation:
+\[
+T'=k(T-T_m)
+\]
+ 
+This equation stipulates that $T'$, the time rate of change of the temperature of some object, is linearly proportional to the difference between the temperature  $T$ of that object and the temperature of the medium or surroundings of the object $T_m$.  Trench notes the ideal case where  $T_m$ is perfectly constant, such as when an object is in a room or a hot oven that remains at a constant temperature.  A negative sign is placed before the "temperature decay constant" of the medium $k$, which is itself some positive number that will stipulate the relative rate of the object's temperature change.  Observe that this differential equation has a very similar appearance to one describing radioactive decay (or any natural decay problem).  In fact, heating or cooling of an object is essentially an exponential decay problem.  The quantity that decays in this case is the difference between the object and its surroundings.  This difference decays at a rate proportional to its magnitude.
+ 
+\section*{Predicting the heating process}
+
 \begin{problem}
-Consider what Newton’s Law of Heating would predict for a potato heated in an oven.  Examine the differential equation, and remember that k and Tm are constants.  At what point during the heating process will the rate of change of temperature be the smallest or the largest?  How will this rate change over time?  Which of the following plots of temperature vs. time most closely represents the behavior predicted by this law?
+Consider what Newton's Law of Heating would predict for a potato heated in an oven.  Examine the differential equation, and remember that k and Tm are constants.  At what point during the heating process will the rate of change of temperature be the smallest or the largest?  How will this rate change over time?  Which of the following plots of temperature vs. time most closely represents the behavior predicted by this law?
 
 
   Enter the ID number $(n=1, 2, 3, 4)$ of the correct graph. 
@@ -137,7 +145,7 @@ Expand for discussion.
 Expand for discussion.
 
  \begin{expandable}
-    This graph does not capture how the rate of temperature change will – itself – vary during the heating process.  Note that the final rate of change of temperature should be small and the initial rate of change should be larger.  The temperature should asymptotically approach the temperature of the medium because Newton’s Law of Heating shows that $T'$ will become very small as T approaches $T_m$.
+    This graph does not capture how the rate of temperature change will – itself – vary during the heating process.  Note that the final rate of change of temperature should be small and the initial rate of change should be larger.  The temperature should asymptotically approach the temperature of the medium because Newton's Law of Heating shows that $T'$ will become very small as T approaches $T_m$.
   \end{expandable}
  
 \end{problem}
