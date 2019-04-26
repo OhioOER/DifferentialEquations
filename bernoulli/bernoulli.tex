@@ -1,0 +1,192 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+%\input{../../../../fimacros.tex}
+
+
+
+\title{Bernoulli's Equations}
+
+
+\begin{document}
+
+\begin{abstract}
+We show how multiplying an equation by an integrating factor can make the equation exact, and we give examples where this is a nice technique for solving a first-order equation.
+\end{abstract}
+
+\maketitle
+
+\section*{Bernoulli's Equations}
+
+\subsection*{Introduction}
+As is apparent from what we have studied so far, there are very few first-order differential equations that can be solved exactly. At this point, we studied two kinds of equations for which there is a general solution method: separable equations and linear equations.
+
+The truth is that, beyond these two classes of equations, there are very few types of differential equations that are amenable to analytical solutions. One method of attack is to use a \textit{change of variables}, which may transform an equation that we cannot solve into one that is solvable.
+
+The method is actually a generalization of changes of variables for integrals (also known as $u$-substitutions). If we have a differential equation on a variable $y$, we define a new variable $u$ as a function of $u$:
+\[
+u=F(y).
+\]
+Recall that, in this notation, the independent variable $x$ is not explicitly shown, so a more correct way to write this relationship is as:
+\[
+u(x)=F(y(x))
+\]
+This is important because it reminds us that, when computing derivatives, we have to use the chain rule:
+\[
+u'(x)=F'(y(x))y'(x).
+\]
+Again, for conciseness, omit explicit mention of $x$:
+\[
+u'=F'(y)y.
+\]
+The method of change of variables for differential equations can thus be summarized as follows:
+
+\begin{itemize}
+\item Define the change of variable $u=F(y)$.
+\item Write a differential equation for $u$ using the formula $u'=F'(u)y'$.
+\item Solve the differential equation for $u$.
+\item Write the solution in terms of the original variable $y$.
+\end{itemize}
+
+One important point is that this method may fail, in which case we may have to try a different change of variable. Finally, it is possible that there is no change of variable that will yield a solution, in which case we may have to resort to numerical or geometrical methods. Even if not able to produce a closed-form solution, a change of variable may yield an equation that is easier to work with, either analytically or numerically.
+
+\subsection*{A First Example}
+One type of equation that can be solved by a well-known change of variable is \emph{Bernoulli's Equation}. This is a very particular kind of equation that, in actuality, does not appear in a large number of application, it is useful to illustrate the method of changes of variables.
+
+As an initial example, let's consider the equation:
+\[
+xy'+y=xy^3.
+\]
+Notice that this equation is not linear (because of the term $y^3$). It is also not separable. (Try it!) However, the left-hand side of the equation resembles a linear equation. So, perhaps, it is possible to transform the equation into a linear equation using a change of variable.
+
+Finding an appropriate change of variable is sometimes more art then science, and a lot of trial-and-error may be necessary. The nonlinear term in our example is a function of the form $y^3$, that is, a power of $y$. This suggests that , perhaps, an appropriate change of variables is of the same form:
+\[
+u=y^k.
+\]
+It is also useful to write this in the equivalent form:
+\[
+y=u^{1/k}
+\]
+For now, we leave $k$ unspecified, since this gives us more flexibility. We now need to compute the derivative of $u$, using the chain rule:
+\[
+u'=ky^{k-1}y'
+\]
+This gives:
+\[
+y'=\frac{1}{k}y^{1-k}u'=\frac{1}{k}u^{(1-k)/k}u'.
+\]
+We can now write our equation completely in terms of the variable $u$:
+\[
+\frac{x}{k}u^{(1-k)/k}u'+u^{1/k}=xu^{3/k}.
+\]
+Dividing this by $u^{1/k}$ we get:
+\[
+\frac{x}{k}u^{(1-k)/k-1/k}u'+1=xu^{2/k}.
+\]
+Now, notice that:
+\[
+\frac{1-k}{k}-\frac{1}{k}=-1,
+\]
+and the equation becomes:
+\[
+\frac{x}{k}u^{-1}u'+1=xu^{2/k}.
+\]
+Multiplying by $u$ we get:
+\[
+\frac{x}{k}u'+u=xu^{2/k+1}.
+\]
+Now, in order to simplify the equation, we choose $k$ so that $2/k+1=0$, that is, we want $k=-2$. Then, the equation is transformed into:
+\[
+-\frac{x}{2}u'+u=x
+\]\label{eq:linear1}
+Summarizing this whole process, we define the change of variable $u=y^{-2}$, or $y=u^{-1/2}$. Then, the original nonlinear equation is transformed into the linear equation \ref{eq:linear1}. Solving this equation in the usual way we get the general solution:
+\[
+u(x)=2x+Cx^2
+\]
+Now, $y(x)=u(x)^{-1/2}$, and we get:
+\[
+y(x)=\frac{\pm 1}{\sqrt{2x+Cx^2}}.
+\]
+Notice that the $\pm$ sign is necessary, since we may have a negative initial condition specified at a point. Finally, notice that the solution process ignores the solution $y(x)=0$, which must be added separately as part of the general solution.
+
+\subsection*{General Solution Method}
+
+In general, the method from the previous section can be applied to any equation of the form:
+\[
+a(x)y'+b(x)y+c(x)y^n,
+\]
+for arbitrary $n$. This equation can be transformed into a linear equation with the change of variable:
+\[
+u=y^{1-n},\quad\text{or}\quad y=u^{1/(1-n)}
+\]
+The derivative of $u$ is given by:
+\[
+u'=(1-n)y^{-n}y'=(1-n)u^{n/(n-1)}y',
+\]
+from which we get the following useful formula for $y'$:
+\[
+y'=\frac{1}{1-n}u^{n/(1-n)}u'.
+\]
+
+\begin{example}\label{ex:bernoulli1}
+As an example, let's consider the equation:
+\[
+y'+\frac{1}{x}y=y^2.
+\]
+In this case, $n=2$ and $1-n=1-2=-1$, so that we use the change of variables:
+\[
+u=y^{-1},\quad y=u^{-1}.
+\]
+We have:
+\[
+u'=-y^{-2}y'=-(u^{-1})^{-2}u'=-u^2y'
+\]
+so that:
+\[
+y'=-u^{-2}u'.
+\]
+This, applying the change of variable to the original equation we get:
+\[
+-u^{-2}u'+\frac{1}{x}u^{-1}=u^{-2}
+\]
+Multiplying this by $u^2$ we get:
+\[
+-u'+\frac{1}{x}u=1.
+\]
+We can rewrite this as:
+\[
+u'-\frac{1}{x}u=-1.
+\]
+This is a linear equation with integrating factor:
+\[
+m(x)=e^{\int -\frac{1}{x}}\,dx=e^{-\ln x}=\frac{1}{x}
+\]
+Multiplying the equation by the integrating factor we get:
+\[
+\frac{1}{x}u'-\frac{1}{x^2}=-\frac{1}{x},
+\]
+or:
+\[
+\frac{d}{dx}\left[\frac{1}{x}u(x)\right]=-\frac{1}{x}
+\]
+Integrating:
+\[
+\frac{1}{x}u(x)=\int -\frac{1}{x}\,dx=-\ln |x| +C
+\]
+Notice that in this last integral we really need the absolute value, since we may be looking for solutions defined for negative values of $x$. Solving for $u(x)$ we get:
+\[
+u(x)=x(C-\ln|x|).
+\]
+Using $y=u^{-1}=1/u$, we finally obtain:
+\[
+y(x)=\frac{1}{x(C-\ln|x|)}.
+\]
+\end{example}
+
+
+\section*{Text Source}
+Felipe L. Martins, Lecture Notes
+
+\end{document}
+
+
