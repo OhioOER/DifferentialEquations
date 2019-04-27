@@ -1,0 +1,491 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+
+
+
+\title{Variation of Parameters}
+
+
+\begin{document}
+
+\begin{abstract}
+
+\end{abstract}
+
+\maketitle
+
+\section*{Variation of Parameters}
+
+In this section we give a method called \dfn{variation of
+parameters} for finding a particular solution of
+\begin{equation} \label{eq:5.7.1}
+P_0(x)y''+P_1(x)y'+P_2(x)y=F(x)
+\end{equation}
+if we know a fundamental set $\{y_1,y_2\}$ of solutions of  the
+complementary equation
+\begin{equation} \label{eq:5.7.2}
+P_0(x)y''+P_1(x)y'+P_2(x)y=0.
+\end{equation}
+Having found a particular solution $y_p$ by this method, we can write
+the general solution of \eqref{eq:5.7.1} as
+$$
+y=y_p+c_1y_1+c_2y_2.
+$$
+
+Since we need only one nontrivial solution of \eqref{eq:5.7.2} to find the
+general solution of \eqref{eq:5.7.1} by reduction of order, it's natural
+to ask why we're interested in variation of parameters, which requires
+two linearly independent solutions of \eqref{eq:5.7.2} to achieve the same
+goal. Here's the answer:
+
+\begin{enumerate}
+\item If we already know two linearly independent solutions of
+\eqref{eq:5.7.2} then  variation of parameters will probably  be simpler
+than reduction of order.
+
+\item Variation of parameters generalizes naturally to a method
+for finding particular solutions of higher order
+linear equations (Section~9.4) and  linear systems of
+equations
+(Section~10.7), while reduction of order doesn't.
+
+\item Variation of parameters is a powerful theoretical tool
+ used by researchers in differential equations. The discussion of this is beyond the scope of this book.
+ 
+ %Although a detailed
+%discussion of this is beyond the scope of this book, you can get an
+%idea of what it means from %Exercises~\ref{exer:5.7.37}--\ref{exer:5.7.39}.
+ \end{enumerate}
+
+We'll now derive the method. As usual, we consider solutions of
+\eqref{eq:5.7.1} and \eqref{eq:5.7.2} on an interval $(a,b)$ where  $P_0$,
+$P_1$, $P_2$, and $F$ are continuous and $P_0$ has no zeros. Suppose
+that $\{y_1,y_2\}$ is a fundamental set of solutions of the
+complementary equation \eqref{eq:5.7.2}. We look for
+ a particular solution of \eqref{eq:5.7.1} in the form
+\begin{equation} \label{eq:5.7.3}
+y_p=u_1y_1+u_2y_2
+\end{equation}
+where $u_1$ and $u_2$ are functions to be determined so that $y_p$
+satisfies \eqref{eq:5.7.1}. You may not think this is a good idea, since
+there are now two unknown functions to be determined, rather than one.
+However, since $u_1$ and $u_2$ have to satisfy only one condition
+(that $y_p$ is a solution of \eqref{eq:5.7.1}), we can impose a second
+condition that produces a convenient simplification, as follows.
+
+ Differentiating \eqref{eq:5.7.3} yields
+\begin{equation} \label{eq:5.7.4}
+y_p'=u_1y_1'+u_2y_2'+u_1'y_1+u_2'y_2.
+\end{equation}
+As our second condition on $u_1$ and $u_2$
+ we require that
+\begin{equation} \label{eq:5.7.5}
+u_1'y_1+u_2'y_2=0.
+\end{equation}
+ Then  \eqref{eq:5.7.4} becomes
+\begin{equation}
+y_p'=u_1y_1'+u_2y_2';     \label{eq:5.7.6}
+\end{equation}
+that is, \eqref{eq:5.7.5} permits us to differentiate $y_p$ (once!) as if
+ $u_1$ and $u_2$ are constants. Differentiating
+\eqref{eq:5.7.4} yields \begin{equation} \label{eq:5.7.7}
+y_p''=u_1y''_1+u_2y''_2+u_1'y_1'+u_2'y_2'. \end{equation}
+(There are no terms involving $u_1''$ and $u_2''$ here, as there would
+be if we hadn't required \eqref{eq:5.7.5}.) Substituting \eqref{eq:5.7.3},
+\eqref{eq:5.7.6}, and \eqref{eq:5.7.7} into \eqref{eq:5.7.1} and collecting the
+coefficients of $u_1$ and $u_2$ yields
+$$
+u_1(P_0y''_1+P_1y_1'+P_2y_1)+u_2(P_0y''_2+P_1y_2'+P_2y_2)
++P_0(u_1'y_1'+u_2'y_2')=F.
+$$
+As in the derivation of the method of reduction of order, the
+coefficients of $u_1$ and $u_2$ here are both zero because $y_1$ and
+$y_2$ satisfy the complementary equation. Hence, we can rewrite the
+last equation  as
+\begin{equation}\label{eq:5.7.8}
+  P_0(u_1'y_1'+u_2'y_2')=F.
+\end{equation}
+Therefore $y_p$ in \eqref{eq:5.7.3} satisfies \eqref{eq:5.7.1} if
+\begin{equation} \label{eq:5.7.9}
+\begin{array}{rcl}
+u_1'y_1+u_2'y_2 &=& 0  \\
+u_1'y_1'+u_2'y_2' &=& \frac{F}{P_0},
+\end{array}
+\end{equation}
+where the first equation is the same as \eqref{eq:5.7.5} and the second is
+from \eqref{eq:5.7.8}.
+
+We'll now show that you can always solve \eqref{eq:5.7.9} for $u_1'$
+and $u_2'$. (The method that we use here will always work, but simpler
+methods usually work when you're dealing with specific equations.) To
+obtain $u_1'$, multiply the first equation in \eqref{eq:5.7.9} by $y_2'$
+and the second equation by $y_2$. This yields
+\begin{eqnarray*}
+u_1'y_1y_2'+u_2'y_2y_2'&=& 0  \\
+u_1'y_1'y_2+u_2'y_2'y_2 &=& \frac{Fy_2}{P_0}.
+\end{eqnarray*}
+Subtracting the second equation from the first yields
+\begin{equation} \label{eq:5.7.10}
+u_1'(y_1y_2'-y_1'y_2)=-\frac{Fy_2}{P_0}.
+\end{equation}
+Since $\{y_1,y_2\}$  is a fundamental set of solutions of \eqref{eq:5.7.2}
+on $(a,b)$, Theorem~\ref{thmtype:5.1.6}; implies that the Wronskian
+ $y_1y_2'-y_1'y_2$  has no zeros on $(a,b)$.  Therefore we can solve
+\eqref{eq:5.7.10} for $u_1'$, to obtain
+\begin{equation} \label{eq:5.7.11}
+u_1'=-\frac{Fy_2}{P_0(y_1y_2'-y_1'y_2)}.
+\end{equation}
+We leave it to you to start from \eqref{eq:5.7.9} and show by a similar
+argument that
+\begin{equation} \label{eq:5.7.12}
+u_2'=\frac{Fy_1}{P_0(y_1y_2'-y_1'y_2)}.
+\end{equation}
+
+We can now obtain $u_1$ and $u_2$ by integrating $u_1'$ and $u_2'$.
+The constants of integration can be taken to be zero, since any choice
+of $u_1$ and $u_2$ in \eqref{eq:5.7.3} will suffice.
+
+You should not memorize \eqref{eq:5.7.11} and \eqref{eq:5.7.12}. On the
+other hand, you don't want to rederive the whole procedure for every
+specific problem. We recommend a compromise:
+\begin{enumerate}
+\item\label{item:compromiseA} % (a)
+Write
+\begin{equation} \label{eq:5.7.13}
+y_p=u_1y_1+u_2y_2
+\end{equation}
+to remind yourself of what you're doing.
+\item \label{item:compromiseB}% (b)
+Write the system
+\begin{equation} \label{eq:5.7.14}
+\begin{array}{rcl}
+u_1'y_1+u_2'y_2 &=& 0  \\
+u_1'y_1'+u_2'y_2' &=& \frac{F}{P_0}
+\end{array}
+\end{equation}
+for the specific problem  you're trying to solve.
+\item\label{item:compromiseC} % (c)
+Solve \eqref{eq:5.7.14} for $u_1'$ and $u_2'$ by any convenient method.
+\item \label{item:compromiseD}% (d)
+Obtain $u_1$ and $u_2$ by integrating $u_1'$ and $u_2'$,
+taking the constants of integration to be zero.
+\item \label{item:compromiseE}% (e)
+Substitute $u_1$ and $u_2$ into \eqref{eq:5.7.13}  to obtain $y_p$.
+\end{enumerate}
+
+\begin{example}\label{example:5.7.1}
+ Find a particular
+solution $y_p$ of
+\begin{equation} \label{eq:5.7.15}
+x^2y''-2xy'+2y=x^{9/2},
+\end{equation}
+given that $y_1=x$ and $y_2=x^2$ are solutions of the complementary
+equation
+$$
+x^2y''-2xy'+2y=0.
+$$
+ Then find the general solution of \eqref{eq:5.7.15}.
+
+
+\begin{explanation}
+We set
+$$
+y_p=u_1x+u_2x^2,
+$$
+where
+\begin{eqnarray*}
+u_1'x+u_2'x^2&=&0\\
+u_1'+2u_2'x&=&\frac{x^{9/2}}{x^2}=x^{5/2}
+\end{eqnarray*}
+From the first equation, $u_1'=-u_2'x$. Substituting this into the
+second equation yields $u_2'x=x^{5/2}$, so $u_2'=x^{3/2}$ and
+therefore $u_1'=-u_2'x=-x^{5/2}$. Integrating and taking the constants
+of integration to be zero yields
+$$
+u_1=-\frac{2}{7}x^{7/2}\quad\mbox{and}\quad u_2=\frac{2}{5}x^{5/2}.
+$$
+Therefore
+$$
+y_p=u_1x+u_2x^2
+=-\frac{2}{7}x^{7/2}x+\frac{2}{5}x^{5/2}x^2=\frac{4}{35}x^{9/2},
+$$
+and the general solution of  \eqref{eq:5.7.15} is
+$$
+y=\frac{4}{35}x^{9/2}+c_1x+c_2x^2.
+$$
+\end{explanation}
+\end{example}
+
+\begin{example}\label{example:5.7.2}
+ Find a particular
+solution $y_p$ of
+\begin{equation} \label{eq:5.7.16}
+(x-1)y''-xy'+y=(x-1)^2,
+\end{equation}
+given that $y_1=x$ and $y_2=e^x$ are solutions of the complementary
+equation
+$$
+(x-1)y''-xy'+y=0.
+$$
+ Then find the general solution of \eqref{eq:5.7.16}.
+
+\begin{explanation}
+We set
+$$
+y_p=u_1x+u_2e^x,
+$$
+where
+\begin{eqnarray*}
+u_1'x+u_2'e^x&=&0\\
+u_1'+u_2'e^x&=&\frac{(x-1)^2}{x-1}=x-1.
+\end{eqnarray*}
+Subtracting the first equation from the second yields
+$-u_1'(x-1)=x-1$, so $u_1'=-1$. From this and the first equation,
+$u_2'=-xe^{-x}u_1'=xe^{-x}$.
+Integrating and taking the constants of integration to be zero yields
+$$
+u_1=-x  \quad\mbox{and}\quad u_2=-(x+1)e^{-x}.
+$$
+Therefore
+$$
+y_p=u_1x+u_2e^x
+=(-x)x+(-(x+1)e^{-x})e^x=-x^2-x-1,
+$$
+so the general solution of \eqref{eq:5.7.16} is
+\begin{equation} \label{eq:5.7.17}
+y=y_p+c_1x+c_2e^x=-x^2-x-1+c_1x+c_2e^x = -x^2-1+(c_1-1)x+c_2e^x.
+\end{equation}
+However, since $c_1$ is an arbitrary constant, so is $c_1-1$;
+therefore, we  improve the appearance of this result by
+renaming the constant and writing the general solution as
+\begin{equation} \label{eq:5.7.18}
+y= -x^2-1+c_1x+c_2e^x
+\end{equation}
+\end{explanation}
+\end{example}
+
+There's nothing \textit{wrong} with leaving the general solution of
+\eqref{eq:5.7.16} in the form \eqref{eq:5.7.17};     however, we think
+you'll agree that \eqref{eq:5.7.18} is preferable. We can also view the
+transition from \eqref{eq:5.7.17} to \eqref{eq:5.7.18} differently. In
+this example the particular solution $y_p=-x^2-x-1$ contained the term
+$-x$, which satisfies the complementary equation. We can
+ drop this term and redefine $y_p=-x^2-1$, since
+ $-x^2-x-1$ is a solution of \eqref{eq:5.7.16} and $x$ is a solution
+of the complementary equation; hence, $-x^2-1=(-x^2-x-1)+x$
+is also a solution of \eqref{eq:5.7.16}. In general, it's always
+legitimate to drop linear combinations of $\{y_1,y_2\}$ from
+particular solutions obtained by variation of parameters. 
+%(See
+%Exercise~\ref{exer:5.7.36} for a general discussion of this question.)
+We'll do this in the following  examples and in the answers to
+exercises that ask  for a particular solution. Therefore, don't be
+concerned if your answer to such an exercise differs from ours only by
+a solution of the complementary equation.
+
+\begin{example}\label{example:5.7.3}
+ Find a particular solution of
+\begin{equation}  \label{eq:5.7.19}
+y''+3y'+2y=\frac{1}{1+e^x}.
+\end{equation}
+Then find the general solution.
+
+
+\begin{explanation}
+
+The characteristic polynomial of the complementary equation
+\begin{equation} \label{eq:5.7.20}
+y''+3y'+2y=0
+\end{equation}
+is $p(r)=r^2+3r+2=(r+1)(r+2)$, so
+$y_1=e^{-x}$ and $y_2=e^{-2x}$ form a fundamental set of solutions of
+\eqref{eq:5.7.20}.  We look for a particular solution of
+\eqref{eq:5.7.19} in the form
+$$
+y_p=u_1e^{-x}+u_2e^{-2x},
+$$
+where
+\begin{eqnarray*}
+u_1'e^{-x}+u_2'e^{-2x}&=&0\\
+-u_1'e^{-x}-2u_2'e^{-2x}&=&\frac{1}{1+e^x}.
+\end{eqnarray*}
+Adding these two equations yields
+$$
+-u_2'e^{-2x}=\frac{1}{1+e^x},\quad\mbox{so}\quad
+u_2'=-{e^{2x}\over 1+e^x}.
+ $$
+From the first equation,
+$$
+u_1'=-u_2'e^{-x}=\frac{e^x}{1+e^x}.
+$$
+Integrating by means of  the substitution $v=e^x$ and taking the
+constants of integration to be zero  yields
+ $$
+u_1=\int\frac{e^x}{1+e^x}\,dx=\int \frac{dv}{1+v}
+=\ln(1+v)=\ln(1+e^x)
+$$
+and
+\begin{eqnarray*}
+u_2&=&-\int\frac{e^{2x}}{1+e^x}\,dx=-\int \frac{v}{1+v}\,dv
+=\int\left[\frac{1}{1+v}-1\right]\,dv \\
+&=&\ln(1+v)-v=\ln(1+e^x)-e^x.
+\end{eqnarray*}
+Therefore
+\begin{eqnarray*}
+y_p&=&u_1e^{-x}+u_2e^{-2x}\\
+&=&[\ln(1+e^x)]e^{-x}+\left[\ln(1+e^x)-e^x\right]e^{-2x},
+\end{eqnarray*}
+so
+$$
+y_p=\left(e^{-x}+e^{-2x}\right)\ln(1+e^x)-e^{-x}.
+$$
+Since the last term on the right satisfies  the complementary
+equation, we drop it and redefine
+$$
+y_p=\left(e^{-x}+e^{-2x}\right)\ln(1+e^x).
+$$
+The general solution of
+ \eqref{eq:5.7.19} is
+$$
+y=y_p+c_1e^{-x}+c_2e^{-2x}=\left(e^{-x}+e^{-2x}\right)\ln(1+e^x)
++c_1e^{-x}+c_2e^{-2x}.
+$$
+\end{explanation}
+\end{example}
+
+
+\begin{example}\label{example:5.7.4}
+Solve the initial value problem
+\begin{equation} \label{eq:5.7.21}
+(x^2-1)y''+4xy'+2y=\frac{2}{x+1}, \quad  y(0)=-1,\quad y'(0)=-5,
+\end{equation}
+ given that
+$$
+y_1=\frac{1}{x-1}\quad\mbox{and}\quad y_2=\frac{1}{x+1}
+$$
+are  solutions of the complementary
+equation
+$$
+(x^2-1)y''+4xy'+2y=0.
+$$
+
+
+\begin{explanation}
+We first use variation of parameters to find a particular solution
+of
+$$
+(x^2-1)y''+4xy'+2y=\frac{2}{x+1}
+$$
+on $(-1,1)$ in the form
+$$
+y_p=\frac{u_1}{x-1}+\frac{u_2}{x+1},
+$$
+where
+\begin{eqnarray}
+\frac{u_1'}{x-1}+\frac{u_2'}{x+1}&=&0\label{eq:5.7.22}\\
+-\frac{u_1'}{(x-1)^2}-\frac{u_2'}{(x+1)^2}&=&\frac{2}{(x+1)(x^2-1)}.\nonumber
+\end{eqnarray}
+Multiplying the first equation by $1/(x-1)$ and adding the result to
+the second equation yields
+\begin{equation} \label{eq:5.7.23}
+\left[\frac{1}{x^2-1}-\frac{1}{(x+1)^2}\right]u_2'=\frac{2}{(x+1)(x^2-1)}.
+\end{equation}
+Since
+$$
+\left[\frac{1}{x^2-1}-\frac{1}{(x+1)^2}\right]=\frac{(x+1)-(x-1)}{(x+1)(x^2-1)}
+=\frac{2}{(x+1)(x^2-1)},
+$$
+\eqref{eq:5.7.23} implies that $u_2'=1$. From \eqref{eq:5.7.22},
+$$
+u_1'=-\frac{x-1}{x+1}u_2'=-\frac{x-1}{x+1}.
+$$
+Integrating and taking the constants of integration to be zero yields
+\begin{eqnarray*}
+u_1&=&-\int\frac{x-1}{x+1}\,dx=-\int\frac{x+1-2}{x+1}\,dx \\
+&=&\int\left[\frac{2}{x+1}-1\right]\,dx=2\ln(x+1)-x
+\end{eqnarray*}
+and
+$$
+u_2=\int\,dx=x.
+$$
+Therefore
+\begin{eqnarray*}
+y_p&=&\frac{u_1}{x-1}+\frac{u_2}{x+1}=\left[2\ln(x+1)-x\right]\frac{1}{x-1}
++x\frac{1}{x+1} \\
+&=&\frac{2\ln(x+1)}{x-1}+x\left[\frac{1}{x+1}-\frac{1}{x-1}\right]
+=\frac{2\ln(x+1)}{x-1}-\frac{2x}{(x+1)(x-1)}.
+\end{eqnarray*}
+However, since
+$$
+\frac{2x}{(x+1)(x-1)}=\left[\frac{1}{x+1}+\frac{1}{x-1}\right]
+$$
+is a solution of the complementary equation, we redefine
+$$
+y_p=\frac{2\ln(x+1)}{x-1}.
+$$
+Therefore  the general solution of  \eqref{eq:5.7.24} is
+\begin{equation} \label{eq:5.7.24}
+y=\frac{2\ln(x+1)}{x-1}+\frac{c_1}{x-1}+\frac{c_2}{x+1}.
+\end{equation}
+Differentiating this yields
+$$
+y'=\frac{2}{x^2-1}-\frac{2\ln(x+1)}{(x-1)^2}-\frac{c_1}{(x-1)^2}-\frac{c_2}{(x+1)^2}.
+$$
+Setting $x=0$ in the last two equations and imposing the initial conditions
+$y(0)=-1$ and $y'(0)=-5$ yields the system
+\begin{eqnarray*}
+-c_1+c_2&=&-1\\
+-2-c_1-c_2&=&-5
+\end{eqnarray*}
+The solution of this system is $c_1=2,\,c_2=1$.  Substituting
+these into
+\eqref{eq:5.7.24} yields
+\begin{eqnarray*}
+y&=&\frac{2\ln(x+1)}{x-1}+\frac{2}{x-1}+\frac{1}{x+1}\\
+&=&\frac{2\ln(x+1)}{x-1}+\frac{3x+1}{x^2-1}
+\end{eqnarray*}
+as the solution of  \eqref{eq:5.7.21}. The figure below shows a graph of the solution.
+
+
+\begin{image}
+  \includegraphics[height=1.5in]{fig050701.jpg} 
+\end{image}
+\end{explanation}
+\end{example}
+
+\subsection{Comparison of Methods}
+
+We've now considered three methods
+for solving  nonhomogeneous linear equations: undetermined
+coefficients, reduction of order, and variation of parameters. It's
+natural to ask which method is best for a given problem. The method of
+undetermined coefficients should be used for constant coefficient
+equations with forcing functions that are linear combinations of
+polynomials multiplied by functions of the form $e^{\alpha x}$,
+$e^{\lambda x}\cos \omega x$, or $e^{\lambda x}\sin \omega x$.
+Although the other two methods can be used to solve such problems,
+they will be more difficult except in the most trivial cases, because
+of the integrations involved.
+
+If the equation isn't  a constant coefficient equation or the forcing
+function isn't  of the form just specified,  the method of
+undetermined coefficients does not apply and the choice is necessarily
+between the other two methods. The case could be made that reduction
+of order is better because it requires only one solution of the
+complementary equation while variation of parameters requires two.
+However, variation of parameters will probably be easier if you
+already know a fundamental set of solutions of the complementary
+equation.
+
+
+
+\section*{Text Source}
+Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
+
+\href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
+
+\end{document}
+
+
