@@ -266,7 +266,19 @@ If this value of $k$ is used in the solution above, the prediction overestimates
 \includegraphics{hotpotato_4.png}
 \end{image}
 
+The first reason for this overestimation is the effect of the lag which is explained above.  As Newton's Law of Heating does not predict this lag, the actual experimental data remains well below the predicted temperature.  The second reason for overestimation is the effect of water vaporization.  The potato's temperature rises to $212^{\text{o}}\text{F}$ by the last couple minutes of the hour.  By then the temperature has leveled off in an asymptotic way, approaching the boiling point of water and falling well below the predicted temperature.  Just as with the temperature lag, Newton's Law of Heating has no way of predicting this complicating aspect involving water vaporization.  The temperature of the potato would rise past this temperature only after all of the water had evaporated, which would take a very long time and leave a very tough and unappetizing spud.
+We can utilize the same $k$ value to estimate the time it will take the potato to cool when left out on a plate or stovetop.  At around $180^{\text{o}}\text{F}$, a person could consider taking a bite without getting burned, so this will be our target temperature.  We will assume that the same basic relationships and parameters for heating will apply with equal accuracy to the cooling process.  Newton's Law applies equally to heating and cooling, so we can use the same differential equation and solution.  The only difference here is that the medium temperature  is room temperature, which is $72^{\text{o}}\text{F}$ in this example.  Now, $T_0$, the initial temperature, is the temperature out of the oven.  Zero time is considered to be when the potato is removed from the oven.  In this example, that is $212^{\text{o}}\text{F}$.  Your potato will likely be at or near this temperature when it finishes its hour in the oven.  Using the numbers particular to your experiment, plug everything into the solution and solve for $t$, which is the time (in minutes) that the potato will take to reach a target temperature of $T=180^{\text{o}}\text{F}$.
+\[
+T = T_m-(T_m-T_0)e^{-kt}
+\]
 
+Using the numbers in this example, the necessary cooling time is found to be about $17.9$ minutes.  Note that the potato would cool much faster if you cut or mashed it.  Increasing the surface area promotes faster cooling.  Yet cutting or mashing would significantly increase the temperature decay constant and our previous value would not apply.
 
+In the experiment, the potato cools to the target temperature of $180^{\text{o}}\text{F}$ after about $17$ minutes, which means our prediction had a high degree of accuracy as it was within one minute of the observed time.  The following figure shows a very good correlation between the prediction and the experimental cooling data over an entire hour:
 
+\begin{image}
+\includegraphics{hotpotato_5.png}
+\end{image}
+
+How close was your prediction?  Do you see a lag with the cooling process as well?  A small lag is noticeable in the figure above, with the potato temperature staying slightly warmer than predicted in the first several minutes.  It is remarkable that an uncut potato can stay warm for so long.  In days past, those who lived in cold climates would use hot potatoes as hand warmers (and then lunch!).  One such use of hot potatoes in coat pockets is mentioned in the novel Little House in the Big Woods by Laura Ingalls Wilder.
 \end{document}
