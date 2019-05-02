@@ -236,4 +236,37 @@ For smaller time steps, note that the change in temperature with time (the slope
 \includegraphics{hotpotato_3.png}
 \end{image}
 
+After about ten minutes, $\frac{\Delta T}{\Delta t}$ is averaging around $4.5^{\text{o}}\text{F}/\text{min}$. Since this rate of change in temperature is roughly constant, we may replace the derivative in the differential equation with an average rate of change over some time step:
+\[
+\frac{dT}{dt}\approx \frac{\Delta T}{\Delta t}
+\]
+
+Rearranging the differential equation gives the following:
+\[
+k=\frac{\Delta T}{\Delta(T_m-T)}
+\]
+
+We could make an arbitrary selection of two data points at ten and fifteen minutes, with associated temperatures of $97^{\text{o}}\text{F}$ and $120^{\text{o}}\text{F}$.  These times are far enough apart to have a sizable temperature change where rounding to the nearest unit of temperature will not impact the estimate.  However, they are close enough that the slope does not change much over that time range.  Note that any selection of two time-temperature data points after the initial ten minute lag period would give a reasonable estimate.  The change in temperature and time may then be plugged into the above equation, and an average difference of the medium minus object temperature ($T_m-T$) may be used since $T$ changes:
+\begin{center}
+$T_m=425^{\text{o}}\text{F}$
+
+At $T=97^{\text{o}}\text{F}$, $T_-T=328^{\text{o}}\text{F}$
+
+At $T=120^{\text{o}}\text{F}$, $T_-T=305^{\text{o}}\text{F}$
+
+Average difference: $T_m-T=\frac{328+305}{2}=316.5^{\text{o}}\text{F}$
+\end{center}
+\[
+k\approx\frac{120-97}{(15-10)\times316.5}\approx 0.01453\text{min}^{-1}
+\]
+
+If this value of $k$ is used in the solution above, the prediction overestimates the trajectory of the temperature an hour long heating process:
+
+\begin{image}
+\includegraphics{hotpotato_4.png}
+\end{image}
+
+
+
+
 \end{document}
