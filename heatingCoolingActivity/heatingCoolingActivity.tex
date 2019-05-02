@@ -156,6 +156,39 @@ Expand for discussion.
 \desmos{r3o4cg6dqm}{800}{600}  
 \end{center}
 
-This is a change just to check if things are being update.
+\section*{Solving the differential equation}
+
+Recall that the differential equation bears a strong resemblance to an exponential decay problem.  As with that model, separation and integration provides a method to quickly solve for temperature as a function of time:
+\[
+\frac{dT}{dt}=-k(T-T_m)
+\]
+
+Take a moment and attempt to solve this differential equation to find a solution for temperature as a function of time.  Don?t look ahead until you have found a solution or are stuck.  Look back to Trench?s use of ?separation of variables? in Examples 2.1.3 and 2.1.4 of his text.
+   
+The first step is to separate the equation, putting the dependent temperature variable on the left hand side and the independent time ($dt$)  variable on the right hand side.
+\[
+\int\frac{dT}{T-T_m}=\int -k\,dt
+\]
+Integrating once produces a logarithm on the left side and an explicit time variable on the right side, along with a constant of integration.
+\[
+\ln|T-T_m|=-kt+C
+\]
+Next, we raise the natural base $e$ to the power of both sides, annihilating the logarithm.  The absolute value sign can be discarded by reversing the order of the difference because ? for heating ? the surrounding temperature of the oven is always greater than the temperature of the object ($T_m-T). This process produces a new constant $A=e^C$ which must be positive.
+\[
+T_m-T=Ae^{-kt}
+\] 
+Applying an initial condition $T(0)=T_0$ allows the positive constant $A$ to be written in terms of the temperature of the medium and the initial temperature of the object:
+\[
+A=T_m-T_0
+\]
+The final solution gives the temperature explicitly as a function of time and the other parameters.
+\[
+T=T_m-(T_m-T_0)e^{-kt}
+\]
+
+With a given oven temperature $T_m$ and an initial temperature of the object $T_0$ only the ``temperature decay constant'' of the medium  needs to be specified to predict the trajectory of temperature with time.  Notice that at very long times the second term decays to zero meaning that the object?s temperature will approach the temperature of the surroundings.
+
+This solution is used to produce a plot of temperature vs. time for a potato heating from room temperature towards an oven temperature of $425^{\text{o}}\text{F}.  Different sample values of the temperature decay constant  are used.  Higher values of  result in faster heating towards the final temperature.
+
 
 \end{document}
