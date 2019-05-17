@@ -159,7 +159,7 @@ implies that every initial value problem for \eqref{eq:5.1.8}  has a
 unique solution on $(-\infty,\infty)$.
 
 \begin{enumerate}
-    \item \label{item:5.1.2a}  (a)
+    \item \label{item:5.1.2a}  %(a)
 Verify that $y_1=\cos\omega x$ and $y_2=\sin\omega x$ are
 solutions of \eqref{eq:5.1.8} on $(-\infty,\infty)$.
 \item \label{item:5.1.2b}  % (b)
@@ -178,6 +178,7 @@ and
 $y_1''=-\omega^2\cos\omega x=-\omega^2y_1$, so  $y_1''+\omega^2y_1=0$.
 If $y_2=\sin\omega x$ then, $y_2'=\omega\cos\omega x$ and
 $y_2''=-\omega^2\sin\omega x=-\omega^2y_2$, so  $y_2''+\omega^2y_2=0$.
+
 \ref{item:5.1.2b} If
 \begin{equation}\label{eq:5.1.10}
 y=c_1\cos\omega x+c_2\sin\omega x
@@ -199,6 +200,7 @@ c_2\omega^2(-\sin\omega x+\sin\omega x)=0
 \end{eqnarray*}
 for all $x$. Therefore $y=c_1\cos\omega x+c_2\sin\omega x$ is a
 solution of \eqref{eq:5.1.8} on $(-\infty,\infty)$.
+
 \ref{item:5.1.2c}
 To solve
 \eqref{eq:5.1.9}, we must choosing $c_1$ and $c_2$ in \eqref{eq:5.1.10}
@@ -290,11 +292,12 @@ y''=2c_1+\frac{6c_2}{x^4},
 $$
 so
 \begin{eqnarray*}
-x^2y''+xy'-4y&=&x^2\dst{\left(2c_1+\frac{6c_2}{x^4}\right)}
-+x\dst{\left(2c_1x-\frac{2c_2}{x^3}\right)}
--4\dst{\left(c_1x^2+\frac{c_2}{x^2}\right)}\\[2\jot]
+x^2y''+xy'-4y&=&x^2\left(2c_1+\frac{6c_2}{x^4}\right)
++x\left(2c_1x-\frac{2c_2}{x^3}\right)
+-4\left(c_1x^2+\frac{c_2}{x^2}\right)\\
 &=&c_1(2x^2+2x^2-4x^2)
-+c_2\dst{\left(\frac{6}{x^2}-\frac{2}{x^2}-\frac{4}{x^2}\right)}\\[2\jot]
++c_2\left(\frac{6}{x^2}-\frac{2}{x^2}-\frac{4}{x^2}\right)
+\\
 &=&c_1\cdot0+c_2\cdot0=0
 \end{eqnarray*}
 for $x$ in $(-\infty,0)$ or $(0,\infty)$.
@@ -516,9 +519,9 @@ y_1(x_0)y_2'(x_0)-y_1'(x_0)y_2(x_0)\ne0
 quantity on the left  to obtain
 \begin{equation}\label{eq:5.1.26}
 \begin{array}{rcl}
-c_1&=&\dst\frac{y_2'(x_0)k_0-y_2(x_0)k_1}
+c_1&=&\frac{y_2'(x_0)k_0-y_2(x_0)k_1}
 {y_1(x_0)y_2'(x_0)-y_1'(x_0)y_2(x_0)}\\[4\jot]
-c_2&=&\dst\frac{y_1(x_0)k_1-y_1'(x_0)k_0}
+c_2&=&\frac{y_1(x_0)k_1-y_1'(x_0)k_0}
 {y_1(x_0)y_2'(x_0)-y_1'(x_0)y_2(x_0)},
 \end{array}
 \end{equation}
@@ -559,9 +562,9 @@ y''_2 =-py'_2-qy_2.
 $$
 Substituting these into \eqref{eq:5.1.30} yields
 \begin{eqnarray*}
-W'&=& \dst -y_1\bigl(py'_2+qy_2\bigr)
+W'&=& -y_1\bigl(py'_2+qy_2\bigr)
 +y_2\bigl(py'_1+qy_1\bigr) \\
-&=& \dst -p(y_1y'_2-y_2y'_1)-q(y_1y_2-y_2y_1)\\
+&=&  -p(y_1y'_2-y_2y'_1)-q(y_1y_2-y_2y_1)\\
 &=& -p(y_1y'_2-y_2y'_1)=-pW.
 \end{eqnarray*}
 Therefore $W'+p(x)W=0$;
@@ -637,10 +640,10 @@ for all $x$.
 formula
 by showing that $W$ is constant, which is true, since
 \begin{eqnarray*}
-W(x)&=&\dst{\left| \begin{array}{cc}
+W(x)&=&\left| \begin{array}{cc}
 \cos\omega x & \sin\omega x \\
 -\omega\sin\omega x &\omega\cos\omega x
-\end{array} \right|}\\
+\end{array} \right|\\
 &=&\cos\omega x (\omega\cos\omega x)-(-\omega\sin\omega x)\sin\omega
 x\\ &=&\omega(\cos^2\omega x+\sin^2\omega x)=\omega
 \end{eqnarray*}
@@ -670,7 +673,7 @@ $$
 so Abel's formula becomes
 \begin{eqnarray*}
 W(x)&=&W(x_0)e^{-\ln(x/x_0)}=W(x_0)\frac{x_0}{x}\\
-&=&-\left(\frac{4}{x_0}\right)\left(\frac{x_0}{x}\right)\mbox{\quad from
+&=&-\left(\frac{4}{x_0}\right)\left(\frac{x_0}{x}\right)\quad\mbox{from
 \eqref{eq:5.1.31}}\\
 &=&-\frac{4}{x},
 \end{eqnarray*}
@@ -790,7 +793,7 @@ not both zero.
 Under the assumptions of Theorem~\ref{thmtype:5.1.7}, suppose
 $y_{1}$ and $y_{2}$ are  solutions  of \eqref{eq:5.1.34}   such that
 \begin{equation} \label{eq:5.1.35}
-\alpha y_{1}(c)+\beta y_{1}'(c)=0\text{\;    and\; \;  }
+\alpha y_{1}(c)+\beta y_{1}'(c)=0\quad\text{and}\quad
 \alpha y_{2}(c)+\beta y_{2}'(c)=0.
 \end{equation}
 Then $\{y_{1},y_{2}\}$ isn't  linearly independent on $(a,b)$.
@@ -802,7 +805,7 @@ implies that
 $$
 \left|\begin{array}{ccccccc}
 y_{1}(c)&y_{1}'(c)\\y_{2}(c)& y_{2}'(c)
-\end{array}\right|=0, \text{\;    so\;  \;  }
+\end{array}\right|=0, \quad\text{so}\quad
 \left|\begin{array}{cccccc}
 y_{1}(c)&y_{2}(c)\\ y_{1}'(c)&y_{2}'(c)
 \end{array}\right|=0
