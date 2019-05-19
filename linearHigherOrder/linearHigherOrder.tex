@@ -1,0 +1,495 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Introduction to Linear Higher Order Equations}%\label{Module 7-ADEF}
+
+
+\begin{document}
+
+\begin{abstract}
+
+\end{abstract}
+
+\maketitle
+
+\section*{Introduction to Linear Higher Order Equations}
+
+An $n$th order differential equation is said to be \dfn{linear} if it
+can be written in the form
+\begin{equation}\label{eq:9.1.1}
+y^{(n)}+p_1(x)y^{(n-1)}+\cdots+p_n(x)y=f(x).
+\end{equation}
+We considered equations of this form with $n=1$ in
+Section~2.1 and with $n=2$ in
+Chapter~5. In this chapter $n$ is an arbitrary
+positive integer.
+
+In this section we sketch the general theory of linear $n$th order
+equations. Since this theory has already been discussed for $n=2$ in
+Sections~5.1\; and 5.3, we'll omit
+proofs.
+
+For convenience, we consider linear differential equations written
+as
+\begin{equation}\label{eq:9.1.2}
+P_0(x)y^{(n)}+P_1(x)y^{(n-1)}+\cdots+P_n(x)y=F(x),
+\end{equation}
+which can be rewritten as \eqref{eq:9.1.1} on any interval on
+which $P_0$ has no zeros, with $p_1=P_1/P_0$, \dots, $p_n=P_n/P_0$ and
+$f=F/P_0$. For simplicity, throughout this chapter we'll
+abbreviate the left side of \eqref{eq:9.1.2} by $Ly$; that is,
+$$
+Ly=P_0y^{(n)}+P_1y^{(n-1)}+\cdots+P_ny.
+$$
+We say that the equation $Ly=F$ is \dfn{normal} on $(a,b)$ if
+$P_0$, $P_1$, \dots, $P_n$ and $F$ are continuous on $(a,b)$ and $P_0$ has
+no zeros on $(a,b)$. If this is so then $Ly=F$ can be
+written as \eqref{eq:9.1.1} with $p_1, \dots, p_n$ and $f$ continuous on
+$(a,b)$.
+
+The next theorem is analogous to
+Theorem~\ref{thmtype:5.3.1}.
+
+\begin{theorem}\label{thmtype:9.1.1}
+Suppose   $Ly=F$ is normal on $(a,b)$, let $x_0$ be a point in
+$(a,b),$
+and let $k_0$, $k_1$, \dots, $k_{n-1}$ be arbitrary real numbers. Then
+the initial value problem
+$$
+Ly=F, \quad  y(x_0)=k_0,\quad y'(x_0)=k_1,\dots,\quad y^{(n-1)}(x_0)=k_{n-1}
+$$
+has a unique solution on $(a,b)$.
+\end{theorem}
+
+\subsection*{Homogeneous Equations}
+
+Eqn.~\eqref{eq:9.1.2} is said to be \dfn{homogeneous} if $F\equiv0$ and \dfn{nonhomogeneous} otherwise. Since $y\equiv0$ is obviously a
+solution of $Ly=0$, we call it the \dfn{trivial} solution. Any other
+solution is \dfn{nontrivial}.
+
+
+
+If $y_1, y_2, \dots, y_n$ are defined on $(a,b)$ and
+$c_1, c_2, \dots, c_n$ are constants, then
+\begin{equation}\label{eq:9.1.3}
+y=c_1y_1+c_2y_2+\cdots+c_ny_n
+\end{equation}
+is a \dfn{linear combination} of $\{y_1,y_2\dots,y_n\}$. It's
+easy
+ to show that if $y_1, y_2, \dots, y_n$ are solutions of
+$Ly=0$ on $(a,b)$, then so is any linear combination of
+$\{y_1,y_2,\dots,y_n\}$. (See the proof of Theorem~\ref{thmtype:5.1.2}.) We
+say that $\{y_1,y_2,\dots,y_n\}$ is a \dfn{fundamental set of
+solutions of $Ly=0$ on} $(a,b)$ if every solution of $Ly=0$ on
+$(a,b)$ can be written as a linear combination of
+$\{y_1,y_2,\dots,y_n\}$, as in \eqref{eq:9.1.3}. In this case we say that
+\eqref{eq:9.1.3} is the \dfn{general solution of $Ly=0$ on
+$(a,b)$}.
+
+
+It can be shown (Exercises~\ref{exer:9.1.14} and \ref{exer:9.1.15}) that if
+the equation $Ly=0$ is normal on $(a,b)$ then it has
+infinitely many fundamental  sets of solutions  on $(a,b)$.
+The next definition will help to identify fundamental sets of
+solutions of $Ly=0$.
+
+We say that $\{y_1,y_2,\dots,y_n\}$ is \dfn{linearly independent} on
+$(a,b)$ if the only constants $c_1, c_2, \dots, c_n$ such that
+\begin{equation}\label{eq:9.1.4}
+c_1y_1(x)+c_2y_2(x)+\cdots+c_ny_n(x)=0,\quad a<x<b,
+\end{equation}
+are $c_1=c_2=\cdots=c_n=0$. If \eqref{eq:9.1.4} holds for some set of
+constants $c_1, c_2, \dots, c_n$ that are not all zero, then
+$\{y_1,y_2,\dots,y_n\}$ is \dfn{linearly dependent} on $(a,b)$
+
+The next theorem is analogous to
+Theorem~\ref{thmtype:5.1.3}.
+
+\begin{theorem}\label{thmtype:9.1.2}
+If  $Ly=0$ is normal on $(a,b)$, then a set
+$\{y_1,y_2,\dots,y_n\}$ of $n$ solutions of $Ly=0$ on $(a,b)$ is a
+fundamental set if and only if it's linearly independent on $(a,b)$.
+\end{theorem}
+
+\begin{example}\label{example:9.1.1}
+The equation
+\begin{equation}\label{eq:9.1.5}
+x^3y'''-x^2y''-2xy'+6y=0
+\end{equation}
+is normal and has the solutions $y_1=x^2$, $y_2=x^3$, and $y_3=1/x$ on
+$(-\infty,0)$ and $(0,\infty)$.  Show that $\{y_1,y_2,y_3\}$
+is linearly independent on $(-\infty, 0)$ and $(0,\infty)$. Then find
+the general solution of \eqref{eq:9.1.5} on $(-\infty, 0)$ and
+$(0,\infty)$.
+
+
+\begin{explanation}
+Suppose
+\begin{equation} \label{eq:9.1.6}
+c_1x^2+c_2x^3+\frac{c_3}{x}=0
+\end{equation}
+on $(0,\infty)$. We must show that $c_1=c_2=c_3=0$. Differentiating
+\eqref{eq:9.1.6} twice yields  the system
+\begin{equation} \label{eq:9.1.7}
+\begin{array}{rcl}
+c_1x^2+c_2x^3+\frac{c_3}{x}&=&0\\
+2c_1x+3c_2x^2-\frac{c_3}{x^2}&=&0\\
+2c_1+6c_2x+\frac{2c_3}{x^3}&=&0.
+\end{array}
+\end{equation}
+If \eqref{eq:9.1.7} holds for all $x$ in $(0,\infty)$, then it
+certainly  holds at $x=1$;  therefore,
+\begin{equation} \label{eq:9.1.8}
+\begin{array}{rcl}
+c_1+c_2+c_3&=&0\\
+2c_1+3c_2-c_3&=&0\\
+2c_1+6c_2+2c_3&=&0.
+\end{array}
+\end{equation}
+By solving this system directly, you can verify that it has only the
+trivial solution $c_1=c_2=c_3=0$;     however, for our purposes it's more
+useful to recall from linear algebra that a homogeneous linear system
+of $n$ equations in $n$ unknowns has only the trivial solution if its
+determinant is nonzero. Since the determinant of \eqref{eq:9.1.8} is
+$$
+\begin{vmatrix}1&1&1\\2&3&-1\\2&6&2\end{vmatrix}=
+\begin{vmatrix}1&0&0\\2&1&-3\\2&4&0\end{vmatrix}=12,
+$$
+it follows that \eqref{eq:9.1.8} has only the trivial solution, so
+$\{y_1,y_2,y_3\}$ is linearly independent on $(0,\infty)$. Now
+Theorem~\ref{thmtype:9.1.2} implies that
+$$
+y=c_1x^2+c_2x^3+\frac{c_3}{x}
+$$
+is the general solution of \eqref{eq:9.1.5} on $(0,\infty)$.
+To see that this is also true
+ on $(-\infty,0)$,  assume that \eqref{eq:9.1.6} holds on
+$(-\infty,0)$. Setting $x=-1$ in \eqref{eq:9.1.7} yields
+\begin{eqnarray*}
+c_1-c_2-c_3&=&0\\
+-2c_1+3c_2-c_3&=&0\\
+2c_1-6c_2-2c_3&=&0.
+\end{eqnarray*}
+Since the determinant of this system is
+$$
+\begin{vmatrix}1&-1&-1\\-2&3&-1\\2&-6&-2\end{vmatrix}=
+\begin{vmatrix}1&0&0\\-2&1&-3\\2&-4&0\end{vmatrix}=-12,
+$$
+it follows that $c_1=c_2=c_3=0$; that is, $\{y_1,y_2,y_3\}$
+is linearly independent on $(-\infty,0)$.
+
+\end{explanation}
+\end{example}
+
+\begin{example}\label{example:9.1.2}
+The equation
+\begin{equation}\label{eq:9.1.9}
+y^{(4)}+y'''-7y''-y'+6y=0
+\end{equation}
+is normal and has the solutions $y_1=e^x$, $y_2=e^{-x}$, $y_3=e^{2x}$,
+and $y_4=e^{-3x}$ on $(-\infty,\infty)$. (Verify.) Show that
+$\{y_1,y_2,y_3,y_4\}$ is linearly independent on $(-\infty,\infty)$.
+Then find the general solution of \eqref{eq:9.1.9}.
+
+\begin{explanation}
+Suppose   $c_1$, $c_2$, $c_3$, and $c_4$
+are constants such that
+\begin{equation} \label{eq:9.1.10}
+c_1e^x+c_2e^{-x}+c_3e^{2x}+c_4e^{-3x}=0
+\end{equation}
+for all $x$. We must show that $c_1=c_2=c_3=c_4=0$. Differentiating
+\eqref{eq:9.1.10} three times yields the system
+\begin{equation} \label{eq:9.1.11}
+\begin{array}{rcl}
+c_1e^x+c_2e^{-x}+c_3e^{2x}+c_4e^{-3x}&=&0\\
+c_1e^x-c_2e^{-x}+2c_3e^{2x}-3c_4e^{-3x}&=&0\\
+c_1e^x+c_2e^{-x}+4c_3e^{2x}+9c_4e^{-3x}&=&0\\
+c_1e^x-c_2e^{-x}+8c_3e^{2x}-27c_4e^{-3x}&=&0.
+\end{array}
+\end{equation}
+If \eqref{eq:9.1.11} holds for all $x$, then it certainly holds for $x=0$.
+Therefore
+$$
+\begin{array}{rcl}
+c_1+c_2+c_3+c_4&=&0\\
+c_1-c_2+2c_3-3c_4&=&0\\
+c_1+c_2+4c_3+9c_4&=&0\\
+c_1-c_2+8c_3-27c_4&=&0.
+\end{array}
+$$
+The determinant of this system is
+
+\begin{equation} \label{eq:9.1.12}
+\begin{array}{ll}
+&\begin{vmatrix}1&1&1&1\\1&-1&2&-3\\1&1&4&9\\
+1&-1&8&-27\end{vmatrix}=
+\begin{vmatrix}1&1&1&1\\0&-2&1&-4\\0&0&3&8\\
+0&-2&7&-28\end{vmatrix}\\
+=&\begin{vmatrix}-2&1&-4\\0&3&8\\
+-2&7&-28\end{vmatrix}
+=\begin{vmatrix}-2&1&-4\\0&3&8
+\\0&6&-24\end{vmatrix}\\
+=&-2\begin{vmatrix}3&8\\6&-24\end{vmatrix}\\
+=&240
+\end{array}
+\end{equation}
+
+so the system has only the trivial solution $c_1=c_2=c_3=c_4=0$.
+Now Theorem~\ref{thmtype:9.1.2} implies that
+$$
+y=c_1e^x+c_2e^{-x}+c_3e^{2x}+c_4e^{-3x}
+$$
+is the general solution of \eqref{eq:9.1.9}.
+
+\end{explanation}
+\end{example}
+
+\subsection*{The Wronskian}
+
+We can use the method used in Examples~\ref{example:9.1.1} and
+\ref{example:9.1.2} to test $n$ solutions $\{y_1,y_2,\dots,y_n\}$ of any
+$n$th order equation $Ly=0$ for linear independence on an interval
+$(a,b)$ on which the equation is normal. Thus, if $c_1, c_2 ,\dots, c_n$ are constants such that
+$$
+c_1y_1+c_2y_2+\cdots+c_ny_n=0,\quad a<x<b,
+$$
+then differentiating $n-1$ times leads to the $n\times n$
+system of equations
+\begin{equation} \label{eq:9.1.13}
+\begin{array}{rcl}
+c_1y_1(x)+c_2y_2(x)+&\cdots&+c_ny_n(x)=0\\
+c_1y_1'(x)+c_2y_2'(x)+&\cdots&+c_ny_n'(x)=0\\
+&\vdots&
+&&\\
+c_1y_1^{(n-1)}(x)+c_2y_2^{(n-1)}(x)+&\cdots&+c_ny_n^{(n-1)}(x)
+=0
+\end{array}
+\end{equation}
+for $c_1, c_2, \dots, c_n$. For a fixed $x$,  the determinant of this
+system is
+$$
+W(x)=\begin{vmatrix}
+y_1(x)&y_2(x)&\cdots&y_n(x)\\
+y'_1(x)&y'_2(x)&\cdots&y_n'(x)\\
+\vdots&\vdots&\ddots&\vdots\\
+y_1^{(n-1)}(x)&y_2^{(n-1)}(x)&\cdots&y_n^{(n-1)}(x)
+\end{vmatrix}
+$$
+We call this determinant the
+\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Wronski.html}{Wronskian} of
+$\{y_1,y_2,\dots,y_n\}$. If $W(x)\neq 0$ for some $x$ in $(a,b)$ then
+ the system \eqref{eq:9.1.13} has only the trivial solution
+$c_1=c_2=\cdots=c_n=0$, and Theorem~\ref{thmtype:9.1.2} implies that
+$$
+y=c_1y_1+c_2y_2+\cdots+c_ny_n
+$$
+is the general solution of $Ly=0$ on $(a,b)$.
+
+
+The next theorem generalizes Theorem~\ref{thmtype:5.1.4}.
+%The proof is sketched in (Exercises~\ref{exer:9.1.17}--\ref{exer:9.1.20}).
+
+\begin{theorem}\label{thmtype:9.1.3}
+ Suppose the   homogeneous linear $n$th order equation
+\begin{equation}\label{eq:9.1.14}
+P_0(x)y^{(n)}+P_1(x)y^{n-1}+\cdots+P_n(x)y=0
+\end{equation}
+is normal on $(a,b),$ let $y_1, y_2, \dots, y_n$ be solutions of
+\eqref{eq:9.1.14} on $(a,b)$, and let $x_0$ be in $(a,b)$. Then the
+Wronskian of $\{y_1,y_2,\dots,y_n\}$ is given by
+\begin{equation}  \label{eq:9.1.15}
+W(x)=W(x_0)\exp\left\{-\int^x_{x_0}\frac{P_1(t)}{P_0(t)}\,
+dt\right\},\quad a<x<b.
+\end{equation}
+Therefore,  either $W$ has no zeros in  $(a,b)$ or $W\equiv0$
+on  $(a,b)$.
+\end{theorem}
+
+
+Formula \eqref{eq:9.1.15} is
+ \href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Abel.html}{Abel's formula}.
+
+The next theorem is analogous to
+Theorem~\ref{thmtype:5.1.6}.
+
+\begin{theorem}\label{thmtype:9.1.4}
+Suppose $Ly=0$ is normal on $(a,b)$ and let $y_1, y_2, \dots, y_n$
+be $n$ solutions of $Ly=0$ on $(a,b)$. Then the following statements
+are equivalent;  that is, they are either all true or all false:
+\begin{enumerate}
+\item\label{item:9.1.4a} % (a)
+The general solution of $Ly=0$ on $(a,b)$ is
+$y=c_1y_1+c_2y_2+\cdots+c_ny_n$.
+\item\label{item:9.1.4b} % (b)
+ $\{y_1,y_2,\dots,y_n\}$ is a fundamental set of solutions of
+$Ly=0$ on $(a,b)$.
+\item\label{item:9.1.4c} % (c)
+$\{y_1,y_2,\dots,y_n\}$ is linearly independent on $(a,b)$.
+\item\label{item:9.1.4d} % (d)
+The Wronskian of $\{y_1,y_2,\dots,y_n\}$ is nonzero at some point in
+$(a,b)$.
+\item\label{item:9.1.4e} % (e)
+The Wronskian of $\{y_1,y_2,\dots,y_n\}$ is nonzero at all points in
+$(a,b)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{example}\label{example:9.1.3}
+In Example~\ref{example:9.1.1} we saw that the solutions $y_1=x^2$,
+$y_2=x^3$, and $y_3=1/x$ of
+$$
+x^3y'''-x^2y''-2xy'+6y=0
+$$
+are linearly independent on $(-\infty,0)$ and $(0,\infty)$. Calculate
+the Wronskian  of $\{y_1,y_2,y_3\}$.
+
+\begin{explanation}
+If $x\neq 0$,  then
+$$
+W(x)=\begin{vmatrix}
+x^2&x^3&1/x\\
+2x&3x^2&-1/x^2\\
+2&6x&2/x^3\end{vmatrix}
+=2x^3\begin{vmatrix}
+1&x&1/x^3\\2&3x&-1/x^3
+\\1&3x&1/x^3\end{vmatrix},
+$$
+where we factored $x^2$, $x$, and $2$ out of the first, second, and
+third  rows of
+$W(x)$, respectively. Adding the second row of the last determinant
+to the first and third rows yields
+$$
+W(x)=2x^3\begin{vmatrix}
+3&4x&0\\
+2&3x&-1/x^3\\
+3&6x&0\end{vmatrix}
+=2x^3\left(\frac{1}{x^3}\right)\begin{vmatrix}3&4x\\3&6x
+\end{vmatrix}=12x
+$$
+Therefore $W(x)\neq 0$ on $(-\infty,0)$ and $(0,\infty)$.
+\end{explanation}
+\end{example}
+
+\begin{example}\label{example:9.1.4} In
+Example~\ref{example:9.1.2} we saw that the solutions $y_1=e^x$,
+$y_2=e^{-x}$,
+$y_3=e^{2x}$, and $y_4=e^{-3x}$ of
+$$
+y^{(4)}+y'''-7y''-y'+6y=0
+$$
+are linearly independent on every open interval.
+Calculate the Wronskian  of $\{y_1,y_2,y_3,y_4\}$.
+
+\begin{explanation}
+For all $x$,
+$$
+W(x)=\begin{vmatrix}
+e^x&e^{-x}&e^{2x}&e^{-3x}\\
+e^x&-e^{-x}&2e^{2x}&-3e^{-3x}\\
+e^x&e^{-x}&4e^{2x}&9e^{-3x}\\
+e^x&-e^{-x}&8e^{2x}&-27e^{-3x}
+\end{vmatrix}
+$$
+Factoring the exponential common factor from each row yields
+$$
+W(x)=e^{-x}\begin{vmatrix}1&1&1&1\\1&-1&2&-3\\1&1&4&9\\
+1&-1&8&-27\end{vmatrix}=240e^{-x}
+$$
+from \eqref{eq:9.1.12}.
+\end{explanation}
+\end{example}
+
+\begin{remark}
+Under the assumptions of Theorem~\ref{thmtype:9.1.4}, it isn't
+necessary to obtain a formula for $W(x)$. Just evaluate $W(x)$
+at a convenient point in $(a,b)$, as we did in
+Examples~\ref{example:9.1.1} and \ref{example:9.1.2}.
+\end{remark}
+
+
+
+\begin{theorem}\label{thmtype:9.1.5}
+Suppose $c$ is in $(a,b)$ and $\alpha_{1}, \alpha_{2}, \dots$,
+are real numbers, not all zero.
+Under the assumptions of Theorem~\ref{thmtype:10.3.3}, suppose
+$y_{1}$ and $y_{2}$ are  solutions  of \eqref{eq:5.1.35}   such that
+\begin{equation} \label{eq:9.1.16}
+\alpha y_{i}(c)+ y_{i}'(c)+\cdots +y_{i}^{(n-1)}(c)=0,\quad 1\leq i\leq n.
+\end{equation}
+Then $\{y_{1},y_{2},\dots y_{n}\}$ isn't  linearly independent on $(a,b).$
+\end{theorem}
+
+
+\begin{proof} Since $\alpha_{1}, \alpha_{2}, \dots, \alpha_{n}$
+are not all zero,
+\eqref{eq:9.1.14} implies that
+$$
+\begin{vmatrix}
+y_{1}(c)&y_{1}'(c)&\cdots&y_{1}^{(n-1)}(c)\\
+y_{2}(c)&y_{2}'(c)&\cdots&y_{2}^{(n-1)}(c)\\
+\vdots&\vdots&\ddots&\vdots\\
+y_{n}(c)&y_{n}'(c)&\cdots&y_{n}^{(n-1)}(c)\\
+\end{vmatrix}=0,
+$$
+so
+$$
+\begin{vmatrix}
+y_{1}(c)&y_{2}(c)&\cdots& y_{n}(c)\\
+y_{1}'(c)&y_{2}'(c)&\cdots& y_{n}'(c)\\
+\vdots&\vdots&\ddots&\vdots\\
+y_{1}^{(n-1)}(c)&y_{2}^{(n-1)}(c)(c)&\cdots& y_{n}^{(n-1)}(c)(c)\\
+\end{vmatrix}=0
+$$
+
+and Theorem~\ref{thmtype:9.1.4} implies the stated conclusion.
+\end{proof}
+
+
+
+
+\subsection*{General Solution of a Nonhomogeneous Equation}
+
+The next theorem is analogous to
+Theorem~\ref{thmtype:5.3.2}.
+It shows how to find the general solution of $Ly=F$ if we know a particular
+solution of $Ly=F$ and a fundamental set of solutions of the \dfn{complementary equation} $Ly=0$.
+
+\begin{theorem}\label{thmtype:9.1.6}
+Suppose $Ly=F$ is normal on $(a,b)$. Let $y_p$ be a particular
+solution of $Ly=F$ on $(a,b)$, and let $\{y_1,y_2,\dots,y_n\}$ be a
+fundamental set of solutions of the complementary equation $Ly=0$ on
+$(a,b)$. Then $y$ is a solution of $Ly=F$ on $(a,b)$ if and only if
+$$
+y=y_p+c_1y_1+c_2y_2+\cdots+c_ny_n,
+$$
+where $c_1,c_2,\dots,c_n$  are constants.
+\end{theorem}
+
+The next theorem is analogous to Theorem~\ref{thmtype:5.3.2}.
+
+\begin{theorem}[The Principle of
+Superposition]\label{thmtype:9.1.7}
+Suppose for each $i=1, 2, \dots, r$, the function $y_{p_i}$ is a
+particular solution of $Ly=F_i$ on  $(a,b)$. Then
+$$
+y_p=y_{p_1}+y_{p_2}+\cdots+y_{p_r}
+$$
+is a particular  solution of
+$$
+Ly=F_1(x)+F_2(x)+\cdots+F_r(x)
+$$
+on $(a,b)$.
+\end{theorem}
+
+We'll apply  Theorems~\ref{thmtype:9.1.6} and \ref{thmtype:9.1.7}
+throughout the rest of this chapter.
+
+
+\section*{Text Source}
+Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
+
+\href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
+
+
+\end{document}
