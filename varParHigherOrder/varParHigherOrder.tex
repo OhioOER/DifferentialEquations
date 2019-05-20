@@ -1,0 +1,410 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Variation of Parameters for Higher Order Equations}%\label{Module 7-ADEF}
+
+
+\begin{document}
+
+\begin{abstract}
+
+\end{abstract}
+
+\maketitle
+
+\section*{Variation of Parameters for Higher Order Equations}
+
+\subsection*{Derivation of the method}
+
+We assume throughout this section that the nonhomogeneous linear equation
+\begin{equation} \label{eq:9.4.1}
+P_0(x)y^{(n)}+P_1(x)y^{(n-1)}+\cdots+P_n(x)y=F(x)
+\end{equation}
+is normal on an interval $(a,b)$. We'll abbreviate this equation as
+$Ly=F$, where
+$$
+Ly=P_0(x)y^{(n)}+P_1(x)y^{(n-1)}+\cdots+P_n(x)y.
+$$
+When we speak of solutions of this equation and its complementary
+equation $Ly=0$, we mean solutions on $(a,b)$. We'll show how to use
+the method of variation of parameters to find a particular solution of
+$Ly=F$, provided that we know a fundamental set of solutions
+$\{y_1,y_2,\dots,y_n\}$ of $Ly=0$.
+
+
+We seek a particular solution of $Ly=F$ in the form
+\begin{equation} \label{eq:9.4.2}
+y_p=u_1y_1+u_2y_2+\cdots+u_ny_n
+\end{equation}
+where $\{y_1,y_2,\dots,y_n\}$ is a known fundamental set of solutions
+of the complementary equation
+$$
+P_0(x)y^{(n)}+P_1(x)y^{(n-1)}+\cdots+P_n(x)y=0
+$$
+and $u_1, u_2, \dots, u_n$ are functions to be determined. We begin by
+imposing the following $n-1$ conditions on $u_1,u_2,\dots,u_n$:
+\begin{equation} \label{eq:9.4.3}
+\begin{array}{rcl}
+u'_1y_1+u'_2y_2+&\cdots&+u'_ny_n=0 \\
+u'_1y'_1+u'_2y'_2+&\cdots&+u'_ny'_n=0 \\
+&\vdots& \\
+u'_1y_1^{(n-2)}+u'_2y^{(n-2)}_2+&\cdots&+u'_ny^{(n-2)}_n
+=0.
+\end{array}
+\end{equation}
+These conditions lead to simple formulas for the first $n-1$
+derivatives of $y_p$:
+\begin{equation} \label{eq:9.4.4}
+y^{(r)}_p=u_1y^{(r)}_1+u_2y_2^{(r)}\cdots+u_ny^{(r)}_n,\ 0
+\leq r \leq n-1.
+\end{equation}
+These formulas are easy to remember, since they look as though we
+obtained them by differentiating \eqref{eq:9.4.2} $n-1$ times while
+treating $u_1, u_2, \dots, u_n$ as constants. To see that
+\eqref{eq:9.4.3}
+implies \eqref{eq:9.4.4}, we first differentiate \eqref{eq:9.4.2} to obtain
+$$
+y_p'=u_1y_1'+u_2y_2'+\cdots+u_ny_n'+u_1'y_1+u_2'y_2+\cdots+u_n'y_n,
+$$
+which  reduces to
+$$
+y_p'=u_1y_1'+u_2y_2'+\cdots+u_ny_n'
+$$
+because of the first equation in \eqref{eq:9.4.3}. Differentiating this
+yields
+$$
+y_p''=u_1y_1''+u_2y_2''+\cdots+u_ny_n''+u_1'y_1'+u_2'y_2'+\cdots+u_n'y_n',
+$$
+which reduces to
+$$
+y_p''=u_1y_1''+u_2y_2''+\cdots+u_ny_n''
+$$
+because of  the second equation in \eqref{eq:9.4.3}.
+Continuing in this way yields \eqref{eq:9.4.4}.
+
+The last equation in \eqref{eq:9.4.4} is
+$$
+y_p^{(n-1)}=u_1y_1^{(n-1)}+u_2y_2^{(n-1)}+\cdots+u_ny_n^{(n-1)}.
+$$
+Differentiating this yields
+$$
+y_p^{(n)}=u_1y_1^{(n)}+u_2y_2^{(n)}+\cdots+u_ny_n^{(n)}+
+u_1'y_1^{(n-1)}+u_2'y_2^{(n-1)}+\cdots+u_n'y_n^{(n-1)}.
+$$
+Substituting this and  \eqref{eq:9.4.4} into \eqref{eq:9.4.1}
+yields
+$$
+u_1Ly_1+u_2Ly_2+\cdots+u_nLy_n+P_0(x)\left(
+u_1'y_1^{(n-1)}+u_2'y_2^{(n-1)}+\cdots+u_n'y_n^{(n-1)}\right)=F(x).
+$$
+Since  $Ly_i=0$ $(1 \leq i \leq n)$, this reduces to
+$$
+u_1'y_1^{(n-1)}+u_2'y_2^{(n-1)}+\cdots+u_n'y_n^{(n-1)}=\frac{F(x)}{P_0(x)}.
+$$
+Combining this equation with \eqref{eq:9.4.3} shows that
+$$
+y_p=u_1y_1+u_2y_2+\cdots+u_ny_n
+$$
+is a solution of \eqref{eq:9.4.1} if
+$$
+\begin{array}{rcl}
+u'_1y_1+u'_2y_2+&\cdots&+u'_ny_n=0 \\
+u'_1y'_1+u'_2y'_2+&\cdots&+u'_ny'_n=0 \\
+&\vdots& \\
+u'_1y_1^{(n-2)}+u'_2y^{(n-2)}_2+&\cdots&+u'_ny^{(n-2)}_n
+=0 \\
+u'_1y^{(n-1)}_1+u'_2y^{(n-1)}_2+&\cdots&+u'_n
+y^{(n-1)}_n=F/P_0,
+\end{array}
+$$
+which can be written in matrix form as
+\begin{equation} \label{eq:9.4.5}
+\begin{bmatrix}
+y_1&y_2&\cdots&y_n \\
+y'_1&y'_2&\cdots&y_n'\\
+\vdots&\vdots&\ddots&\vdots\\
+y_1^{(n-2)}&y_2^{(n-2)}&\cdots&y_n^{(n-2)}\\
+y_1^{(n-1)}&y_2^{(n-1)}&\cdots&y_n^{(n-1)}
+\end{bmatrix}
+\begin{bmatrix}u_1'\\u_2'\\\vdots\\u_{n-1}'\\u_n'\end{bmatrix}=
+\begin{bmatrix}0\\0\\ \vdots\\0\\F/ P_0\end{bmatrix}.
+\end{equation}
+The determinant of this system  is the Wronskian $W$ of
+the fundamental set of solutions  $\{y_1,y_2,\dots,y_n\}$,
+which has no zeros on $(a,b)$, by Theorem~\ref{thmtype:9.1.4}.
+Solving
+\eqref{eq:9.4.5} by Cramer's rule  yields
+\begin{equation} \label{eq:9.4.6}
+u'_j=(-1)^{n-j}\frac{FW_j}{P_0W},\quad 1\leq j\leq n,
+\end{equation}
+ where $W_j$ is the Wronskian of the set of
+functions obtained by deleting $y_j$ from  $\{y_1,y_2,\dots,y_n\}$
+ and keeping the remaining functions in the
+same order. Equivalently, $W_j$ is the determinant obtained by
+deleting the last row and $j$-th column of $W$.
+
+Having obtained $u_1', u_2', \dots, u_n'$, we can integrate  to
+obtain $u_1,\,u_2,\dots,u_n$. As in Section~5.7, we
+take the constants
+of integration to be zero, and we drop any linear combination of
+$\{y_1,y_2,\dots,y_n\}$ that may appear in $y_p$.
+
+
+\begin{remark}
+For efficiency, it's best to compute $W_1, W_2, \dots, W_n$
+first, and then compute $W$ by expanding in cofactors of the last row;
+thus,
+$$
+W=\sum_{j=1}^n(-1)^{n-j}y_j^{(n-1)}W_j.
+$$
+\end{remark}
+
+
+
+\subsection*{Third Order Equations}
+
+If $n=3$, then
+$$
+W=\begin{vmatrix}
+y_1&y_2&y_3 \\
+y'_1&y'_2&y'_3 \\
+y''_1&y''_2&y''_3 \end{vmatrix}
+$$
+Therefore
+$$
+W_1=\begin{vmatrix}
+y_2&y_3 \\
+y'_2&y'_3 \end{vmatrix},
+\quad W_2=\begin{vmatrix}
+y_1&y_3 \\
+ y'_1&y'_3 \end{vmatrix},
+\quad W_3=\begin{vmatrix}
+y_1&y_2 \\
+y'_1&y'_2 \end{vmatrix},
+$$
+and  \eqref{eq:9.4.6}  becomes
+\begin{equation} \label{eq:9.4.7}
+u'_1=\frac{FW_1}{P_0W},\quad u'_2=-\frac{FW_2}{P_0W},\quad
+u'_3=\frac{FW_3}{P_0W}.
+\end{equation}
+
+\begin{example}\label{example:9.4.1}
+ Find a particular solution of
+\begin{equation} \label{eq:9.4.8}
+xy'''-y''-xy'+y=8x^2e^x,
+\end{equation}
+given that  $y_1=x$, $y_2=e^x$, and $y_3=e^{-x}$ form a fundamental
+set of solutions of the complementary equation. Then find the general
+solution of \eqref{eq:9.4.8}.
+ 
+\begin{explanation}
+We seek a particular solution of \eqref{eq:9.4.8} of the form
+$$
+y_p=u_1x+u_2e^x+u_3e^{-x}.
+$$
+The Wronskian of  $\{y_1,y_2,y_3\}$ is
+$$
+W(x)=\begin{vmatrix}
+ x&e^x&e^{-x} \\ 1&e^x&-e^{-x} \\ 0&e^x&e^{-x}
+\end{vmatrix},
+$$
+so
+\begin{eqnarray*}
+W_1&=&
+\begin{vmatrix}
+e^x&e^{-x}\\ e^x&-e^{-x}
+\end{vmatrix}=-2,\\
+W_2&=&
+\begin{vmatrix}
+x&e^{-x}\\1&-e^{-x}
+\end{vmatrix}=-e^{-x}(x+1),\\
+W_3&=&
+\begin{vmatrix}
+x&e^x\\1&e^x
+\end{vmatrix}=e^x(x-1).
+\end{eqnarray*}
+Expanding $W$ by cofactors of the last row yields
+$$
+W=0W_1-e^x W_2+e^{-x}W_3=0(-2)-e^x\left(-e^{-x}(x+1)\right)
++e^{-x}e^x(x-1)=2x.
+$$
+ Since $F(x)=8x^2e^x$ and $P_0(x)=x$,
+$$
+\frac{F}{P_0W}=\frac{8x^2e^x}{x\cdot 2x}=4e^x.
+$$
+Therefore, from \eqref{eq:9.4.7}
+\begin{eqnarray*}
+u'_1&=& 4e^xW_1=4e^x(-2)=-8e^x,\\
+u_2'&=&-4e^xW_2=-4e^x\left(-e^{-x}(x+1)\right)=4(x+1),\\
+u_3'&=&4e^xW_3=4e^x\left(e^x(x-1)\right)=4e^{2x}(x-1).
+\end{eqnarray*}
+ Integrating and taking the constants of
+integration to be zero yields
+$$
+u_1=-8e^x,\quad u_2=2(x+1)^2, u_3=e^{2x}(2x-3).
+$$
+Hence,
+\begin{eqnarray*}
+y_p&=&u_1y_1+u_2y_2+u_3y_3\\
+&=&(-8e^x)x+e^x(2(x+1)^2)+e^{-x}\left(e^{2x}(2x-3)\right)
+\\&=&e^x(2x^2-2x-1).
+\end{eqnarray*}
+Since $-e^x$ is a solution of the complementary equation, we redefine
+$$
+y_p=2xe^x(x-1).
+$$
+ Therefore the general solution of \eqref{eq:9.4.8} is
+$$
+y=2xe^x(x-1)+c_1x+c_2e^x+c_3e^{-x}.
+$$
+\end{explanation}
+\end{example}
+
+
+\subsection*{Fourth Order Equations}
+
+If $n=4$, then
+$$
+W=\begin{vmatrix}
+y_1&y_2&y_3&y_4 \\
+y'_1&y'_2&y'_3&y_4' \\
+y''_1&y''_2&y''_3&y_4''\\
+y'''_1&y'''_2&y'''_3&y_4'''
+ \end{vmatrix},
+$$
+Therefore
+$$
+W_1=\begin{vmatrix}
+y_2&y_3&y_4 \\
+y'_2&y'_3&y_4'\\
+y''_2&y''_3&y_4''
+\end{vmatrix},
+\quad W_2=\begin{vmatrix}
+y_1&y_3&y_4 \\
+y'_1&y'_3&y_4'\\
+y''_1&y''_3&y_4''
+ \end{vmatrix},
+$$
+
+$$
+ W_3=\begin{vmatrix}
+y_1&y_2&y_4 \\
+y'_1&y'_2&y_4'\\
+y''_1&y''_2&y_4''
+ \end{vmatrix},\quad
+ W_4=\begin{vmatrix}
+y_1&y_2&y_3 \\
+y_1'&y'_2&y_3'\\
+y_1''&y''_2&y_3''
+ \end{vmatrix},
+$$
+and  \eqref{eq:9.4.6}  becomes
+\begin{equation} \label{eq:9.4.9}
+u'_1=-\frac{FW_1}{P_0W},\quad u'_2=\frac{FW_2}{P_0W},\quad
+u'_3=-\frac{FW_3}{P_0W},\quad u'_4=\frac{FW_4}{P_0W}.
+\end{equation}
+
+\begin{example}\label{example:9.4.2}
+ Find a particular solution of
+\begin{equation} \label{eq:9.4.10}
+x^4y^{(4)}+6x^3y'''+2x^2y''-4xy'+4y=12x^2,
+\end{equation}
+given that  $y_1=x$, $y_2=x^2$, $y_3=1/x$ and $y_4=1/x^2$ form a
+fundamental set of solutions of the complementary equation. Then find
+the general solution of \eqref{eq:9.4.10} on $(-\infty,0)$ and
+$(0,\infty)$.
+ 
+
+\begin{explanation}
+We seek a particular solution of \eqref{eq:9.4.10} of the form
+$$
+y_p=u_1x+u_2x^2+\frac{u_3}{x}+\frac{u_4}{x^2}.
+$$
+The Wronskian of  $\{y_1,y_2,y_3,y_4\}$ is
+$$
+W(x)=\begin{vmatrix}
+ x&x^2&1/x&-1/x^2 \\
+ 1&2x&-1/x^2&-2/x^3 \\
+ 0&2&2/x^3&6/x^4\\
+0&0&-6/x^4&-24/x^5
+\end{vmatrix},
+$$
+so
+\begin{eqnarray*}
+W_1&=&
+\begin{vmatrix}
+x^2&1/x&1/x^2\\
+2x&-1/x^2&-2/x^3\\
+2&2/x^3&6/x^4
+\end{vmatrix}=-\frac{12}{x^4},\\
+W_2&=&
+\begin{vmatrix}
+x&1/x&1/x^2\\
+1&-1/x^2&-2/x^3\\
+0&2/x^3&6/x^4
+\end{vmatrix}=-\frac{6}{x^5},\\
+W_3&=&
+\begin{vmatrix}
+x&x^2&1/x^2\\
+1&2x&-2/x^3\\
+0&2&6/x^4
+\end{vmatrix} =\frac{12}{x^2},  \\
+W_4&=&
+\begin{vmatrix}
+x&x^2&1/x\\
+1&2x&-1/x^2\\
+0&2&2/x^3
+\end{vmatrix}=\frac{6}{x}.
+\end{eqnarray*}
+Expanding $W$ by cofactors of the last row yields
+\begin{eqnarray*}
+W&=&-0W_1+0 W_2-\left(-\frac{6}{x^4}\right)W_3+\left(-\frac{24}{x^5}\right)W_4\\
+&=&\frac{6}{x^4}\frac{12}{x^2}-\frac{24}{x^5}\frac{6}{x}=-\frac{72}{x^6}.
+\end{eqnarray*}
+ Since $F(x)=12x^2$ and $P_0(x)=x^4$,
+$$
+\frac{F}{P_0W}=\frac{12x^2}{x^4}\left(-\frac{x^6}{72}\right)=-\frac{x^4}{6}.
+$$
+Therefore, from \eqref{eq:9.4.9},
+\begin{eqnarray*}
+u'_1&=&-\left(-\frac{x^4}{6}\right)W_1=\frac{x^4}{6}\left(-\frac{12}{x^4}\right)=-2,\\
+ u_2'&=&-\frac{x^4}{6}W_2=-\frac{x^4}{6}\left(-\frac{6}{x^5}\right)
+=\frac{1}{x},\\
+u_3'&=&-\left(-\frac{x^4}{6}\right)W_3=\frac{x^4}{6}\frac{12}{x^2}=2x^2,\\
+  u_4'&=&-\frac{x^4}{6}W_4=-\frac{x^4}{6}\frac{6}{x}=-x^3
+\end{eqnarray*}
+ Integrating these and taking the constants of
+integration to be zero yields
+$$
+u_1=-2x,\quad u_2=\ln|x|,\quad u_3=\frac{2x^3}{3},
+u_4=-\frac{x^4}{4}.
+$$
+Hence,
+\begin{eqnarray*}
+y_p&=&u_1y_1+u_2y_2+u_3y_3+u_4y_4\\
+&=&(-2x)x+(\ln|x|)x^2+\frac{2x^3}{3}\frac{1}{x}+\left(-\frac{x^4}{4}\right)
+\frac{1}{x^2} \\&=&x^2\ln|x|-\frac{19x^2}{12}.
+\end{eqnarray*}
+Since $-19x^2/12$ is a solution of the complementary equation, we redefine
+$$
+y_p=x^2\ln|x|.
+$$
+ Therefore
+$$
+y=x^2\ln|x|+c_1x+c_2x^2+\frac{c_3}{x}+\frac{c_4}{x^2}
+$$
+is the general solution of \eqref{eq:9.4.10} on $(-\infty,0)$ and $(0,\infty)$.
+\end{explanation}
+\end{example}
+
+
+
+
+\section*{Text Source}
+Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
+
+\href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
+
+
+\end{document}
