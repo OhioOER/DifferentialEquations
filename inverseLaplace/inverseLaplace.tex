@@ -1,0 +1,468 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{The Inverse Laplace Transform}%\label{Module 7-ADEF}
+
+
+\begin{document}
+
+\begin{abstract}
+
+\end{abstract}
+
+\maketitle
+
+\section*{The Inverse Laplace Transform}
+
+\subsection*{Definition of the Inverse Laplace Transform}
+
+In Section~8.1 we defined the Laplace transform
+of
+$f$ by
+$$
+F(s)={\cal L}(f)=\int_0^\infty e^{-st}f(t)\,dt.
+$$
+We'll also say that $f$ is an \textit{inverse Laplace Transform} of
+$F$, and write
+$$
+f={\cal L}^{-1}(F).
+$$
+To solve differential equations with the Laplace transform, we
+must be able to obtain $f$ from its transform $F$. There's a formula
+for doing this, but we can't use it because it requires the theory of
+functions of a complex variable. Fortunately, we can use the table of
+Laplace transforms to find inverse transforms that we'll need.
+
+\begin{example}\label{example:8.2.1}
+Use the table of Laplace transforms to find
+\begin{enumerate}
+    
+    \item\label{item:8.2.1a} ${\cal L}^{-1}\left(\frac{1}{s^2-1}\right)$
+    \item\label{item:8.2.1b} ${\cal L}^{-1}\left(\frac{s}{s^2+9}\right)$. 
+\end{enumerate}
+\begin{explanation}
+\ref{item:8.2.1a}
+Setting $b=1$ in  the transform pair
+$$
+\sinh bt\leftrightarrow \frac{b}{s^2-b^2}
+$$
+shows that
+$$
+{\cal L}^{-1}\left(\frac{1}{s^2-1}\right)=\sinh t.
+$$
+
+\ref{item:8.2.1b}
+Setting $\omega=3$ in  the transform pair
+$$
+\cos\omega t\leftrightarrow\frac{s}{s^2+\omega^2}
+$$
+shows that
+$$
+{\cal L}^{-1}\left(\frac{s}{s^2+9}\right)=\cos3t.
+$$
+\end{explanation}
+\end{example}
+
+The next theorem enables us to find inverse transforms of linear
+combinations of transforms in the table. We omit the proof.
+
+\begin{theorem}[Linearity Property]\label{thmtype:8.2.1}
+If $F_1, F_2, \dots, F_n$ are Laplace transforms and
+$c_1, c_2, \dots, c_n$ are constants$,$ then
+$$
+{\cal L}^{-1}(c_1F_1+c_2F_2+\cdots+c_nF_n)=c_1{\cal L}^{-1}(F_1)+c_2{\cal
+L}^{-1}(F_2)+\cdots+c_n{\cal L}^{-1}F_n.
+$$
+\end{theorem}
+
+\begin{example}\label{example:8.2.2} Find
+$$
+{\cal L}^{-1}\left(\frac{8}{s+5}+\frac{7}{s^2+3}\right).
+$$
+
+
+\begin{explanation}
+From the table of Laplace transforms in Module \ref{Module 14-8} %Section~8.8,,
+$$
+e^{at}\leftrightarrow \frac{1}{s-a}\quad\mbox{and}\quad
+\sin\omega t\leftrightarrow \frac{\omega}{s^2+\omega^2}.
+$$
+Theorem~\ref{thmtype:8.2.1}
+with $a=-5$ and   $\omega=\sqrt3$
+yields
+\begin{eqnarray*}
+{\cal L}^{-1}\left(\frac{8}{s+5}+\frac{7}{s^2+3}\right)&=&
+8{\cal L}^{-1}\left(\frac{1}{s+5}\right)+7{\cal L}^{-1}\left(\frac{1}{s^2+3}\right)\\
+&=&
+8{\cal L}^{-1}\left(\frac{1}{s+5}\right)+\frac{7}{\sqrt3}{\cal
+L}^{-1}\left(\frac{\sqrt3}{s^2+3}\right)\\&=&8e^{-5t}+\frac{7}{\sqrt3}\sin\sqrt3t.
+\end{eqnarray*}
+\end{explanation}
+\end{example}
+
+\begin{example}\label{example:8.2.3} Find
+$$
+{\cal L}^{-1}\left(\frac{3s+8}{s^2+2s+5}\right).
+$$
+
+\begin{explanation}
+Completing the square in the denominator yields
+$$
+\frac{3s+8}{s^2+2s+5}=\frac{3s+8}{(s+1)^2+4}.
+$$
+Because of the form of the denominator, we consider
+the transform pairs
+$$
+ e^{-t}\cos 2t\leftrightarrow\frac{s+1}{(s+1)^2+4}
+\quad\mbox{and}\quad
+ e^{-t}\sin 2t\leftrightarrow\frac{2}{(s+1)^2+4},
+$$
+and write
+\begin{eqnarray*}
+{\cal L}^{-1}\left(\frac{3s+8}{(s+1)^2+4}\right)&=&
+{\cal L}^{-1}\left(\frac{3s+3}{(s+1)^2+4}\right)+
+{\cal L}^{-1}\left(\frac{5}{(s+1)^2+4}\right)\\&=&
+3{\cal L}^{-1}\left(\frac{s+1}{(s+1)^2+4}\right)+
+\frac{5}{2}{\cal L}^{-1}\left(\frac{2}{(s+1)^2+4}\right)\\&=&
+e^{-t}(3\cos 2t+\frac{5}{2}\sin 2t).
+\end{eqnarray*}
+\end{explanation}
+\end{example}
+
+\begin{remark}
+We'll often write inverse Laplace transforms of specific
+functions without explicitly stating how they are obtained. In such
+cases you should refer to the table of Laplace transforms in Module \ref{Module 14-8}. %Section~8.8,,
+\end{remark}
+
+\subsection*{Inverse Laplace Transforms of Rational Functions}
+
+Using the Laplace transform to
+ solve differential equations
+often requires  finding the inverse
+transform of a rational function
+$$
+F(s)=\frac{P(s)}{Q(s)},
+$$
+where $P$ and $Q$ are polynomials in $s$ with no common factors. Since
+it can be shown that $\lim_{s\rightarrow\infty}F(s)=0$ if $F$ is a Laplace
+transform, we need only consider the case where
+$\mbox{degree}(P)<\mbox{degree}(Q)$. To obtain ${\cal L}^{-1}(F)$, we
+find the partial fraction expansion of $F$, obtain inverse transforms
+of the individual terms in the expansion from the table of Laplace
+transforms, and use the linearity property of the inverse transform.
+The next two examples illustrate this.
+
+\begin{example}\label{example:8.2.4} Find the inverse Laplace transform
+of
+\begin{equation}\label{eq:8.2.1}
+F(s)=\frac{3s+2}{s^2-3s+2}.
+\end{equation}
+\begin{explanation}
+({\bf Method 1:})
+ Factoring the denominator in  \eqref{eq:8.2.1} yields
+\begin{equation}\label{eq:8.2.2}
+F(s)=\frac{3s+2}{(s-1)(s-2)}.
+\end{equation}
+The form for the partial fraction expansion is
+\begin{equation}\label{eq:8.2.3}
+\frac{3s+2}{(s-1)(s-2)}=\frac{A}{s-1}+\frac{B}{s-2}.
+\end{equation}
+Multiplying  this by $(s-1)(s-2)$ yields
+$$
+3s+2=(s-2)A+(s-1)B.
+$$
+Setting $s=2$ yields $B=8$ and setting $s=1$ yields $A=-5$. Therefore
+$$
+F(s)=-\frac{5}{s-1}+\frac{8}{s-2}
+$$
+and
+$$
+{\cal L}^{-1}(F)=-5{\cal L}^{-1}\left(\frac{1}{s-1}\right)
++8{\cal L}^{-1}\left(\frac{1}{s-2}\right)=-5e^t+8e^{2t}.
+$$
+\end{explanation}
+\begin{explanation}
+({\bf Method 2:})
+We don't really have to multiply  \eqref{eq:8.2.3} by $(s-1)(s-2)$
+to compute $A$ and $B$. We can obtain $A$ by simply ignoring the factor
+$s-1$ in the denominator of  \eqref{eq:8.2.2} and setting $s=1$ elsewhere;
+thus,
+\begin{equation}\label{eq:8.2.4}
+A=\left.\frac{3s+2}{s-2}\right|_{s=1}=\frac{3\cdot1+2}{ 1-2}=-5.
+\end{equation}
+Similarly, we can obtain $B$ by ignoring the factor
+$s-2$ in the denominator of  \eqref{eq:8.2.2} and setting $s=2$ elsewhere;
+thus,
+\begin{equation}\label{eq:8.2.5}
+B=\left.\frac{3s+2}{s-1}\right|_{s=2}=\frac{3\cdot2+2}{2-1}=8.
+\end{equation}
+To justify this, we observe that multiplying  \eqref{eq:8.2.3} by $s-1$
+yields
+$$
+\frac{3s+2}{s-2}=A+(s-1)\frac{B}{s-2},
+$$
+and setting $s=1$ leads to
+\eqref{eq:8.2.4}. Similarly, multiplying  \eqref{eq:8.2.3} by $s-2$ yields
+$$
+\frac{3s+2}{s-1}=(s-2)\frac{A}{s-2}+B
+$$
+and setting $s=2$ leads to
+\eqref{eq:8.2.5}.  (It isn't necessary to
+ write the last two equations. We wrote them only to justify
+the shortcut procedure indicated in  \eqref{eq:8.2.4} and
+\eqref{eq:8.2.5}.)
+\end{explanation}
+\end{example}
+
+The shortcut employed in the second solution of
+Example~\ref{example:8.2.4} is
+\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Heaviside.html}{Heaviside's method}.
+The next theorem states this method formally. 
+% For a proof
+% and an extension of this theorem, see Exercise~\ref{exer:8.2.10}.
+
+\begin{theorem}\label{thmtype:8.2.2}
+Suppose
+\begin{equation}\label{eq:8.2.6}
+F(s)=\frac{P(s)}{(s-s_1)(s-s_2)\cdots(s-s_n)},
+\end{equation}
+where $s_1, s_2, \dots, s_n$ are distinct  and $P$ is a polynomial of
+degree less than $n$.  Then
+$$
+F(s)=\frac{A_1}{s-s_1}+\frac{A_2}{s-s_2}+\cdots+\frac{A_n}{s-s_n},$$
+where $A_i$ can be computed from \eqref{eq:8.2.6}
+by ignoring the factor $s-s_i$ and setting $s=s_i$ elsewhere.
+\end{theorem}
+
+\begin{example}\label{example:8.2.5} Find the inverse Laplace transform
+of
+\begin{equation}\label{eq:8.2.7}
+F(s)=\frac{6+(s+1)(s^2-5s+11)}{s(s-1)(s-2)(s+1)}.
+\end{equation}
+\begin{explanation}
+The partial fraction expansion of  \eqref{eq:8.2.7} is of the form
+\begin{equation}\label{eq:8.2.8}
+F(s)=\frac{A}{s}+\frac{B}{s-1}+\frac{C}{s-2}+\frac{D}{s+1}.
+\end{equation}
+To find $A$, we ignore the factor $s$ in the denominator of
+\eqref{eq:8.2.7} and set $s=0$ elsewhere. This yields
+$$
+A=\frac{6+(1)(11)}{(-1)(-2)(1)}=\frac{17}{2}.
+$$
+Similarly, the other coefficients are given by
+$$
+B=\frac{6+(2)(7)}{(1)(-1)(2)}=-10,
+$$
+$$
+C=\frac{6+3(5)}{2(1)(3)}=\frac{7}{2},
+$$
+and
+$$
+D=\frac{6}{(-1)(-2)(-3)}=-1.
+$$
+Therefore
+$$
+F(s)=\frac{17}{2}\,\frac{1}{s}-\frac{10}{s-1}+\frac{7}{2}\,\frac{1}{s-2}-\frac{1}{s+1}
+$$
+and
+\begin{eqnarray*}
+{\cal L}^{-1}(F)&=&
+ \frac{17}{2}{\cal L}^{-1}\left(\frac{1}{s}\right)-10{\cal L}^{-1}\left(\frac{1}{s-1}\right)+\frac{7}{2}{\cal L}^{-1}\left(\frac{1}{s-2}\right)-{\cal L}^{-1}\left(\frac{1}{s+1}\right)\\
+&=& \frac{17}{2}-10e^t+\frac{7}{2}e^{2t}-e^{-t}.
+\end{eqnarray*}
+\end{explanation}
+\end{example}
+
+\begin{remark}
+We didn't ``multiply out'' the numerator in
+\eqref{eq:8.2.7} before
+computing the coefficients in \eqref{eq:8.2.8}, since
+ it wouldn't simplify the computations.
+\end{remark}
+
+\begin{example}\label{example:8.2.6} Find the inverse Laplace transform
+of
+\begin{equation}\label{eq:8.2.9}
+F(s)=\frac{8-(s+2)(4s+10)}{(s+1)(s+2)^2}.
+\end{equation}
+\begin{solution}
+The  form for the partial fraction expansion  is
+\begin{equation}\label{eq:8.2.10}
+F(s)=\frac{A}{s+1}+\frac{B}{s+2}+\frac{C}{(s+2)^2}.
+\end{equation}
+Because of the repeated factor $(s+2)^2$ in \eqref{eq:8.2.9}, Heaviside's
+method doesn't work. Instead, we find a common denominator in
+\eqref{eq:8.2.10}. This yields
+\begin{equation}\label{eq:8.2.11}
+F(s)=\frac{A(s+2)^2+B(s+1)(s+2)+C(s+1)}{(s+1)(s+2)^2}.
+\end{equation}
+If  \eqref{eq:8.2.9} and  \eqref{eq:8.2.11} are to be equivalent, then
+\begin{equation}\label{eq:8.2.12}
+A(s+2)^2+B(s+1)(s+2)+C(s+1)=8-(s+2)(4s+10).
+\end{equation}
+The two sides of this equation are polynomials of degree two. From a
+theorem of algebra, they will be equal for all $s$ if they are equal
+for any three distinct values of $s$. We may determine $A$, $B$ and
+$C$ by choosing convenient values of $s$.
+
+The left side of \eqref{eq:8.2.12} suggests that we take $s=-2$ to obtain
+$C=-8$, and $s=-1$ to obtain $A=2$. We can now choose any third value
+of $s$ to determine $B$. Taking $s=0$ yields $4A+2B+C=-12$. Since
+$A=2$ and $C=-8$ this implies that $B=-6$. Therefore
+$$
+F(s)=\frac{2}{s+1}-\frac{6}{s+2}-\frac{8}{(s+2)^2}
+$$
+and
+\begin{eqnarray*}
+{\cal L}^{-1}(F)&=&
+2{\cal L}^{-1}\left(\frac{1}{s+1}\right)-6{\cal L}^{-1}\left(\frac{1}{s+2}\right)-8{\cal L}^{-1}\left(\frac{1}{(s+2)^2}\right)\\
+&=&2e^{-t}-6e^{-2t}-8te^{-2t}.
+\end{eqnarray*}
+\end{solution}
+\end{example}
+
+\begin{example}\label{example:8.2.7} Find the inverse Laplace transform
+of
+$$
+F(s)=\frac{s^2-5s+7}{(s+2)^3}.
+$$
+
+
+\begin{explanation}
+The form for the partial fraction expansion  is
+$$
+F(s)=\frac{A}{s+2}+\frac{B}{(s+2)^2}+\frac{C}{(s+2)^3}.
+$$
+The easiest way to obtain $A$, $B$, and $C$ is to expand the numerator
+in powers of $s+2$. This yields
+$$
+s^2-5s+7=[(s+2)-2]^2-5[(s+2)-2]+7=(s+2)^2-9(s+2)+21.
+$$
+Therefore
+\begin{eqnarray*}
+F(s)&=&\frac{(s+2)^2-9(s+2)+21}{(s+2)^3}\\[10pt]
+&=&\frac{1}{s+2}-\frac{9}{(s+2)^2}+\frac{21}{(s+2)^3}
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+{\cal L}^{-1}(F)&=&
+{\cal L}^{-1}\left(\frac{1}{s+2}\right)-9{\cal
+L}^{-1}\left(\frac{1}{(s+2)^2}\right)+\frac{21}{2}{\cal
+L}^{-1}\left(\frac{2}{(s+2)^3}\right)\\&=&
+e^{-2t}\left(1-9t+\frac{21}{2}t^2\right).
+\end{eqnarray*}
+\end{explanation}
+\end{example}
+
+\begin{example}\label{example:8.2.8} %\exampleinverse
+ Find the inverse Laplace transform of
+\begin{equation}\label{eq:8.2.13}
+F(s)=\frac{1-s(5+3s)}{s\left[(s+1)^2+1\right]}.
+\end{equation}
+\begin{explanation}
+One  form for the partial fraction expansion of $F$ is
+\begin{equation}\label{eq:8.2.14}
+F(s)=\frac{A}{s}+\frac{Bs+C}{(s+1)^2+1}.
+\end{equation}
+However, we see from the table of Laplace transforms that the inverse
+transform of the second fraction on the right of \eqref{eq:8.2.14} will be
+a linear combination of the inverse transforms
+$$
+e^{-t}\cos t\quad\mbox{and}\quad e^{-t}\sin t
+$$
+of
+$$
+\frac{s+1}{(s+1)^2+1}\quad\mbox{and}\quad \frac{1}{(s+1)^2+1}
+$$
+respectively. Therefore, instead of \eqref{eq:8.2.14} we write
+\begin{equation}\label{eq:8.2.15}
+F(s)=\frac{A}{s}+\frac{B(s+1)+C}{(s+1)^2+1}.
+\end{equation}
+Finding a common denominator yields
+\begin{equation}\label{eq:8.2.16}
+F(s)=\frac{A\left[(s+1)^2+1\right]+B(s+1)s+Cs}{s\left[(s+1)^2+1\right]}.
+\end{equation}
+If  \eqref{eq:8.2.13} and  \eqref{eq:8.2.16} are to be equivalent, then
+$$
+A\left[(s+1)^2+1\right]+B(s+1)s+Cs=1-s(5+3s).
+$$
+This is true for all $s$ if it's true for three distinct values of
+$s$.  Choosing $s=0$, $-1$, and $1$ yields the system
+$$
+\begin{array}{rcr}
+2A&=&1\\ A-C&=&3\\5A+2B+C&=&-7
+\end{array}
+$$
+Solving this system yields
+$$
+A=\frac{1}{2},\quad B=-\frac{7}{2},\quad C=-\frac{5}{2}.
+$$
+Hence, from  \eqref{eq:8.2.15},
+$$
+F(s)=\frac{1}{2s}-\frac{7}{2}\,\frac{s+1}{(s+1)^2+1}-
+\frac{5}{2}\,\frac{1}{(s+1)^2+1}.
+$$
+Therefore
+\begin{eqnarray*}
+{\cal L}^{-1}(F)&=&
+\frac{1}{2}{\cal L}^{-1}\left(\frac{1}{s}\right)-{\frac{7}{2}}{\cal
+L}^{-1}\left(s+\frac{1
+}{(s+1)^2+1}\right)-\frac{5}{2} {\cal L}^{-1}\left(\frac{1}{(s+1)^2+1}\right)\\
+&=& {\frac{1}{2}}-{\frac{7}{2}}e^{-t}\cos t-{\frac{5}{2}}e^{-t}\sin t.
+\end{eqnarray*}
+\end{explanation}
+\end{example}
+
+\begin{example}\label{example:8.2.9}
+Find the inverse Laplace transform of
+\begin{equation}\label{eq:8.2.17}
+F(s)=\frac{8+3s}{(s^2+1)(s^2+4)}.
+\end{equation}
+\begin{explanation}
+The form for the partial fraction expansion is
+$$
+F(s)=\frac{A+Bs}{s^2+1}+\frac{C+Ds}{s^2+4}.
+$$
+The coefficients $A$, $B$, $C$ and $D$ can be obtained by finding a common
+denominator and equating the resulting numerator to the numerator in
+\eqref{eq:8.2.17}. However, since there's no first power of $s$ in the
+denominator of \eqref{eq:8.2.17}, there's an easier way: the expansion of
+$$
+F_1(s)=\frac{1}{(s^2+1)(s^2+4)}
+$$
+can be obtained quickly by using Heaviside's method to expand
+$$
+\frac{1}{(x+1)(x+4)}=\frac{1}{3}\left(\frac{1}{x+1}-\frac{1}{x+4}\right)
+$$
+and then setting $x=s^2$ to obtain
+$$
+\frac{1}{(s^2+1)(s^2+4)}=\frac{1}{3}\left(\frac{1}{s^2+1}-\frac{1}{s^2+4}\right).
+$$
+Multiplying this by $8+3s$ yields
+$$
+F(s)=\frac{8+3s}{(s^2+1)(s^2+4)}=\frac{1}{3}\left(\frac{8+3s}{s^2+1}-\frac{8+3s}{s^2+4}\right).
+$$
+Therefore
+$$
+{\cal L}^{-1}(F)=\frac{8}{3}\sin t+\cos t-\frac{4}{3}\sin 2t-\cos 2t.
+$$
+\end{explanation}
+\end{example}
+
+Some software packages that do symbolic algebra can find partial
+fraction expansions very easily. We recommend that you use such a
+package if one is available to you, but only after you've  done
+enough partial fraction expansions on your own to  master the
+technique.
+
+
+
+\section*{Text Source}
+Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
+
+\href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
+
+
+\end{document}
