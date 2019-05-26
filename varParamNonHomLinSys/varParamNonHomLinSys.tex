@@ -1,0 +1,509 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Variation of Parameters for Nonhomogeneous Linear Systems}%\label{Module 7-ADEF}
+
+
+\begin{document}
+
+\begin{abstract}
+
+\end{abstract}
+
+\maketitle
+
+\section*{Variation of Parameters for Nonhomogeneous Linear Systems}
+
+We now consider the nonhomogeneous linear system
+$$
+{\bf y}'= A(t){\bf y}+{\bf f}(t),
+$$
+where $A$ is an $n\times n$ matrix function and ${\bf f}$ is an
+$n$-vector forcing function. Associated with this system is the \dfn{complementary system} ${\bf y}'=A(t){\bf y}$.
+
+The next theorem is analogous to
+Theorems~\ref{thmtype:5.3.2} and
+\ref{thmtype:9.1.5}. It shows how to find the general solution
+of
+${\bf y}'=A(t){\bf y}+{\bf f}(t)$ if we know a particular solution of ${\bf
+y}'=A(t){\bf y}+{\bf f}(t)$ and a fundamental set of solutions of the
+complementary system. We leave the proof to the reader.
+%as an exercise (Exercise~\ref{exer:10.7.21}).
+
+\begin{theorem}\label{thmtype:10.7.1}
+Suppose the $n\times n$ matrix function $A$ and the $n$-vector
+function ${\bf f}$ are continuous on $(a,b)$. Let ${\bf y}_p$ be a
+particular solution of ${\bf y}'=A(t){\bf y}+{\bf f}(t)$ on $(a,b)$,
+and let
+$\{{\bf y}_1,{\bf y}_2,\dots,{\bf y}_n\}$ be a fundamental set of
+solutions of the complementary equation ${\bf y}'=A(t){\bf y}$ on
+$(a,b)$. Then ${\bf y}$ is a solution of ${\bf y}'=A(t){\bf y}+{\bf
+f}(t)$ on $(a,b)$ if and only if
+$$
+{\bf y}={\bf y}_p+c_1{\bf y}_1+c_2{\bf y}_2+\cdots+c_n{\bf y}_n,
+$$
+where $c_1, c_2, \dots, c_n$  are constants.
+\end{theorem}
+
+\subsection*{Finding a Particular Solution of a Nonhomogeneous System}
+
+We now discuss an extension of the method of variation of parameters
+to linear nonhomogeneous systems. This method will produce a
+particular solution of a nonhomogenous system ${\bf y}'=A(t){\bf y}+{\bf f}(t)$ provided that we know a fundamental matrix for the
+complementary system. To derive the method, suppose $Y$ is a
+fundamental matrix for the complementary system; that is,
+$$
+Y=\begin{bmatrix}
+y_{11}&y_{12}&\cdots&y_{1n} \\
+y_{21}&y_{22}&\cdots&y_{2n}\\
+\vdots&\vdots&\ddots&\vdots \\
+y_{n1}&y_{n2}&\cdots&y_{nn} \\
+\end{bmatrix},
+$$
+where
+$$
+{\bf y}_1=\begin{bmatrix}y_{11}\\y_{21}\\ \vdots\\
+y_{n1}\end{bmatrix},\quad
+{\bf y}_2=\begin{bmatrix}y_{12}\\y_{22}\\ \vdots\\
+y_{n2}\end{bmatrix},\quad \cdots,\quad
+{\bf y}_n=\begin{bmatrix}y_{1n}\\y_{2n}\\ \vdots\\
+y_{nn}\end{bmatrix}
+$$
+is a fundamental set of solutions of the complementary system.
+In Section~10.3 we saw that $Y'=A(t)Y$. We seek a
+particular solution of
+\begin{equation} \label{eq:10.7.1}
+{\bf y}'=A(t){\bf y}+{\bf f}(t)
+\end{equation}
+ of the form
+\begin{equation} \label{eq:10.7.2}
+{\bf y}_p=Y{\bf u},
+\end{equation}
+ where ${\bf u}$ is to be determined. Differentiating \eqref{eq:10.7.2} yields
+\begin{eqnarray*}
+ {\bf y}_p'&=&Y' {\bf u}+Y {\bf u}'
+\\&=&A Y {\bf u}+Y {\bf u}'\mbox{ (since $Y'=AY$)}\\&=&
+ A{\bf y}_p+Y {\bf u}'\mbox{ (since $Y{\bf u}={\bf y}_p$)}.
+\end{eqnarray*}
+Comparing this with  \eqref{eq:10.7.1} shows that ${\bf y}_p=Y{\bf u}$ is a
+solution of \eqref{eq:10.7.1} if and only if
+$$
+Y{\bf u}'={\bf f}.
+$$
+Thus, we can find a particular solution ${\bf y}_p$ by solving this
+equation for ${\bf u}'$, integrating to obtain ${\bf u}$, and
+computing $Y{\bf u}$. We can take all constants of integration to be
+zero, since any particular solution will suffice.
+
+%Exercise~\ref{exer:10.7.22} sketches a proof that 
+This method is analogous
+to the method of variation of parameters discussed in
+Sections~5.7 and 9.4 for scalar linear
+equations.
+
+\begin{example}\label{example:10.7.1} 
+\begin{enumerate}
+\item\label{item:10.7.1a} % (a)
+Find a particular solution of the system
+\begin{equation} \label{eq:10.7.3}
+{\bf y}'=\begin{bmatrix}1&2\\2&1\end{bmatrix}{\bf y}+\begin{bmatrix}2e^{4t}\\e^{4t}
+\end{bmatrix},
+\end{equation}
+which we considered in Example~\ref{example:10.2.1}.
+\item\label{item:10.7.1b} % (b)
+Find the general solution of  \eqref{eq:10.7.3}.
+\end{enumerate}
+
+\begin{explanation}
+\ref{item:10.7.1a} The complementary system is
+\begin{equation} \label{eq:10.7.4}
+{\bf y}'=\begin{bmatrix}1&2\\2&1\end{bmatrix}{\bf y}.
+\end{equation}
+The characteristic polynomial of the coefficient matrix is
+$$
+\begin{vmatrix}1-\lambda&2\\2&1-\lambda\end{vmatrix}=
+(\lambda+1)(\lambda-3).
+$$
+Using the method of Section~10.4, we find that
+$$
+{\bf y}_1=\begin{bmatrix}e^{3t}\\e^{3t}\end{bmatrix}
+\quad\mbox{and}\quad
+{\bf y}_2=\begin{bmatrix}e^{-t}\\-e^{-t}\end{bmatrix}
+$$
+are linearly independent solutions of \eqref{eq:10.7.4}.
+Therefore
+$$
+Y=\begin{bmatrix}e^{3t}&e^{-t}\\e^{3t}&-e^{-t}\end{bmatrix}
+$$
+is a fundamental matrix for \eqref{eq:10.7.4}. We seek a particular
+solution ${\bf y}_p=Y{\bf u}$ of \eqref{eq:10.7.3}, where $Y{\bf u}'={\bf f}$; that is,
+$$
+\begin{bmatrix}e^{3t}&e^{-t}\\e^{3t}&-e^{-t}\end{bmatrix}
+\begin{bmatrix}u_1'\\u_2'\end{bmatrix}
+=\begin{bmatrix}2e^{4t}\\e^{4t}\end{bmatrix}.
+$$
+The determinant of $Y$ is the Wronskian
+$$
+\begin{vmatrix}e^{3t}&e^{-t}\\e^{3t}&-e^{-t}\end{vmatrix}
+=-2e^{2t}.
+$$
+By Cramer's rule,
+$$
+\begin{array}{ccccccl}
+u_1'&=&-\frac{1}{e^{2t}}
+\begin{vmatrix}2e^{4t}&e^{-t}\\e^{4t}&-e^{-t}
+\end{vmatrix}&=&\frac{3e^{3t}}{2e^{2t}}&=
+&\frac{3}{2}e^t,\\
+u_2'&=&-\frac{1}{2e^{2t}}
+\begin{vmatrix}e^{3t}&2e^{4t}\\e^{3t}&e^{4t}
+\end{vmatrix}&=&\frac{e^{7t}}{2e^{2t}}&=&\frac{1}{2}e^{5t}.
+\end{array}
+$$
+ Therefore
+$$
+{\bf
+u}'=\frac{1}{2}\begin{bmatrix}3e^t\\e^{5t}\end{bmatrix}.
+$$
+Integrating and taking the constants of integration to be zero yields
+$$
+{\bf
+u}=\frac{1}{10}\begin{bmatrix}15e^t\\e^{5t}\end{bmatrix},
+$$
+so
+$$
+{\bf y}_p=Y{\bf u}=
+\frac{1}{10}\begin{bmatrix}e^{3t}&e^{-t}\\
+e^{3t}&-e^{-t}\end{bmatrix}
+\begin{bmatrix}15e^t\\e^{5t}\end{bmatrix}
+=\frac{1}{5}\begin{bmatrix}8e^{4t}\\7e^{4t}\end{bmatrix}
+$$
+is a particular solution of  \eqref{eq:10.7.3}.
+
+
+\ref{item:10.7.1b} From Theorem~\ref{thmtype:10.7.1}, the general solution of
+\eqref{eq:10.7.3} is
+\begin{equation} \label{eq:10.7.5}
+{\bf y}={\bf y}_p+c_1{\bf y}_1+c_2{\bf y}_2=
+\frac{1}{5}\begin{bmatrix}8e^{4t}\\7e^{4t}\end{bmatrix}
++c_1\begin{bmatrix}e^{3t}\\e^{3t}\end{bmatrix}
++c_2\begin{bmatrix}e^{-t}\\-e^{-t}\end{bmatrix},
+\end{equation}
+which can also be written as
+$$
+{\bf y}=
+\frac{1}{5}\begin{bmatrix}8e^{4t}\\7e^{4t}\end{bmatrix}
++\begin{bmatrix}e^{3t}&e^{-t}\\e^{3t}&-e^{-t}\end{bmatrix}{\bf c},
+$$
+where ${\bf c}$ is an arbitrary constant vector.
+
+Writing \eqref{eq:10.7.5} in terms of
+coordinates yields
+\begin{eqnarray*}
+y_1&=&\frac{8}{5}e^{4t}+c_1e^{3t}+c_2e^{-t}\\
+y_2&=&\frac{7}{5}e^{4t}+c_1e^{3t}-c_2e^{-t},
+\end{eqnarray*}
+so our result is consistent with Example~\ref{example:10.2.1}.
+\end{explanation}
+\end{example}
+
+If $A$ isn't  a constant matrix, it's usually difficult to find a
+fundamental set of solutions for the system ${\bf y}'=A(t){\bf y}$. It
+is beyond the scope of this text to discuss methods for doing this.
+Therefore, in the following examples and in the exercises involving
+systems with variable coefficient matrices we'll provide fundamental
+matrices for the complementary systems without explaining how they
+were obtained.
+
+\begin{example}\label{example:10.7.2} 
+Find a particular solution of
+\begin{equation} \label{eq:10.7.6}
+{\bf y}'=\begin{bmatrix}2&2e^{-2t}\\2e^{2t}&4\end{bmatrix}{\bf y}+\begin{bmatrix}1\\1\end{bmatrix},
+\end{equation}
+given that
+$$
+Y=\begin{bmatrix} e^{4t}&-1\\e^{6t}&e^{2t}\end{bmatrix}
+$$
+is  a fundamental matrix for the complementary system.
+
+\begin{explanation}
+We seek a particular solution
+${\bf y}_p=Y{\bf u}$ of \eqref{eq:10.7.6} where
+ $Y{\bf u}'={\bf f}$; that is,
+$$
+\begin{bmatrix} e^{4t}&-1\\e^{6t}&e^{2t}\end{bmatrix}
+\begin{bmatrix}u_1'\\u_2'\end{bmatrix}=\begin{bmatrix}1\\1\end{bmatrix}.
+$$
+The determinant of $Y$ is the Wronskian
+$$
+\begin{vmatrix}
+e^{4t}&-1\\e^{6t}&e^{2t}\end{vmatrix}=2e^{6t}.
+$$
+By Cramer's rule,
+$$
+\begin{array}{cccccll}
+u_1'&=&\frac{1}{2e^{6t}}\begin{vmatrix}1&-1\\1&e^{2t}
+\end{vmatrix}&=&\frac{e^{2t}+1}{2e^{6t}}&=&\frac{e^{-4t}+e^{-6t}}{2}
+\\
+u_2'&=&\frac{1}{2e^{6t}}\begin{vmatrix}e^{4t}&1\\e^{6t}&1
+\end{vmatrix}&=&\frac{e^{4t}-e^{6t}}{2e^{6t}}&=&\frac{e^{-2t}-1}{2}.
+\end{array}
+$$
+Therefore
+$$
+{\bf
+u}'=\frac{1}{2}\begin{bmatrix}e^{-4t}+e^{-6t}\\e^{-2t}-1\end{bmatrix}.
+$$
+Integrating  and taking the constants of integration to be zero yields
+$$
+{\bf
+u}=-\frac{1}{24}\begin{bmatrix}3e^{-4t}+2e^{-6t}\\6e^{-2t}+12t\end{bmatrix},
+$$
+so
+$$
+{\bf y}_p=Y{\bf u}=
+-\frac{1}{24}\begin{bmatrix}e^{4t}&-1\\e^{6t}&e^{2t}\end{bmatrix}
+\begin{bmatrix}3e^{-4t}+2e^{-6t}\\6e^{-2t}+12t\end{bmatrix}
+=\frac{1}{24}\begin{bmatrix}4e^{-2t}+12t-3\\-3e^{2t}(4t+1)-8\end{bmatrix}
+$$
+is a particular solution of  \eqref{eq:10.7.6}.
+\end{explanation}
+\end{example}
+
+\begin{example}\label{example:10.7.3}
+Find a particular solution of
+\begin{equation} \label{eq:10.7.7}
+{\bf y}'=-\frac{2}{t^2}\begin{bmatrix}t&-3t^2\\1&-2t\end{bmatrix}{\bf y}
++t^2\begin{bmatrix}1\\1\end{bmatrix},
+\end{equation}
+given that
+$$
+Y=\begin{bmatrix}2t&3t^2\\1&2t\end{bmatrix}
+$$
+is a fundamental matrix for the complementary system on $(-\infty,0)$
+and $(0,\infty)$.
+
+\begin{explanation}
+We seek a particular solution ${\bf y}_p=Y{\bf u}$ of \eqref{eq:10.7.7}
+where $Y{\bf u}'={\bf f}$; that is,
+$$
+\begin{bmatrix}2t&3t^2\\1&2t\end{bmatrix}\begin{bmatrix}u_1'\\u_2'\end{bmatrix}
+=\begin{bmatrix}t^2\\t^2\end{bmatrix}.
+$$
+The determinant of $Y$  is the Wronskian
+$$
+\begin{vmatrix}2t&3t^2\\1&2t\end{vmatrix}=t^2.
+$$
+By Cramer's rule,
+$$
+\begin{array}{ccccccl}
+u_1'&=&\frac{1}{t^2}\begin{vmatrix}t^2&3t^2\\t^2&2t
+\end{vmatrix}&=&\frac{2t^3-3t^4}{t^2}&=&2t-3t^2,
+\\
+u_2'&=&\frac{1}{t^2}\begin{vmatrix}2t&t^2\\1&t^2
+\end{vmatrix}&=&\frac{2t^3-t^2}{t^2}&=&2t-1.
+\end{array}
+$$
+Therefore
+$$
+{\bf u}'=\begin{bmatrix}2t-3t^2\\2t-1\end{bmatrix}.
+$$
+Integrating  and taking the constants of integration to be zero yields
+$$
+{\bf u}=\begin{bmatrix}t^2-t^3\\t^2-t
+\end{bmatrix},
+$$
+so
+$$
+{\bf y}_p=Y{\bf u}=
+\begin{bmatrix}2t&3t^2\\1&2t\end{bmatrix}
+\begin{bmatrix}t^2-t^3\\t^2-t\end{bmatrix}
+=\begin{bmatrix}t^3(t-1)\\t^2(t-1)\end{bmatrix}
+$$
+is a particular solution of  \eqref{eq:10.7.7}.
+\end{explanation}
+\end{example}
+
+\begin{example}\label{example:10.7.4} 
+\begin{enumerate}
+\item\label{item:10.7.4a} % (a)
+Find a particular solution of
+\begin{equation} \label{eq:10.7.8}
+{\bf y}'=\begin{bmatrix}2&-1&-1\\1&0&-1\\1&-1&0\end{bmatrix}{\bf
+y}+\begin{bmatrix}e^{t}\\0\\e^{-t}
+\end{bmatrix}.
+\end{equation}
+\item\label{item:10.7.4b} % (b)
+Find the general solution of  \eqref{eq:10.7.8}.
+\end{enumerate}
+
+\begin{explanation}\ref{item:10.7.4a} 
+The complementary system for \eqref{eq:10.7.8} is
+\begin{equation} \label{eq:10.7.9}
+{\bf y}'=\begin{bmatrix}2&-1&-1\\1&0&-1\\1&-1&0\end{bmatrix}{\bf y}.
+\end{equation}
+The characteristic polynomial of the coefficient matrix is
+$$
+\begin{vmatrix}2-\lambda&-1&-1\\1&-\lambda&-1\\1&-1&-\lambda
+\end{vmatrix}=
+-\lambda(\lambda-1)^2.
+$$
+Using the method of Section~10.4, we find that
+$$
+{\bf y}_1=\begin{bmatrix}1\\1\\1\end{bmatrix},\quad
+{\bf y}_2=\begin{bmatrix}e^t\\e^t\\0\end{bmatrix},
+\quad\mbox{and}\quad
+{\bf y}_3=\begin{bmatrix}e^t\\0\\e^t\end{bmatrix}
+$$
+are linearly independent solutions of \eqref{eq:10.7.9}.
+Therefore
+$$
+Y=\begin{bmatrix}1&e^t&e^t\\1&e^t&0\\1&0&e^t\end{bmatrix}
+$$
+is a fundamental matrix for  \eqref{eq:10.7.9}.
+We seek a particular solution  ${\bf y}_p=Y{\bf u}$ of
+\eqref{eq:10.7.8}, where
+$Y{\bf u}'={\bf f}$; that is,
+$$
+\begin{bmatrix}1&e^t&e^t\\1&e^t&0\\1&0&e^t\end{bmatrix}
+\begin{bmatrix}u_1'\\u_2'\\u_3'\end{bmatrix}=
+\begin{bmatrix}e^t\\0\\e^{-t}\end{bmatrix}.
+$$
+The determinant of $Y$  is the Wronskian
+$$
+\begin{vmatrix}1&e^t&e^t\\1&e^t&0\\1&0&e^t\end{vmatrix}
+=-e^{2t}.
+$$
+Thus, by Cramer's rule,
+$$
+\begin{array}{cccccll}
+u_1'&=&-\frac{1}{e^{2t}}\begin{vmatrix}e^t&e^t&e^t\\0&e^t&0\\e^{-t}&0&e^t
+\end{vmatrix}&=&-\frac{e^{3t}-e^t}{e^{2t}}&=&e^{-t}-e^t\\ u_2'&=&-\frac{1}{e^{2t}}\begin{vmatrix}1&e^t&e^t\\1&0&0\\1&e^{-t}&e^t
+\end{vmatrix}&=&-\frac{1-e^{2t}}{e^{2t}}&=&1-e^{-2t}\\
+u_3'&=&-\frac{1}{e^{2t}}\begin{vmatrix}1&e^t&e^t\\1&e^t&0\\1&0&e^{-t}
+\end{vmatrix}&=&\frac{e^{2t}}{e^{2t}}&=&1.
+\end{array}
+$$
+ Therefore
+$$
+{\bf u}'=\begin{bmatrix}e^{-t}-e^t\\1-e^{-2t}\\1\end{bmatrix}.
+$$
+Integrating and taking the constants of integration to be zero yields
+$$
+{\bf
+u}=\begin{bmatrix}-e^t-e^{-t}\\\frac{1}{2}e^{-2t}+t
+\\t\end{bmatrix},
+$$
+so
+$$
+\begin{array}{ccccl}
+{\bf y}_p=Y{\bf u}&=&
+\begin{bmatrix}1&e^t&e^t\\1&e^t&0\\1&0&e^t\end{bmatrix}
+\begin{bmatrix}-e^t-e^{-t}\\\frac{1}{2}e^{-2t}+t\\t\end{bmatrix}
+&=&\begin{bmatrix}e^t(2t-1)-\frac{e^{-t}}{2}\\
+e^t(t-1)-\frac{e^{-t}}{2}\\
+e^t(t-1)-e^{-t}
+\end{bmatrix}
+\end{array}
+$$
+is a particular solution of  \eqref{eq:10.7.8}.
+
+\ref{item:10.7.4b}
+From Theorem~\ref{thmtype:10.7.1} the general solution of
+\eqref{eq:10.7.8} is
+$$
+{\bf y}={\bf y}_p+c_1{\bf y}_1+c_2{\bf y}_2+c_3{\bf y}_3=
+\begin{bmatrix}e^t(2t-1)-\frac{e^{-t}}{2}\\
+e^t(t-1)-\frac{e^{-t}}{2}\\
+e^t(t-1)-e^{-t}\end{bmatrix}+
+c_1\begin{bmatrix}1\\1\\1\end{bmatrix}+
+c_2\begin{bmatrix}e^t\\e^t\\0\end{bmatrix}
++c_3\begin{bmatrix}e^t\\0\\e^t\end{bmatrix},
+$$
+which can  be written as
+$$
+{\bf y}={\bf y}_p+Y{\bf c}=
+\begin{bmatrix}e^t(2t-1)-\frac{e^{-t}}{2}\\
+e^t(t-1)-\frac{e^{-t}}{2}\\
+e^t(t-1)-e^{-t} \end{bmatrix}+
+\begin{bmatrix}1&e^t&e^t\\1&e^t&0\\1&0&e^t\end{bmatrix}{\bf c}
+$$
+where ${\bf c}$ is an arbitrary constant vector.
+\end{explanation}
+\end{example}
+
+\begin{example}\label{example:10.7.5}
+Find a particular solution of
+\begin{equation} \label{eq:10.7.10}
+{\bf y}'=\frac{1}{2}
+\begin{bmatrix}3&e^{-t}&-e^{2t}\\0&6&0\\-e^{-2t}&e^{-3t}&-1\end{bmatrix}
+{\bf y}+\begin{bmatrix}1\\e^t\\e^{-t}\end{bmatrix},
+\end{equation}
+given that
+$$
+Y=\begin{bmatrix}e^t&0&e^{2t}\\0&e^{3t}&e^{3t}\\e^{-t}&1&0
+\end{bmatrix}
+$$
+is a fundamental matrix for the complementary system.
+
+
+\begin{explanation}
+We seek a particular solution of  \eqref{eq:10.7.10} in the form
+${\bf y}_p=Y{\bf u}$, where $Y{\bf u}'={\bf f}$; that is,
+$$
+\begin{bmatrix}e^t&0&e^{2t}\\0&e^{3t}&e^{3t}\\e^{-t}&1&0
+\end{bmatrix}\begin{bmatrix}u_1'\\u_2'\\u_3'\end{bmatrix}=\begin{bmatrix}1\\e^t\\e^{-t}\end{bmatrix}.
+$$
+The determinant of $Y$  is the Wronskian
+$$
+\begin{vmatrix}e^t&0&e^{2t}\\0&e^{3t}&e^{3t}\\e^{-t}&1&0
+\end{vmatrix}=-2e^{4t}.
+$$
+By Cramer's rule,
+$$
+\begin{array}{ccccccl}
+u_1'&=&-\frac{1}{2e^{4t}}\begin{vmatrix}1&0&e^{2t}\\e^t&e^{3t}&e^{3t}
+\\e^{-t}&1&0
+\end{vmatrix}&=&\frac{e^{4t}}{2e^{4t}}&=&\frac{1}{2}
+\\
+u_2'&=&-\frac{1}{2e^{4t}}\begin{vmatrix}e^t&1&e^{2t}\\0&e^t&e^{3t}
+\\e^{-t}&e^{-t}&0
+\end{vmatrix}&=&\frac{e^{3t}}{2e^{4t}}&=&\frac{1}{2}e^{-t}\\
+u_3'&=&-\frac{1}{2e^{4t}}\begin{vmatrix}e^t&0&1\\0&e^{3t}&e^t
+\\e^{-t}&1&e^{-t}
+\end{vmatrix}&=&-\frac{e^{3t}-2e^{2t}}{2e^{4t}}&=&\frac{2e^{-2t}-e^{-t}}{2}.
+\end{array}
+$$
+Therefore
+$$
+{\bf
+u}'=\frac{1}{2}\begin{bmatrix}1\\e^{-t}\\2e^{-2t}-e^{-t}\end{bmatrix}.
+$$
+Integrating  and taking the constants of integration to be zero yields
+$$
+{\bf u}=\frac{1}{2}\begin{bmatrix}t\\-e^{-t}\\e^{-t}-e^{-2t}
+\end{bmatrix},
+$$
+so
+$$
+{\bf y}_p=Y{\bf u}=
+\frac{1}{2}\begin{bmatrix}e^t&0&e^{2t}\\0&e^{3t}&e^{3t}\\e^{-t}&1&0
+\end{bmatrix}
+\begin{bmatrix}t\\-e^{-t}\\e^{-t}-e^{-2t}
+\end{bmatrix}=\frac{1}{2}\begin{bmatrix}e^t(t+1)-1\\
+-e^t\\e^{-t}(t-1)\end{bmatrix}
+$$
+is a particular solution of  \eqref{eq:10.7.10}.
+\end{explanation}
+\end{example}
+
+
+
+
+\section*{Text Source}
+Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
+
+\href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
+
+
+\end{document}
