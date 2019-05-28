@@ -1,0 +1,671 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{The Method of Frobenius I}%\label{Module 7-ADEF}
+
+
+\begin{document}
+
+\begin{abstract}
+
+\end{abstract}
+
+\maketitle
+
+\section*{The Method of Frobenius I}
+
+noindent
+In this section we begin to study  series solutions of a
+homogeneous linear second order differential equation with a regular
+singular point at $x_0=0$, so it can be written as
+\begin{equation} \label{eq:7.5.1}
+x^2A(x)y''+xB(x)y'+C(x)y=0,
+\end{equation}
+where $A$, $B$, $C$ are polynomials and $A(0)\neq 0$.
+
+We'll see that \eqref{eq:7.5.1} always has at least one solution of
+the form
+$$
+y=x^r\sum_{n=0}^\infty a_nx^n
+$$
+where $a_0\ne0$ and $r$ is a suitably chosen number.
+The method  we
+will use to find solutions of this form and other forms that we'll
+encounter in the next two sections is called
+\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Frobenius.html}{the method of Frobenius},
+and we'll call them
+\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Frobenius.html}{Frobenius solutions}.
+
+It can be shown that the power series $\sum_{n=0}^\infty a_nx^n$ in a
+Frobenius solution of \eqref{eq:7.5.1} converges on some open interval
+$(-\rho,\rho)$, where $0<\rho\leq\infty$. However, since $x^r$ may be
+complex for negative $x$ or undefined if $x=0$, we'll consider
+solutions defined for positive values of $x$. Easy modifications of
+our results yield solutions defined for negative values of $x$.
+%(Exercise~\ref{exer:7.5.54}).
+
+We'll restrict our attention to the case where $A$, $B$, and $C$ are
+polynomials of degree not greater than two, so \eqref{eq:7.5.1} becomes
+\begin{equation} \label{eq:7.5.2}
+x^2(\alpha_0+\alpha_1x+\alpha_2x^2)y''+x(\beta_0+\beta_1x+\beta_2x^2)y'
++(\gamma_0+\gamma_1x+\gamma_2x^2)y=0,
+\end{equation}
+where $\alpha_i$, $\beta_i$, and $\gamma_i$ are real constants and
+$\alpha_0\neq 0$. Most  equations that arise in
+applications can be written this way. Some examples are
+\begin{eqnarray*}
+\alpha x^2y''+\beta xy'+\gamma y&=&0 \quad\mbox{(Euler's equation)},
+\\
+x^2y''+xy'+(x^2-\nu^2)y&=&0 \quad\mbox{(Bessel's equation)},\\
+\mbox{and}\\
+xy''+(1-x)y'+\lambda y&=&0,
+\quad\mbox{\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Laguerre.html}{(Laguerre's equation)}},
+\end{eqnarray*}
+where we would multiply the last equation through by $x$ to put it in
+the form \eqref{eq:7.5.2}. However, the method of Frobenius can be
+extended to the case where $A$, $B$, and $C$ are functions that can be
+represented by power series in $x$ on some interval that contains zero,
+and $A_0(0)\neq 0$.
+%(Exercises~\ref{exer:7.5.57} and \ref{exer:7.5.58}).
+
+The next two theorems will enable us to develop systematic methods for
+finding Frobenius solutions of \eqref{eq:7.5.2}.
+
+\begin{theorem}\label{thmtype:7.5.1}
+Let
+$$
+Ly=
+x^2(\alpha_0+\alpha_1x+\alpha_2x^2)y''+x(\beta_0+\beta_1x+\beta_2x^2)y'
++(\gamma_0+\gamma_1x+\gamma_2x^2)y,
+$$
+and define
+\begin{eqnarray*}
+p_0(r)&=&\alpha_0r(r-1)+\beta_0r+\gamma_0,\\
+p_1(r)&=&\alpha_1r(r-1)+\beta_1r+\gamma_1,\\
+p_2(r)&=&\alpha_2r(r-1)+\beta_2r+\gamma_2.\\
+\end{eqnarray*}
+Suppose the series
+\begin{equation} \label{eq:7.5.3}
+y=\sum_{n=0}^\infty a_nx^{n+r}
+\end{equation}
+converges on $(0,\rho)$.
+ Then
+\begin{equation} \label{eq:7.5.4}
+Ly=\sum_{n=0}^\infty b_nx^{n+r}
+\end{equation}
+on $(0,\rho),$
+where
+\begin{equation} \label{eq:7.5.5}
+\begin{array}{ccl}
+b_0&=&p_0(r)a_0,\\
+b_1&=&p_0(r+1)a_1+p_1(r)a_0,\\
+b_n&=&p_0(n+r)a_n+p_1(n+r-1)a_{n-1}+p_2(n+r-2)a_{n-2},\quad n\geq2.
+\end{array}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+We begin by showing that if $y$ is given by \eqref{eq:7.5.3} and
+$\alpha$, $\beta$, and $\gamma$ are constants, then
+\begin{equation} \label{eq:7.5.6}
+\alpha x^2y''+\beta xy'+\gamma y=
+\sum_{n=0}^\infty p(n+r)a_nx^{n+r},
+\end{equation}
+where
+$$
+p(r)=\alpha r(r-1)+\beta r +\gamma.
+$$
+Differentiating (3)  twice yields
+\begin{equation} \label{eq:7.5.7}
+y'=\sum_{n=0}^\infty (n+r)a_nx^{n+r-1}
+\end{equation}
+and
+\begin{equation} \label{eq:7.5.8}
+y''=\sum_{n=0}^\infty (n+r)(n+r-1)a_nx^{n+r-2}.
+\end{equation}
+Multiplying \eqref{eq:7.5.7} by $x$ and \eqref{eq:7.5.8} by $x^2$ yields
+$$
+xy'=\sum_{n=0}^\infty (n+r)a_nx^{n+r}
+$$
+and
+$$
+x^2y''=\sum_{n=0}^\infty (n+r)(n+r-1)a_nx^{n+r}.
+$$
+Therefore
+\begin{eqnarray*}
+\alpha x^2y''+\beta xy'+\gamma y
+&=&\sum_{n=0}^\infty\left[\alpha(n+r)(n+r-1)+\beta(n+r)+\gamma\right]a_n
+x^{n+r}\\
+&=&\sum_{n=0}^\infty p(n+r)a_nx^{n+r},
+\end{eqnarray*}
+which proves  \eqref{eq:7.5.6}.
+
+ Multiplying \eqref{eq:7.5.6} by $x$ yields
+\begin{equation} \label{eq:7.5.9}
+x(\alpha x^2y''+\beta xy'+\gamma
+y)=\sum_{n=0}^\infty p(n+r) a_nx^{n+r+1}=
+\sum_{n=1}^\infty p(n+r-1)a_{n-1}x^{n+r}.
+\end{equation}
+Multiplying \eqref{eq:7.5.6} by $x^2$ yields
+\begin{equation} \label{eq:7.5.10}
+x^2(\alpha x^2y''+\beta xy'+\gamma
+y)=\sum_{n=0}^\infty p(n+r)a_nx^{n+r+2}=
+\sum_{n=2}^\infty p(n+r-2)a_{n-2}x^{n+r}.
+\end{equation}
+
+To use these results, we rewrite
+$$
+Ly=
+x^2(\alpha_0+\alpha_1x+\alpha_2x^2)y''+x(\beta_0+\beta_1x+\beta_2x^2)y'
++(\gamma_0+\gamma_1x+\gamma_2x^2)y
+$$
+ as
+\begin{equation} \label{eq:7.5.11}
+\begin{array}{ccl}
+Ly&=&\left(\alpha_0x^2y''+\beta_0xy'
++\gamma_0y\right) +
+x\left(\alpha_1x^2y''+\beta_1xy'+\gamma_1y\right)
+\\&&+\
+x^2\left(\alpha_2x^2y''+\beta_2xy'+\gamma_2y\right).
+\end{array}
+\end{equation}
+From \eqref{eq:7.5.6} with $p=p_0$,
+$$
+\alpha_0x^2y''+\beta_0xy'+\gamma_0y=\sum_{n=0}^\infty
+p_0(n+r)a_nx^{n+r}.
+$$
+From \eqref{eq:7.5.9} with $p=p_1$,
+$$
+x\left(\alpha_1x^2y''+\beta_1xy'+\gamma_1y\right)=\sum_{n=1}^\infty
+p_1(n+r-1)a_{n-1}x^{n+r}.
+$$
+From \eqref{eq:7.5.10} with $p=p_2$,
+$$
+x^2\left(\alpha_2x^2y''+\beta_2xy'+\gamma_2y\right)=\sum_{n=2}^\infty
+p_2(n+r-2)a_{n-2}x^{n+r}.
+$$
+Therefore we can rewrite \eqref{eq:7.5.11} as
+\begin{eqnarray*}
+Ly=\sum_{n=0}^\infty p_0(n+r)a_nx^{n+r}+
+\sum_{n=1}^\infty p_1(n+r-1)a_{n-1}x^{n+r}\\+
+\sum_{n=2}^\infty p_2(n+r-2)a_{n-2}x^{n+r},
+\end{eqnarray*}
+or
+\begin{eqnarray*}
+Ly&=& p_0(r)a_0x^r+\left[p_0(r+1)a_1+p_1(r)a_2\right]x^{r+1}\\
+&& +\sum_{n=2}^\infty\left[p_0(n+r)a_n+p_1(n+r-1)a_{n-1}
++p_2(n+r-2)a_{n-2}\right]x^{n+r},
+\end{eqnarray*}
+which implies \eqref{eq:7.5.4} with $\{b_n\}$ defined as in
+\eqref{eq:7.5.5}.
+\end{proof}
+
+\begin{theorem}\label{thmtype:7.5.2}
+Let
+$$
+Ly=
+x^2(\alpha_0+\alpha_1x+\alpha_2x^2)y''+x(\beta_0+\beta_1x+\beta_2x^2)y'
++(\gamma_0+\gamma_1x+\gamma_2x^2)y,
+$$
+where $\alpha_0\neq 0,$ and define
+\begin{eqnarray*}
+p_0(r)&=&\alpha_0r(r-1)+\beta_0r+\gamma_0,\\
+p_1(r)&=&\alpha_1r(r-1)+\beta_1r+\gamma_1,\\
+p_2(r)&=&\alpha_2r(r-1)+\beta_2r+\gamma_2.\\
+\end{eqnarray*}
+ Suppose $r$ is a real number such that $p_0(n+r)$ is nonzero
+for all positive integers $n.$ Define
+\begin{equation} \label{eq:7.5.12}
+\begin{array}{ccl}
+a_0(r)&=&1,\\
+a_1(r)&=&-\frac{p_1(r)}{p_0(r+1)},\\
+a_n(r)&=&-\frac{p_1(n+r-1)a_{n-1}(r)+p_2(n+r-2)a_{n-2}(r)}{p_0(n+r)},\quad n\geq2.
+\end{array}
+\end{equation}
+Then the Frobenius series
+\begin{equation} \label{eq:7.5.13}
+y(x,r)=x^r\sum_{n=0}^\infty a_n(r)x^n
+\end{equation}
+converges and satisfies
+\begin{equation} \label{eq:7.5.14}
+Ly(x,r)=p_0(r)x^r
+\end{equation}
+on the interval $(0,\rho)$, where
+ $\rho$ is the distance from the origin to the
+nearest zero of $A(x)=\alpha_0+\alpha_1 x+\alpha_2 x^2$ in the complex
+plane.
+$($If
+$A$ is constant, then $\rho=\infty$.$)$
+\end{theorem}
+
+ If $\{a_n(r)\}$ is determined by the recurrence relation
+\eqref{eq:7.5.12} then substituting $a_n=a_n(r)$ into \eqref{eq:7.5.5}
+yields
+$b_0=p_0(r)$ and $b_n=0$ for $n\geq1$, so \eqref{eq:7.5.4} reduces to
+\eqref{eq:7.5.14}. We omit the proof that the series \eqref{eq:7.5.13}
+converges on  $(0,\rho)$.
+
+If $\alpha_i=\beta_i=\gamma_i=0$ for $i=1$, $2,$ then $Ly=0$ reduces to
+the Euler equation
+$$
+\alpha_0x^2y''+\beta_0xy'+\gamma_0y=0.
+$$
+Theorem~\ref{thmtype:7.4.3} shows that the solutions of this equation are
+determined by the zeros of the indicial polynomial
+$$
+p_0(r)=\alpha_0r(r-1)+\beta_0r+\gamma_0.
+$$
+Since \eqref{eq:7.5.14} implies that this is also true for the solutions
+of $Ly=0$, we'll also say that $p_0$ is the \dfn{indicial
+polynomial} of \eqref{eq:7.5.2}, and that $p_0(r)=0$ is the \dfn{indicial equation} of $Ly=0$. We'll consider only cases where the
+indicial equation has real roots $r_1$ and $r_2$, with $r_1\geq r_2$.
+
+\begin{theorem}\label{thmtype:7.5.3}
+Let $L$ and $\{a_n(r)\}$ be as in Theorem~$\ref{thmtype:7.5.2},$ and
+suppose the
+indicial equation $p_0(r)=0$ of $Ly=0$ has real roots $r_1$ and $r_2,$
+where $r_1\geq r_2.$ Then
+$$
+y_1(x)=y(x,r_1)=x^{r_1}\sum_{n=0}^\infty a_n(r_1)x^n
+$$
+is a Frobenius solution of $Ly=0$. Moreover$,$ if $r_1-r_2$ isn't  an
+integer then
+$$
+y_2(x)=y(x,r_2)=x^{r_2}\sum_{n=0}^\infty a_n(r_2)x^n
+$$
+is also a Frobenius solution of $Ly=0,$
+and $\{y_1,y_2\}$ is a fundamental set of solutions.
+\end{theorem}
+
+\begin{proof}
+Since $r_1$ and $r_2$ are roots of $p_0(r)=0$, the indicial polynomial
+can be factored as
+\begin{equation} \label{eq:7.5.15}
+p_0(r)=\alpha_0(r-r_1)(r-r_2).
+\end{equation}
+Therefore
+$$
+p_0(n+r_1)=n\alpha_0(n+r_1-r_2),
+$$
+which is nonzero if $n>0$, since $r_1-r_2\geq0$. Therefore the
+assumptions of Theorem~\ref{thmtype:7.5.2} hold with $r=r_1$, and
+\eqref{eq:7.5.14} implies that $Ly_1=p_0(r_1)x^{r_1}=0$.
+
+Now suppose $r_1-r_2$ isn't  an integer. From \eqref{eq:7.5.15},
+$$
+p_0(n+r_2)=n\alpha_0(n-r_1+r_2)\neq 0\quad\mbox{if}\quad n=1,2,\cdots.
+$$
+Hence, the assumptions of Theorem~\ref{thmtype:7.5.2} hold with $r=r_2$,
+and \eqref{eq:7.5.14} implies that $Ly_2=p_0(r_2)x^{r_2}=0$. We leave the
+proof that $\{y_1,y_2\}$ is a fundamental set of solutions as an
+exercise. % (Exercise~\ref{exer:7.5.52}). \bbox
+\end{proof}
+
+It isn't  always possible to obtain explicit formulas for the
+coefficients in Frobenius solutions. However, we can always set up the
+recurrence relations and use them to compute as many coefficients as we
+want. The next example illustrates this.
+
+\begin{example}\label{example:7.5.1}
+Find a fundamental set of
+Frobenius solutions of
+\begin{equation} \label{eq:7.5.16}
+2x^2(1+x+x^2)y''+x(9+11x+11x^2)y'+(6+10x+7x^2)y=0.
+\end{equation}
+Compute just the first six coefficients $a_0,\dots, a_5$ in each
+solution.
+
+\begin{explanation}
+For  the given equation, the polynomials defined in
+Theorem~\ref{thmtype:7.5.2} are
+$$
+\begin{array}{ccccc}
+p_0(r)&=&2r(r-1)+9r+6&=&(2r+3)(r+2),\\
+p_1(r)&=&2r(r-1)+11r+10&=&(2r+5)(r+2),\\ 
+p_2(r)&=&2r(r-1)+11r+7&=&(2r+7)(r+1).
+\end{array}
+$$
+The zeros of the indicial polynomial $p_0$ are $r_1=-3/2$
+and $r_2=-2$, so  $r_1-r_2=1/2$. Therefore
+Theorem~\ref{thmtype:7.5.3} implies that
+\begin{equation} \label{eq:7.5.17}
+y_1=x^{-3/2}\sum_{n=0}^\infty a_n(-3/2)x^n\quad\mbox{and}\quad
+y_2=x^{-2}\sum_{n=0}^\infty a_n(-2)x^n
+\end{equation}
+form a fundamental set of Frobenius solutions of \eqref{eq:7.5.16}.
+To find the coefficients in these series, we use the recurrence
+relation of Theorem~\ref{thmtype:7.5.2};   thus,
+\begin{eqnarray*}
+a_0(r)&=&1,\\
+a_1(r)&=&-\frac{p_1(r)}{p_0(r+1)}
+=-\frac{(2r+5)(r+2)}{(2r+5)(r+3)}
+=-\frac{r+2}{r+3},\\
+a_n(r)&=&-\frac{p_1(n+r-1)a_{n-1}+p_2(n+r-2)a_{n-2}}{p_0(n+r)}\\
+&=&-\frac{(n+r+1)(2n+2r+3)a_{n-1}(r)
++(n+r-1)(2n+2r+3)a_{n-2}(r)}{(n+r+2)(2n+2r+3)}\\
+&=&-\frac{(n+r+1)a_{n-1}(r)+(n+r-1)a_{n-2}(r)}{n+r+2},\quad n\geq2.
+\end{eqnarray*}
+
+Setting $r=-3/2$ in these equations yields
+\begin{equation} \label{eq:7.5.18}
+\begin{array}{ccl}
+a_0(-3/2)&=&1,\\
+a_1(-3/2)&=&-1/3,\\
+a_n(-3/2)&=&-\frac{(2n-1)a_{n-1}(-3/2)+
+(2n-5)a_{n-2}(-3/2)}{2n+1},\quad n\geq2,
+\end{array}
+\end{equation}
+and setting $r=-2$ yields
+\begin{equation} \label{eq:7.5.19}
+\begin{array}{ccl}
+a_0(-2)&=&1,\\
+a_1(-2)&=&0,\\
+a_n(-2)&=&-\frac{(n-1)a_{n-1}(-2)+(n-3)a_{n-2}(-2)}{n},\quad n\geq2.
+\end{array}
+\end{equation}
+Calculating  with  \eqref{eq:7.5.18} and
+\eqref{eq:7.5.19}  and substituting the results into
+\eqref{eq:7.5.17}   yields the fundamental set of  Frobenius
+solutions
+\begin{eqnarray*}
+y_1&=&x^{-3/2}\left(1-\frac{1}{3}x+\frac{2}{5}x^2-\frac{5}{21}x^3
++\frac{7}{135}x^4+\frac{76}{1155}x^5+\cdots\right),\\
+y_2&=&x^{-2}\left(1+\frac{1}{2}x^2-\frac{1}{3}x^3+\frac{1}{8}x^4+\frac{1}{30}x^5
++\cdots\right).
+\end{eqnarray*}
+\end{explanation}
+\end{example}
+
+\subsection*{Special Cases With Two Term Recurrence Relations}
+
+For $n\geq2$, the recurrence relation \eqref{eq:7.5.12} of
+Theorem~\ref{thmtype:7.5.2} involves the three coefficients
+$a_n(r)$, $a_{n-1}(r)$, and $a_{n-2}(r)$. We'll now consider some
+special cases where \eqref{eq:7.5.12} reduces to a two term recurrence
+relation; that is, a relation involving only $a_n(r)$ and $a_{n-1}(r)$
+or only $a_n(r)$ and $a_{n-2}(r)$. This simplification often makes it
+possible to obtain explicit formulas for the coefficents of Frobenius
+solutions.
+
+We first consider equations of the form
+$$
+x^2(\alpha_0+\alpha_1x)y''+x(\beta_0+\beta_1x)y'+(\gamma_0+\gamma_1x)y=0
+$$
+with $\alpha_0\neq 0$. For this equation,
+$\alpha_2=\beta_2=\gamma_2=0$, so $p_2\equiv0$ and the recurrence
+relations in Theorem~\ref{thmtype:7.5.2} simplify to
+\begin{equation} \label{eq:7.5.20}
+\begin{array}{ccl}
+a_0(r)&=&1,\\
+a_n(r)&=&-\frac{p_1(n+r-1)}{p_0(n+r)}a_{n-1}(r),\quad n\geq1.
+\end{array}
+\end{equation}
+
+\begin{example}\label{example:7.5.2}
+Find a fundamental set of Frobenius  solutions of
+\begin{equation} \label{eq:7.5.21}
+x^2(3+x)y''+5x(1+x)y'-(1-4x)y=0.
+\end{equation}
+Give explicit  formulas for the coefficients in the solutions.
+
+\begin{explanation}
+For this equation, the polynomials defined in
+Theorem~\ref{thmtype:7.5.2} are
+$$
+\begin{array}{ccccc}
+p_0(r)&=&3r(r-1)+5r-1&=&(3r-1)(r+1),\\
+p_1(r)&=&r(r-1)+5r+4&=&(r+2)^2,\\
+p_2(r)&=&0.
+\end{array}
+$$
+The zeros of the indicial polynomial $p_0$ are $r_1=1/3$ and $r_2=-1$,
+so $r_1-r_2=4/3$. Therefore Theorem~\ref{thmtype:7.5.3} implies that
+$$
+y_1=x^{1/3}\sum_{n=0}^\infty a_n(1/3)x^n\quad\mbox{and}\quad
+y_2=x^{-1}\sum_{n=0}^\infty a_n(-1)x^n
+$$
+form a fundamental set of Frobenius solutions of \eqref{eq:7.5.21}. To
+find the coefficients in these series, we use the recurrence relationss
+\eqref{eq:7.5.20};   thus,
+\begin{equation} \label{eq:7.5.22}
+\begin{array}{ccl}
+a_0(r)&=&1,\\
+a_n(r)&=&-\frac{p_1(n+r-1)}{p_0(n+r)}a_{n-1}(r)\\
+&=&-\frac{(n+r+1)^2}{(3n+3r-1)(n+r+1)}a_{n-1}(r)\\
+&=&-\frac{n+r+1}{3n+3r-1}a_{n-1}(r),\quad n\geq1.
+\end{array}
+\end{equation}
+
+Setting $r=1/3$ in \eqref{eq:7.5.22} yields
+\begin{eqnarray*}
+a_0(1/3)&=&1,\\
+a_n(1/3)&=&-\frac{3n+4}{9n} a_{n-1}(1/3),\quad n\geq1.
+\end{eqnarray*}
+By using the product notation introduced in Section~7.2 and
+proceeding as we did in the examples in that section yields
+$$
+a_n(1/3)=\frac{(-1)^n\prod_{j=1}^n(3j+4)}{9^nn!},\quad n\geq0.
+$$
+Therefore
+$$
+y_1=x^{1/3}\sum_{n=0}^\infty\frac{(-1)^n\prod_{j=1}^n(3j+4)}{9^nn!}x^n
+$$
+is a Frobenius solution of \eqref{eq:7.5.21}.
+
+Setting $r=-1$ in \eqref{eq:7.5.22} yields
+\begin{eqnarray*}
+a_0(-1)&=&1,\\
+a_n(-1)&=&-\frac{n}{3n-4}a_{n-1}(-1),\quad n\geq1,
+\end{eqnarray*}
+so
+$$
+a_n(-1)=\frac{(-1)^nn!}{\prod_{j=1}^n(3j-4)}.
+$$
+Therefore
+$$
+y_2=x^{-1}\sum_{n=0}^\infty\frac{(-1)^nn!}{\prod_{j=1}^n(3j-4)}x^n
+$$
+is a Frobenius solution of \eqref{eq:7.5.21}, and $\{y_1,y_2\}$ is a
+fundamental set of solutions.
+\end{explanation}
+\end{example}
+
+We now consider equations of the form
+\begin{equation} \label{eq:7.5.23}
+x^2(\alpha_0+\alpha_2x^2)y''+x(\beta_0+\beta_2x^2)y'+
+(\gamma_0+\gamma_2x^2)y=0
+\end{equation}
+with $\alpha_0\neq 0$. For this equation,
+$\alpha_1=\beta_1=\gamma_1=0$, so $p_1\equiv0$ and the recurrence
+relations in Theorem~\ref{thmtype:7.5.2} simplify to
+\begin{eqnarray*}
+a_0(r)&=&1,\\
+a_1(r)&=&0,\\
+a_n(r)&=&-\frac{p_2(n+r-2)}{p_0(n+r)}a_{n-2}(r),\quad n\geq2.
+\end{eqnarray*}
+Since $a_1(r)=0$, the last equation implies that $a_n(r)=0$ if $n$ is
+odd, so the Frobenius solutions are of the form
+$$
+y(x,r)=x^r\sum_{m=0}^\infty a_{2m}(r)x^{2m},
+$$
+where
+\begin{equation} \label{eq:7.5.24}
+\begin{array}{ccl}
+a_0(r)&=&1,\\
+a_{2m}(r)&=&-\frac{p_2(2m+r-2)}{p_0(2m+r)}a_{2m-2}(r),\quad m\geq1.
+\end{array}
+\end{equation}
+
+\begin{example}\label{example:7.5.3}
+Find a fundamental set of   Frobenius solutions of
+\begin{equation} \label{eq:7.5.25}
+x^2(2-x^2)y''-x(3+4x^2)y'+(2-2x^2)y=0.
+\end{equation}
+Give explicit  formulas for the coefficients in the solutions.
+
+\begin{explanation}
+For  this equation,  the polynomials defined in
+Theorem~\ref{thmtype:7.5.2} are
+$$
+\begin{array}{ccccc}
+p_0(r)&=&2r(r-1)-3r+2&=&(r-2)(2r-1),\\
+p_1(r)&=&0\\
+p_2(r)&=&-\left[r(r-1)+4r+2\right]&=&-(r+1)(r+2).
+\end{array}
+$$
+The zeros of the indicial polynomial $p_0$ are $r_1=2$
+and $r_2=1/2$, so  $r_1-r_2=3/2$. Therefore
+Theorem~\ref{thmtype:7.5.3} implies that
+$$
+y_1=x^2\sum_{m=0}^\infty a_{2m}(1/3)x^{2m}\quad\mbox{and}\quad
+y_2=x^{1/2}\sum_{m=0}^\infty a_{2m}(1/2)x^{2m}
+$$
+form a fundamental set of  Frobenius solutions of \eqref{eq:7.5.25}.
+To find the coefficients in these series, we use the recurrence
+relation \eqref{eq:7.5.24};   thus,
+\begin{equation} \label{eq:7.5.26}
+\begin{array}{ccl}
+a_0(r)&=&1,\\
+a_{2m}(r)&=&-\frac{p_2(2m+r-2)}{p_0(2m+r)}a_{2m-2}(r)\\
+&=&\frac{(2m+r)(2m+r-1)}{(2m+r-2)(4m+2r-1)}a_{2m-2}(r),\quad m\geq1.
+\end{array}
+\end{equation}
+
+Setting $r=2$ in \eqref{eq:7.5.26} yields
+\begin{eqnarray*}
+a_0(2)&=&1,\\
+a_{2m}(2)&=&\frac{(m+1)(2m+1)}{m(4m+3)}a_{2m-2}(2),\quad m\geq1,
+\end{eqnarray*}
+so
+$$
+a_{2m}(2)=(m+1)\prod_{j=1}^m\frac{2j+1}{4j+3}.
+$$
+Therefore
+
+$$
+ y_1=x^2\sum_{m=0}^\infty
+(m+1)\left(\prod_{j=1}^m\frac{2j+1}{4j+3}\right)x^{2m}
+$$
+is a Frobenius solution of \eqref{eq:7.5.25}.
+
+
+Setting $r=1/2$ in \eqref{eq:7.5.26} yields
+\begin{eqnarray*}
+a_0(1/2)&=&1,\\
+a_{2m}(1/2)&=&\frac{(4m-1)(4m+1)}{8m(4m-3)}a_{2m-2}(1/2),\quad
+m\geq1,
+\end{eqnarray*}
+so
+$$
+a_{2m}(1/2)=\frac{1}{8^mm!}\prod_{j=1}^m\frac{(4j-1)(4j+1)}{4j-3}.
+$$
+Therefore
+$$
+y_2=x^{1/2}\sum_{m=0}^\infty
+\frac{1}{8^mm!}\left(\prod_{j=1}^m\frac{(4j-1)(4j+1)}{4j-3}\right)x^{2m}
+$$
+is a Frobenius solution of \eqref{eq:7.5.25} and $\{y_1,y_2\}$ is a
+fundamental set of solutions.
+\end{explanation}
+\end{example}
+
+\begin{remark}
+Thus far, we considered only the case where the indicial equation
+has real roots that don't differ by an integer, which allows us to
+apply Theorem~\ref{thmtype:7.5.3}. However, for equations of the form
+\eqref{eq:7.5.23}, the sequence $\{a_{2m}(r)\}$ in \eqref{eq:7.5.24} is
+defined for $r=r_2$ if $r_1-r_2$ isn't  an \dfn{even} integer. It can be
+shown %(Exercise~\ref{exer:7.5.56}) 
+that in this case
+$$
+y_1=x^{r_1}\sum_{m=0}^\infty a_{2m}(r_1)x^{2m}\quad \mbox{and}\quad y_2=x^{r_2}\sum_{m=0}^\infty a_{2m}(r_2)x^{2m}
+$$
+form a fundamental set  Frobenius solutions of \eqref{eq:7.5.23}.
+\end{remark}
+
+\subsection*{A Note on Technology}
+As we said at the end of Section~7.2, if you're interested in
+actually using series to compute numerical approximations to solutions
+of a differential equation, then whether or not there's a simple
+closed form for the coefficents is essentially irrelevant;   recursive
+computation is usually more efficient. Since it's also laborious, we
+encourage you to write short programs to implement recurrence
+relations on a calculator or computer, even in exercises where this is
+not specifically required.
+
+In practical use of the method of Frobenius when $x_0=0$ is a regular
+singular point, we're interested in how well the functions
+$$
+y_N(x,r_i)=x^{r_i}\sum_{n=0}^N a_n(r_i)x^n,\quad i=1,2,
+$$
+approximate solutions to a given equation when $r_i$ is a zero of the
+indicial polynomial. In dealing with the corresponding problem for the
+case where $x_0=0$ is an ordinary point, we used numerical integration
+to solve the differential equation subject to initial conditions
+$y(0)=a_0,\quad y'(0)=a_1$, and compared the result with values of the
+Taylor polynomial
+$$
+T_N(x)=\sum_{n=0}^Na_nx^n.
+$$
+We can't do that here, since in general we can't prescribe
+arbitrary initial values for solutions of a differential equation at a
+singular point. Therefore, motivated by Theorem~\ref{thmtype:7.5.2}
+(specifically, \eqref{eq:7.5.14}), we suggest the following  procedure.
+
+\begin{procedure}
+Let $L$ and
+$Y_n(x; r_i)$ be defined by
+$$
+Ly=
+x^2(\alpha_0+\alpha_1x+\alpha_2x^2)y''+x(\beta_0+\beta_1x+\beta_2x^2)y'
++(\gamma_0+\gamma_1x+\gamma_2x^2)y
+$$
+and
+$$
+y_N(x;r_i)=x^{r_i}\sum_{n=0}^N a_n(r_i)x^n,
+$$
+where the coefficients $\{a_n(r_i)\}_{n=0}^N$ are computed as in
+$\eqref{eq:7.5.12}$, Theorem~$\ref{thmtype:7.5.2}$. Compute the error
+\begin{equation} \label{eq:7.5.27}
+E_N(x;r_i)=x^{-r_i}Ly_N(x;r_i)/\alpha_0
+\end{equation}
+for various values of $N$ and various values of $x$ in the interval
+$(0,\rho)$, with $\rho$ as defined in Theorem~$\ref{thmtype:7.5.2}$.
+\end{procedure}
+
+The multiplier $x^{-r_i}/\alpha_0$ on the right of \eqref{eq:7.5.27}
+eliminates the effects of small or large values of $x^{r_i}$ near
+$x=0$, and of multiplication by an arbitrary constant. 
+%In some
+%exercises you will be asked to estimate the maximum value of
+%$E_N(x; r_i)$ on an interval $(0,\delta]$ by computing $E_N(x_m;r_i)$
+%at the $M$ points $x_m=m\delta/M,\; m=1$, $2$, \dots, $M$, and finding the
+%maximum of the absolute values:
+%\begin{equation} \label{eq:7.5.28}
+%\sigma_N(\delta)=\max\{|E_N(x_m;r_i)|,\;   m=1,2,\dots,M\}.
+%\end{equation}
+%(For simplicity, this notation ignores the dependence of
+%the right side of the equation on $i$ and $M$.)
+
+
+To implement this procedure, you'll have to write a computer program to
+calculate $\{a_n(r_i)\}$ from the applicable recurrence relation, and
+to evaluate $E_N(x;r_i)$.
+
+%The next exercise set contains five exercises specifically
+%identified by \Lex that ask you to implement the verification
+%procedure. These particular exercises were chosen arbitrarily   you can
+%just as well formulate such laboratory problems for any of the
+%equations in any  of the Exercises~\ref{exer:7.5.1}--\ref{exer:7.5.10},
+%\ref{exer:7.5.14}-\ref{exer:7.5.25}, and \ref{exer:7.5.28}--\ref{exer:7.5.51}
+
+
+
+\section*{Text Source}
+Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
+
+\href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
+
+
+\end{document}
