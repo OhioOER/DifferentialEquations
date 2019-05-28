@@ -1,0 +1,596 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{The Method of Frobenius II}%\label{Module 7-ADEF}
+
+
+\begin{document}
+
+\begin{abstract}
+
+\end{abstract}
+
+\maketitle
+
+\section*{The Method of Frobenius II}
+
+In this section we discuss a method for finding two linearly
+independent Frobenius solutions of a homogeneous linear second order
+equation near a regular singular point in the case where the indicial
+equation has a repeated real root. As in the preceding section, we
+consider equations that can be written as
+\begin{equation} \label{eq:7.6.1}
+x^2(\alpha_0+\alpha_1x+\alpha_2x^2)y''+x(\beta_0+\beta_1x+\beta_2x^2)y'
++(\gamma_0+\gamma_1x+\gamma_2x^2)y=0
+\end{equation}
+where $\alpha_0\ne0$. We assume that the indicial equation $p_0(r)=0$
+has a repeated real root $r_1$. In this case Theorem~\ref{thmtype:7.5.3}
+implies that \eqref{eq:7.6.1} has one solution of the form
+$$
+y_1=x^{r_1}\sum_{n=0}^\infty a_nx^n,
+$$
+but does not provide a second solution $y_2$ such that $\{y_1,y_2\}$
+is a fundamental set of solutions. The following extension of
+Theorem~\ref{thmtype:7.5.2} provides a way to find a second solution.
+
+\begin{theorem}\label{thmtype:7.6.1}
+Let
+\begin{equation} \label{eq:7.6.2}
+Ly=
+x^2(\alpha_0+\alpha_1x+\alpha_2x^2)y''+x(\beta_0+\beta_1x+\beta_2x^2)y'
++(\gamma_0+\gamma_1x+\gamma_2x^2)y,
+\end{equation}
+where $\alpha_0\ne0$ and define
+\begin{eqnarray*}
+p_0(r)&=&\alpha_0r(r-1)+\beta_0r+\gamma_0,\\
+p_1(r)&=&\alpha_1r(r-1)+\beta_1r+\gamma_1,\\
+p_2(r)&=&\alpha_2r(r-1)+\beta_2r+\gamma_2.\\
+\end{eqnarray*}
+Suppose $r$ is
+a real number such that $p_0(n+r)$ is nonzero
+for all positive integers $n$, and define
+$$
+\begin{array}{ccl}
+a_0(r)&=&1,\\
+a_1(r)&=&-\frac{p_1(r)}{p_0(r+1)},\\
+a_n(r)&=&-\frac{p_1(n+r-1)a_{n-1}(r)+p_2(n+r-2)a_{n-2}(r)}{p_0(n+r)},\quad n\geq 2.
+\end{array}
+$$
+Then the Frobenius series
+\begin{equation} \label{eq:7.6.3}
+y(x,r)=x^r\sum_{n=0}^\infty a_n(r)x^n
+\end{equation}
+satisfies
+\begin{equation} \label{eq:7.6.4}
+Ly(x,r)=p_0(r)x^r.
+\end{equation}
+Moreover$,$
+\begin{equation} \label{eq:7.6.5}
+\frac{\partial y}{\partial r}(x,r)=y(x,r)\ln x+x^r\sum_{n=1}^\infty
+a_n'(r) x^n,
+\end{equation}
+and
+\begin{equation} \label{eq:7.6.6}
+L\left(\frac{\partial y}{\partial
+r}(x,r)\right)=p'_0(r)x^r+x^rp_0(r)\ln x.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Theorem~\ref{thmtype:7.5.2} implies \eqref{eq:7.6.4}. Differentiating
+formally
+with respect to $r$ in \eqref{eq:7.6.3} yields
+\begin{eqnarray*}
+\frac{\partial y}{\partial r} (x,r)&=&\frac{\partial}{\partial r}(x^r)\sum_{n=0}^\infty
+a_n(r)x^n +x^r\sum_{n=1}^\infty  a_n'(r)x^n\\
+&=&x^r\ln x\sum_{n=0}^\infty
+a_n(r)x^n +x^r\sum_{n=1}^\infty  a_n'(r)x^n\\
+&=&y(x,r) \ln x +
+x^r\sum_{n=1}^\infty  a_n'(r)x^n,
+\end{eqnarray*}
+which proves \eqref{eq:7.6.5}.
+
+To prove that  $\partial y(x,r)/\partial r$ satisfies \eqref{eq:7.6.6}, we
+view $y$ in \eqref{eq:7.6.2} as a function $y=y(x,r)$  of two
+variables, where the prime indicates partial differentiation with
+respect to $x$;   thus,
+$$
+y'=y'(x,r)=\frac{\partial y}{\partial x}(x,r)\quad\mbox{and}\quad
+y''=y''(x,r)=\frac{\partial^2 y}{\partial x^2}(x,r).
+$$
+With this notation we can use \eqref{eq:7.6.2} to rewrite \eqref{eq:7.6.4} as
+\begin{equation} \label{eq:7.6.7}
+x^2q_0(x)\frac{\partial^2 y}{\partial x^2}(x,r)+xq_1(x)\frac{\partial y}{\partial x}(x,r)+q_2(x)y(x,r)=p_0(r)x^r,
+\end{equation}
+where
+\begin{eqnarray*}
+q_0(x)&=&\alpha_0+\alpha_1x+\alpha_2x^2,\\
+q_1(x)&=&\beta_0+\beta_1x+\beta_2x^2,\\
+q_2(x)&=&\gamma_0+\gamma_1x+\gamma_2x^2.\\
+\end{eqnarray*}
+Differentiating both sides of \eqref{eq:7.6.7} with respect to $r$
+yields
+$$
+x^2q_0(x)\frac{\partial^3y}{\partial r\partial x^2}(x,r)+
+xq_1(x)\frac{\partial^2y}{\partial r\partial x}(x,r)+q_2(x)\frac{\partial
+y}{\partial r}(x,r)=p'_0(r)x^r+p_0(r) x^r \ln x.
+$$
+By changing the order of differentiation in the first two terms on the left
+we can rewrite this  as
+$$
+x^2q_0(x)\frac{\partial^3 y}{\partial x^2\partial r}(x,r)
++xq_1(x)\frac{\partial^2 y}{\partial x\partial r}(x,r)+q_2(x)\frac{\partial
+y}{\partial r}(x,r)=p'_0(r)x^r+p_0(r) x^r \ln x,
+$$
+or
+$$
+x^2q_0(x)\frac{\partial^2}{\partial x^2}
+\left(\frac{\partial y}{\partial r}(x,r)\right)
++xq_1(x)\frac{\partial}{\partial r}\left(\frac{\partial y}{\partial
+x}(x,r)\right) +q_2(x)\frac{\partial y}{\partial r}(x,r)=
+p'_0(r)x^r+p_0(r) x^r \ln x,
+$$
+which is equivalent to \eqref{eq:7.6.6}.
+\end{proof}
+
+\begin{theorem}\label{thmtype:7.6.2}
+Let $L$ be as in Theorem~\ref{thmtype:7.6.1} and suppose the
+indicial equation $p_0(r)=0$ has a repeated real root $r_1$.
+Then
+$$
+y_1(x)=y(x,r_1)=x^{r_1}\sum_{n=0}^\infty a_n(r_1)x^n
+$$
+and
+\begin{equation} \label{eq:7.6.8}
+y_2(x)=\frac{\partial y}{\partial r}(x,r_1)=y_1(x)\ln
+x+x^{r_1}\sum_{n=1}^\infty a_n'(r_1)x^n
+\end{equation}
+form a fundamental set of solutions of $Ly=0.$
+\end{theorem}
+
+\begin{proof}
+Since $r_1$  is a repeated root of $p_0(r)=0$, the indicial polynomial
+can be factored as
+$$
+p_0(r)=\alpha_0(r-r_1)^2,
+$$
+so
+$$
+p_0(n+r_1)=\alpha_0n^2,
+$$
+which is nonzero if $n>0$. Therefore the assumptions of
+Theorem~\ref{thmtype:7.6.1} hold with $r=r_1$, and \eqref{eq:7.6.4} implies
+that $Ly_1=p_0(r_1)x^{r_1}=0$. Since
+$$
+p_0'(r)=2\alpha(r-r_1)
+$$
+it follows that $p_0'(r_1)=0$, so \eqref{eq:7.6.6} implies that
+$$
+Ly_2=p_0'(r_1)x^{r_1}+x^{r_1}p_0(r_1)\ln x=0.
+$$
+This proves that $y_1$ and $y_2$ are both solutions of $Ly=0$. We
+leave the proof that $\{y_1,y_2\}$ is a fundamental set as an exercise.
+%(Exercise~\ref{exer:7.6.53}).
+\end{proof}
+
+\begin{example}\label{example:7.6.1}
+Find  a fundamental set of solutions of
+\begin{equation} \label{eq:7.6.9}
+x^2(1-2x+x^2)y''-x(3+x)y'+(4+x)y=0.
+\end{equation}
+Compute just the terms involving $x^{n+r_1}$, where  $0\leq n\leq 4$
+and $r_1$ is the root of the indicial equation.
+
+
+\begin{explanation}
+For the given equation,  the polynomials defined in
+Theorem~\ref{thmtype:7.6.1} are
+$$
+\begin{array}{lllll}
+p_0(r)&=&r(r-1)-3r+4&=&(r-2)^2,\\
+p_1(r)&=&-2r(r-1)-r+1&=&-(r-1)(2r+1),\\
+p_2(r)&=&r(r-1).
+\end{array}
+$$
+Since $r_1=2$ is a repeated root of the indicial polynomial $p_0$,
+Theorem~\ref{thmtype:7.6.2} implies that
+\begin{equation} \label{eq:7.6.10}
+y_1=x^2\sum_{n=0}^\infty  a_n(2)x^n\quad\mbox{ and }\quad
+y_2=y_1\ln x+x^2\sum_{n=1}^\infty a_n'(2)x^n
+\end{equation}
+form a fundamental set of  Frobenius solutions of \eqref{eq:7.6.9}.
+To find the coefficients in these series, we use the recurrence
+formulas from Theorem~\ref{thmtype:7.6.1}:
+\begin{equation} \label{eq:7.6.11}
+\begin{array}{ccl}
+a_0(r)&=&1,\\
+a_1(r)&=&-\frac{p_1(r)}{p_0(r+1)}
+=-\frac{(r-1)(2r+1)}{(r-1)^2}
+=\frac{2r+1}{r-1},\\
+a_n(r)&=&-\frac{p_1(n+r-1)a_{n-1}(r)+p_2(n+r-2)a_{n-2}(r)}{p_0(n+r)}\\
+&=&\frac{(n+r-2)\left[(2n+2r-1)a_{n-1}(r)
+-(n+r-3)a_{n-2}(r)\right]}{(n+r-2)^2}\\
+&=&\frac{(2n+2r-1)}{(n+r-2)}a_{n-1}(r)-
+\frac{(n+r-3)}{(n+r-2)}a_{n-2}(r),n\geq 2.
+\end{array}
+\end{equation}
+Differentiating yields
+\begin{equation} \label{eq:7.6.12}
+\begin{array}{ccl}
+a'_1(r)&=&-\frac{3}{(r-1)^2},\\
+a'_n(r)&=&\frac{2n+2r-1}{n+r-2}a'_{n-1}(r)-\frac{n+r-3}{n+r-2}a'_{n-2}(r)\\
+&&-\frac{3}{(n+r-2)^2}a_{n-1}(r)-\frac{1}{(n+r-2)^2}a_{n-2}(r),\quad
+n\geq 2.
+\end{array}
+\end{equation}
+
+Setting $r=2$ in \eqref{eq:7.6.11} and \eqref{eq:7.6.12} yields
+\begin{equation} \label{eq:7.6.13}
+\begin{array}{ccl}
+a_0(2)&=&1,\\
+a_1(2)&=&5,\\
+a_n(2)&=&\frac{(2n+3)}{n}
+a_{n-1}(2)-\frac{(n-1)}{n}a_{n-2}(2),\quad n\geq 2
+\end{array}
+\end{equation}
+and
+\begin{equation} \label{eq:7.6.14}
+\begin{array}{ccl}
+a_1'(2)&=&-3,\\
+a'_n(2)&=&\frac{2n+3}{n}a'_{n-1}(2)-\frac{n-1}{n}a'_{n-2}(2)
+-\frac{3}{n^2}a_{n-1}(2)-\frac{1}{n^2}a_{n-2}(2),\quad n\geq 2.
+\end{array}
+\end{equation}
+Computing recursively with  \eqref{eq:7.6.13} and \eqref{eq:7.6.14}
+yields
+$$
+a_0(2)=1,\,a_1(2)=5,\,a_2(2)=17,\,a_3(2)=\frac{143}{3},\,a_4(2)=\frac{355}{3},
+$$
+and
+$$
+a_1'(2)=-3,\,a_2'(2)=-\frac{29}{2},\,a_3'(2)=-\frac{859}{18},
+\,a_4'(2)=-\frac{4693}{36}.
+$$
+Substituting these coefficients into \eqref{eq:7.6.10} yields
+$$
+y_1=x^2\left(1+5x+17x^2+\frac{143}{3}x^3
++\frac{355}{3}x^4+\cdots\right)
+$$
+and
+$$
+y_2=y_1 \ln x
+-x^3\left(3+\frac{29}{2}x+\frac{859}{18}x^2+\frac{4693}{36}x^3
++\cdots\right).
+$$
+\end{explanation}
+\end{example}
+
+Since the recurrence formula \eqref{eq:7.6.11} involves three terms, it's
+not possible to obtain a simple explicit formula for the coefficients
+in the Frobenius solutions of \eqref{eq:7.6.9}. However, as we saw in the
+preceding sections, the recurrrence formula for $\{a_n(r)\}$ involves
+only two terms if either $\alpha_1=\beta_1=\gamma_1=0$ or
+$\alpha_2=\beta_2=\gamma_2=0$ in \eqref{eq:7.6.1}. In this case, it's
+often
+possible to find explicit formulas for the coefficients. The next two
+examples illustrate this.
+
+
+
+\begin{example}\label{example:7.6.2}
+Find a fundamental set of Frobenius  solutions of
+\begin{equation} \label{eq:7.6.15}
+2x^2(2+x)y''+5x^2y'+(1+x)y=0.
+\end{equation}
+Give explicit formulas for the coefficients in the solutions.
+
+\begin{explanation}
+For  the given equation, the polynomials defined in
+Theorem~\ref{thmtype:7.6.1} are
+$$
+\begin{array}{cclcl}
+p_0(r)&=&4r(r-1)+1&=&(2r-1)^2,\\
+p_1(r)&=&2r(r-1)+5r+1&=&(r+1)(2r+1),\\
+p_2(r)&=&0.
+\end{array}
+$$
+Since $r_1=1/2$ is a repeated zero of the  indicial polynomial $p_0$,
+Theorem~\ref{thmtype:7.6.2} implies that
+\begin{equation} \label{eq:7.6.16}
+y_1=x^{1/2}\sum_{n=0}^\infty  a_n(1/2)x^n
+\end{equation}
+and
+\begin{equation} \label{eq:7.6.17}
+y_2=y_1\ln x+x^{1/2}\sum_{n=1}^\infty a_n'(1/2)x^n
+\end{equation}
+form a fundamental set of Frobenius solutions of \eqref{eq:7.6.15}.
+Since $p_2\equiv0$, the recurrence formulas in Theorem~\ref{thmtype:7.6.1}
+ reduce to
+$$
+\begin{array}{ccl}
+a_0(r)&=&1,\\
+a_n(r)&=&-\frac{p_1(n+r-1)}{p_0(n+r)}a_{n-1}(r),\\
+&=&-\frac{(n+r)(2n+2r-1)}{(2n+2r-1)^2}a_{n-1}(r),\\
+&=&-\frac{n+r}{2n+2r-1}a_{n-1}(r),\quad n\geq 0.
+\end{array}
+$$
+We leave it to you to show that
+\begin{equation} \label{eq:7.6.18}
+a_n(r)=(-1)^n\prod_{j=1}^n\frac{j+r}{2j+2r-1},\quad n\geq 0.
+\end{equation}
+Setting $r=1/2$  yields
+\begin{equation} \label{eq:7.6.19}
+\begin{array}{ccl}
+a_n(1/2)&=&(-1)^n\prod_{j=1}^n\frac{j+1/2}{2j}=
+(-1)^n\prod_{j=1}^n\frac{2j+1}{4j},\\
+&=&\frac{(-1)^n\prod_{j=1}^n(2j+1)}{4^nn!},\quad n\geq 0.
+\end{array}
+\end{equation}
+Substituting this into \eqref{eq:7.6.16} yields
+$$
+y_1=x^{1/2}\sum_{n=0}^\infty\frac{(-1)^n\prod_{j=1}^n(2j+1)}{4^nn!}x^n.
+$$
+
+To obtain $y_2$ in \eqref{eq:7.6.17}, we must compute $a_n'(1/2)$
+for $n=1, 2,\dots$. We'll do this by logarithmic
+differentiation.  From \eqref{eq:7.6.18},
+$$
+|a_n(r)|=\prod_{j=1}^n\frac{|j+r|}{|2j+2r-1|},\quad n\geq 1.
+$$
+Therefore
+$$
+\ln |a_n(r)|=\sum^n_{j=1} \left(\ln |j+r|-\ln|2j+2r-1|\right).
+$$
+Differentiating with respect to $r$ yields
+$$
+\frac{a'_n(r)}{a_n(r)}=\sum^n_{j=1} \left(\frac{1}{j+r}-\frac{2}{2j+2r-1}\right).
+$$
+Therefore
+$$
+a'_n(r)=a_n(r) \sum^n_{j=1} \left(\frac{1}{j+r}-\frac{2}{2j+2r-1}\right).
+$$
+Setting $r=1/2$ here and recalling \eqref{eq:7.6.19} yields
+\begin{equation} \label{eq:7.6.20}
+a'_n(1/2)=\frac{(-1)^n\prod_{j=1}^n(2j+1)}{4^nn!}\left(\sum_{j=1}^n\frac{1}{j+1/2}-\sum_{j=1}^n\frac{1}{j}\right).
+\end{equation}
+Since
+$$
+\frac{1}{j+1/2}-\frac{1}{j}=\frac{j-j-1/2}{j(j+1/2)}=-\frac{1}{j(2j+1)},
+$$
+ \eqref{eq:7.6.20} can be rewritten as
+$$
+a'_n(1/2)=-\frac{(-1)^n\prod_{j=1}^n(2j+1)}{4^nn!}
+\sum_{j=1}^n\frac{1}{j(2j+1)}.
+$$
+Therefore, from \eqref{eq:7.6.17},
+$$
+y_2=y_1\ln
+x-x^{1/2}\sum_{n=1}^\infty\frac{(-1)^n\prod_{j=1}^n(2j+1)}{4^nn!}
+\left(\sum_{j=1}^n\frac{1}{j(2j+1)}\right)x^n.
+$$
+\end{explanation}
+\end{example}
+
+\begin{example}\label{example:7.6.3}
+Find a fundamental set of Frobenius  solutions of
+\begin{equation} \label{eq:7.6.21}
+x^2(2-x^2)y''-2x(1+2x^2)y'+(2-2x^2)y=0.
+\end{equation}
+Give explicit formulas for the coefficients in the solutions.
+
+\begin{explanation}
+For \eqref{eq:7.6.21}, the polynomials defined in
+Theorem~\ref{thmtype:7.6.1} are
+$$
+\begin{array}{ccccc}
+p_0(r)&=&2r(r-1)-2r+2&=&2(r-1)^2,\\
+p_1(r)&=&0,\\
+p_2(r)&=&-r(r-1)-4r-2&=&-(r+1)(r+2).
+\end{array}
+$$
+As in Section~7.5, since $p_1\equiv0$,  the recurrence
+formulas
+of Theorem~\ref{thmtype:7.6.1} imply that $a_n(r)=0$ if $n$ is odd, and
+$$
+\begin{array}{ccl}
+a_0(r)&=&1,\\
+a_{2m}(r)&=&-\frac{p_2(2m+r-2)}{p_0(2m+r)}a_{2m-2}(r)\\
+&=&\frac{(2m+r-1)(2m+r)}{2(2m+r-1)^2}a_{2m-2}(r)\\
+&=&\frac{2m+r}{2(2m+r-1)}a_{2m-2}(r),\quad m\geq 1.
+\end{array}
+$$
+Since $r_1=1$ is a repeated root of the indicial polynomial $p_0$,
+Theorem~\ref{thmtype:7.6.2} implies that
+\begin{equation} \label{eq:7.6.22}
+y_1=x\sum_{m=0}^\infty  a_{2m}(1)x^{2m}
+\end{equation}
+and
+\begin{equation} \label{eq:7.6.23}
+y_2=y_1\ln x+x\sum_{m=1}^\infty a'_{2m}(1)x^{2m}
+\end{equation}
+form a fundamental set of Frobenius solutions of \eqref{eq:7.6.21}.
+We leave it to you to show  that
+\begin{equation} \label{eq:7.6.24}
+a_{2m}(r)=\frac{1}{2^m}\prod_{j=1}^m\frac{2j+r}{2j+r-1}.
+\end{equation}
+Setting $r=1$ yields
+\begin{equation} \label{eq:7.6.25}
+a_{2m}(1)=\frac{1}{2^m}\prod_{j=1}^m\frac{2j+1}{2j}
+=\frac{\prod_{j=1}^m(2j+1)}{4^mm!},
+\end{equation}
+and substituting this into \eqref{eq:7.6.22} yields
+$$
+y_1=x\sum_{m=0}^\infty\frac{\prod_{j=1}^m(2j+1)}{4^mm!}x^{2m}.
+$$
+
+To obtain $y_2$ in \eqref{eq:7.6.23}, we must compute $a_{2m}'(1)$
+for $m=1, 2, \dots$. Again we use logarithmic differentiation. From
+\eqref{eq:7.6.24},
+$$
+|a_{2m}(r)|=\frac{1}{2^m}\prod_{j=1}^m\frac{|2j+r|}{|2j+r-1|}.
+$$
+Taking logarithms yields
+$$
+\ln |a_{2m}(r)|=-m\ln2+ \sum^m_{j=1} \left(\ln
+|2j+r|-\ln|2j+r-1|\right).
+$$
+Differentiating with respect to $r$ yields
+$$
+\frac{a'_{2m}(r)}{a_{2m}(r)}=\sum^m_{j=1} \left(\frac{1}{2j+r}-\frac{1}{2j+r-1}\right).
+$$
+Therefore
+$$
+a'_{2m}(r)=a_{2m}(r) \sum^m_{j=1} \left(\frac{1}{2j+r}-\frac{1}{2j+r-1}\right).
+$$
+Setting $r=1$  and recalling \eqref{eq:7.6.25} yields
+\begin{equation} \label{eq:7.6.26}
+a'_{2m}(1)=\frac{\prod_{j=1}^m(2j+1)}{4^mm!}
+\sum_{j=1}^m\left(\frac{1}{2j+1}-\frac{1}{2j}\right).
+\end{equation}
+Since
+$$
+\frac{1}{2j+1}-\frac{1}{2j}=-\frac{1}{2j(2j+1)},
+$$
+\eqref{eq:7.6.26} can be rewritten as
+$$
+a_{2m}'(1)=-\frac{\prod_{j=1}^m(2j+1)}{2\cdot4^mm!}
+\sum_{j=1}^m\frac{1}{j(2j+1)}.
+$$
+Substituting this into \eqref{eq:7.6.23} yields
+$$
+y_2=y_1\ln
+x-\frac{x}{2}\sum_{m=1}^\infty\frac{\prod_{j=1}^m(2j+1)}{4^mm!}
+\left(\sum_{j=1}^m\frac{1}{j(2j+1)}\right)x^{2m}.
+$$
+\end{explanation}
+\end{example}
+
+If the solution $y_1=y(x,r_1)$ of $Ly=0$ reduces to a finite sum, then
+there's a
+difficulty in using logarithmic differentiation to obtain the coefficients
+$\{a_n'(r_1)\}$ in the second solution. The next example illustrates
+this difficulty and shows how to overcome it.
+
+
+\begin{example}\label{example:7.6.4}
+Find a fundamental set of Frobenius solutions of
+\begin{equation} \label{eq:7.6.27}
+x^2y''-x(5-x)y'+(9-4x)y=0.
+\end{equation}
+Give explicit formulas for the coefficients in the solutions.
+
+\begin{explanation}
+For \eqref{eq:7.6.27} the polynomials defined in Theorem~\ref{thmtype:7.6.1}
+are
+$$
+\begin{array}{cclcc}
+p_0(r)&=&r(r-1)-5r+9&=&(r-3)^2,\\
+p_1(r)&=&r-4,\\
+p_2(r)&=&0.
+\end{array}
+$$
+Since $r_1=3$ is a repeated zero of the  indicial polynomial $p_0$,
+Theorem~\ref{thmtype:7.6.2} implies that
+\begin{equation} \label{eq:7.6.28}
+y_1=x^3\sum_{n=0}^\infty  a_n(3)x^n
+\end{equation}
+and
+\begin{equation} \label{eq:7.6.29}
+y_2=y_1\ln x+x^3\sum_{n=1}^\infty a_n'(3)x^n
+\end{equation}
+are linearly independent Frobenius solutions of \eqref{eq:7.6.27}.
+To find the coefficients in \eqref{eq:7.6.28} we use the recurrence
+formulas
+$$
+\begin{array}{ccl}
+a_0(r)&=&1,\\
+a_n(r)&=&-\frac{p_1(n+r-1)}{p_0(n+r)}a_{n-1}(r)\\
+&=&-\frac{n+r-5}{(n+r-3)^2}a_{n-1}(r),\quad n\geq 1.
+\end{array}
+$$
+We leave it to you to show that
+\begin{equation} \label{eq:7.6.30}
+a_n(r)=(-1)^n\prod_{j=1}^n\frac{j+r-5}{(j+r-3)^2}.
+\end{equation}
+Setting $r=3$ here yields
+$$
+a_n(3)=(-1)^n\prod_{j=1}^n\frac{j-2}{j^2},
+$$
+so  $a_1(3)=1$ and $a_n(3)=0$ if $n\ge2$. Substituting
+these coefficients into \eqref{eq:7.6.28} yields
+$$
+y_1=x^3(1+x).
+$$
+
+To obtain $y_2$ in \eqref{eq:7.6.29} we must compute $a_n'(3)$
+for $n=1, 2, \dots$.
+ Let's first try  logarithmic differentiation.
+From \eqref{eq:7.6.30},
+$$
+|a_n(r)|=\prod_{j=1}^n\frac{|j+r-5|}{|j+r-3|^2},\quad n\geq 1,
+$$
+so
+$$
+\ln |a_n(r)|=\sum^n_{j=1} \left(\ln |j+r-5|-2\ln|j+r-3|\right).
+$$
+Differentiating  with respect to $r$ yields
+$$
+\frac{a'_n(r)}{a_n(r)}=\sum^n_{j=1} \left(\frac{1}{j+r-5}-\frac{2}{j+r-3}\right).
+$$
+Therefore
+\begin{equation} \label{eq:7.6.31}
+a'_n(r)=a_n(r) \sum^n_{j=1} \left(\frac{1}{j+r-5}-\frac{2}{j+r-3}\right).
+\end{equation}
+However, we can't simply set $r=3$ here if $n\ge2$,  since the bracketed
+expression in the sum corresponding to  $j=2$ contains the term $1/(r-3)$.
+In fact, since $a_n(3)=0$ for $n\ge2$, the  formula \eqref{eq:7.6.31} for
+$a_n'(r)$ is actually an indeterminate form at $r=3$.
+
+We  overcome this difficulty as follows. From \eqref{eq:7.6.30} with
+$n=1$,
+$$
+a_1(r)=-\frac{r-4}{(r-2)^2}.
+$$
+Therefore
+$$
+a_1'(r)=\frac{r-6}{(r-2)^3},
+$$
+so
+\begin{equation} \label{eq:7.6.32}
+a_1'(3)=-3.
+\end{equation}
+From \eqref{eq:7.6.30} with $n\geq 2$,
+$$
+a_n(r)=(-1)^n (r-4)(r-3)\,\frac{\prod_{j=3}^n(j+r-5)}{\prod_{j=1}^n(j+r-3)^2}
+=(r-3)c_n(r),
+$$
+where
+$$
+c_n(r)=(-1)^n(r-4)\,
+\frac{\prod_{j=3}^n(j+r-5)}{\prod_{j=1}^n(j+r-3)^2},\quad  n\geq 2.
+$$
+Therefore
+$$
+a_n'(r)=c_n(r)+(r-3)c_n'(r),\quad n\geq 2,
+$$
+which implies that  $a_n'(3)=c_n(3)$ if $n\geq 3$. We leave it to
+you to verify that
+$$
+a_n'(3)=c_n(3)=\frac{(-1)^{n+1}}{n(n-1)n!},\quad n\geq 2.
+$$
+Substituting this and \eqref{eq:7.6.32} into \eqref{eq:7.6.29}
+yields
+$$
+y_2=x^3(1+x)\ln x-3x^4-x^3\sum_{n=2}^\infty \frac{(-1)^n}{n(n-1)n!}x^n.
+$$
+\end{explanation}
+\end{example}
+
+\section*{Text Source}
+Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
+
+\href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
+
+
+\end{document}
