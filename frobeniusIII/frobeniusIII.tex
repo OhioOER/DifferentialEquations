@@ -1,0 +1,633 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{The Method of Frobenius III}%\label{Module 7-ADEF}
+
+
+\begin{document}
+
+\begin{abstract}
+
+\end{abstract}
+
+\maketitle
+
+\section*{The Method of Frobenius III}
+
+In Sections~7.5 and 7.6 we discussed methods
+for finding
+Frobenius solutions of a homogeneous linear second order equation near
+a regular singular point in the case where the indicial equation has a
+repeated root or distinct real roots that don't differ by an integer.
+In this section we consider the case where the indicial equation has
+distinct real roots that differ by an integer. We'll limit our
+discussion to equations that can be written as
+\begin{equation} \label{eq:7.7.1}
+x^2(\alpha_0+\alpha_1x)y''+x(\beta_0+\beta_1x)y'
++(\gamma_0+\gamma_1x)y=0
+\end{equation}
+or
+$$
+x^2(\alpha_0+\alpha_2x^2)y''+x(\beta_0+\beta_2x^2)y'
++(\gamma_0+\gamma_2x^2)y=0,
+$$
+where the roots of the indicial equation differ by a positive integer.
+
+We begin with a theorem that provides a fundamental set of solutions
+of equations of the form \eqref{eq:7.7.1}.
+
+
+\begin{theorem}\label{thmtype:7.7.1}
+Let
+$$
+Ly=
+x^2(\alpha_0+\alpha_1x)y''+x(\beta_0+\beta_1x)y'
++(\gamma_0+\gamma_1x)y,
+$$
+where $\alpha_0\neq0,$ and  define
+\begin{eqnarray*}
+p_0(r)&=&\alpha_0r(r-1)+\beta_0r+\gamma_0,\\
+p_1(r)&=&\alpha_1r(r-1)+\beta_1r+\gamma_1.
+\end{eqnarray*}
+Suppose   $r$ is a real number such that $p_0(n+r)$ is nonzero
+for all positive integers $n,$ and  define
+\begin{equation} \label{eq:7.7.2}
+\begin{array}{rcl}
+a_0(r)&=&1,\\
+a_n(r)&=&-\frac{p_1(n+r-1)}{p_0(n+r)}a_{n-1}(r),\quad n\geq 1.
+\end{array}
+\end{equation}
+Let $r_1$ and $r_2$ be the roots of the indicial equation
+$p_0(r)=0,$ and suppose $r_1=r_2+k,$ where $k$ is a positive
+integer$.$ Then
+$$
+y_1=x^{r_1}\sum_{n=0}^\infty  a_n(r_1)x^n
+$$
+is a Frobenius solution of $Ly=0$.
+Moreover, if we define
+\begin{equation} \label{eq:7.7.3}
+\begin{array}{rcl}
+a_0(r_2)&=&1,\\
+a_n(r_2)&=&-\frac{p_1(n+r_2-1)}{p_0(n+r_2)}a_{n-1}(r_2),\quad
+1\leq n\leq k-1,
+\end{array}
+\end{equation}
+and
+\begin{equation} \label{eq:7.7.4}
+C=-\frac{p_1(r_1-1)}{k\alpha_0}a_{k-1}(r_2),
+\end{equation}
+then
+\begin{equation} \label{eq:7.7.5}
+y_2=x^{r_2}\sum_{n=0}^{k-1}a_n(r_2)x^n+C\left(y_1\ln
+x+x^{r_1}\sum_{n=1}^\infty a_n'(r_1)x^n\right)
+\end{equation}
+is also a   solution of $Ly=0,$ and $\{y_1,y_2\}$
+is a fundamental set of  solutions.
+\end{theorem}
+
+\begin{proof}  Theorem~\ref{thmtype:7.5.3} implies that $Ly_1=0$.
+We'll now show that $Ly_2=0$.
+Since $L$  is a linear operator, this is equivalent to
+showing that
+\begin{equation} \label{eq:7.7.6}
+L\left(
+x^{r_2}\sum_{n=0}^{k-1}a_n(r_2)x^n\right)+CL\left(y_1\ln
+x+x^{r_1}\sum_{n=1}^\infty a_n'(r_1)x^n\right)=0.
+\end{equation}
+To verify this, we'll show that
+\begin{equation} \label{eq:7.7.7}
+L\left(x^{r_2}\sum_{n=0}^{k-1}
+a_n(r_2)x^n\right)=p_1(r_1-1)a_{k-1}(r_2)x^{r_1}
+\end{equation}
+and
+\begin{equation} \label{eq:7.7.8}
+L\left(y_1\ln x+x^{r_1}\sum_{n=1}^\infty
+a_n'(r_1)x^n\right)=k\alpha_0x^{r_1}.
+\end{equation}
+This will imply that $Ly_2=0$, since substituting \eqref{eq:7.7.7}
+and \eqref{eq:7.7.8} into \eqref{eq:7.7.6} and using \eqref{eq:7.7.4}
+yields
+\begin{eqnarray*}
+Ly_2&=&\left[p_1(r_1-1)a_{k-1}(r_2)+Ck\alpha_0\right]x^{r_1}\\
+&=&\left[p_1(r_1-1)a_{k-1}(r_2)-p_1(r_1-1)a_{k-1}(r_2)\right]x^{r_1}=0.
+\end{eqnarray*}
+
+
+We'll prove \eqref{eq:7.7.8} first. From
+Theorem~\ref{thmtype:7.6.1},
+$$
+L\left(y(x,r)\ln x+x^r\sum_{n=1}^\infty
+a_n'(r)x^n\right)=p_0'(r)x^r+x^rp_0(r)\ln x.
+$$
+Setting $r=r_1$ and recalling that $p_0(r_1)=0$ and $y_1=y(x,r_1)$
+yields
+\begin{equation} \label{eq:7.7.9}
+L\left(y_1\ln x+x^{r_1}\sum_{n=1}^\infty
+a_n'(r_1)x^n\right)=p_0'(r_1)x^{r_1}.
+\end{equation}
+Since $r_1$ and $r_2$ are the roots of the indicial equation, the
+indicial polynomial can be written as
+$$
+p_0(r)=\alpha_0(r-r_1)(r-r_2)=\alpha_0\left[r^2-(r_1+r_2)r+r_1r_2\right].
+$$
+Differentiating this yields
+$$
+p_0'(r)=\alpha_0(2r-r_1-r_2).
+$$
+Therefore $p_0'(r_1)=\alpha_0(r_1-r_2)=k\alpha_0$,
+so \eqref{eq:7.7.9} implies \eqref{eq:7.7.8}.
+
+Before proving \eqref{eq:7.7.7}, we first note $a_n(r_2)$ is well
+defined by \eqref{eq:7.7.3} for $1\leq n\leq k-1$, since $p_0(n+r_2)\neq 0$
+for these values of $n$. However, we can't define $a_n(r_2)$ for
+$n\geq k$ with \eqref{eq:7.7.3}, since $p_0(k+r_2)=p_0(r_1)=0$.
+For convenience, we define  $a_n(r_2)=0$ for $n\geq k$. Then, from
+Theorem~\ref{thmtype:7.5.1},
+\begin{equation} \label{eq:7.7.10}
+L\left(x^{r_2}\sum_{n=0}^{k-1} a_n(r_2)x^n\right)=
+L\left(x^{r_2}\sum_{n=0}^\infty a_n(r_2)x^n\right)=
+x^{r_2}\sum_{n=0}^\infty b_nx^n,
+\end{equation}
+where $b_0=p_0(r_2)=0$  and
+$$
+b_n=p_0(n+r_2)a_n(r_2)+p_1(n+r_2-1)a_{n-1}(r_2),\quad n\geq 1.
+$$
+If $1\leq n\leq k-1$, then \eqref{eq:7.7.3} implies that $b_n=0$.
+If $n\geq k+1$, then $b_n=0$  because $a_{n-1}(r_2)=a_n(r_2)=0$.
+Therefore \eqref{eq:7.7.10} reduces to
+$$
+L\left(x^{r_2}\sum_{n=0}^{k-1} a_n(r_2)x^n\right)=
+\left[p_0(k+r_2)a_k(r_2)+p_1(k+r_2-1)a_{k-1}(r_2)
+\right]x^{k+r_2}.
+$$
+Since $a_k(r_2)=0$ and $k+r_2=r_1$, this implies \eqref{eq:7.7.7}.
+
+We leave the proof that $\{y_1,y_2\}$ is a fundamental set as an
+exercise. %(Exercise~\ref{exer:7.7.41}).
+\end{proof}
+
+\begin{example}\label{example:7.7.1}
+Find a fundamental set of Frobenius  solutions of
+$$
+2x^2(2+x)y''-x(4-7x)y'-(5-3x)y=0.
+$$
+Give explicit  formulas for the coefficients in the solutions.
+
+\begin{explanation}
+For  the given equation, the polynomials defined in
+Theorem~\ref{thmtype:7.7.1} are
+$$
+\begin{array}{ccccc}
+p_0(r)&=&4r(r-1)-4r-5&=&(2r+1)(2r-5),\\
+p_1(r)&=&2r(r-1)+7r+3&=&(r+1)(2r+3).
+\end{array}
+$$
+The roots of the indicial equation are $r_1=5/2$ and $r_2=-1/2$,
+so $k=r_1-r_2=3$. Therefore Theorem~\ref{thmtype:7.7.1} implies that
+\begin{equation} \label{eq:7.7.11}
+y_1=x^{5/2}\sum_{n=0}^\infty a_n(5/2)x^n
+\end{equation}
+and
+\begin{equation} \label{eq:7.7.12}
+y_2=x^{-1/2}\sum_{n=0}^2a_n(-1/2)+C\left(y_1\ln
+x+x^{5/2}\sum_{n=1}^\infty a_n'(5/2)x^n\right)
+\end{equation}
+(with $C$ as in \eqref{eq:7.7.4})
+form a fundamental set of solutions of $Ly=0$. The recurrence
+formula \eqref{eq:7.7.2} is
+\begin{equation} \label{eq:7.7.13}
+\begin{array}{ccl}
+a_0(r)&=&1,\\
+a_n(r)&=&-\frac{p_1(n+r-1)}{p_0(n+r)}a_{n-1}(r)\\
+&=&-\frac{(n+r)(2n+2r+1)}{(2n+2r+1)(2n+2r-5)}a_{n-1}(r),\\
+&=&-\frac{n+r}{2n+2r-5}a_{n-1}(r),\,n\geq 1,
+\end{array}
+\end{equation}
+which implies that
+\begin{equation} \label{eq:7.7.14}
+a_n(r)=(-1)^n\prod_{j=1}^n\frac{j+r}{2j+2r-5},\,n\geq 0.
+\end{equation}
+Therefore
+\begin{equation} \label{eq:7.7.15}
+a_n(5/2)=\frac{(-1)^n\prod_{j=1}^n(2j+5)}{4^nn!}.
+\end{equation}
+Substituting this into \eqref{eq:7.7.11} yields
+$$
+y_1=x^{5/2}\sum_{n=0}^\infty\frac{(-1)^n\prod_{j=1}^n(2j+5)}{4^nn!}x^n.
+$$
+
+To compute the coefficients $a_0(-1/2),a_1(-1/2)$ and $a_2(-1/2)$ in
+$y_2$,
+we set $r=-1/2$ in \eqref{eq:7.7.13} and apply the resulting recurrence
+formula for $n=1$, $2$;   thus,
+\begin{eqnarray*}
+a_0(-1/2)&=&1,\\
+a_n(-1/2)&=&-\frac{2n-1}{4(n-3)}a_{n-1}(-1/2),\,n=1,2.
+\end{eqnarray*}
+The last formula  yields
+$$
+a_1(-1/2)=1/8 \quad\mbox{and}\quad a_2(-1/2)=3/32.
+$$
+Substituting $r_1=5/2,r_2=-1/2,k=3$, and $\alpha_0=4$ into
+ \eqref{eq:7.7.4} yields $C=-15/128$.  Therefore, from
+\eqref{eq:7.7.12},
+\begin{equation} \label{eq:7.7.16}
+y_2=x^{-1/2}\left(1+\frac{1}{8}x+\frac{3}{32}x^2\right)
+-\frac{15}{128}
+\left(y_1\ln x+x^{5/2}\sum_{n=1}^\infty a_n'(5/2)x^n\right).
+\end{equation}
+
+We use logarithmic differentiation to obtain
+ obtain $a'_n(r)$. From
+\eqref{eq:7.7.14},
+$$
+|a_n(r)|=\prod_{j=1}^n{|j+r|\over|2j+2r-5|},\,n\geq 1.
+$$
+Therefore
+$$
+\ln |a_n(r)|=\sum^n_{j=1} \left(\ln |j+r|-\ln|2j+2r-5|\right).
+$$
+Differentiating  with respect to $r$ yields
+$$
+\frac{a'_n(r)}{a_n(r)}=\sum^n_{j=1} \left(\frac{1}{j+r}-\frac{2}{2j+2r-5}\right).
+$$
+Therefore
+$$
+a'_n(r)=a_n(r) \sum^n_{j=1} \left(\frac{1}{j+r}-\frac{2}{2j+2r-5}\right).
+$$
+Setting $r=5/2$ here and recalling \eqref{eq:7.7.15} yields
+\begin{equation} \label{eq:7.7.17}
+a_n'(5/2)=\frac{(-1)^n\prod_{j=1}^n(2j+5)}{4^nn!}\sum_{j=1}^n
+\left(\frac{1}{j+5/2}-\frac{1}{j}\right).
+\end{equation}
+Since
+$$
+\frac{1}{j+5/2}-\frac{1}{j}=-\frac{5}{j(2j+5)},
+$$
+we can rewrite \eqref{eq:7.7.17} as
+$$
+a_n'(5/2)=-5\frac{(-1)^n\prod_{j=1}^n(2j+5)}{4^nn!}
+\left(\sum_{j=1}^n\frac{1}{j(2j+5)}\right).
+$$
+
+Substituting this into \eqref{eq:7.7.16} yields
+\begin{eqnarray*}
+y_2&=&x^{-1/2}\left(1+\frac{1}{8}x+\frac{3}{32}x^2\right)-\frac{15}{128}
+y_1\ln x\\
+&&\,+\frac{75}{128}
+x^{5/2}\sum_{n=1}^\infty
+\frac{(-1)^n\prod_{j=1}^n(2j+5)}{4^nn!}
+\left(\sum_{j=1}^n\frac{1}{j(2j+5)}\right)x^n.
+\end{eqnarray*}
+
+\end{explanation}
+\end{example}
+
+If $C=0$ in \eqref{eq:7.7.4}, there's no need to compute
+$$
+y_1\ln x+x^{r_1}\sum_{n=1}^\infty a_n'(r_1)x^n
+$$
+in the formula \eqref{eq:7.7.5} for $y_2$. Therefore it's best to
+compute $C$  before computing $\{a_n'(r_1)\}_{n=1}^\infty$.
+This is illustrated  in the next example. 
+%(See also
+%Exercises~\ref{exer:7.7.44}  and \ref{exer:7.7.45}.)
+
+
+
+\begin{example}\label{example:7.7.2}
+Find a fundamental set of Frobenius  solutions of
+$$
+x^2(1-2x)y''+x(8-9x)y'+(6-3x)y=0.
+$$
+Give explicit  formulas for the coefficients in the solutions.
+
+\begin{explanation}
+For  the given equation, the polynomials defined in
+Theorem~\ref{thmtype:7.7.1} are
+$$
+\begin{array}{ccccc}
+p_0(r)&=&r(r-1)+8r+6&=&(r+1)(r+6)\\
+p_1(r)&=&-2r(r-1)-9r-3&=&-(r+3)(2r+1).
+\end{array}
+$$
+The roots of the indicial equation  are $r_1=-1$ and $r_2=-6$,
+so $k=r_1-r_2=5$. Therefore Theorem~\ref{thmtype:7.7.1} implies that
+\begin{equation} \label{eq:7.7.18}
+y_1=x^{-1}\sum_{n=0}^\infty a_n(-1)x^n
+\end{equation}
+and
+\begin{equation} \label{eq:7.7.19}
+y_2=x^{-6}\sum_{n=0}^4a_n(-6)+C\left(y_1\ln
+x+x^{-1}\sum_{n=1}^\infty a_n'(-1)x^n\right)
+\end{equation}
+(with $C$ as in \eqref{eq:7.7.4})
+form a fundamental set of solutions of $Ly=0$. The
+recurrence formula \eqref{eq:7.7.2} is
+\begin{equation} \label{eq:7.7.20}
+\begin{array}{ccl}
+a_0(r)&=&1,\\
+a_n(r)&=&-\frac{p_1(n+r-1)}{p_0(n+r)}a_{n-1}(r)\\
+&=&\frac{(n+r+2)(2n+2r-1)}{(n+r+1)(n+r+6)}a_{n-1}(r),\,n\geq 1,
+\end{array}
+\end{equation}
+which implies that
+\begin{equation} \label{eq:7.7.21}
+\begin{array}{ccl}
+a_n(r)&=&\prod_{j=1}^n\frac{(j+r+2)(2j+2r-1)}{(j+r+1)(j+r+6)}\\
+&=&\left(\prod_{j=1}^n\frac{j+r+2}{j+r+1}\right)
+\left(\prod_{j=1}^n\frac{2j+2r-1}{j+r+6}\right).
+\end{array}
+\end{equation}
+Since
+$$
+\prod_{j=1}^n\frac{j+r+2}{j+r+1}=\frac{(r+3)(r+4)\cdots(n+r+2)}{(r+2)(r+3)\cdots(n+r+1)}=\frac{n+r+2}{r+2}
+$$
+because of cancellations, \eqref{eq:7.7.21}  simplifies to
+$$
+a_n(r)=\frac{n+r+2}{r+2}\prod_{j=1}^n\frac{2j+2r-1}{j+r+6}.
+$$
+Therefore
+$$
+a_n(-1)=(n+1)\prod_{j=1}^n\frac{2j-3}{j+5}.
+$$
+Substituting this into \eqref{eq:7.7.18} yields
+$$
+y_1=x^{-1}\sum_{n=0}^\infty (n+1)\left(\prod_{j=1}^n\frac{2j-3}{j+5}\right) x^n.
+$$
+
+To compute the coefficients
+$a_0(-6),\dots,a_4(-6)$ in $y_2$, we
+set $r=-6$ in \eqref{eq:7.7.20} and apply the resulting recurrence
+formula for $n=1$, $2$, $3$, $4$;   thus,
+\begin{eqnarray*}
+a_0(-6)&=&1,\\
+a_n(-6)&=&\frac{(n-4)(2n-13)}{n(n-5)}a_{n-1}(-6),\,n=1,2,3,4.
+\end{eqnarray*}
+The last formula yields
+$$
+a_1(-6)=-\frac{33}{4},\,a_2(-6)=\frac{99}{4},\,a_3(-6)=-\frac{231}{8},\,a_4(-6)=0.
+$$
+Since $a_4(-6)=0$, \eqref{eq:7.7.4} implies that the constant $C$
+in \eqref{eq:7.7.19} is zero. Therefore \eqref{eq:7.7.19} reduces
+to
+$$
+y_2=x^{-6}\left(1-\frac{33}{4}x+\frac{99}{4}x^2-\frac{231}{8}x^3\right).
+$$
+\end{explanation}
+\end{example}
+
+We now consider   equations  of the form
+$$
+x^2(\alpha_0+\alpha_2x^2)y''+x(\beta_0+\beta_2x^2)y'
++(\gamma_0+\gamma_2x^2)y=0,
+$$
+where the roots of the indicial equation are real and differ by an
+even integer. The case where the roots are real and differ by an odd
+integer can be handled by the method discussed in
+\ref{exer:7.5.56}.
+
+The  proof of the next theorem is similar to the proof of
+Theorem~\ref{thmtype:7.7.1} %(Exercise~\ref{exer:7.7.43}).
+
+\begin{theorem}\label{thmtype:7.7.2}
+Let
+$$
+Ly=
+x^2(\alpha_0+\alpha_2x^2)y''+x(\beta_0+\beta_2x^2)y'
++(\gamma_0+\gamma_2x^2)y,
+$$
+where $\alpha_0\neq0,$ and  define
+\begin{eqnarray*}
+p_0(r)&=&\alpha_0r(r-1)+\beta_0r+\gamma_0,\\
+p_2(r)&=&\alpha_2r(r-1)+\beta_2r+\gamma_2.
+\end{eqnarray*}
+Suppose    $r$ is a real number such that $p_0(2m+r)$ is nonzero
+for all positive integers $m$, and  define
+\begin{equation} \label{eq:7.7.22}
+\begin{array}{rcl}
+a_0(r)&=&1,\\
+a_{2m}(r)&=&-\frac{p_2(2m+r-2)}{p_0(2m+r)}a_{2m-2}(r),\quad m\geq 1.
+\end{array}
+\end{equation}
+Let $r_1$ and $r_2$ be the roots of the indicial equation
+$p_0(r)=0,$ and suppose   $r_1=r_2+2k,$ where $k$ is a positive
+integer.  Then
+$$
+y_1=x^{r_1}\sum_{m=0}^\infty  a_{2m}(r_1)x^{2m}
+$$
+is a Frobenius solution of $Ly=0$.
+Moreover, if we define
+\begin{eqnarray*}
+a_0(r_2)&=&1,\\
+a_{2m}(r_2)&=&-\frac{p_2(2m+r_2-2)}{p_0(2m+r_2)}a_{2m-2}(r_2),\quad
+1\leq m\leq k-1
+\end{eqnarray*}
+and
+\begin{equation} \label{eq:7.7.23}
+C=-\frac{p_2(r_1-2)}{2k\alpha_0}a_{2k-2}(r_2),
+\end{equation}
+then
+\begin{equation} \label{eq:7.7.24}
+y_2=x^{r_2}\sum_{m=0}^{k-1}a_{2m}(r_2)x^{2m}+C\left(y_1\ln
+x+x^{r_1}\sum_{m=1}^\infty a_{2m}'(r_1)x^{2m}\right)
+\end{equation}
+is also a   solution of $Ly=0,$ and $\{y_1,y_2\}$
+is a fundamental set of  solutions.
+\end{theorem}
+
+
+\begin{example}\label{example:7.7.3}
+Find a fundamental set of Frobenius  solutions of
+$$
+x^2(1+x^2)y''+x(3+10x^2)y'-(15-14x^2)y=0.
+$$
+Give explicit  formulas for the coefficients in the solutions.
+
+\begin{explanation}
+For  the given equation, the polynomials defined in
+Theorem~\ref{thmtype:7.7.2} are
+$$
+\begin{array}{ccccc}
+p_0(r)&=&r(r-1)+3r-15&=&(r-3)(r+5)\\
+p_2(r)&=&r(r-1)+10r+14&=&(r+2)(r+7).
+\end{array}
+$$
+The roots of the indicial equation are $r_1=3$ and $r_2=-5$,
+so $k=(r_1-r_2)/2=4$. Therefore Theorem~\ref{thmtype:7.7.2} implies that
+\begin{equation} \label{eq:7.7.25}
+y_1=x^3\sum_{m=0}^\infty a_{2m}(3)x^{2m}
+\end{equation}
+and
+$$
+y_2=x^{-5}\sum_{m=0}^3 a_{2m}(-5)x^{2m}+C
+\left(y_1\ln x+x^3\sum_{m=1}^\infty a_{2m}'(3)x^{2m}\right)
+$$
+(with $C$ as in \eqref{eq:7.7.23})
+form a fundamental set of solutions of $Ly=0$. The recurrence formula
+\eqref{eq:7.7.22} is
+\begin{equation} \label{eq:7.7.26}
+\begin{array}{ccl}
+a_0(r)&=&1,\\
+a_{2m}(r)&=&-\frac{p_2(2m+r-2)}{p_0(2m+r)}a_{2m-2}(r)\\
+&=&-\frac{(2m+r)(2m+r+5)}{(2m+r-3)(2m+r+5)}a_{2m-2}(r)\\
+&=&-\frac{2m+r}{2m+r-3}a_{2m-2}(r),\,m\geq 1,
+\end{array}
+\end{equation}
+which implies that
+\begin{equation} \label{eq:7.7.27}
+a_{2m}(r)=(-1)^m\prod_{j=1}^m\frac{2j+r}{2j+r-3},\,m\geq 0.
+\end{equation}
+Therefore
+\begin{equation} \label{eq:7.7.28}
+a_{2m}(3)=\frac{(-1)^m\prod_{j=1}^m(2j+3)}{2^mm!}.
+\end{equation}
+Substituting this into \eqref{eq:7.7.25} yields
+$$
+y_1=x^3\sum_{m=0}^\infty
+\frac{(-1)^m\prod_{j=1}^m(2j+3)}{2^mm!}x^{2m}.
+$$
+
+To compute the coefficients $a_2(-5)$, $a_4(-5)$, and $a_6(-5)$ in
+$y_2$, we
+set $r=-5$ in \eqref{eq:7.7.26} and apply the resulting recurrence
+formula for $m=1$, $2$,  $3$;   thus,
+$$
+a_{2m}(-5)=-\frac{2m-5}{2(m-4)}a_{2m-2}(-5),\,m=1,2,3.
+$$
+
+This yields
+$$
+a_2(-5)=-\frac{1}{2},\,a_4(-5)=\frac{1}{8},\,a_6(-5)=\frac{1}{16}.
+$$
+Substituting $r_1=3$, $r_2=-5$, $k=4$, and $\alpha_0=1$   into
+\eqref{eq:7.7.23}
+yields $C=-3/16$.   Therefore, from \eqref{eq:7.7.24},
+\begin{equation} \label{eq:7.7.29}
+y_2=x^{-5} \left(1-\frac{1}{2}x^2+\frac{1}{8}x^4+\frac{1}{16}x^6\right)
+-\frac{3}{16}
+\left(y_1\ln x+x^3\sum_{m=1}^\infty a_{2m}'(3)x^{2m}\right).
+\end{equation}
+
+To obtain $a_{2m}'(r)$  we use logarithmic differentiation. From
+\eqref{eq:7.7.27},
+$$
+|a_{2m}(r)|=\prod_{j=1}^m\frac{|2j+r|}{|2j+r-3|},\,m\geq 1.
+$$
+Therefore
+$$
+\ln |a_{2m}(r)|=\sum^n_{j=1} \left(\ln |2j+r|-\ln|2j+r-3|\right).
+$$
+Differentiating  with respect to $r$ yields
+$$
+\frac{a'_{2m}(r)}{a_{2m}(r)}=\sum^m_{j=1} \left(\frac{1}{2j+r}-\frac{1}{2j+r-3}\right).
+$$
+Therefore
+$$
+a'_{2m}(r)=a_{2m}(r) \sum^n_{j=1} \left(\frac{1}{2j+r}-\frac{1}{2j+r-3}\right).
+$$
+Setting $r=3$ here and recalling \eqref{eq:7.7.28} yields
+\begin{equation} \label{eq:7.7.30}
+a_{2m}'(3)=\frac{(-1)^m\prod_{j=1}^m(2j+3)}{2^mm!}\sum_{j=1}^m
+\left(\frac{1}{2j+3}-\frac{1}{2j}\right).
+\end{equation}
+Since
+$$
+\frac{1}{2j+3}-\frac{1}{2j}=-\frac{3}{2j(2j+3)},
+$$
+we can rewrite \eqref{eq:7.7.30} as
+$$
+a_{2m}'(3)=-\frac{3}{2}\frac{(-1)^n\prod_{j=1}^m(2j+3)}{2^mm!}
+\left(\sum_{j=1}^n\frac{1}{j(2j+3)}\right).
+$$
+Substituting this into \eqref{eq:7.7.29} yields
+\begin{eqnarray*}
+y_2&=&x^{-5}
+\left(1-\frac{1}{2}x^2+\frac{1}{8}x^4+\frac{1}{16}x^6\right)
+-\frac{3}{16}y_1\ln x \\
+&&\, +\frac{9}{32}
+x^3\sum_{m=1}^\infty
+\frac{(-1)^m\prod_{j=1}^m(2j+3)}{2^mm!}\left(\sum_{j=1}^m\frac{1}{j(2j+3)}\right) x^{2m}.
+\end{eqnarray*}
+\end{explanation}
+\end{example}
+
+
+\begin{example}\label{example:7.7.4}
+Find a fundamental set of Frobenius  solutions of
+$$
+x^2(1-2x^2)y''+x(7-13x^2)y'-14x^2y=0.
+$$
+Give explicit formulas for the coefficients in the solutions.
+
+\begin{explanation}
+For  the given equation, the polynomials defined in
+Theorem~\ref{thmtype:7.7.2} are
+$$
+\begin{array}{ccccc}
+p_0(r)&=&r(r-1)+7r&=&r(r+6),\\
+p_2(r)&=&-2r(r-1)-13r-14&=&-(r+2)(2r+7).
+\end{array}
+$$
+The roots of the indicial equation are $r_1=0$ and $r_2=-6$,
+so $k=(r_1-r_2)/2=3$. Therefore Theorem~\ref{thmtype:7.7.2} implies that
+\begin{equation} \label{eq:7.7.31}
+y_1=\sum_{m=0}^\infty a_{2m}(0)x^{2m},
+\end{equation}
+and
+\begin{equation} \label{eq:7.7.32}
+y_2=x^{-6}\sum_{m=0}^2a_{2m}(-6)x^{2m}+C\left(y_1\ln
+x+\sum_{m=1}^\infty a_{2m}'(0)x^{2m}\right)
+\end{equation}
+(with $C$ as in \eqref{eq:7.7.23})
+form a fundamental set of
+solutions of $Ly=0$. The recurrence formulas \eqref{eq:7.7.22} are
+\begin{equation} \label{eq:7.7.33}
+\begin{array}{ccl}
+a_0(r)&=&1,\\
+a_{2m}(r)&=&-\frac{p_2(2m+r-2)}{p_0(2m+r)}a_{2m-2}(r)\\
+&=&\frac{(2m+r)(4m+2r+3)}{(2m+r)(2m+r+6)}a_{2m-2}(r)\\
+&=&\frac{4m+2r+3}{2m+r+6}a_{2m-2}(r),\,m\geq 1,
+\end{array}
+\end{equation}
+which implies that
+$$
+a_{2m}(r)=\prod_{j=1}^m\frac{4j+2r+3}{2j+r+6}.
+$$
+Setting $r=0$  yields
+$$
+a_{2m}(0)=6\frac{\prod_{j=1}^m(4j+3)}{2^m(m+3)!}.
+$$
+Substituting this into \eqref{eq:7.7.31} yields
+$$
+y_1=6\sum_{m=0}^\infty \frac{\prod_{j=1}^m(4j+3)}{2^m(m+3)!}x^{2m}.
+$$
+
+To compute the coefficients $a_0(-6)$, $a_2(-6)$, and $a_4(-6)$ in
+$y_2$, we
+set $r=-6$ in \eqref{eq:7.7.33} and apply the resulting recurrence
+formula for $m=1$, $2$;   thus,
+\begin{eqnarray*}
+a_0(-6)&=&1,\\
+a_{2m}(-6)&=&\frac{4m-9}{2m}a_{2m-2}(-6),\,m=1,2.
+\end{eqnarray*}
+The last formula yields
+$$
+a_2(-6)=-\frac{5}{2}\quad\mbox{and}\quad a_4(-6)=\frac{5}{8}.
+$$
+Since $p_2(-2)=0$, the constant $C$  in \eqref{eq:7.7.23} is zero.
+Therefore \eqref{eq:7.7.32} reduces to
+$$
+y_2=x^{-6}\left(1-\frac{5}{2}x^2+\frac{5}{8}x^4\right).
+$$
+\end{explanation}
+\end{example}
+
+\section*{Text Source}
+Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
+
+\href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
+
+
+\end{document}
