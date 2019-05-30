@@ -1,0 +1,425 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Constant Coefficient Equations with Impulses}%\label{Module 7-ADEF}
+
+
+\begin{document}
+
+\begin{abstract}
+We study the solution of initial value problems where the external force is an impulse.
+\end{abstract}
+
+\maketitle
+
+\section*{Constant Coefficient Equations with Impulses}
+
+So far in this chapter, we've considered initial value problems
+for the constant coefficient equation
+$$
+ay''+by'+cy=f(t),
+$$
+where $f$ is continuous or piecewise continuous on $[0,\infty)$. In
+this section we consider initial value problems where $f$
+represents a force that's very large for a short time and
+zero otherwise. We say that such forces are \textit{impulsive}.
+Impulsive forces occur, for example, when two objects collide. Since
+it isn't  feasible to represent such forces as continuous or
+piecewise continuous functions, we must construct a different
+mathematical model to deal with them.
+
+If $f$ is an integrable function and $f(t)=0$ for $t$ outside of
+the interval $[t_0,t_0+h]$, then $\int_{t_0}^{t_0+h} f(t)\,dt$ is
+called the \textit{total impulse} of $f$. We're interested in the
+idealized situation where $h$ is so small that the total impulse
+can be assumed to be applied instantaneously at $t=t_0$. We say in
+this case that $f$ is an \textit{impulse function}. In particular, we
+denote by $\delta(t-t_0)$ the impulse function with total impulse
+equal to one, applied at $t=t_0$. (The impulse function $\delta(t)$
+obtained by setting $t_0=0$ is  the
+\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Dirac.html}
+{Dirac $\delta$ function\/}.) It must be understood, however, that
+$\delta(t-t_0)$ isn't  a function in the standard sense, since our
+``definition'' implies that $\delta(t-t_0)=0$ if $t\neq t_0$, while
+$$
+\int_{t_0}^{t_0} \delta(t-t_0)\,dt=1.
+$$
+From calculus we know that no function can have these properties;
+nevertheless, there's a branch of mathematics known as the
+\textit{theory of distributions} where  the  definition can be made
+rigorous. Since the theory of distributions is beyond the
+scope of this book, we'll take an intuitive approach to impulse
+functions.
+
+Our first task is to define what we mean by the solution of
+the initial value problem
+$$
+ay''+by'+cy=\delta(t-t_0), \quad  y(0)=0,\quad y'(0)=0,
+$$
+where $t_0$ is a fixed nonnegative number. The next theorem will
+motivate our definition.
+
+\begin{theorem}\label{thmtype:8.7.1}
+Suppose $t_0\geq 0.$ For each positive number $h,$ let $y_h$ be the
+solution of the initial value problem
+\begin{equation} \label{eq:8.7.1}
+ay_h''+by_h'+cy_h=f_h(t), \quad  y_h(0)=0,\quad y_h'(0)=0,
+\end{equation}
+where
+\begin{equation} \label{eq:8.7.2}
+f_h(t)=\left\{\begin{array}{cl} 0,&0\leq t<t_0,\\
+1/h,&t_0\leq t< t_0+h,\\
+0,&t\geq t_0+h,\end{array}\right.
+\end{equation}
+ so  $f_h$ has unit total impulse
+equal to the area of the shaded rectangle in the figure below.  %Figure~$\ref{figure:8.7.1}$.
+\begin{image}
+ \includegraphics[height=1.5in]{fig080701.jpg}
+ \end{image}
+
+
+Then
+\begin{equation} \label{eq:8.7.3}
+\lim_{h\rightarrow 0+}y_h(t)=u(t-t_0)w(t-t_0),
+\end{equation}
+where
+$$
+w={\cal L}^{-1}\left(\frac{1}{as^2+bs+c}\right).
+$$
+\end{theorem}
+
+% \begin{figure}[tbp]
+%   \centering\color{blue}
+%   \includegraphics[bb=-78 148 689 643,width=5.67in,height=3.66in,keepaspectratio]{fig080701}
+% \caption{  $y=f_h(t)$}
+%   \label{figure:8.7.1}
+% \end{figure}
+\begin{proof}
+Taking Laplace transforms in \eqref{eq:8.7.1} yields
+$$
+(as^2+bs+c)Y_h(s)=F_h(s),
+$$
+so
+$$
+Y_h(s)=\frac{F_h(s)}{as^2+bs+c}.
+$$
+The convolution theorem implies that
+$$
+y_h(t)=\int_0^t w(t-\tau)f_h(\tau)\,d\tau.
+$$
+Therefore,  \eqref{eq:8.7.2} implies that
+\begin{equation} \label{eq:8.7.4}
+y_h(t)=\left\{\begin{array}{cl} 0,&0\leq t<t_0,\\
+\frac{1}{h}\int_{t_0}^tw(t-\tau)\,d\tau,&t_0\leq t\leq
+t_0+h,\\
+\frac{1}{h}\int_{t_0}^{t_0+h}w(t-\tau)\,d\tau,&t>t_0+h.\end{array}\right.
+\end{equation}
+Since $y_h(t)=0$ for all $h$ if $0\leq t\leq t_0$, it follows that
+\begin{equation} \label{eq:8.7.5}
+\lim_{h\to0+}y_h(t)=0 \quad\mbox{if}\quad 0\leq t\leq t_0.
+\end{equation}
+We'll now show that
+\begin{equation} \label{eq:8.7.6}
+\lim_{h\rightarrow0+}y_h(t)=w(t-t_0)\quad\mbox{if}\quad t>t_0.
+\end{equation}
+
+Suppose   $t$ is fixed and $t>t_0$.
+From
+\eqref{eq:8.7.4},
+\begin{equation} \label{eq:8.7.7}
+y_h(t)=\frac{1}{h}\int_{t_0}^{t_0+h}w(t-\tau)d\tau\quad\mbox{if}\quad
+h<t-t_0.
+\end{equation}
+Since
+\begin{equation} \label{eq:8.7.8}
+\frac{1}{h}\int_{t_0}^{t_0+h}d\tau=1,
+\end{equation}
+we can write
+$$
+w(t-t_0)=\frac{1}{h}w(t-t_0)\int_{t_0}^{t_0+h}\,d\tau=
+\frac{1}{h}\int_{t_0}^{t_0+h}w(t-t_0)\,d\tau.
+$$
+From this and \eqref{eq:8.7.7},
+$$
+y_h(t)-w(t-t_0)=
+\frac{1}{h}\int_{t_0}^{t_0+h}\left(w(t-\tau)-w(t-t_0)\right)\,d\tau.
+$$
+Therefore
+\begin{equation} \label{eq:8.7.9}
+|y_h(t)-w(t-t_0)|\leq
+\frac{1}{h}\int_{t_0}^{t_0+h}|w(t-\tau)-w(t-t_0)|\,d\tau.
+\end{equation}
+Now let $M_h$ be the maximum value of $|w(t-\tau)-w(t-t_0)|$ as $\tau$
+varies over the interval $[t_0,t_0+h]$. (Remember that $t$ and $t_0$
+are fixed.) Then \eqref{eq:8.7.8} and \eqref{eq:8.7.9} imply that
+\begin{equation} \label{eq:8.7.10}
+|y_h(t)-w(t-t_0)|\leq
+\frac{1}{h}M_h\int_{t_0}^{t_0+h}\,d\tau=M_h.
+\end{equation}
+But $\lim_{h\rightarrow0+}M_h=0$, since $w$ is continuous.
+Therefore \eqref{eq:8.7.10} implies \eqref{eq:8.7.6}.
+This and \eqref{eq:8.7.5} imply \eqref{eq:8.7.3}. 
+\end{proof}
+
+Theorem~\ref{thmtype:8.7.1} motivates the next definition.
+
+\begin{definition}\label{thmtype:8.7.2}
+If $t_0>0$, then the solution of the initial value problem
+\begin{equation} \label{eq:8.7.11}
+ay''+by'+cy=\delta(t-t_0), \quad  y(0)=0,\quad y'(0)=0,
+\end{equation}
+is defined to be
+$$
+y=u(t-t_0)w(t-t_0),
+$$
+where
+$$
+w={\cal L}^{-1}\left(\frac{1}{as^2+bs+c}\right).
+$$
+\end{definition}
+
+In physical applications where the input $f$ and the output $y$ of a
+device are related by the differential equation
+$$
+ay''+by'+cy=f(t),
+$$
+$w$ is called the \textit{impulse response} of the device. Note
+that $w$ is the solution of the initial value problem
+\begin{equation} \label{eq:8.7.12}
+aw''+bw'+cw=0, \quad  w(0)=0,\quad  w'(0)=1/a,
+\end{equation}
+as can be seen by using the Laplace transform to solve this problem.
+(Verify.)
+On the other hand, we can solve \eqref{eq:8.7.12} by the methods of
+Module \ref{Module 7-CGH}%Section~5.2 
+and show that $w$ is defined on
+$(-\infty,\infty)$ by
+\begin{equation} \label{eq:8.7.13}
+w=\frac{e^{r_2t}-e^{r_1t}}{a(r_2-r_1)},\quad
+w=\frac{1}{a}te^{r_1t}, \quad\mbox{or}\quad
+w=\frac{1}{a\omega}e^{\lambda t}\sin\omega t,
+\end{equation}
+depending upon whether the polynomial $p(r)=ar^2+br+c$ has distinct
+real zeros $r_1$ and $r_2$, a repeated zero $r_1$, or complex
+conjugate zeros $\lambda\pm i\omega$. (In most physical applications,
+the zeros of the characteristic polynomial have negative real parts,
+so $\lim_{t\rightarrow\infty}w(t)=0$.) This means that $y=u(t-t_0)w(t-t_0)$ is
+defined on $(-\infty,\infty)$ and has the following properties:
+$$
+y(t)=0,\quad  t<t_0,
+$$
+$$
+ay''+by'+cy=0\quad\mbox{on}\quad  (-\infty,t_0)\quad\mbox{and}\quad(t_0,\infty),
+$$
+and
+\begin{equation} \label{eq:8.7.14}
+y'_-(t_0)=0, \quad   y'_+(t_0)=1/a
+\end{equation}
+(remember that $y'_-(t_0)$ and $y'_+(t_0)$ are derivatives from the
+right and left, respectively) and $y'(t_0)$ does not exist. Thus, even
+though we defined $y=u(t-t_0)w(t-t_0)$ to be the solution of
+\eqref{eq:8.7.11},  this function \textit{doesn't satisfy}
+the differential equation in \eqref{eq:8.7.11} \textit{at} $t_0$, since it
+isn't differentiable there;   in fact \eqref{eq:8.7.14} indicates that an
+impulse causes a jump discontinuity in velocity. (To see that this is
+reasonable, think of what happens when you hit a ball with a bat.)
+This means that the initial value problem \eqref{eq:8.7.11} doesn't make
+sense if $t_0=0$, since $y'(0)$ doesn't exist in this case. However
+$y=u(t)w(t)$ can be defined to be the solution of the modified initial
+value problem
+$$
+ay''+by'+cy=\delta(t), \quad  y(0)=0,\quad y'_-(0)=0,
+$$
+where the condition on the derivative at $t=0$ has been replaced by a
+condition on the derivative from the left.
+
+
+The figure below %Figure~\ref{figure:8.7.2} 
+illustrates Theorem~\ref{thmtype:8.7.1} for the
+case where the impulse response $w$ is the first expression in
+\eqref{eq:8.7.13} and $r_1$ and $r_2$ are distinct and both negative. The
+solid curve in the figure is the graph of $w$. The dashed curves are
+solutions of \eqref{eq:8.7.1} for various values of $h$. As $h$ decreases
+the graph of $y_h$ moves to the left toward the graph of $w$.
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig080702.jpg}
+\end{image}
+
+% \begin{figure}[tbp]
+%   \centering\color{blue}
+%   \includegraphics[bb=-78 148 689 643,width=5.67in,height=3.66in,keepaspectratio]{fig080702}
+% \caption{ An illustration of
+% Theorem~\ref{thmtype:8.7.1}}
+%   \label{figure:8.7.2}
+% \end{figure}
+
+
+\begin{example}\label{example:8.7.1}  Find the solution of the initial
+value problem
+\begin{equation} \label{eq:8.7.15}
+y''-2y'+y=\delta(t-t_0), \quad  y(0)=0,\quad y'(0)=0,
+\end{equation}
+where $t_0>0$. Then interpret the solution for the case where $t_0=0$.
+\begin{explanation}
+Here
+$$
+w={\cal L}^{-1}\left(\frac{1}{s^2-2s+1}\right)={\cal L}^{-1}\left(
+\frac{1}{(s-1)^2}\right)=te^{-t},
+$$
+so  Definition~\ref{thmtype:8.7.2} yields
+$$
+y=u(t-t_0)(t-t_0)e^{-(t-t_0)}
+$$
+as the solution of  \eqref{eq:8.7.15} if $t_0>0$. If $t_0=0$,
+then \eqref{eq:8.7.15} doesn't have a solution; however,
+$y=u(t)te^{-t}$
+(which we would usually write simply as $y=te^{-t}$) is the solution
+of the modified initial value problem
+$$
+y''-2y'+y=\delta(t), \quad  y(0)=0,\quad y_-'(0)=0.
+$$
+
+The graph of $y=u(t-t_0)(t-t_0)e^{-(t-t_0)}$ is shown in
+the figure below.  %Figure~\ref{figure:8.7.3}
+\end{explanation}
+\end{example}
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig080703.jpg}
+\end{image}
+
+% \begin{figure}[tbp]
+%   \centering\color{blue}
+%   \includegraphics[bb=-78 148 689 643,width=5.67in,height=3.66in,keepaspectratio]{fig080703}
+% \caption{
+% $y=u(t-t_0)(t-t_0)e^{-(t-t_0)}$}
+%   \label{figure:8.7.3}
+% \end{figure}
+
+Definition~\ref{thmtype:8.7.2} and the principle of superposition
+motivate the next definition.
+
+\begin{definition}\label{thmtype:8.7.3} Suppose
+$\alpha$ is a nonzero constant and
+$f$ is
+piecewise continuous on $[0,\infty)$.
+If $t_0>0$, then the solution of  the  initial value problem
+$$
+ay''+by'+cy=f(t)+\alpha\delta(t-t_0), \quad  y(0)=k_0,\quad y'(0)=k_1
+$$
+is defined to be
+$$
+y(t)=\hat y(t)+\alpha u(t-t_0)w(t-t_0),
+$$
+where $\hat y$  is the solution of
+$$
+ay''+by'+cy=f(t), \quad  y(0)=k_0,\quad y'(0)=k_1.
+$$
+This definition also applies if $t_0=0$, provided that the initial
+condition $y'(0)=k_1$ is replaced by $y_-'(0)=k_1$.
+\end{definition}
+
+\begin{example}\label{example:8.7.2}
+Solve the initial value problem
+\begin{equation} \label{eq:8.7.16}
+y''+6y'+5y=3e^{-2t}+2\delta(t-1),\quad y(0)=-3,\quad y'(0)=2.
+\end{equation}
+\begin{explanation}
+We leave it to you to show that
+the solution of
+$$
+y''+6y'+5y=3e^{-2t}, \quad    y(0)=-3, y'(0)=2
+$$
+is
+$$
+\hat y=-e^{-2t}+\frac{1}{2}e^{-5t}-\frac{5}{2}e^{-t}.
+$$
+Since
+$$
+\begin{array}{ccccl}
+w(t)&=&{\cal L}^{-1}\left(\frac{1}{s^2+6s+5}\right)&=&
+{\cal L}^{-1}\left(\frac{1}{(s+1)(s+5)}\right)\\
+&=&\frac{1}{4}{\cal L}^{-1}\left(\frac{1}{s+1}-\frac{1}{s+5}\right)
+&=&\frac{e^{-t}-e^{-5t}}{4},
+\end{array}
+$$
+the solution of  \eqref{eq:8.7.16} is
+\begin{equation} \label{eq:8.7.17}
+y=-e^{-2t}+\frac{1}{2}e^{-5t}-\frac{5}{2}e^{-t}
++u(t-1)\frac{e^{-(t-1)}-e^{-5(t-1)}}{2}
+\end{equation}
+Here is a graph of the solution.
+%(Figure~\ref{figure:8.7.4})
+\begin{image}
+ \includegraphics[height=1.5in]{fig080704.jpg}
+\end{image}
+\end{explanation}
+\end{example}
+
+% \begin{figure}[htbp]
+% \color{blue}
+%   \begin{minipage}[b]{0.5\linewidth}
+%     \centering
+%   \scalebox{.65}{
+%   \includegraphics[bb=-78 148 689 643,width=5.67in,height=3.66in,keepaspectratio]{fig080704}}
+% \caption{ Graph of \eqref{eq:8.7.17}}
+%   \label{figure:8.7.4}
+% \end{minipage}
+%   \begin{minipage}[b]{0.5\linewidth}
+%     \centering
+%   \scalebox{.65}{
+%   \includegraphics[bb=-78 148 689 643,width=5.67in,height=3.66in,keepaspectratio]{fig080705}}
+% \caption{ Graph of \eqref{eq:8.7.19}}
+%   \label{figure:8.7.5}
+% \end{minipage}
+% \end{figure}
+
+
+Definition~\ref{thmtype:8.7.3} can be extended in the obvious way to cover
+the case where the forcing function contains more than one impulse.
+\begin{example}\label{example:8.7.3}
+Solve the  initial value problem
+\begin{equation} \label{eq:8.7.18}
+y''+y=1+2\delta(t-\pi)-3\delta(t-2\pi), \quad    y(0)=-1,   y'(0)=2.
+\end{equation}
+\begin{explanation}
+We leave it to you to show that
+$$
+\hat y= 1-2\cos t+2\sin t
+$$
+is the solution of
+$$
+y''+y=1, \quad    y(0)=-1,\quad    y'(0)=2.
+$$
+Since
+$$
+w={\cal L}^{-1}\left(\frac{1}{s^2+1}\right)=\sin t,
+$$
+the solution of  \eqref{eq:8.7.18} is
+\begin{eqnarray*}
+y&=&1-2\cos t+2\sin t+2u(t-\pi)\sin(t-\pi)-3u(t-2\pi)\sin(t-2\pi)\\
+&=&1-2\cos t+2\sin t-2u(t-\pi)\sin t-3u(t-2\pi)\sin t,
+\end{eqnarray*}
+or
+\begin{equation} \label{eq:8.7.19}
+y=\left\{\begin{array}{cl} 1-2\cos t+2\sin t,&0\leq t<\pi,\\
+1-2\cos t,&\pi\leq t<2\pi,\\
+1-2\cos t-3\sin t,&t\geq 2\pi\end{array}\right.
+\end{equation}
+Here is a graph of the solution.
+\begin{image}
+ \includegraphics[height=1.5in]{fig080705.jpg}
+\end{image}
+\end{explanation}
+\end{example}
+
+
+\section*{Text Source}
+Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
+
+\href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
+
+
+\end{document}
