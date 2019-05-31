@@ -1,0 +1,247 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Series Solutions Near an Ordinary Point II}%\label{Module 7-ADEF}
+
+
+\begin{document}
+
+\begin{abstract}
+We consider the utilization of power series to determine solutions to more general differential equations.
+\end{abstract}
+
+\maketitle
+
+\section*{Series Solutions Near an Ordinary Point II}
+
+In this section we continue to find series solutions
+$$
+y=\sum_{n=0}^\infty a_n(x-x_0)^n
+$$
+of initial value problems
+\begin{equation} \label{eq:7.3.1}
+P_0(x)y''+P_1(x)y'+P_2(x)y=0,\quad y(x_0)=a_0,\quad y'(x_0)=a_1,
+\end{equation}
+where $P_0,P_1$, and $P_2$ are polynomials and $P_0(x_0)\neq0$,
+so $x_0$ is an ordinary point of \eqref{eq:7.3.1}.  However, here we
+consider cases where the differential equation in \eqref{eq:7.3.1}
+is not of the form
+$$
+\left(1+\alpha(x-x_0)^2\right)y''+\beta(x-x_0) y'+\gamma y=0,
+$$
+so Theorem~\ref{thmtype:7.2.2} does not apply, and the computation of the
+coefficients $\{a_n\}$ is more complicated. For the equations
+considered here it's difficult or impossible to obtain an explicit
+formula for $a_n$ in terms of $n$. Nevertheless, we can calculate as
+many coefficients as we wish. The next three examples illustrate
+this.
+
+\begin{example}\label{example:7.3.1}
+Find the coefficients $a_0, \dots, a_7$ in the  series solution
+$y=\sum^\infty_{n=0}
+a_nx^n$  of the initial value problem
+\begin{equation} \label{eq:7.3.2}
+(1+x+2x^2)y''+(1+7x)y'+2y=0,\quad y(0)=-1,\quad y'(0)=-2.
+\end{equation}
+
+
+\begin{explanation}
+Here
+$$
+Ly=(1+x+2x^2)y''+(1+7x)y'+2y.
+$$
+The zeros $(-1\pm i\sqrt7)/4$ of $P_0(x)=1+x+2x^2$ have absolute value
+$1/\sqrt2$, so Theorem~\ref{thmtype:7.2.2} implies that the series
+solution
+converges to the solution of \eqref{eq:7.3.2} on $(-1/\sqrt2,1/\sqrt2)$.
+Since
+$$
+y=\sum^\infty_{n=0} a_nx^n,\quad y'=\sum^\infty_{n=1} n
+a_nx^{n-1}\quad\mbox{ and }\quad  y''=\sum^\infty_{n=2}n(n-1)a_nx^{n-2},
+$$
+\begin{eqnarray*}
+Ly&=&\sum^\infty_{n=2}n(n-1)a_nx^{n-2}+\sum^\infty_{n=2}n(n-1)a_nx^{n-1}
++2\sum^\infty_{n=2}n(n-1)a_nx^n\\
+&&+\sum^\infty_{n=1}na_nx^{n-1}+7\sum^\infty_{n=1}na_nx^n+2\sum^\infty_{n=0}
+a_nx^n.
+\end{eqnarray*}
+Shifting indices so  the general term in each
+series is a constant multiple of $x^n$ yields
+\begin{eqnarray*}
+Ly&=&\sum^\infty_{n=0}(n+2)(n+1)a_{n+2}x^n+\sum^\infty_{n=0}(n+1)na_{n+1}x^n
++2\sum^\infty_{n=0}n(n-1)a_nx^n\\
+&&+\sum^\infty_{n=0}(n+1)a_{n+1}x^n+7\sum^\infty_{n=0}na_nx^n+
+2\sum^\infty_{n=0}a_nx^n
+=\sum^\infty_{n=0}b_nx^n,
+\end{eqnarray*}
+where
+$$
+b_n=(n+2)(n+1)a_{n+2}+(n+1)^2a_{n+1}+(n+2)(2n+1)a_n.
+$$
+Therefore $y=\sum^\infty_{n=0}a_nx^n$ is a solution of $Ly=0$
+if and only if
+\begin{equation} \label{eq:7.3.3}
+a_{n+2}=-\frac{n+1}{n+2}\,a_{n+1}-\frac{2n+1}{n+1}\,a_n,\,n\geq0.
+\end{equation}
+From the initial conditions in \eqref{eq:7.3.2}, $a_0=y(0)=-1$ and
+$a_1=y'(0)=-2$.
+Setting $n=0$  in \eqref{eq:7.3.3} yields
+$$
+a_2=-\frac{1}{2}a_1-a_0=-\frac{1}{2}(-2)-(-1)=2.
+$$
+Setting $n=1$  in \eqref{eq:7.3.3} yields
+$$
+a_3=-\frac{2}{3}a_2-\frac{3}{2}a_1=-\frac{2}{3}(2)-\frac{3}{2}(-2)=\frac{5}{3}.
+$$
+We leave it to you to compute $a_4,a_5,a_6,a_7$ from \eqref{eq:7.3.3} and
+show that
+$$
+y=-1-2x+2x^2+\frac{5}{3}x^3-\frac{55}{12}x^4+\frac{3}{4}x^5+\frac{61}{8}x^6-
+\frac{443}{56}x^7+\cdots .
+$$
+We also leave it to you %(Exercise~\ref{exer:7.3.13}) 
+to verify numerically
+that the Taylor polynomials $T_N(x)=\sum_{n=0}^Na_nx^n$ converge
+to the solution of \eqref{eq:7.3.2}
+on $(-1/\sqrt2,1/\sqrt2)$.
+\end{explanation}
+\end{example}
+
+\begin{example}\label{example:7.3.2}
+Find  the coefficients $a_0, \dots, a_5$ in the series
+solution
+$$
+y=\sum^\infty_{n=0} a_n(x+1)^n
+$$
+ of the initial value problem
+\begin{equation} \label{eq:7.3.4}
+(3+x)y''+(1+2x)y'-(2-x)y=0,\quad y(-1)=2,\quad y'(-1)=-3.
+\end{equation}
+\begin{explanation}
+Since the desired series is in powers of $x+1$ we rewrite
+the differential equation in \eqref{eq:7.3.4} as $Ly=0$, with
+$$
+Ly=\left(2+(x+1)\right)y''-\left(1-2(x+1)\right)y'-\left(3-(x+1)\right)y.
+$$
+Since
+$$
+y=\sum^\infty_{n=0} a_n(x+1)^n,\quad y'=\sum^\infty_{n=1} n
+a_n(x+1)^{n-1}\quad\mbox{ and }\quad
+y''=\sum^\infty_{n=2}n(n-1)a_n(x+1)^{n-2},
+$$
+\begin{eqnarray*}
+Ly&=&2\sum^\infty_{n=2}n(n-1)a_n(x+1)^{n-2}+\sum^\infty_{n=2}n(n-1)a_n(x+1)^{n-1}
+\\&&-\sum^\infty_{n=1}na_n(x+1)^{n-1}+2\sum^\infty_{n=1}na_n(x+1)^n\\
+&&-3\sum^\infty_{n=0}a_n(x+1)^n+\sum_{n=0}^\infty a_n(x+1)^{n+1}.
+\end{eqnarray*}
+Shifting indices so that  the general term in each
+series is a constant multiple of $(x+1)^n$ yields
+\begin{eqnarray*}
+Ly&=&2\sum^\infty_{n=0}(n+2)(n+1)a_{n+2}(x+1)^n+\sum^\infty_{n=0}(n+1)na_{n+1}
+(x+1)^n\\&&-\sum^\infty_{n=0}(n+1)a_{n+1}(x+1)^n
++\sum^\infty_{n=0}(2n-3)a_n(x+1)^n+\sum^\infty_{n=1}a_{n-1}(x+1)^n\\
+&=&\sum^\infty_{n=0}b_n(x+1)^n,
+\end{eqnarray*}
+where
+$$
+b_0=4a_2-a_1-3a_0
+$$
+and
+$$
+b_n=2(n+2)(n+1)a_{n+2}+(n^2-1)a_{n+1}+(2n-3)a_n+a_{n-1},\quad n\geq1.
+$$
+Therefore $y=\sum^\infty_{n=0}a_n(x+1)^n$ is a solution of $Ly=0$
+if and only if
+\begin{equation} \label{eq:7.3.5}
+a_2=\frac{1}{4}(a_1+3a_0)
+\end{equation}
+and
+\begin{equation} \label{eq:7.3.6}
+a_{n+2}=-\frac{1}{2(n+2)(n+1)}\left[(n^2-1)a_{n+1}+(2n-3)a_n+a_{n-1}\right],
+\quad n\geq1.
+\end{equation}
+From the initial conditions in \eqref{eq:7.3.4}, $a_0=y(-1)=2$ and
+$a_1=y'(-1)=-3$. We leave it to you to  compute $a_2, \dots, a_5$
+with  \eqref{eq:7.3.5} and \eqref{eq:7.3.6} and show that
+the solution of \eqref{eq:7.3.4} is
+$$
+y=-2-3(x+1)+\frac{3}{4}(x+1)^2-\frac{5}{12}(x+1)^3+\frac{7}{48}(x+1)^4
+-\frac{1}{60}(x+1)^5+\cdots.
+$$
+We also leave it to you %(Exercise~\ref{exer:7.3.14}) 
+to verify numerically
+that the Taylor polynomials $T_N(x)=\sum_{n=0}^Na_nx^n$ converge to
+the solution of \eqref{eq:7.3.4}  on the interval of
+convergence of the power series solution.
+\end{explanation}
+\end{example}
+
+\begin{example}\label{example:7.3.3}
+Find the coefficients $a_0, \dots, a_5$ in the series
+solution $y=\sum^\infty_{n=0}
+a_nx^n$   of the initial value problem
+\begin{equation} \label{eq:7.3.7}
+y''+3xy'+(4+2x^2)y=0,\quad y(0)=2,\quad y'(0)=-3.
+\end{equation}
+\begin{explanation}
+Here
+$$
+Ly=y''+3xy'+(4+2x^2)y.
+$$
+Since
+$$
+y=\sum^\infty_{n=0} a_nx^n,\quad y'=\sum^\infty_{n=1} n
+a_nx^{n-1},\quad\mbox{and}\quad
+y''=\sum^\infty_{n=2}n(n-1)a_nx^{n-2},
+$$
+\begin{eqnarray*}
+Ly&=&\sum^\infty_{n=2}n(n-1)a_nx^{n-2}
++3\sum^\infty_{n=1}na_nx^n+4\sum^\infty_{n=0}a_nx^n+2\sum^\infty_{n=0}
+a_nx^{n+2}.
+\end{eqnarray*}
+Shifting indices so  that the general term in each
+series is a constant multiple of $x^n$ yields
+$$
+Ly=\sum^\infty_{n=0}(n+2)(n+1)a_{n+2}x^n+\sum^\infty_{n=0}(3n+4)a_nx^n
++2\sum^\infty_{n=2}a_{n-2}x^n=\sum_{n=0}^\infty b_nx^n
+$$
+where
+$$
+b_0=2a_2+4a_0,\quad b_1=6a_3+7a_1,
+$$
+and
+$$
+b_n=(n+2)(n+1)a_{n+2}+(3n+4)a_n+2a_{n-2},\quad n\geq2.
+$$
+Therefore $y=\sum^\infty_{n=0}a_nx^n$ is a solution of $Ly=0$
+if and only if
+\begin{equation} \label{eq:7.3.8}
+a_2=-2a_0,\quad a_3=-\frac{7}{6}a_1,
+\end{equation}
+and
+\begin{equation} \label{eq:7.3.9}
+a_{n+2}=-\frac{1}{(n+2)(n+1)}\left[(3n+4)a_n+2a_{n-2}\right],\quad n\geq2.
+\end{equation}
+From the initial conditions in \eqref{eq:7.3.7}, $a_0=y(0)=2$ and
+$a_1=y'(0)=-3$. We leave it to you to compute $a_2, \dots, a_5$ with
+ \eqref{eq:7.3.8} and \eqref{eq:7.3.9} and show that the solution of
+\eqref{eq:7.3.7} is
+$$
+y=2-3x-4x^2+\frac{7}{2}x^3+3x^4-\frac{79}{40}x^5+\cdots.
+$$
+We also leave it to you 
+%(Exercise~\ref{exer:7.3.15}) 
+to verify numerically
+that the Taylor polynomials $T_N(x)=\sum_{n=0}^Na_nx^n$ converge to
+the solution of \eqref{eq:7.3.9} on the interval of
+convergence of the power series solution.
+\end{explanation}
+\end{example}
+
+\section*{Text Source}
+Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
+
+\href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
+
+\end{document}
