@@ -1,0 +1,753 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Autonomous Second Order Equations}%\label{Module 7-ADEF}
+
+
+\begin{document}
+
+\begin{abstract}
+
+\end{abstract}
+
+\maketitle
+
+\section*{Autonomous Second Order Equations}
+
+A second order differential equation that can be written as
+\begin{equation} \label{eq:4.4.1}
+y''=F(y,y')
+\end{equation}
+where $F$ is independent of $t$, is said to be \dfn{autonomous}.
+An autonomous second order equation can be converted into a first
+order equation relating $v=y'$ and $y$. If we let $v=y'$,
+\eqref{eq:4.4.1} becomes
+\begin{equation} \label{eq:4.4.2}
+v'=F(y,v).
+\end{equation}
+Since
+\begin{equation} \label{eq:4.4.3}
+v'=\frac{dv}{dt}=\frac{dv}{dy}\frac{dy}{dt}=v\frac{dv}{dy},
+\end{equation}
+\eqref{eq:4.4.2} can be rewritten as
+\begin{equation} \label{eq:4.4.4}
+v\frac{dv}{dy}=F(y,v).
+\end{equation}
+The integral curves of \eqref{eq:4.4.4} can be plotted in the $(y,v)$
+plane, which is called the
+\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Poincare.html}{Poincar\'e phase plane} of \eqref{eq:4.4.1}. If $y$ is a solution of
+\eqref{eq:4.4.1}
+then $y=y(t), v=y'(t)$ is a parametric equation for an integral curve
+of \eqref{eq:4.4.4}. We'll call these integral curves \dfn{trajectories} of \eqref{eq:4.4.1}, and we'll call
+\eqref{eq:4.4.4} the \dfn{phase plane equivalent} of \eqref{eq:4.4.1}.
+
+In this section we'll consider  autonomous equations
+that can be written as
+\begin{equation} \label{eq:4.4.5}
+y''+q(y,y')y'+p(y)=0.
+\end{equation}
+Equations of this form often arise in applications of Newton's second
+law of motion. For example, suppose  $y$ is the displacement of a
+moving object with mass $m$. It's  reasonable to think of two
+types of time-independent forces acting on the object. One type - such
+as gravity - depends only on position. We could write such a force as
+$-mp(y)$. The second type - such as atmospheric resistance or friction
+- may depend on position and velocity. (Forces that depend on velocity
+are called \dfn{damping} forces.) We  write this force as
+$-mq(y,y')y'$, where $q(y,y')$ is usually a positive function and
+we've put the factor $y'$ outside  to make it
+explicit that the force
+is in the direction opposing the motion. In this case Newton's, second
+law of motion leads to \eqref{eq:4.4.5}.
+
+The phase plane equivalent of \eqref{eq:4.4.5} is
+\begin{equation} \label{eq:4.4.6}
+v\frac{dv}{dy}+q(y,v)v+p(y)=0.
+\end{equation}
+Some  statements that we'll be making about the properties of
+\eqref{eq:4.4.5} and \eqref{eq:4.4.6} are intuitively reasonable, but
+difficult to prove.
+Therefore our presentation in this section will be informal: we'll
+just say things without proof, all of which are true if we assume that
+$p=p(y)$ is continuously differentiable for all $y$ and $q=q(y,v)$ is
+continuously differentiable for all $(y,v)$.
+ We begin with the following statements:
+
+\begin{fact}
+\textit{Statement 1.} If $y_0$ and $v_0$ are arbitrary real numbers then
+\eqref{eq:4.4.5} has a unique solution on $(-\infty,\infty)$ such that
+$y(0)=y_0$ and $y'(0)=v_0$.
+
+\textit{Statement 2.)} If $y=y(t)$ is a solution of \eqref{eq:4.4.5}
+and
+$\tau$ is any constant then $y_1=y(t-\tau)$ is also a solution of
+\eqref{eq:4.4.5}, and $y$ and $y_1$ have the same trajectory.
+
+\textit{Statement 3.}   If two solutions $y$ and $y_1$ of
+\eqref{eq:4.4.5} have the same trajectory then  $y_1(t)=y(t-\tau)$
+for some constant $\tau$.
+
+\textit{Statement 4.} Distinct trajectories of \eqref{eq:4.4.5} can't
+intersect; that is, if two trajectories of \eqref{eq:4.4.5}
+intersect,  they are identical.
+
+
+\textit{Statement 5.} If the trajectory of a solution of
+\eqref{eq:4.4.5}
+is a closed curve then  $(y(t),v(t))$ traverses the
+trajectory in a finite time $T$, and the solution is periodic with
+period $T$; that is, $y(t+T)=y(t)$ for all $t$ in $(-\infty,\infty)$.
+\end{fact}
+
+
+If $\overline{y}$ is a constant such that $p(\overline{y})=0$ then
+$y\equiv\overline{y}$ is a constant solution of \eqref{eq:4.4.5}. We say
+that $\overline{y}$ is an \dfn{equilibrium} of \eqref{eq:4.4.5} and
+ $(\overline{y},0)$ is a \dfn{critical point} of the phase plane
+equivalent equation \eqref{eq:4.4.6}. We say that the equilibrium and
+the critical point are \dfn{stable} if, for any given $\epsilon>0$
+\dfn{no matter how small}, there's a $\delta>0$,
+\dfn{sufficiently small}, such that if
+$$
+\sqrt{(y_0-\overline{y})^2+v_0^2}<\delta
+$$
+then the  solution of the initial value problem
+$$
+y''+q(y,y')y'+p(y)=0,\quad y(0)=y_0,\quad y'(0)=v_0
+$$
+satisfies the inequality
+$$
+\sqrt{(y(t)-\overline{y})^2+(v(t))^2}<\epsilon
+$$
+for all $t>0$. The figure below illustrates the geometrical
+interpretation of this definition in the Poincar\'e phase plane: if
+$(y_0,v_0)$ is in the smaller shaded circle (with radius~$\delta$), then
+$(y(t),v(t))$ must be in in the larger circle (with
+radius~$\epsilon$) for all $t>0$.
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040401.jpg} 
+\end{image}
+
+If an equilibrium and the associated critical point are not stable, we
+say they are \dfn{unstable}. To see if you really understand what
+\dfn{stable} means, try to give a direct definition of \dfn{unstable}
+%(Exercise~\ref{exer:4.4.22}). 
+We'll illustrate both definitions in
+the following examples.
+
+
+\subsection*{The Undamped Case}
+
+We'll begin with the case where $q\equiv0$, so  \eqref{eq:4.4.5}
+reduces to
+ \begin{equation} \label{eq:4.4.7}
+y''+p(y)=0.
+\end{equation}
+We say that this equation - as well as any physical situation
+that it may model - is \dfn{undamped}.
+The phase plane equivalent of \eqref{eq:4.4.7} is  the
+separable equation
+$$
+v\frac{dv}{dy}+p(y)=0.
+$$
+ Integrating this  yields
+\begin{equation} \label{eq:4.4.8}
+\frac{v^2}{2}+P(y)=c,
+\end{equation}
+where $c$ is a constant of integration and $P(y)=\int p(y)\,dy$ is an
+antiderivative of $p$.
+
+If \eqref{eq:4.4.7} is the equation of motion of an object of
+mass $m$, then
+ $mv^2/2$ is the kinetic energy and $mP(y)$ is the
+potential energy of the object;   thus, \eqref{eq:4.4.8} says that the
+total
+energy of the object remains constant, or is \dfn{conserved}. In
+particular, if a trajectory passes through a given point $(y_0,v_0)$
+then
+$$
+c=\frac{v_0^2}{2}+P(y_0).
+$$
+
+
+
+\begin{example}\label{example:4.4.1}
+ Consider an object with mass $m$ suspended from a
+spring and moving vertically. Let $y$ be the displacement of the
+object from the position it occupies when suspended at rest from the
+spring, as shown below.
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040402.jpg} 
+\end{image}
+
+Assume that if the length of the spring is changed by an amount
+$\Delta L$ (positive or negative), then the spring exerts an opposing
+force with magnitude $k|\Delta L|$, where k is a positive constant. In
+Section~6.1 it will be shown that if the mass of the spring
+is negligible compared to $m$ and no other forces act on the object then
+Newton's second law of motion implies that
+\begin{equation} \label{eq:4.4.9}
+my''=-ky,
+\end{equation}
+which can be written in the form \eqref{eq:4.4.7} with $p(y)=ky/m$. This
+equation can be solved easily by a method that we'll study in
+Section~5.2, but that method isn't available here. Instead,
+we'll consider the phase plane equivalent of \eqref{eq:4.4.9}.
+
+From \eqref{eq:4.4.3}, we can rewrite \eqref{eq:4.4.9} as the separable
+equation
+$$
+ mv\frac{dv}{dy}=-ky.
+$$
+Integrating this  yields
+$$
+\frac{mv^2}{2}=-\frac{ky^2}{2}+c,
+$$
+which implies that
+\begin{equation} \label{eq:4.4.10}
+mv^2+ky^2=\rho
+\end{equation}
+($\rho=2c$). This defines an ellipse in the Poincar\'e phase plane.
+
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040403.jpg} 
+\end{image}
+
+
+We can identify $\rho$ by setting $t=0$ in \eqref{eq:4.4.10};   thus,
+$\rho=mv_0^2+ky_0^2$, where $y_0=y(0)$ and $v_0=v(0)$. To determine
+the maximum and minimum values of $y$ we set $v=0$ in \eqref{eq:4.4.10};
+thus,
+\begin{equation} \label{eq:4.4.11}
+y_{\max}=R\quad\mbox{and}\quad
+y_{\min}=-R,\quad\mbox{with } R=\sqrt{\frac{\rho}{k}}.
+\end{equation}
+Equation~\eqref{eq:4.4.9} has exactly one equilibrium, $\overline{y}=0$,
+and
+it's stable. You can see intuitively why this is so: if the object is
+displaced in either direction from  equilibrium, the spring tries
+to bring it back.
+
+In this case we can find $y$ explicitly as a function of $t$. (Don't
+expect this to happen in more complicated problems!) If $v>0$ on an
+interval $I$,  \eqref{eq:4.4.10} implies that
+$$
+\frac{dy}{dt}=v=\sqrt{\frac{\rho-ky^2}{m}}
+$$
+on $I$. This is equivalent to
+\begin{equation} \label{eq:4.4.12}
+\frac{\sqrt{k}}{\sqrt{\rho-ky^2}}\frac{dy}{dt}=\omega_0,\quad\mbox{where}\quad
+\omega_0=\sqrt{\frac{k}{m}}.
+\end{equation}
+Since
+$$
+\int\frac{\sqrt{k}\,dy}{\sqrt{\rho-ky^2}}=\sin^{-1}\left(\sqrt{\frac{k}{\rho}}y\right)+c=\sin^{-1}\left(\frac{y}{R}\right)+c
+$$
+(see \eqref{eq:4.4.11}), \eqref{eq:4.4.12} implies that that there's a
+constant $\phi$ such that
+$$
+\sin^{-1}\left(\frac{y}{R}\right)=\omega_0 t+\phi
+$$
+or
+$$
+y=R\sin(\omega_0 t+\phi)
+$$
+for all $t$ in $I$. Although we obtained this function by assuming that
+$v>0$, you can easily verify that $y$ satisfies \eqref{eq:4.4.9} for all
+values of $t$. Thus, the displacement varies periodically between $-R$
+and $R$, with period $T=2\pi/\omega_0$ (If
+you've taken a course in elementary mechanics you may recognize this
+as \dfn{simple harmonic motion}.)
+
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040404.jpg} 
+\end{image}
+
+\end{example}
+
+
+
+\begin{example}\label{example:4.4.2}
+Now we
+consider the motion of a pendulum with mass $m$, attached to the end
+of a weightless rod with length $L$ that rotates on a frictionless
+axle. We assume that there's no air
+resistance.
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040405.jpg} 
+\end{image}
+
+
+Let $y$ be the angle measured from the rest position
+(vertically downward) of the pendulum, as shown in
+the figure. Newton's second law of motion says that the
+product of $m$ and the tangential acceleration equals the tangential
+component of the gravitational force.  Therefore,
+$$
+mLy''=-mg\sin y,
+$$
+or
+\begin{equation} \label{eq:4.4.13}
+y''=-\frac{g}{L} \sin y.
+\end{equation}
+
+
+Since $\sin n\pi=0$ if $n$ is any integer,  \eqref{eq:4.4.13} has
+infinitely many equilibria $\overline{y}_n=n\pi$. If $n$ is
+even, the mass is directly below the axle, as shown in part (a) of the figure, and gravity opposes any deviation
+from the equilibrium. However, if $n$ is odd, the mass is directly
+above the axle, as shown in part (b), and gravity
+increases any deviation from the equilibrium. Therefore we conclude
+on physical grounds that $\overline{y}_{2m}=2m\pi$ is stable and
+$\overline{y}_{2m+1}=(2m+1)\pi$ is unstable.
+
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040406.jpg} 
+\end{image}
+
+
+The phase plane equivalent of \eqref{eq:4.4.13} is
+$$
+v\frac{dv}{dy}=-\frac{g}{L}\sin y,
+$$
+where $v=y'$ is the angular velocity of the pendulum. Integrating this
+yields
+\begin{equation} \label{eq:4.4.14}
+\frac{v^2}{2}=\frac{g}{L}\cos y+c.
+\end{equation}
+If $v=v_0$ when $y=0$, then
+$$
+c=\frac{v_0^2}{2}-\frac{g}{L},
+$$
+so \eqref{eq:4.4.14} becomes
+$$
+\frac{v^2}{2}=\frac{v_0^2}{2}-\frac{g}{L}(1-\cos y)
+=\frac{v_0^2}{2}-\frac{2g}{L}\sin^2\frac{y}{2},
+$$
+which is equivalent to
+\begin{equation} \label{eq:4.4.15}
+v^2=v_0^2-v_c^2\sin^2\frac{y}{2},
+\end{equation}
+ where
+$$
+v_c=2\sqrt{\frac{g}{L}}.
+$$
+
+The curves defined by \eqref{eq:4.4.15} are the trajectories of
+\eqref{eq:4.4.13}. They are periodic with period $2\pi$ in $y$, which isn't
+ surprising, since if $y=y(t)$ is a solution of \eqref{eq:4.4.13} then
+so is $y_n=y(t)+2n\pi$ for any integer $n$. The figure below 
+shows trajectories over the interval $[-\pi,\pi]$. 
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040407.jpg} 
+\end{image}
+
+
+From \eqref{eq:4.4.15},
+you can see that if $|v_0|>v_c$ then $v$ is nonzero for all $t$, which
+means that the object whirls in the same direction forever, as below. 
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040408.jpg} 
+\end{image}
+
+
+In the first figure, the trajectories associated with this
+whirling motion are above the upper dashed curve and below the lower
+dashed curve. You can also see from
+\eqref{eq:4.4.15} that if $0<|v_0|<v_c$,then $v=0$ when $y=\pm y_{\max}$,
+where
+$$
+y_{\max}=2\sin^{-1}(|v_0|/v_c).
+$$
+In this case the pendulum oscillates periodically between $-y_{\max}$
+and $y_{\max}$, as shown below. 
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040409.jpg} 
+\end{image}
+
+
+The
+trajectories associated with this kind of motion are the ovals between
+the dashed curves in the first figure. It can be shown %(see Exercise~\ref{exer:4.4.21} for a partial proof) 
+that the period of the
+oscillation is
+\begin{equation} \label{eq:4.4.16}
+T=8\int_0^{\pi/2}\frac{d\theta}{\sqrt{v_c^2-v_0^2\sin^2\theta}}.
+\end{equation}
+Although this integral can't be evaluated in terms of familiar
+elementary functions, you can see that it's finite if $|v_0|<v_c$.
+
+The dashed curves in the first figure contain four
+trajectories. The critical points $(\pi,0)$ and $(-\pi,0)$ are the
+trajectories of the unstable equilibrium solutions $\overline
+y=\pm\pi$.
+The upper dashed curve connecting (but not including) them is obtained
+from initial conditions of the form $y(t_0)=0,\ v(t_0)=v_c$. If $y$ is
+any solution with this trajectory then
+$$
+\lim_{t\rightarrow\infty}y(t)=\pi\quad\mbox{and}\quad\lim_{t\rightarrow-\infty}y(t)=-\pi.
+$$
+The lower dashed curve connecting (but not including) them is obtained
+from initial conditions of the form $y(t_0)=0,\ v(t_0)=-v_c$. If $y$
+is any solution with this trajectory then
+$$
+\lim_{t\rightarrow\infty}y(t)=-\pi\quad\mbox{and}\quad\lim_{t\rightarrow-\infty}y(t)=\pi.
+$$
+Consistent with this, the integral \eqref{eq:4.4.16} diverges to $\infty$
+if $v_0=\pm v_c$. %(Exercise~\ref{exer:4.4.21}) .
+
+Since the dashed curves separate trajectories of whirling solutions
+from trajectories of oscillating solutions, each of these curves is
+called a \dfn{separatrix}.
+
+In general, if \eqref{eq:4.4.7} has both stable and unstable equilibria
+then the separatrices are the curves given by \eqref{eq:4.4.8} that pass
+through unstable critical points. Thus, if $(\overline{y},0)$ is an
+unstable critical point, then
+\begin{equation} \label{eq:4.4.17}
+\frac{v^2}{2}+P(y)=P(\overline{y})
+\end{equation}
+
+defines a separatrix passing through $(\overline{y},0)$.
+\end{example}
+
+\subsection*{Stability  and Instability Conditions for $y''+p(y)=0$}
+
+It can be shown %(Exercise~\ref{exer:4.4.23}) 
+that an equilibrium
+$\overline{y}$ of an undamped equation
+\begin{equation} \label{eq:4.4.18}
+y''+p(y)=0
+\end{equation}
+is stable if there's an open interval $(a,b)$ containing $\overline
+y$ such that
+\begin{equation} \label{eq:4.4.19}
+p(y)<0 \quad\mbox{if}\quad a<y<\overline{y}\quad\mbox{and}\quad p(y)>0 \quad\mbox{if}\quad
+\overline{y}<y<b.
+\end{equation}
+If we regard $p(y)$ as a force acting on a unit mass,
+\eqref{eq:4.4.19} means that the force resists all sufficiently small
+displacements from $\overline{y}$.
+
+
+We've already seen examples illustrating this principle. The equation
+\eqref{eq:4.4.9} for the undamped spring-mass system is of the form
+\eqref{eq:4.4.18} with $p(y)=ky/m$, which has only the stable equilibrium
+$\overline{y}=0$. In this case \eqref{eq:4.4.19} holds with $a=-\infty$ and
+$b=\infty$. The equation \eqref{eq:4.4.13} for the undamped pendulum is of
+the form \eqref{eq:4.4.18} with $p(y)=(g/L)\sin y$. We've seen that
+$\overline{y}=2m\pi$ is a stable equilibrium if $m$ is an integer. In
+this case
+$$
+p(y)=\sin y<0
+\quad\mbox{if}\quad(2m-1)\pi<y<2m\pi
+$$
+and
+$$
+p(y)>0 \quad\mbox{if}\quad 2m\pi<y<(2m+1)\pi.
+$$
+
+It can also be shown %(Exercise~\ref{exer:4.4.24}) 
+that $\overline{y}$ is
+unstable if there's a $b>\overline{y}$ such that
+\begin{equation} \label{eq:4.4.20}
+p(y)<0\quad\mbox{if}\quad\overline{y}<y<b
+\end{equation}
+or an $a<\overline{y}$ such that
+\begin{equation} \label{eq:4.4.21}
+p(y)>0\quad\mbox{if}\quad a<y<\overline{y}.
+\end{equation}
+If we regard $p(y)$ as a force acting on a unit mass,
+\eqref{eq:4.4.20} means that the force tends to increase all sufficiently
+small positive displacements from $\overline{y}$, while \eqref{eq:4.4.21}
+means that the force tends to increase the magnitude of all
+sufficiently small negative displacements from $\overline{y}$.
+
+The undamped pendulum also illustrates this principle. We've seen that
+$\overline{y}=(2m+1)\pi$ is an unstable equilibrium if $m$ is an
+integer. In this case
+$$
+\sin y<0\quad\mbox{if}\quad(2m+1)\pi<y<(2m+2)\pi,
+$$
+so \eqref{eq:4.4.20} holds with $b=(2m+2)\pi$, and
+$$
+\sin y>0\quad\mbox{if}\quad 2m\pi<y<(2m+1)\pi,
+$$
+so \eqref{eq:4.4.21} holds with $a=2m\pi$.
+
+
+\begin{example} \label{example:4.4.3}
+The equation
+\begin{equation} \label{eq:4.4.22}
+y''+y(y-1)=0
+\end{equation}
+is of the form \eqref{eq:4.4.18} with $p(y)=y(y-1)$. Therefore $\overline{y}=0$ and $\overline{y}=1$ are the equilibria of \eqref{eq:4.4.22}. Since
+\begin{eqnarray*}
+y(y-1)>0 &\mbox{ if } y<0\mbox{ or }y>1,\\
+<0&\mbox{ if } 0<y<1,
+\end{eqnarray*}
+$\overline{y}=0$ is unstable and $\overline{y}=1$ is
+stable.
+
+The phase plane equivalent of \eqref{eq:4.4.22} is the separable equation
+$$
+v\frac{dv}{dy}+y(y-1)=0.
+$$
+Integrating yields
+$$
+\frac{v^2}{2}+\frac{y^3}{3}-\frac{y^2}{2}=C,
+$$
+which we rewrite  as
+\begin{equation} \label{eq:4.4.23}
+v^2+\frac{1}{3}y^2(2y-3)=c
+\end{equation}
+after renaming the constant of integration. These are the trajectories
+of \eqref{eq:4.4.22}. If $y$ is any solution of \eqref{eq:4.4.22},  the
+point $(y(t),v(t))$ moves along the trajectory of $y$ in the direction
+of increasing $y$ in the upper half plane ($v=y'>0$), or in the
+direction of decreasing $y$ in the lower half plane ($v=y'<0$).
+
+The figure below shows
+typical trajectories. 
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040410.jpg} 
+\end{image}
+
+
+The
+dashed curve through the critical point $(0,0)$, obtained by setting
+$c=0$ in \eqref{eq:4.4.23}, separates the $y$-$v$ plane into regions
+that contain different kinds of trajectories; again,
+ we call this curve a \dfn{separatrix}.
+Trajectories in the region bounded by the closed loop labeled (b) are closed
+curves,
+so solutions associated with them are periodic. Solutions associated
+with other trajectories are not periodic. If $y$ is any such solution
+with trajectory not  on the separatrix, then
+$$
+\begin{array}{llrllr}
+\lim_{t\rightarrow\infty}y(t)&=&-\infty, &\lim_{t\rightarrow-\infty}y(t)&=&-\infty,\\
+\lim_{t\rightarrow\infty}v(t)&=&-\infty,
+&\lim_{t\rightarrow-\infty}v(t)&=&\infty.
+\end{array}
+$$
+
+The separatrix contains four trajectories of \eqref{eq:4.4.22}. One is the
+point $(0,0)$, the trajectory of the equilibrium $\overline{y}=0$.
+Since distinct trajectories can't intersect, the segments of the
+separatrix marked (a), (b), and (c) -- which don't include $(0,0)$ --
+are distinct trajectories, none of which can be traversed in finite
+time. Solutions with these trajectories have the following asymptotic
+behavior:
+$$
+\begin{array}{llrllrl}
+\lim_{t\rightarrow\infty}y(t)&=&0, &\lim_{t\rightarrow-\infty}y(t)&=&-\infty,\\
+\lim_{t\rightarrow\infty}v(t)&=&0,
+&\lim_{t\rightarrow-\infty}v(t)&=&\infty&
+\mbox{ (on (a))}  \\
+\lim_{t\rightarrow\infty}y(t)&=&0, &\lim_{t\rightarrow-\infty}y(t)&=&0,\\
+\lim_{t\rightarrow\infty}v(t)&=&0,
+&\lim_{t\rightarrow-\infty}v(t)&=&0&
+\mbox{ (on (b))}  \\
+\lim_{t\rightarrow\infty}y(t)&=&-\infty, &\lim_{t\rightarrow-\infty}y(t)&=&0,\\
+\lim_{t\rightarrow\infty}v(t)&=&-\infty,
+&\lim_{t\rightarrow-\infty}v(t)&=&0&
+\mbox{ (on (c))}
+\end{array}
+$$
+\end{example}
+
+
+\subsection*{The Damped Case}
+
+The phase plane equivalent of the damped autonomous equation
+\begin{equation} \label{eq:4.4.24}
+y''+q(y,y')y'+p(y)=0
+\end{equation}
+is
+$$
+v\frac{dv}{dy}+q(y,v)v+p(y)=0.
+$$
+This equation isn't  separable, so we can't solve it for $v$ in terms
+of
+$y$,
+as we did in the undamped case, and conservation of energy doesn't
+hold. (For example, energy expended in overcoming friction is lost.)
+However, we can study the qualitative behavior of its solutions by
+rewriting it as
+\begin{equation} \label{eq:4.4.25}
+\frac{dv}{dy}=-q(y,v)-\frac{p(y)}{v}
+\end{equation}
+and considering the direction fields for this equation. In the
+following examples we'll also be showing computer generated
+trajectories of this equation, obtained by numerical methods. The
+exercises call for similar computations. The methods discussed in
+Chapter~3
+ are not suitable for this
+task, since  $p(y)/v$ in \eqref{eq:4.4.25} is undefined on the $y$ axis
+of the Poincar\'e phase plane. Therefore we're forced to apply
+numerical methods briefly discussed in Section~10.1 to the
+system
+\begin{eqnarray*}
+y'&=&v\\
+v'&=&-q(y,v)v-p(y),
+\end{eqnarray*}
+which is equivalent to \eqref{eq:4.4.24} in the sense defined in
+Section~10.1. Fortunately, most differential equation software
+packages  enable you to do this painlessly.
+
+In the text we'll confine ourselves to the case where $q$
+is constant, so \eqref{eq:4.4.24} and \eqref{eq:4.4.25}  reduce to
+\begin{equation} \label{eq:4.4.26}
+y''+cy'+p(y)=0
+\end{equation}
+and
+$$
+\frac{dv}{dy}=-c-\frac{p(y)}{v}.
+$$
+(We'll consider more general equations in the exercises.) The constant
+$c$ is called the \dfn{damping constant}. In situations where
+\eqref{eq:4.4.26} is the equation of motion of an object, $c$ is positive;
+however, there are situations where  $c$ may be negative.
+
+\subsection*{The Damped Spring-Mass System}
+
+Earlier we considered
+the spring - mass system under the assumption that the only forces
+acting on the object were gravity and the spring's resistance to
+changes in its length. Now we'll assume that some mechanism (for
+example, friction in the spring or atmospheric resistance) opposes the
+motion of the object with a force proportional to its velocity. In
+Section~6.1 it will be shown that in this case Newton's
+second law of motion implies that
+\begin{equation} \label{eq:4.4.27}
+my''+cy'+ky=0,
+\end{equation}
+where $c>0$ is the \dfn{damping constant}. Again, this
+equation can
+be solved easily by a method that we'll study in Section~5.2,
+but that method isn't available here. Instead, we'll consider its
+phase plane equivalent, which can be written in the form \eqref{eq:4.4.25}
+as
+\begin{equation} \label{eq:4.4.28}
+\frac{dv}{dy}=-\frac{c}{m}-\frac{ky}{mv}.
+\end{equation}
+(A minor note: the $c$ in \eqref{eq:4.4.26} actually corresponds to
+$c/m$ in this equation.) The figure below shows a
+typical direction field for an equation of this form.
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040411.jpg} 
+\end{image}
+
+
+Recalling that
+motion along a trajectory must be in the direction of increasing $y$
+in the upper half plane ($v>0$) and in the direction of decreasing $y$
+in the lower half plane ($v<0$), you can infer that all trajectories
+approach the origin in clockwise fashion. To confirm this, the following figure shows the same direction field with some
+trajectories filled in. 
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040412.jpg} 
+\end{image}
+
+
+All the trajectories shown there correspond to
+solutions of the initial value problem
+$$
+my''+cy'+ky=0,\quad y(0)=y_0,\quad y'(0)=v_0,
+$$
+where
+$$
+mv_0^2+ky_0^2=\rho\quad (\mbox{a positive constant});
+$$
+thus, if there were no damping ($c=0$),  all the solutions would
+have the same dashed elliptic trajectory, shown below.
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040414.jpg} 
+\end{image}
+
+Solutions corresponding to the trajectories in
+this figure cross the $y$-axis infinitely many times.
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040412.jpg} 
+\end{image}
+
+
+The corresponding solutions, shown below, are said to be \dfn{oscillatory} 
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040413.jpg} 
+\end{image}
+
+
+It is shown in
+Section~6.2 that there's a number $c_1$ such that if $0\leq
+c<c_1$ then  all solutions of \eqref{eq:4.4.27} are oscillatory, while if
+$c\geq c_1$,  no solutions of \eqref{eq:4.4.27} have this property. (In
+fact, no solution not identically zero can have more than two zeros in
+this case.) The following figure shows a direction field and
+some integral curves for \eqref{eq:4.4.28} in this case.
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040414.jpg} 
+\end{image}
+
+
+\begin{example}\label{example:4.4.5}
+Now we
+return to the pendulum. If we assume that
+some mechanism (for example, friction in the axle or atmospheric
+resistance) opposes the motion of the pendulum with a force
+proportional to its angular velocity,  Newton's second law of
+motion implies that
+\begin{equation} \label{eq:4.4.29}
+mLy''=-cy'-mg\sin y,
+\end{equation}
+where $c>0$ is the damping constant. (Again, a minor note: the $c$
+in \eqref{eq:4.4.26} actually corresponds to $c/mL$ in this equation.)
+To plot a direction field for \eqref{eq:4.4.29} we write its phase plane
+equivalent as
+$$
+\frac{dv}{dy}=-\frac{c}{mL}-\frac{g}{Lv}\sin y.
+$$
+The figure below shows
+trajectories of four solutions of \eqref{eq:4.4.29}, all satisfying
+$y(0)=0$. For each $m=0$, $1$, $2$, $3$, imparting the initial velocity
+$v(0)=v_m$ causes the pendulum to make $m$ complete revolutions and
+then settle into decaying oscillation about the stable equilibrium
+$\overline{y}=2m\pi$.
+
+\begin{image}
+ \includegraphics[height=1.5in]{fig040415.jpg} 
+\end{image}
+
+
+\end{example}
+
+
+
+
+
+
+\section*{Text Source}
+Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
+
+\href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
+
+
+\end{document}
