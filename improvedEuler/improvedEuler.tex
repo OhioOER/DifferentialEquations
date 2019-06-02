@@ -1,0 +1,573 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{The Improved Euler Method and Related Methods}%\label{Module 7-ADEF}
+
+
+\begin{document}
+
+\begin{abstract}
+
+\end{abstract}
+
+\maketitle
+
+\section*{The Improved Euler Method and Related Methods}
+
+ In Section~3.1 we saw that the global truncation error of
+Euler's method is $O(h)$, which would seem to imply that we can
+achieve arbitrarily accurate results with Euler's method by simply
+choosing the step size sufficiently small. However, this
+isn't  a good idea, for two reasons. First,
+after a certain point decreasing the step size will
+increase roundoff errors to the point where the accuracy
+will deteriorate rather than improve.
+ The second
+and more important reason is that in most applications of numerical
+methods to an initial value problem
+\begin{equation} \label{eq:3.2.1}
+y'=f(x,y),\quad y(x_0)=y_0,
+\end{equation}
+the expensive part of the computation is the evaluation of $f$.
+Therefore we want methods that give good results for a given number
+of such evaluations. This is what motivates us to look for numerical
+methods better than Euler's.
+
+To clarify this point, suppose  we want to approximate the value of $e$
+by applying Euler's method to the initial value problem
+$$
+y'=y,\quad y(0)=1,\quad\mbox{(with solution $y=e^x$)}
+$$
+on $[0,1]$, with $h=1/12$, $1/24$, and $1/48$, respectively. Since
+each step in Euler's method requires one evaluation of $f$, the number
+of evaluations of $f$ in each of these attempts is $n=12$, $24$, and
+$48$, respectively. In each case we accept $y_n$ as an approximation
+to $e$.  The table below shows the results. 
+
+\begin{center}
+$$
+\begin{array}{|c|c|c|}
+\hline
+n&
+\text{Euler}&
+
+\text{Exact}\\ \hline
+12 & 2.613035290  & 2.718281828 \\
+24 & 2.663731258   & 2.718281828 \\
+48 & 2.690496599  & 2.718281828
+\\
+\hline
+\end{array}
+$$
+\end{center}
+
+
+The first column of the table
+indicates
+the number of evaluations of $f$ required to obtain the approximation, and
+the last column contains the value of $e$ rounded to ten significant
+figures.
+
+In this module we'll study the
+\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Euler.html}{improved Euler method}, which
+requires two evaluations of $f$ at each step. We've used this method
+with $h=1/6$, $1/12$, and $1/24$. The required number of evaluations
+of $f$ were 12, 24, and $48$, as in the three applications of Euler's
+method;     however, you can see from the third column of
+the table below that the approximation to $e$ obtained by the
+improved Euler method with only 12 evaluations of $f$ is better than
+the approximation obtained by Euler's method with 48 evaluations.
+
+\begin{center}
+$$
+\begin{array}{|c|c|c|c|}
+\hline
+n&
+\text{Euler}&
+\text{Improved Euler}&
+\text{Exact}\\ \hline
+12 & 2.613035290  &2.707188994  & 2.718281828 \\
+24 & 2.663731258   &2.715327371   & 2.718281828 \\
+48 & 2.690496599  &2.717519565  & 2.718281828
+\\
+\hline
+\end{array}
+$$
+\end{center}
+
+In Section~3.1 we'll study the
+\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Runge.html}{Runge}-\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Kutta.html}{Kutta method},
+which requires four evaluations of $f$ at each step. We've used this
+method with $h=1/3$, $1/6$, and $1/12$. The required number of
+evaluations of $f$ were again 12, 24, and $48$, as in the three
+applications of Euler's method and the improved Euler method;     however,
+you can see from the fourth column of the table below that the
+approximation to $e$ obtained by the Runge-Kutta method with only 12
+evaluations of $f$ is better than the approximation obtained by the
+improved Euler method with 48 evaluations.
+
+\begin{center}
+$$
+\begin{array}{|c|c|c|c|c|}
+\hline
+n&
+\text{Euler}&
+\text{Improved Euler}&
+\text{Runge-Kutta}&
+\text{Exact}\\ \hline
+12 & 2.613035290  &2.707188994  &2.718069764 & 2.718281828 \\
+24 & 2.663731258   &2.715327371   &2.718266612 & 2.718281828 \\
+48 & 2.690496599  &2.717519565  &2.718280809 & 2.718281828
+\\
+\hline
+\end{array}
+$$
+\end{center}
+
+\subsection*{The Improved Euler Method}
+
+The
+\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Euler.html}{improved Euler method} for solving the initial value
+problem (\ref{eq:3.2.1}) is based on approximating the integral curve of
+(\ref{eq:3.2.1}) at $(x_i,y(x_i))$ by the line through $(x_i,y(x_i))$ with
+slope
+$$
+m_i=\frac{f(x_i,y(x_i))+f(x_{i+1},y(x_{i+1}))}{2};
+$$
+that is, $m_i$ is the average of the slopes of the tangents to the
+integral curve at the endpoints of $[x_i,x_{i+1}]$. The equation of
+the approximating line is therefore
+\begin{equation} \label{eq:3.2.2}
+y=y(x_i)+\frac{f(x_i,y(x_i))+f(x_{i+1},y(x_{i+1}))}{2}(x-x_i).
+\end{equation}
+Setting $x=x_{i+1}=x_i+h$ in (\ref{eq:3.2.2}) yields
+\begin{equation} \label{eq:3.2.3}
+y_{i+1}=y(x_i)+\frac{h}{2}\left(f(x_i,y(x_i))+f(x_{i+1},y(x_{i+1}))\right)
+\end{equation}
+as an approximation to $y(x_{i+1})$. As in our derivation of Euler's
+method, we replace $y(x_i)$ (unknown if $i>0$) by its
+approximate value $y_i$; then (\ref{eq:3.2.3}) becomes
+$$
+y_{i+1}=y_i+\frac{h}{2}\left(f(x_i,y_i)+f(x_{i+1},y(x_{i+1})\right).
+$$
+However, this still won't work, because we don't know $y(x_{i+1})$,
+which appears on the right. We overcome this by replacing $y(x_{i+1})$
+by $y_i+hf(x_i,y_i)$, the value that the  Euler method would
+assign to $y_{i+1}$. Thus,  the improved Euler method
+starts with the known value $y(x_0)=y_0$ and computes
+$y_1, y_2, \dots, y_n$ successively with the formula
+\begin{equation} \label{eq:3.2.4}
+y_{i+1}=y_i+\frac{h}{2}\left(f(x_i,y_i)+f(x_{i+1},y_i+hf(x_i,y_i))\right).
+\end{equation}
+The computation indicated here can be conveniently organized as
+follows: given $y_i$, compute
+\begin{eqnarray*}
+k_{1i}&=&f(x_i,y_i),\\
+k_{2i}&=&f\left(x_i+h,y_i+hk_{1i}\right),\\
+y_{i+1}&=&y_i+\frac{h}{2}(k_{1i}+k_{2i}).
+\end{eqnarray*}
+
+The improved Euler method requires two evaluations of $f(x,y)$ per
+step, while Euler's method requires only one. However, we'll see at
+the end of this section that if $f$ satisfies appropriate assumptions,
+ the local truncation error with the improved Euler method is
+$O(h^3)$, rather than $O(h^2)$ as with Euler's method. Therefore
+the global truncation error with the improved Euler method is
+$O(h^2)$;     however, we won't prove this.
+
+We note that the magnitude of the local truncation error in the
+improved Euler method and other methods discussed in this section is
+determined by the third derivative $y'''$ of the solution of the
+initial value problem. Therefore the local truncation error will be
+larger where $|y'''|$ is large, or smaller where $|y'''|$ is small.
+
+The next example, which deals with the initial value problem
+considered in Example~\ref{example:3.1.1}, illustrates
+the computational procedure indicated in the improved Euler method.
+
+\begin{example}\label{example:3.2.1}
+Use the improved Euler method with $h=0.1$ to find approximate values
+of the solution of the initial value problem
+\begin{equation}\label{eq:3.2.5}
+y'+2y=x^3e^{-2x},\quad y(0)=1
+\end{equation}
+at $x=0.1,0.2,0.3$.
+
+\begin{explanation}
+As in Example~\ref{example:3.1.1}, we rewrite (\ref{eq:3.2.5})  as
+$$
+y'=-2y+x^3e^{-2x},\quad y(0)=1,
+$$
+which is of the form (\ref{eq:3.2.1}), with
+$$
+f(x,y)=-2y+x^3e^{-2x},\quad x_0=0,\quad\mbox{and}\quad y_0=1.
+$$
+The improved Euler method yields
+
+\begin{eqnarray*}
+k_{10} & = & f(x_0,y_0)
+  = f(0,1)=-2,\\
+k_{20} & = & f(x_1,y_0+hk_{10})=f(.1,1+(.1)(-2))\\
+ &=& f(.1,.8)=-2(.8)+(.1)^3e^{-.2}=-1.599181269,\\
+y_1&=&y_0+\frac{h}{2}(k_{10}+k_{20}),\\
+&=&1+(.05)(-2-1.599181269)=.820040937,\\
+k_{11} & = & f(x_1,y_1)
+  = f(.1,.820040937)= -2(.820040937)+(.1)^3e^{-.2}=-1.639263142,\\
+k_{21} & = & f(x_2,y_1+hk_{11})=f(.2,.820040937+.1(-1.639263142)),\\
+ &=&
+f(.2,.656114622)=-2(.656114622)+(.2)^3e^{-.4}=-1.306866684,\\
+y_2&=&y_1+\frac{h}{2}(k_{11}+k_{21}),\\
+&=&.820040937+(.05)(-1.639263142-1.306866684)=.672734445,\\
+k_{12} & = & f(x_2,y_2)
+  = f(.2,.672734445)= -2(.672734445)+(.2)^3e^{-.4}=-1.340106330,\\
+k_{22} & = & f(x_3,y_2+hk_{12})=f(.3,.672734445+.1(-1.340106330)),\\
+ &=&
+f(.3,.538723812)=-2(.538723812)+(.3)^3e^{-.6}=-1.062629710,\\
+y_3&=&y_2+\frac{h}{2}(k_{12}+k_{22})\\
+&=&.672734445+(.05)(-1.340106330-1.062629710)=.552597643.
+\end{eqnarray*}
+\end{explanation}
+\end{example}
+
+\begin{example}\label{example:3.2.2}
+The table below shows results of using the improved Euler method
+with step sizes $h=0.1$ and $h=0.05$ to find approximate values of the
+solution of the initial value problem
+$$
+y'+2y=x^3e^{-2x},\quad y(0)=1
+$$
+at $x=0, 0.1, 0.2, 0.3, \dots, 1.0$. For comparison, it also shows
+the
+corresponding approximate values obtained with Euler's method in
+\ref{example:3.1.2}, and the values of the exact solution
+$$
+y=\frac{e^{-2x}}{4}(x^4+4).
+$$
+The results
+obtained by the improved Euler method with $h=0.1$ are better than
+those obtained by Euler's method with $h=0.05$.
+
+$$
+\begin{array}{|c|c|c|c|c|c|}
+\hline
+ &\text{Euler} &\text{Euler} &\text{Improved} &\text{Improved}& \text{Exact}\\
+ & & &\text{Euler}&\text{Euler}& \\
+x&h=0.1&h=0.05&h=0.1&h=0.05&
+\\ \hline
+0.0 & 1.000000000& 1.000000000& 1.000000000   &1.000000000 & 1.000000000 \\
+0.1 & 0.800000000& 0.810005655& 0.820040937   &0.819050572 & 0.818751221 \\
+0.2 & 0.640081873& 0.656266437& 0.672734445   &0.671086455 & 0.670588174 \\
+0.3 & 0.512601754& 0.532290981& 0.552597643   &0.550543878 & 0.549922980 \\
+0.4 & 0.411563195& 0.432887056& 0.455160637   &0.452890616 & 0.452204669 \\
+0.5 & 0.332126261& 0.353785015& 0.376681251   &0.374335747 & 0.373627557 \\
+0.6 & 0.270299502& 0.291404256& 0.313970920   &0.311652239 & 0.310952904 \\
+0.7 & 0.222745397& 0.242707257& 0.264287611   &0.262067624 & 0.261398947 \\
+0.8 & 0.186654593& 0.205105754& 0.225267702   &0.223194281 & 0.222570721 \\
+0.9 & 0.159660776& 0.176396883& 0.194879501   &0.192981757 & 0.192412038 \\
+1.0 & 0.139778910& 0.154715925& 0.171388070   &0.169680673 & 0.169169104\\
+\hline
+\end{array}
+$$
+
+\end{example}
+
+\begin{example}\label{example:3.2.3}
+The table below shows analogous results for the nonlinear
+initial value problem
+$$
+y'=-2y^2+xy+x^2,\ y(0)=1.
+$$
+We applied Euler's  method to this problem in
+Example~\ref{example:3.1.3}.
+
+
+
+\begin{array}{|c|c|c|c|c|c|}
+\hline
+ &\text{Euler} &\text{Euler} &\text{Improved} &\text{Improved}& \text{``Exact"}\\
+ & & &\text{Euler}&\text{Euler}& \\
+x&h=0.1&h=0.05&h=0.1&h=0.05&
+\\ \hline
+0.0 & 1.000000000 & 1.000000000 &1.000000000 & 1.000000000 & 1.000000000 \\
+0.1 & 0.800000000 & 0.821375000 &0.840500000 & 0.838288371 & 0.837584494 \\
+0.2 & 0.681000000 & 0.707795377 &0.733430846 & 0.730556677 & 0.729641890 \\
+0.3 & 0.605867800 & 0.633776590 &0.661600806 & 0.658552190 & 0.657580377 \\
+0.4 & 0.559628676 & 0.587454526 &0.615961841 & 0.612884493 & 0.611901791 \\
+0.5 & 0.535376972 & 0.562906169 &0.591634742 & 0.588558952 & 0.587575491 \\
+0.6 & 0.529820120 & 0.557143535 &0.586006935 & 0.582927224 & 0.581942225 \\
+0.7 & 0.541467455 & 0.568716935 &0.597712120 & 0.594618012 & 0.593629526 \\
+0.8 & 0.569732776 & 0.596951988 &0.626008824 & 0.622898279 & 0.621907458 \\
+0.9 & 0.614392311 & 0.641457729 &0.670351225 & 0.667237617 & 0.666250842 \\
+1.0 & 0.675192037 & 0.701764495 &0.730069610 & 0.726985837 & 0.726015790\\
+\hline
+\end{array}
+\end{example}
+
+\begin{example}\label{example:3.2.4}
+Use step sizes $h=0.2$, $h=0.1$, and $h=0.05$ to find approximate
+values of the solution of
+\begin{equation} \label{eq:3.2.6}
+y'-2xy=1,\quad y(0)=3
+\end{equation}
+at $x=0, 0.2, 0.4, 0.6, \dots, 2.0$ by
+\begin{enumerate}
+\item\label{item:3.2.4a}
+the improved Euler method;
+\item\label{item:3.2.4b}
+the improved Euler
+semilinear method. 
+\end{enumerate}
+(We used Euler's method and the Euler semilinear
+method on this problem in~\ref{example:3.1.4}.)
+
+\begin{explanation}
+\ref{item:3.2.4a}
+Rewriting (\ref{eq:3.2.6}) as
+$$
+y'=1+2xy,\quad y(0)=3
+$$
+and applying the improved Euler method with $f(x,y)=1+2xy$ yields
+the results shown in the table.
+
+$$
+\begin{array}{|c|c|c|c|c|}
+\hline
+x&
+h=0.2&
+h=0.1&
+h=0.05&
+\text{``Exact''}\\ \hline
+0.0 &   3.000000000 &   3.000000000 &   3.000000000 &   3.000000000 \\
+0.2 &   3.328000000 &   3.328182400 &   3.327973600 &   3.327851973 \\
+0.4 &   3.964659200 &   3.966340117 &   3.966216690 &   3.966059348 \\
+0.6 &   5.057712497 &   5.065700515 &   5.066848381 &   5.067039535 \\
+0.8 &   6.900088156 &   6.928648973 &   6.934862367 &   6.936700945 \\
+1.0 &  10.065725534 &  10.154872547 &  10.177430736 &  10.184923955 \\
+1.2 &  15.708954420 &  15.970033261 &  16.041904862 &  16.067111677 \\
+1.4 &  26.244894192 &  26.991620960 &  27.210001715 &  27.289392347 \\
+1.6 &  46.958915746 &  49.096125524 &  49.754131060 &  50.000377775 \\
+1.8 &  89.982312641 &  96.200506218 &  98.210577385 &  98.982969504 \\
+2.0 & 184.563776288 & 203.151922739 & 209.464744495 & 211.954462214 \\
+\hline
+\end{array}
+$$
+
+\ref{item:3.2.4b}
+Since $y_1=e^{x^2}$ is a solution of the complementary equation
+$y'-2xy=0$, we can  apply the improved Euler semilinear method to
+(\ref{eq:3.2.6}), with
+$$
+y=ue^{x^2}\quad\mbox{and}\quad
+u'=e^{-x^2},\quad u(0)=3.
+$$
+The results listed in the table below are clearly better than
+those obtained by the improved Euler method.
+
+
+$$
+\begin{array}{|c|c|c|c|c|}
+\hline
+x&
+h=0.2&
+h=0.1&
+h=0.05&
+\text{``Exact''}\\ \hline
+0.0 &   3.000000000 &  3.000000000  &   3.000000000 &   3.000000000 \\
+0.2 &   3.326513400 &  3.327518315  &   3.327768620 &   3.327851973 \\
+0.4 &   3.963383070 &  3.965392084  &   3.965892644 &   3.966059348 \\
+0.6 &   5.063027290 &  5.066038774  &   5.066789487 &   5.067039535 \\
+0.8 &   6.931355329 &  6.935366847  &   6.936367564 &   6.936700945 \\
+1.0 &  10.178248417 & 10.183256733  &  10.184507253 &  10.184923955 \\
+1.2 &  16.059110511 & 16.065111599  &  16.066611672 &  16.067111677 \\
+1.4 &  27.280070674 & 27.287059732  &  27.288809058 &  27.289392347 \\
+1.6 &  49.989741531 & 49.997712997  &  49.999711226 &  50.000377775 \\
+1.8 &  98.971025420 & 98.979972988  &  98.982219722 &  98.982969504 \\
+2.0 & 211.941217796 &211.951134436  & 211.953629228 & 211.954462214 \\
+\hline
+\end{array}
+$$
+\end{explanation}
+\end{example}
+
+
+\subsection*{A Family of Methods with $O(h^3)$ Local Truncation Error}
+
+We'll now derive a class of methods with $O(h^3)$ local truncation
+error for solving (\ref{eq:3.2.1}). For simplicity, we
+assume that $f$, $f_x$, $f_y$, $f_{xx}$, $f_{yy}$, and $f_{xy}$ are
+continuous and bounded for all $(x,y)$. This implies that if $y$ is
+the solution of (\ref{eq:3.2.1} then $y''$ and $y'''$ are bounded.
+%(Exercise~\ref{exer:3.2.31}).
+
+We begin by approximating the integral curve of (\ref{eq:3.2.1}) at
+$(x_i,y(x_i))$ by the line through $(x_i,y(x_i))$ with slope
+$$
+m_i=\sigma y'(x_i)+\rho y'(x_i+\theta h),
+$$
+where $\sigma$, $\rho$, and $\theta$ are constants that we'll soon
+specify;     however, we insist at the outset that $0<\theta\leq 1$, so
+that
+$$
+x_i<x_i+\theta h\leq x_{i+1}.
+$$
+The equation of the approximating line is
+\begin{equation} \label{eq:3.2.7}
+\begin{array}{rcl}
+y&=&y(x_i)+m_i(x-x_i)\\
+&=&y(x_i)+\left[\sigma y'(x_i)+\rho y'(x_i+\theta h)\right](x-x_i).
+\end{array}
+\end{equation}
+Setting $x=x_{i+1}=x_i+h$ in (\ref{eq:3.2.7}) yields
+$$
+\hat y_{i+1}=y(x_i)+h\left[\sigma y'(x_i)+\rho y'(x_i+\theta h)\right]
+$$
+as an approximation to $y(x_{i+1})$.
+
+To determine $\sigma$, $\rho$, and $\theta$ so that the error
+\begin{equation} \label{eq:3.2.8}
+\begin{array}{rcl}
+E_i&=&y(x_{i+1})-\hat y_{i+1}\\
+&=&y(x_{i+1})-y(x_i)-h\left[\sigma y'(x_i)+\rho y'(x_i+\theta
+h)\right]
+\end{array}
+\end{equation}
+in this approximation is $O(h^3)$, we begin by recalling from Taylor's
+theorem that
+$$
+y(x_{i+1})=y(x_i)+hy'(x_i)+\frac{h^2}{2}y''(x_i)+\frac{h^3}{6}y'''(\hat
+x_i),
+$$
+where $\hat x_i$ is in $(x_i,x_{i+1})$. Since $y'''$ is bounded this
+implies that
+$$
+ y(x_{i+1})-y(x_i)-hy'(x_i)-\frac{h^2}{2}y''(x_i)=O(h^3).
+$$
+Comparing this with (\ref{eq:3.2.8}) shows that $E_i=O(h^3)$ if
+\begin{equation} \label{eq:3.2.9}
+\sigma y'(x_i)+\rho y'(x_i+\theta h)=y'(x_i)+\frac{h}{2}y''(x_i)
++O(h^2).
+\end{equation}
+However, applying Taylor's theorem to $y'$ shows that
+$$
+y'(x_i+\theta h)=y'(x_i)+\theta h y''(x_i)+\frac{(\theta
+h)^2}{2}y'''(\overline x_i),
+$$
+where $\overline x_i$ is in $(x_i,x_i+\theta h)$. Since $y'''$ is
+bounded, this implies that
+$$
+y'(x_i+\theta h)=y'(x_i)+\theta h y''(x_i)+O(h^2).
+$$
+Substituting this into (\ref{eq:3.2.9}) and noting that the sum of
+two $O(h^2)$ terms is again $O(h^2)$ shows that
+$E_i=O(h^3)$ if
+$$
+(\sigma+\rho)y'(x_i)+\rho\theta h y''(x_i)=
+y'(x_i)+\frac{h}{2}y''(x_i),
+$$
+which is true if
+\begin{equation} \label{eq:3.2.10}
+\sigma+\rho=1 \quad\mbox{and}\quad \rho\theta=\frac{1}{2}.
+\end{equation}
+
+Since $y'=f(x,y)$, we can now conclude from (\ref{eq:3.2.8}) that
+\begin{equation} \label{eq:3.2.11}
+y(x_{i+1})=y(x_i)+h\left[\sigma f(x_i,y_i)+\rho f(x_i+\theta
+h,y(x_i+\theta h))\right]+O(h^3)
+\end{equation}
+if $\sigma$, $\rho$, and $\theta$ satisfy (\ref{eq:3.2.10}). However,
+this formula would not be useful even if we knew $y(x_i)$ exactly (as
+we would for $i=0$), since we still wouldn't know $y(x_i+\theta h)$
+exactly. To overcome this difficulty, we again use Taylor's theorem to
+write
+$$
+y(x_i+\theta h)=y(x_i)+\theta h y'(x_i)+\frac{h^2}{2}y''(\tilde x_i),
+$$
+where $\tilde x_i$ is in $(x_i,x_i+\theta h)$. Since
+$y'(x_i)=f(x_i,y(x_i))$ and $y''$ is bounded, this implies that
+\begin{equation} \label{eq:3.2.12}
+|y(x_i+\theta h)-y(x_i)-\theta h f(x_i,y(x_i))|\leq Kh^2
+\end{equation}
+for some constant $K$. Since $f_y$ is bounded, the mean value theorem
+implies that
+$$
+|f(x_i+\theta h,u)-f(x_i+\theta h,v)|\leq M|u-v|
+$$
+for some constant $M$. Letting
+$$
+u=y(x_i+\theta h)\quad\mbox{and}\quad
+v=y(x_i)+\theta h f(x_i,y(x_i))
+$$
+and recalling (\ref{eq:3.2.12}) shows that
+$$
+f(x_i+\theta h,y(x_i+\theta h))=f(x_i+\theta h,y(x_i)+\theta h
+f(x_i,y(x_i)))+O(h^2).
+$$
+Substituting this into (\ref{eq:3.2.11})   yields
+\begin{eqnarray*}
+y(x_{i+1})&=&y(x_i)+h\left[\sigma f(x_i,y(x_i))+\right.\\&&\left.\rho
+f(x_i+\theta h,y(x_i)+\theta hf(x_i,y(x_i)))\right]+O(h^3).
+\end{eqnarray*}
+This implies that the formula
+$$
+y_{i+1}=y_i+h\left[\sigma f(x_i,y_i)+\rho f(x_i+\theta
+h,y_i+\theta hf(x_i,y_i))\right]
+$$
+has $O(h^3)$ local truncation error if $\sigma$, $\rho$, and $\theta$
+satisfy (\ref{eq:3.2.10}). Substituting $\sigma=1-\rho$ and
+$\theta=1/2\rho$ here yields
+\begin{equation} \label{eq:3.2.13}
+y_{i+1}=y_i+h\left[(1-\rho)f(x_i,y_i)+\rho
+f\left(x_i+\frac{h}{2\rho},
+y_i+\frac{h}{2\rho}f(x_i,y_i)\right)\right].
+\end{equation}
+
+The computation indicated here can be conveniently organized as
+follows: given $y_i$, compute
+\begin{eqnarray*}
+k_{1i}&=&f(x_i,y_i),\\
+k_{2i}&=&f\left(x_i+\frac{h}{2\rho},
+y_i+\frac{h}{2\rho}k_{1i}\right),\\
+y_{i+1}&=&y_i+h[(1-\rho)k_{1i}+\rho k_{2i}].
+\end{eqnarray*}
+
+Consistent with our requirement that $0<\theta<1$, we require that
+$\rho\geq 1/2$. Letting $\rho=1/2$ in (\ref{eq:3.2.13}) yields the improved
+Euler method (\ref{eq:3.2.4}). Letting $\rho=3/4$ yields
+\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Heun.html}{Heun's method},
+$$
+y_{i+1}=y_i+h\left[\frac{1}{4}f(x_i,y_i)+\frac{3}{4}f\left(
+x_i+\frac{2}{3}h,y_i+\frac{2}{3}hf(x_i,y_i)\right)\right],
+$$
+which can be organized as
+\begin{eqnarray*}
+k_{1i}&=&f(x_i,y_i),\\
+k_{2i}&=&f\left(x_i+\frac{2h}{3},
+y_i+\frac{2h}{3}k_{1i}\right),\\
+y_{i+1}&=&y_i+\frac{h}{4}(k_{1i}+3k_{2i}).
+\end{eqnarray*}
+Letting $\rho=1$ yields the \dfn{midpoint
+method},
+$$
+y_{i+1}=y_i+hf\left(x_i+\frac{h}{2},y_i+\frac{h}{2}f(x_i,y_i)\right),
+$$
+which can be organized as
+\begin{eqnarray*}
+k_{1i}&=&f(x_i,y_i),\\
+k_{2i}&=&f\left(x_i+\frac{h}{2},
+y_i+\frac{h}{2}k_{1i}\right),\\
+y_{i+1}&=&y_i+hk_{2i}.
+\end{eqnarray*}
+
+%Examples involving the midpoint method and Heun's method are given in
+%Exercises~\ref{exer:3.2.23}-\ref{exer:3.2.30}.
+
+
+
+\section*{Text Source}
+Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
+
+\href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
+
+
+\end{document}
