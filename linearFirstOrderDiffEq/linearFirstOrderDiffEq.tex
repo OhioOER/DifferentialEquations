@@ -227,11 +227,11 @@ We first need the general solution of the DE. Start by dividing both sides of th
 \[
 y'-\frac{1}{t}y=te^{-t}
 \]
-Notice that the equation has a singularity at $t=0$, since the coefficient of $y$ has a vertical asymptote when $t-0$. This means that solutions to the DE will be only defined on an interval that does not contain zero. Since the initial condition is specified at $t=2$, which is positive, it is natural to assume that $t&gt;0$.
+Notice that the equation has a singularity at $t=0$, since the coefficient of $y$ has a vertical asymptote when $t-0$. This means that solutions to the DE will be only defined on an interval that does not contain zero. Since the initial condition is specified at $t=2$, which is positive, it is natural to assume that $t>0$.
  
 So, we have: $p(t)=-\frac{1}{t}$ and $f(t)=te^{-t}$. We are now ready to find the general solution by the method of integrating factors:
 \begin{enumerate}
-\item Compute $\alpha(t)=\int p(t)\,dt=\int -\frac{1}{t}\,dt=-\ln t$, where we used the assumption that $t&gt;0$.
+\item Compute $\alpha(t)=\int p(t)\,dt=\int -\frac{1}{t}\,dt=-\ln t$, where we used the assumption that $t>0$.
 \item Evaluate $m(t)=e^{\alpha(t)}=e^{-\ln t}=(e^{\ln t})^{-1}=\frac{1}{t}$.
 \item Multiply both sides of the equation by $m(t)$:
 \[
