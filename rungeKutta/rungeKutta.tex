@@ -1,0 +1,434 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Runge-Kutta Method}
+
+
+\begin{document}%\label{Module 5-1}
+
+\begin{abstract}
+Need Abstract
+\end{abstract}
+
+\maketitle
+
+\section*{Runge-Kutta Method}
+
+In general, if $k$ is any  positive  integer  and $f$
+satisfies appropriate assumptions, there are numerical methods with
+local truncation error  $O(h^{k+1})$ for solving an initial value
+problem
+\begin{equation} \label{eq:3.3.1}
+y'=f(x,y),\quad y(x_0)=y_0.
+\end{equation}
+Moreover, it can be shown that a method with local truncation error
+$O(h^{k+1})$ has global truncation error $O(h^k)$. In
+Sections~3.1\ and 3.2 we studied numerical
+methods where
+$k=1$ and $k=2$. We'll skip methods for which $k=3$ and proceed to the
+\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Runge.html}
+{Runge}-\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Kutta.html}{Kutta} method, the most widely used
+method, for which $k=4$. The magnitude of the local truncation error is
+determined by the fifth derivative $y^{(5)}$ of the solution of the
+initial value problem. Therefore the local truncation error will be
+larger where $|y^{(5)}|$ is large, or smaller where $|y^{(5)}|$ is
+small.
+
+The Runge-Kutta method computes approximate values
+$y_1, y_2, \dots, y_n$ of the solution of \eqref{eq:3.3.1}
+at $x_0, x_0+h, \dots, x_0+nh$ as follows: Given $y_i$,
+compute
+\begin{eqnarray*} k_{1i}&=&f(x_i,y_i),\\
+k_{2i}&=&f\left(x_i+\frac{h}{2},y_i+\frac{h}{2}k_{1i}\right),\\
+k_{3i}&=&f\left(x_i+\frac{h}{2},y_i+\frac{h}{2}k_{2i}\right),\\
+k_{4i}&=&f(x_i+h,y_i+hk_{3i}),
+\end{eqnarray*}
+and
+$$
+y_{i+1}=y_i+\frac{h}{6}(k_{1i}+2k_{2i}+2k_{3i}+k_{4i}).
+$$
+
+ The next example, which deals with the initial value problem
+considered in Examples~\ref{example:3.1.1} and \ref{example:3.2.1},
+illustrates
+the computational procedure indicated in the Runge-Kutta method.
+
+\begin{example}\label{example:3.3.1}
+Use the Runge-Kutta method with $h=0.1$ to find approximate values for
+the solution of the initial value problem
+\begin{equation}\label{eq:3.3.2}
+y'+2y=x^3e^{-2x},\quad y(0)=1,
+\end{equation}
+at $x=0.1,0.2$.
+
+
+\begin{explanation}
+Again we rewrite \eqref{eq:3.3.2}  as
+$$
+y'=-2y+x^3e^{-2x},\quad y(0)=1,
+$$
+which is of the form \eqref{eq:3.3.1}, with
+$$
+f(x,y)=-2y+x^3e^{-2x},\ x_0=0,\quad\mbox{and}\quad y_0=1.
+$$
+
+The Runge-Kutta method yields
+\begin{eqnarray*}
+k_{10} & = & f(x_0,y_0)
+  = f(0,1)=-2,\\
+k_{20} & = & f(x_0+h/2,y_0+hk_{10}/2)=f(.05,1+(.05)(-2))\\
+ &=& f(.05,.9)=-2(.9)+(.05)^3e^{-.1}=-1.799886895,\\
+k_{30} & = & f(x_0+h/2,y_0+hk_{20}/2)=f(.05,1+(.05)(-1.799886895))\\
+ &=& f(.05,.910005655)=-2(.910005655)+(.05)^3e^{-.1}=-1.819898206,\\
+k_{40} & = & f(x_0+h,y_0+hk_{30})=f(.1,1+(.1)(-1.819898206))\\
+&=&f(.1,.818010179)=-2(.818010179)+(.1)^3e^{-.2}=-1.635201628,\\
+y_1&=&y_0+\frac{h}{6}(k_{10}+2k_{20}+2k_{30}+k_{40}),\\
+&=&1+\frac{.1}{6}(-2+2(-1.799886895)+2(-1.819898206)
+-1.635201628)=.818753803,\\
+k_{11} & = & f(x_1,y_1)
+  = f(.1,.818753803)=-2(.818753803))+(.1)^3e^{-.2}=-1.636688875,\\
+k_{21} & = & f(x_1+h/2,y_1+hk_{11}/2)=f(.15,.818753803+(.05)(-1.636688875))\\
+ &=& f(.15,.736919359)=-2(.736919359)+(.15)^3e^{-.3}=-1.471338457,\\
+k_{31} & = & f(x_1+h/2,y_1+hk_{21}/2)=f(.15,.818753803+(.05)(-1.471338457))\\
+ &=& f(.15,.745186880)=-2(.745186880)+(.15)^3e^{-.3}=-1.487873498,\\
+k_{41} & = &
+f(x_1+h,y_1+hk_{31})=f(.2,.818753803+(.1)(-1.487873498))\\
+&=&f(.2,.669966453)=-2(.669966453)+(.2)^3e^{-.4}=-1.334570346,\\
+y_2&=&y_1+\frac{h}{6}(k_{11}+2k_{21}+2k_{31}+k_{41}),\\
+&=&.818753803+\frac{.1}{6}(-1.636688875+2(-1.471338457)+2(-1.487873498)-1.334570346)
+\\&=&.670592417.
+\end{eqnarray*}
+
+\end{explanation}
+\end{example}
+
+The Runge-Kutta method is sufficiently accurate for most
+applications.
+
+%%%Anna's addition to Trench
+The following interactive Sage Cell offers a visual comparison between Runge-Kutta and Euler's methods for the initial value problem.
+$$
+y'+2y=x^3e^{-2x},\quad y(0)=1
+$$
+
+You can experiment with different values of $h$.
+\begin{sageCell}
+@interact
+def _(h=input_box(0.1, width=5)):
+    a=var('a')
+    b=function('b')(a)
+    de = diff(b,a) ==  (a^3)*e^(-2*a)-2*b
+    soln = desolve(de, [b, a], ics=[0,1])
+    P3=plot(soln(a), (a, 0, 1), color='red')
+
+    from sage.calculus.desolvers import desolve_rk4
+    x,y = var('x,y')
+    ptsRK=desolve_rk4((x^3)*e^(-2*x)-2*y,y,ics=[0,1],end_points=1,step=h)
+
+    P1 = list_plot(ptsRK)
+    P2 = line(ptsRK)
+
+    (P1+P2+P3).show()
+    
+   
+    from sage.calculus.desolvers import eulers_method
+    ptsE=eulers_method((x^3)*e^(-2*x)-2*y,0,1,h,1-h,algorithm="none")
+
+    P1 = list_plot(ptsRK)
+    P2 = line(ptsRK)
+
+    P5 = list_plot(ptsE)
+    P4 = line(ptsE)
+
+    (P1+P2+P3+P4+P5).show()
+    
+\end{sageCell}
+
+The following example offers a numeric comparison of Runge-Kutta to the improved Euler's method.
+
+%%%%%end Anna's addition
+
+
+\begin{example}\label{example:3.3.2}
+The following table shows results of using the Runge-Kutta method
+with step sizes $h=0.1$ and $h=0.05$ to find approximate values of
+the solution of the initial value problem
+$$
+y'+2y=x^3e^{-2x},\quad y(0)=1
+$$
+at $x=0$, $0.1$, $0.2$, $0.3$, \dots, $1.0$. For comparison, it also shows
+the
+corresponding approximate values obtained with the improved Euler
+method in Example~\ref{example:3.2.2}, and the values of the exact
+solution
+$$
+y=\frac{e^{-2x}}{4}(x^4+4).
+$$
+
+$$
+\begin{array}{|c|c|c|c|c|c|}
+\hline
+ & \text{Improved} & \text{Improved} & \text{Runge-} & \text{Runge-}& \\
+ & \text{Euler} &\text{Euler} &\text{Kutta} & \text{Kutta}& \\
+x&
+h=0.1&
+h=0.05&
+h=0.1&
+h=0.05&
+\text{Exact}\\ \hline
+0.0 & 1.000000000   &1.000000000 &1.000000000 & 1.000000000& 1.000000000 \\
+0.1 & 0.820040937   &0.819050572 &0.818753803 & 0.818751370& 0.818751221 \\
+0.2 & 0.672734445   &0.671086455 &0.670592417 & 0.670588418& 0.670588174 \\
+0.3 & 0.552597643   &0.550543878 &0.549928221 & 0.549923281& 0.549922980 \\
+0.4 & 0.455160637   &0.452890616 &0.452210430 & 0.452205001& 0.452204669 \\
+0.5 & 0.376681251   &0.374335747 &0.373633492 & 0.373627899& 0.373627557 \\
+0.6 & 0.313970920   &0.311652239 &0.310958768 & 0.310953242& 0.310952904 \\
+0.7 & 0.264287611   &0.262067624 &0.261404568 & 0.261399270& 0.261398947 \\
+0.8 & 0.225267702   &0.223194281 &0.222575989 & 0.222571024& 0.222570721 \\
+0.9 & 0.194879501   &0.192981757 &0.192416882 & 0.192412317& 0.192412038 \\
+1.0 & 0.171388070   &0.169680673 &0.169173489 & 0.169169356& 0.169169104\\
+\hline
+\end{array}
+$$
+
+
+The results obtained by the Runge-Kutta method are clearly better
+than those obtained by the improved Euler method   in fact; the results
+obtained by the Runge-Kutta method with $h=0.1$ are better than those
+obtained by the improved Euler method with $h=0.05$.
+\end{example}
+
+
+\begin{example}\label{example:3.3.3}
+The following table shows analogous results
+for the nonlinear initial value problem
+$$
+y'=-2y^2+xy+x^2,\ y(0)=1.
+$$
+We applied the improved Euler  method to this problem in
+Example~\ref{exer:3.2.3}.
+
+
+$$
+\begin{array}{|c|c|c|c|c|c|}
+\hline
+ & \text{Improved} & \text{Improved} & \text{Runge-} & \text{Runge-}& \\
+ & \text{Euler} &\text{Euler} &\text{Kutta} & \text{Kutta}& \\
+x&
+h=0.1&
+h=0.05&
+h=0.1&
+h=0.05&
+\text{``Exact"}\\ \hline
+0.0  &1.000000000 & 1.000000000 &1.000000000 & 1.000000000& 1.000000000 \\
+0.1  &0.840500000 & 0.838288371 &0.837587192 & 0.837584759& 0.837584494 \\
+0.2  &0.733430846 & 0.730556677 &0.729644487 & 0.729642155& 0.729641890 \\
+0.3  &0.661600806 & 0.658552190 &0.657582449 & 0.657580598& 0.657580377 \\
+0.4  &0.615961841 & 0.612884493 &0.611903380 & 0.611901969& 0.611901791 \\
+0.5  &0.591634742 & 0.588558952 &0.587576716 & 0.587575635& 0.587575491 \\
+0.6  &0.586006935 & 0.582927224 &0.581943210 & 0.581942342& 0.581942225 \\
+0.7  &0.597712120 & 0.594618012 &0.593630403 & 0.593629627& 0.593629526 \\
+0.8  &0.626008824 & 0.622898279 &0.621908378 & 0.621907553& 0.621907458 \\
+0.9  &0.670351225 & 0.667237617 &0.666251988 & 0.666250942& 0.666250842 \\
+1.0  &0.730069610 & 0.726985837 &0.726017378 & 0.726015908& 0.726015790\\
+\hline
+\end{array}
+$$
+
+\end{example}
+
+
+\begin{example}\label{example:3.3.4}
+The following two tables show results obtained by
+applying the Runge-Kutta and Runge-Kutta semilinear methods to
+to the initial value problem
+$$
+y'-2xy=1,\ y(0)=3,
+$$
+which we considered in Examples~\ref{example:3.1.4}  and
+\ref{example:3.2.4}.
+
+
+$$
+\begin{array}{|c|c|c|c|c|}
+\hline
+x&
+h=0.2&
+h=0.1&
+h=0.05&
+\text{``Exact''}\\ \hline
+0.0 &   3.000000000 &   3.000000000 &   3.000000000 &   3.000000000 \\
+0.2 &   3.327846400 &   3.327851633 &   3.327851952 &   3.327851973 \\
+0.4 &   3.966044973 &   3.966058535 &   3.966059300 &   3.966059348 \\
+0.6 &   5.066996754 &   5.067037123 &   5.067039396 &   5.067039535 \\
+0.8 &   6.936534178 &   6.936690679 &   6.936700320 &   6.936700945 \\
+1.0 &  10.184232252 &  10.184877733 &  10.184920997 &  10.184923955 \\
+1.2 &  16.064344805 &  16.066915583 &  16.067098699 &  16.067111677 \\
+1.4 &  27.278771833 &  27.288605217 &  27.289338955 &  27.289392347 \\
+1.6 &  49.960553660 &  49.997313966 &  50.000165744 &  50.000377775 \\
+1.8 &  98.834337815 &  98.971146146 &  98.982136702 &  98.982969504 \\
+2.0 & 211.393800152 & 211.908445283 & 211.951167637 & 211.954462214 \\
+\hline
+\end{array}
+$$
+
+$$
+\begin{array}{|c|c|c|c|c|}
+\hline
+x&
+h=0.2&
+h=0.1&
+h=0.05&
+\text{``Exact''}\\ \hline
+0.0 &   3.000000000 &   3.000000000 &   3.000000000 &   3.000000000 \\
+0.2 &   3.327853286 &   3.327852055 &   3.327851978 &   3.327851973 \\
+0.4 &   3.966061755 &   3.966059497 &   3.966059357 &   3.966059348 \\
+0.6 &   5.067042602 &   5.067039725 &   5.067039547 &   5.067039535 \\
+0.8 &   6.936704019 &   6.936701137 &   6.936700957 &   6.936700945 \\
+1.0 &  10.184926171 &  10.184924093 &  10.184923963 &  10.184923955 \\
+1.2 &  16.067111961 &  16.067111696 &  16.067111678 &  16.067111677 \\
+1.4 &  27.289389418 &  27.289392167 &  27.289392335 &  27.289392347 \\
+1.6 &  50.000370152 &  50.000377302 &  50.000377745 &  50.000377775 \\
+1.8 &  98.982955511 &  98.982968633 &  98.982969450 &  98.982969504 \\
+2.0 & 211.954439983 & 211.954460825 & 211.954462127 & 211.954462214 \\
+\hline
+\end{array}
+$$
+\end{example}
+
+
+\subsection*{The Case Where $x_0$ Isn't  The Left Endpoint}
+
+So far in this chapter we've considered numerical methods
+ for solving an initial value problem
+\begin{equation} \label{eq:3.3.3}
+y'=f(x,y),\quad y(x_0)=y_0
+\end{equation}
+on an interval $[x_0,b]$, for which $x_0$ is the left endpoint. We
+haven't discussed numerical methods for solving \eqref{eq:3.3.3}
+on an interval $[a,x_0]$, for which $x_0$ is the
+right endpoint. To be specific, how can we obtain approximate values
+$y_{-1}, y_{-2}, \dots, y_{-n}$ of the solution of \eqref{eq:3.3.3} at
+$x_0-h, \dots,x_0-nh$,
+where $h=(x_0-a)/n$?  Here's the answer to this question:
+
+ Consider the initial value problem
+\begin{equation} \label{eq:3.3.4}
+z'=-f(-x,z),\quad z(-x_0)=y_0,
+\end{equation}
+on the interval $[-x_0,-a]$, for which $-x_0$ is the left endpoint.
+Use a numerical method to obtain approximate values
+$z_1, z_2, \dots, z_n$ of the solution of $\eqref{eq:3.3.4}$ at
+$-x_0+h, -x_0+2h, \dots, -x_0+nh=-a$. Then
+$y_{-1}=z_1, y_{-2}=z_2, \dots$, $y_{-n}=z_n$
+are approximate values of the solution of $\eqref{eq:3.3.3}$ at
+$x_0-h, x_0-2h, \dots, x_0-nh=a$.
+
+
+The justification for this answer is sketched in
+Exercise~\ref{exer:3.3.23}. Note how easy it is to make the change
+the given problem \eqref{eq:3.3.3} to the modified problem
+\eqref{eq:3.3.4}: first replace $f$ by $-f$ and then replace $x$,
+$x_0$, and $y$ by $-x$, $-x_0$, and $z$, respectively.
+
+
+\begin{example}\label{example:3.3.5}
+Use the Runge-Kutta  method with step size $h=0.1$
+ to find approximate values of the solution of
+\begin{equation} \label{eq:3.3.5}
+(y-1)^2y'=2x+3,\quad y(1)=4
+\end{equation}
+at $x=0, 0.1, 0.2, \dots, 1$.
+
+
+\begin{explanation} 
+We first rewrite \eqref{eq:3.3.5} in the form \eqref{eq:3.3.3}
+as
+\begin{equation} \label{eq:3.3.6}
+y'=\frac{2x+3}{(y-1)^2},\quad y(1)=4.
+\end{equation}
+Since the initial condition $y(1)=4$  is imposed at the right endpoint
+of the interval $[0,1]$, we apply the Runge-Kutta method to the
+initial value problem
+\begin{equation} \label{eq:3.3.7}
+z'=\frac{2x-3}{(z-1)^2},\quad z(-1)=4
+\end{equation}
+on the interval $[-1,0]$.
+(You should verify that \eqref{eq:3.3.7} is related to \eqref{eq:3.3.6} as
+\eqref{eq:3.3.4} is related to \eqref{eq:3.3.3}.)
+ The following table shows the results.  
+ 
+$$
+\begin{array}{|c|c|}
+\hline
+x&
+z\\ \hline
+-1.0 & 4.000000000  \\
+-0.9 & 3.944536474  \\
+-0.8 & 3.889298649  \\
+-0.7 & 3.834355648  \\
+-0.6 & 3.779786399  \\
+-0.5 & 3.725680888  \\
+-0.4 & 3.672141529  \\
+-0.3 & 3.619284615  \\
+-0.2 & 3.567241862  \\
+-0.1 & 3.516161955  \\
+ 0.0 & 3.466212070 \\
+\hline
+\end{array}
+$$
+ Reversing the
+order of the
+rows in the table above, and changing the signs of the values of $x$
+yields the first two columns of the table below.   The last
+column of the table below shows the exact values of $y$, which
+are given by
+$$
+y=1+(3x^2+9x+15)^{1/3}.
+$$
+(Since the differential equation in \eqref{eq:3.3.6} is separable,
+this formula can be obtained by the method of Section~2.2.)
+
+
+$$
+\begin{array}{|c|c|c|}
+\hline
+x&
+y&
+\text{Exact}\\ \hline
+0.00  &   3.466212070 &  3.466212074\\
+0.10  &   3.516161955 &  3.516161958\\
+0.20  &   3.567241862 &  3.567241864\\
+0.30  &   3.619284615 &  3.619284617\\
+0.40  &   3.672141529 &  3.672141530\\
+0.50  &   3.725680888 &  3.725680889\\
+0.60  &   3.779786399 &  3.779786399\\
+0.70  &   3.834355648 &  3.834355648\\
+0.80  &   3.889298649 &  3.889298649\\
+0.90  &   3.944536474 &  3.944536474\\
+1.00  &   4.000000000 &  4.000000000\\
+\hline
+\end{array}
+$$
+
+\end{explanation}
+\end{example}
+
+We leave it to you to develop a procedure for handling the
+numerical solution of \eqref{eq:3.3.3} on an interval $[a,b]$
+such that $a<x_0<b$. %(Exercises~\ref{exer:3.3.26} and \ref{exer:3.3.27}).
+
+
+\section*{Text Source}
+
+Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
+
+\href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/} 
+
+
+
+
+
+
+\end{document}
