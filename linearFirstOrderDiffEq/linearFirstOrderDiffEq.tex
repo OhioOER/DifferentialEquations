@@ -1,21 +1,21 @@
 \documentclass{ximera}
-
+ 
 \input{../preamble.tex}
-
+ 
 \title{Linear First-Order Differential Equations}
-
-
+ 
+ 
 \begin{document}
-
+ 
 \begin{abstract}
 We develop a technique for solving first-order linear differential equations.
 \end{abstract}
-
+ 
 \maketitle
-
+ 
 \section*{Linear First-Order Differential Equations}
 \subsection*{Identifying Linear First-Order Differential Equations}
-
+ 
 We say that a first-order equation is \textit{linear} if it can be expressed in the form:
 \begin{equation}
 \label{eq:linear-first-order-de}
@@ -25,7 +25,7 @@ y'+p(x)y=f(x)
 $$y'+2y=xe^{-2x}$$
 This equation is linear. Comparing with~\eqref{eq:linear-first-order-de}, we see that $p(x)=2$ and $f(x)=xe^{-2x}$.
 \end{example}
-
+ 
 \begin{example}\label{ex:linearex2}
 $$x^2y'+3y=x^2$$
 This equation is not in the form of~\eqref{eq:linear-first-order-de}. However, we can divide the equation by $x^2$, obtaining:
@@ -44,12 +44,12 @@ We call these terms \textit{linear}. Any other kind of first-order term is \text
 \item $\displaystyle yy' = 3$ is not linear, because of the nonlinear term $yy'$.
 \item $\displaystyle y'+xe^y=12$ is not linear, because of the nonlinear term $e^y$.
 \end{itemize}
-
+ 
 In the following sections we develop a general method for solving linear first-order equations.
-
+ 
 \subsection*{A Special Kind of Linear Equation}
 We now want to devise a method to find the general solution of a linear first order differential equation. With the goal of developing intuition about the method, we start with an equation of very special form.
-
+ 
 Let's consider the following DE:
 \begin{equation}
 \label{eq:linear-de-example1}
@@ -60,13 +60,13 @@ This equation is not in the form~\ref{eq:linear-first-order-de}, but it is actua
 \frac{d}{dx}[x^2]=2x.
 \]
 In words, we can express this remarkable coincidence as:
-
+ 
 \begin{center}
-\emph{The derivative of the function multiplying $y'$ is equal to the function multiplying $y$}. 
+\emph{The derivative of the function multiplying $y'$ is equal to the function multiplying $y$}.
 \end{center}
-
+ 
 (Repeat this to yourself until you fully understand what it means.)
-
+ 
 This coincidence allows us to rewrite the left-hand side of the equation in a very convenient form. Using the product rule we have:
 \[
 \frac{d}{dx}\left[x^2y(x)\right]=x^2y'(x)+2xy(x).
@@ -92,7 +92,7 @@ Notice that this solution will only be defined on intervals that do not contain 
 y(x)=\frac{\sin x + 2\pi^2}{x^2}\text{ for $x$ in the interval $(0,\infty)$}.
 \]
 We choose the interval $(0,\infty)$ because this interval contains the value $x=\pi$, where the initial condition is specified.
-
+ 
 It is not too difficult to identify the general case in which this method can be applied. The differential equation must be in the special form:
 \begin{equation}
 \label{eq:linear-equation-special}
@@ -103,10 +103,10 @@ where $m(x)$ is a function of the variable $x$ only. Then, the equation can be r
 \frac{d}{dx}\left[m(x)y(x)\right]=g(x),
 \]
 which can be directly integrated. Equation~\ref{eq:linear-equation-special} seems to be of a very special kind. In the next section we will see that there is a method to transform any equation of the form~\ref{eq:linear-first-order-de} into an equivalent equation of the form~\ref{eq:linear-equation-special}.
-
+ 
 \subsection*{General Method --- An Example}
-
-We now want to move in the direction of finding a general method to solve equations like~\ref{eq:linear--first-order-de}. Let's consider the DE:
+ 
+We now want to move in the direction of finding a general method to solve equations like~\ref{eq:linear-first-order-de}. Let's consider the DE:
 \[
 y'+\frac{4}{x}y=1
 \]
@@ -152,13 +152,13 @@ and we get the following explicit general solution:
 y(x)=\frac{x}{6}+\frac{C}{x^4}.
 \]
 In the next section we will see how we can simplify this solution method.
-
+ 
 \subsection*{A Streamlined Method}
-
+ 
 The goal of this section is to present the \textit{method of integrating factors}, a streamlined procedure for the solution of a linear first order differential equation. The method is simply a reorganization of the procedure illustrated in the previous section.
-
+ 
 To find the general solution of a first order linear differential equation such as~\ref{eq:linear-first-order-de}, we can proceed as follows:
-
+ 
 \begin{enumerate}
 \item Compute $\alpha(x)=\int p(x)\,dx$. It is safe to ignore the constant of integration here.
 \item Let $m(x)=e^{\alpha(x)}$, which is called the \emph{integrating factor}.
@@ -175,20 +175,20 @@ m(x)y'+m(x)p(x)y=m(x)f(x)
 m(x)y(x)=\int m(x)f(x)\,dx
 \]
 Notice that, here, you have to add an integration constant to the antiderivative.
-\item Solve the equation explicitly for $y(x)$. Notice that this is always possible because $m(x)\ne 0$ for all $x$, since $m(x)$ is an exponential. 
+\item Solve the equation explicitly for $y(x)$. Notice that this is always possible because $m(x)\ne 0$ for all $x$, since $m(x)$ is an exponential.
 \end{enumerate}
-
+ 
 Let's now consider some examples.
-
-\begin{example} 
+ 
+\begin{example}
 Find the general solution of the DE:
 \[
 y'+3y=e^{-x}
 \]
-
+ 
 \begin{explanation}
 For this equation, we have $p(x)=3$ and $f(x)=e^{-2x}$. Following the steps outlined above:
-
+ 
 \begin{enumerate}
 \item Compute $\alpha(x)=\int p(x)\,dx=\int 3\,dx=3x$. (No constant of integration needed here!)
 \item Compute the integrating factor: $m(x)=e^{\alpha(x)}=e^{3x}$.
@@ -215,23 +215,23 @@ y(x)=\frac{1}{2}e^{-x}+Ce^{-3x}.
 \]
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}
 Find the solution of the IVP:
 \[
 ty'-y=t^2e^{-t},\quad y(2)=3
 \]
-
+ 
 \begin{explanation}
 We first need the general solution of the DE. Start by dividing both sides of the equation by $t$:
 \[
 y'-\frac{1}{t}y=te^{-t}
 \]
-Notice that the equation has a singularity at $t=0$, since the coefficient of $y$ has a vertical asymptote when $t-0$. This means that solutions to the DE will be only defined on an interval that does not contain zero. Since the initial condition is specified at $t=2$, which is positive, it is natural to assume that $t>0$.
-
+Notice that the equation has a singularity at $t=0$, since the coefficient of $y$ has a vertical asymptote when $t-0$. This means that solutions to the DE will be only defined on an interval that does not contain zero. Since the initial condition is specified at $t=2$, which is positive, it is natural to assume that $t&gt;0$.
+ 
 So, we have: $p(t)=-\frac{1}{t}$ and $f(t)=te^{-t}$. We are now ready to find the general solution by the method of integrating factors:
 \begin{enumerate}
-\item Compute $\alpha(t)=\int p(t)\,dt=\int -\frac{1}{t}\,dt=-\ln t$, where we used the assumption that $t>0$.
+\item Compute $\alpha(t)=\int p(t)\,dt=\int -\frac{1}{t}\,dt=-\ln t$, where we used the assumption that $t&gt;0$.
 \item Evaluate $m(t)=e^{\alpha(t)}=e^{-\ln t}=(e^{\ln t})^{-1}=\frac{1}{t}$.
 \item Multiply both sides of the equation by $m(t)$:
 \[
@@ -249,12 +249,12 @@ So, we have: $p(t)=-\frac{1}{t}$ and $f(t)=te^{-t}$. We are now ready to find th
 \[
 y(t)=-te^{-t}+Ct
 \]
-
+ 
 % \[
 % y(t)=\frac{C-e^{-t}}{t}
 % \]
 % Notice that, as expected, solutions will not be defined at $t=0$.
-
+ 
 \end{enumerate}
 Once we have the general solution, we can plug in the initial condition:
 \[
@@ -268,9 +268,9 @@ Using this constant, we can now write the particular solution to the IVP:
 \[
 y(t)=-te^{-t}+(1.5+e^{-2})t, \quad t>0
 \]
-
+ 
 We conclude this example by providing an interactive Sage cell which will display the particular solution to the IVP where $y(a)=b$.  If you change the values of $a$ or $b$, you will get a different solution curve, but notice that these curves are valid only for $t>0$ or $t<0$.
-
+ 
 \begin{sageCell}
 @interact
 def _(a=input_box(1, width=5),b=input_box(1, width=5)):
@@ -281,7 +281,7 @@ def _(a=input_box(1, width=5),b=input_box(1, width=5)):
     p=point((a,b),rgbcolor=hue(1))
     show(v+d+p)
 \end{sageCell}
-
+ 
 % \begin{image}
 % {\def\length{sqrt(1+(x+y)^2)}
 % \begin{tikzpicture}
@@ -295,15 +295,15 @@ def _(a=input_box(1, width=5),b=input_box(1, width=5)):
 %     \addplot3 [blue, quiver={u={1/\length}, v={(x*e^(-x)+(y/x))/(\length)},scale arrows=.2},samples=20] {0};
 %     \addplot[blue,very thick]{-x*e^(-x)+(1.5+e^(-2))*x};
 %     \filldraw[fill=red]  (2,3) circle (0.05);
-
+ 
 % ]  \end{axis}
 % \end{tikzpicture}}
 % \end{image}
-
+ 
 \end{explanation}
-
+ 
 \end{example}
-
+ 
 \section*{Text Source}
 Felipe L. Martins, Lecture Notes
 \end{document}
