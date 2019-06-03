@@ -1,21 +1,20 @@
-%!TEX root = ../main.tex
 \documentclass{ximera}
-
+ 
 \input{../preamble.tex}
-
+ 
 \title{Applications Leading to Differential Equations}
-
-
+ 
+ 
 \begin{document} %\label{Module 3-ABC}
-
+ 
 \begin{abstract}
 We discuss population growth, Newton's law of cooling, glucose absorption, and spread of epidemics as phenomena that can be modeled with differential equations.
 \end{abstract}
-
+ 
 \maketitle
-
+ 
 \section*{Applications Leading to Differential Equations}
-
+ 
 In order to apply mathematical methods to a physical or ``real life''
 problem, we must  formulate the problem in mathematical
 terms; that is, we must construct a \textit{mathematical
@@ -26,7 +25,7 @@ derivatives, mathematical models often involve equations relating an
 unknown function and one or more of its derivatives. Such equations
 are  \textit{differential equations}. They are the subject of this
 book.
-
+ 
 Much of calculus is devoted to learning mathematical techniques that
 are applied in later courses in mathematics and the sciences;     you
 wouldn't have time to learn much calculus if you insisted on seeing
@@ -37,7 +36,7 @@ to the derivation of specific differential equations from mathematical
 models, or relating the differential equations that we study to
 specific applications. In this section we mention a few such
 applications.
-
+ 
 The mathematical model for an applied problem is almost always simpler
 than the actual situation being studied, since simplifying assumptions
 are usually required to obtain a mathematical problem that can be
@@ -46,13 +45,13 @@ might neglect air resistance and the gravitational pull of celestial
 bodies other than Earth, or in  modeling  population growth we
 might assume that the population grows continuously rather than in
 discrete steps.
-
+ 
 A good mathematical model has two important properties:
-
+ 
 \begin{itemize}
 \item It's sufficiently simple so that the mathematical problem
 can be solved.
-
+ 
 \item It represents the actual situation sufficiently well so that the
 solution to the mathematical problem predicts the outcome of the real
 problem to within a useful degree of accuracy. If results predicted by
@@ -61,22 +60,22 @@ underlying
 assumptions of the model must be revised until satisfactory agreement
 is obtained.
 \end{itemize}
-
+ 
 We'll  now give  examples of mathematical models involving
 differential equations. We'll return to these problems at the
 appropriate times, as we learn how to solve the various types of
 differential equations that occur in the models.
-
+ 
 All the examples in this section deal with functions of time, which we
  denote by $t$. If $y$ is a function of $t$,  $y'$
 denotes the derivative of $y$ with respect to $t$;   thus,
 $$
 y'=\frac{dy}{dt}.
 $$
-
-
+ 
+ 
 \subsection*{Population Growth and Decay}
-
+ 
 Although the number of members of a population (people in a given
 country, bacteria in a laboratory culture, wildflowers in a forest,
 etc.)
@@ -99,7 +98,7 @@ $a(P)$ is a constant, so \eqref{eq:1.1.1} becomes
 \begin{equation} \label{eq:1.1.2}
 P'=aP.
 \end{equation}
-
+ 
 This model assumes that the numbers of births and deaths per unit time
 are both proportional to the population. The constants of
 proportionality are  the \textit{birth rate} (births per unit
@@ -124,10 +123,10 @@ $$
 $$
 that is, the population approaches infinity if the birth rate exceeds
 the death rate, or zero if the death rate exceeds the birth rate.
-
+ 
 To see the limitations of the Malthusian model, suppose  we're
 modeling the  population of a country, starting from a time
-$t=0$ when the birth rate exceeds the death rate (so $a>0$), and
+$t=0$ when the birth rate exceeds the death rate (so $a&gt;0$), and
 the country's resources in terms of space, food supply, and other
 necessities of life can support the existing population. Then the
 prediction $P=P_0e^{at}$ may be reasonably accurate as long as
@@ -135,7 +134,7 @@ it remains within limits that the country's resources can support.
 However, the model must inevitably lose validity when the prediction
 exceeds these limits. (If nothing else, eventually there won't be
 enough space for the predicted population!)
-
+ 
 This flaw in the Malthusian model suggests the need for a model that
 accounts for limitations of space and resources that tend to oppose
 the rate of population growth as the population increases.
@@ -153,39 +152,32 @@ compared to $1/\alpha$, the ratio $P'/P$  is approximately equal to $a$.
 Therefore the growth is approximately exponential;     however, as $P$
 increases, the ratio $P'/P$  decreases as opposing factors
 become significant.
-
-Equation~\eqref{eq:1.1.4} is  the \textit{logistic equation}. 
-
-%You will learn how to solve it in Section~1.2. (SeeExercise~2.2.~\hspace*{-3pt}\ref{exer:2.2.28}.) 
-
+ 
+Equation~\eqref{eq:1.1.4} is  the \textit{logistic equation}.
+ 
+%You will learn how to solve it in Section~1.2. (SeeExercise~2.2.~\hspace*{-3pt}\ref{exer:2.2.28}.)
+ 
 The solution to the logistic equation is
 $$
 P=\frac{P_0}{\alpha P_0+(1-\alpha P_0)e^{-at}},
 $$
-where $P_0=P(0)>0$. Therefore
+where $P_0=P(0)&gt;0$. Therefore
 $\lim_{t\to\infty}P(t)=1/\alpha$, independent of $P_0$.
-
-Figure~\ref{figure:1.1.1} shows typical graphs of $P$ versus $t$ for
+ 
+The figure below shows typical graphs of $P$ versus $t$ for
 various values of  $P_0$.
+ 
+ 
+\begin{image}
+\includegraphics[height=1.5in]{fig010101.jpg}
+\end{image}
 
-
-%\begin{image}
-%\includegraphics[height=1.5in]{fig010101.jpg}
-%\end{image}
-\begin{center}
-\begin{figure}
-  \includegraphics[height=0.5in]{fig010101.jpg}
-  \caption{ Solutions of the logistic equation}
-  \label{figure:1.1.1}
-\end{figure}
-\end{center}
-
-
+ 
+ 
 \subsection*{Newton's Law of Cooling}
-
+ 
 According to
-\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Newton.html}
-{\textit{Newton's law of cooling}},  the temperature of a
+\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Newton.html}{Newton's law of cooling},  the temperature of a
 body changes at a rate proportional to the difference between the
 temperature of the body and the temperature of the surrounding medium.
  Thus, if  $T_m$ is the temperature of the
@@ -205,22 +197,16 @@ T=T_m+(T_0-T_m)e^{-kt},
 where $T_0$ is the temperature of the body when $t=0$.
 Therefore $\lim_{t\to\infty}T(t)=T_m$, independent of $T_0$.
 (Common sense suggests this. Why?)
-
-Figure~\ref{figure:1.1.2} shows typical graphs of $T$ versus $t$ for
+ 
+The figure below shows typical graphs of $T$ versus $t$ for
 various values of  $T_0$.
+ 
+\begin{image}
+\includegraphics[height=1.5in]{fig010102.jpg}
+\end{image}
 
-%\begin{image}
-%\includegraphics[height=1.5in]{fig010102.jpg}
-%\end{image}
-\begin{center}
-\begin{figure}
-  \includegraphics[height=1.5in]{fig010102.jpg}
-  \caption{ Temperature according to Newton's Law of Cooling}
-  \label{figure:1.1.2}
-\end{figure}
-\end{center}
-
-Assuming that the medium remains at constant temperature seems 
+ 
+Assuming that the medium remains at constant temperature seems
 reasonable if we're considering a cup of coffee cooling in a room, but
  not if we're cooling a huge cauldron of molten
 metal in the same room. The difference between the two situations is
@@ -250,20 +236,20 @@ T'=-k\left(1+{a\over a_m}\right)T
 $$
 for the temperature of the object.  After learning to solve linear
 first order  equations, you'll be able to find that
-%(Exercise~4.2.~\hspace*{-3pt}\ref{exer:4.2.17}) 
+%(Exercise~4.2.~\hspace*{-3pt}\ref{exer:4.2.17})
 $$
 T=\frac{aT_0+a_mT_{m0}}
 {a+a_m}+\frac{a_m(T_0-T_{m0})}{a+a_m}e^{-k(1+a/a_m)t}.
 $$
-
+ 
 \subsection*{Glucose Absorption by the Body}
-
+ 
 Glucose is absorbed by
 the body at a rate proportional to the amount of glucose present in
 the bloodstream. Let $\lambda$ denote the (positive) constant of
 proportionality. Suppose   there are $G_0$ units of glucose in
 the bloodstream when $t=0$, and let $G=G(t)$ be the number of units in
-the bloodstream at time $t>0$. Then, since the glucose being absorbed
+the bloodstream at time $t&gt;0$. Then, since the glucose being absorbed
 by the body is leaving the bloodstream, $G$ satisfies the equation
 \begin{equation} \label{eq:1.1.7}
 G'=-\lambda G.
@@ -279,7 +265,7 @@ $G(0)=G_0$ yields $c=G_0$, so
 $$
 G(t)=G_0e^{-\lambda t}.
 $$
-
+ 
 Now let's complicate matters by injecting glucose intravenously
 at a constant rate of $r$ units of glucose per unit of time.
 Then the rate of change of the amount of glucose  in the bloodstream
@@ -290,7 +276,7 @@ G'=-\lambda G+r,
 where the first term on the right is due to the absorption of the
 glucose by the body and the second term is due to the injection.
  Later,
-you'll be able to solve the equation and find %(Exercise~2.1.~\hspace*{-3pt}\ref{exer:2.1.43}) 
+you'll be able to solve the equation and find %(Exercise~2.1.~\hspace*{-3pt}\ref{exer:2.1.43})
 that the solution
 of
 \eqref{eq:1.1.9} that satisfies $G(0)=G_0$ is
@@ -300,11 +286,11 @@ $$
 Graphs of  this function are similar to those in
 Figure~\ref{figure:1.1.2}.
 (Why?)
-
-
-
+ 
+ 
+ 
 \subsection*{Spread of Epidemics}
-
+ 
 One model for the spread of epidemics assumes that the number of
 people infected changes at a rate proportional to the product of the
 number of people already infected and the number of people who are
@@ -327,12 +313,11 @@ Figure~\ref{figure:1.1.1}.
 (Why?)
 Since $\lim_{t\to\infty}I(t)=S$, this model predicts that all the
 susceptible people eventually become infected.
-
+ 
 \subsection*{Newton's Second Law of Motion}
-
+ 
 According to
-\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Newton.html}
-{\textit{Newton's second law of motion}},  the
+\href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Newton.html}{Newton's second law of motion},  the
 instantaneous acceleration
 $a$ of an object with constant mass $m$ is related to the force $F$
 acting on the object by the equation $F=ma$. For simplicity, let's
@@ -341,12 +326,12 @@ line. Let $y$ be the displacement of the object from some reference
 point on Earth's surface, measured positive upward. In many
 applications, there are three kinds of forces that may act on the
 object:
-
+ 
 \begin{enumerate}
 \item % (a)
 A force such as gravity that depends only on the position $y$,
-which we write as $-p(y)$, where $p(y)>0$ if $y\ge0$.
-
+which we write as $-p(y)$, where $p(y)&gt;0$ if $y\ge0$.
+ 
 \item % (b)
 A force such as atmospheric resistance that depends on
 the position and velocity of the object, which we write as
@@ -357,7 +342,7 @@ always in the direction opposite to the velocity.
 A force $f=f(t)$, exerted from an external source (such as a towline
 from a helicopter) that depends only on $t$.
 \end{enumerate}
-
+ 
 In this case, Newton's second law implies that
 $$
 y''=-q(y,y')y'-p(y)+f(t),
@@ -367,13 +352,13 @@ $$
 y''+q(y,y')y'+p(y)=f(t).
 $$
 Since the  second (and no higher) order derivative of $y$ occurs in
-this equation, we say that it is a {\color{blue}\it second order differential
-equation\/}.
-
-
-
+this equation, we say that it is a \dfn{second order differential
+equation}.
+ 
+ 
+ 
 \subsection*{Interacting Species: Competition}
-
+ 
 Let $P=P(t)$ and $Q=Q(t)$ be the populations of two species at time
 $t$, and assume that each population would grow exponentially if the
 other didn't exist; that is, in the absence of competition we would
@@ -386,36 +371,31 @@ of competition is to assume that the growth rate per individual of
 each population is reduced by an amount proportional to the other
 population, so \eqref{eq:1.1.10} is replaced by
 \begin{eqnarray*}
-P'&=&\phantom{-}aP-\alpha Q\\
+P'&=&aP-\alpha Q\\
 Q'&=&-\beta P+bQ,
 \end{eqnarray*}
 where $\alpha$ and $\beta$ are positive constants. (Since negative
 population doesn't make sense, this system works only while $P$ and
-$Q$ are both positive.) Now suppose   $P(0)=P_0>0$ and
-$Q(0)=Q_0>0$. It can be shown %(Exercise~10.4.~\hspace*{-3pt}\ref{exer:10.4.42})
+$Q$ are both positive.) Now suppose   $P(0)=P_0&gt;0$ and
+$Q(0)=Q_0&gt;0$. It can be shown %(Exercise~10.4.~\hspace*{-3pt}\ref{exer:10.4.42})
 that there's a  positive constant $\rho$ such that if
 $(P_0,Q_0)$ is above the line $L$ through the origin with slope $\rho$,
 then the species with population $P$ becomes extinct in finite time,
 but if $(P_0,Q_0)$ is below $L$,   the species with population
-$Q$ becomes extinct in finite time. Figure~\ref{figure:1.1.3} illustrates
+$Q$ becomes extinct in finite time. The figure below illustrates
 this. The curves shown there are given parametrically by $P=P(t),
-Q=Q(t),\ t>0$.
+Q=Q(t), t>0$.
  The arrows indicate direction along the curves with
 increasing $t$.
-%\begin{image}
-%\includegraphics[height=1.5in]{fig010103.jpg}
-%\end{image}
-\begin{center}
-\begin{figure}
-  \includegraphics[height=1.5in]{fig010103.jpg}
-  \caption{ Populations of competing species}
-  \label{figure:1.1.3}
-\end{figure}
-\end{center}
 
+\begin{image}
+\includegraphics[height=1.5in]{fig010103.jpg}
+\end{image}
+
+ 
 \section*{Text Source}
 Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
-
+ 
 \href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
-
+ 
 \end{document}
