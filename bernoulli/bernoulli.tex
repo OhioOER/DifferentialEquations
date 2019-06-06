@@ -51,7 +51,7 @@ The method of change of variables for differential equations can thus be summari
 One important point is that this method may fail, in which case we may have to try a different change of variable. Finally, it is possible that there is no change of variable that will yield a solution, in which case we may have to resort to numerical or geometrical methods. Even if not able to produce a closed-form solution, a change of variable may yield an equation that is easier to work with, either analytically or numerically.
 
 \subsection*{A First Example}
-One type of equation that can be solved by a well-known change of variable is \emph{Bernoulli's Equation}. This is a very particular kind of equation that, in actuality, does not appear in a large number of application, it is useful to illustrate the method of changes of variables.
+One type of equation that can be solved by a well-known change of variable is \dfn{Bernoulli's Equation}. This is a very particular kind of equation that, in actuality, does not appear in a large number of application, it is useful to illustrate the method of changes of variables.
 
 As an initial example, let's consider the equation:
 \[
@@ -96,10 +96,10 @@ Multiplying by $u$ we get:
 \frac{x}{k}u'+u=xu^{2/k+1}.
 \]
 Now, in order to simplify the equation, we choose $k$ so that $2/k+1=0$, that is, we want $k=-2$. Then, the equation is transformed into:
-\[
+\begin{equation}\label{eq:linear1}
 -\frac{x}{2}u'+u=x
-\]\label{eq:linear1}
-Summarizing this whole process, we define the change of variable $u=y^{-2}$, or $y=u^{-1/2}$. Then, the original nonlinear equation is transformed into the linear equation \ref{eq:linear1}. Solving this equation in the usual way we get the general solution:
+\end{equation}
+Summarizing this whole process, we define the change of variable $u=y^{-2}$, or $y=u^{-1/2}$. Then, the original nonlinear equation is transformed into the linear equation \eqref{eq:linear1}. Solving this equation in the usual way we get the general solution:
 \[
 u(x)=2x+Cx^2
 \]
