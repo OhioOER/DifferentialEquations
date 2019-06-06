@@ -233,8 +233,11 @@ subintervals.  Use exact values.
 \end{array}
 \]
 Thus $y(1) \approx \answer{81/128}$.
+
+\end{explanation}
+\end{example}
  
-The Sage Cell below illustrates your work graphically.  You can adjust the number of subintervals to see how the approximation is affected.  You can also change the the interval, just for fun.
+The Sage Cell below illustrates Example \ref{ex:eulerIntro2} graphically.  You can adjust the number of subintervals to see how the approximation is affected.  You can also change the the interval, just for fun.
  
 % Commented out by Felipe
 \begin{sageCell}% Anna
@@ -257,8 +260,7 @@ def _(endPoint=input_box(1, width=5),numberOfIntervals=input_box(4, width=5)):
     (P1+P2+P3).show()
 \end{sageCell}
  
-\end{explanation}
-\end{example}
+
  
  
 \subsection*{Sources of Error}
@@ -317,8 +319,6 @@ with the values of the exact solution
 y=\frac{e^{-2x}}{4}(x^4+4),
 \end{equation}
 which can be obtained by the method of Module 1-B. (Verify.)
- 
- 
  
 \begin{explanation}
 The table below shows the values of the exact solution
@@ -388,10 +388,13 @@ x & h=0.1 & h=0.05 & h=0.025\\ \hline
 \hline
 \end{array}
 $$
+
+\end{explanation}
+\end{example}
  
-Use the Sage Cell below to explore the error visually by changing the size ($h$) of the subintervals.
+Use the Sage Cell below to explore the error in Example \ref{example:3.1.2} visually by changing the size ($h$) of the subintervals.
  
-Commented out by Felipe
+%Commented out by Felipe
 \begin{sageCell} % Anna
 @interact
 def _(h=input_box(0.1, width=5)):
@@ -413,8 +416,7 @@ def _(h=input_box(0.1, width=5)):
  
 %\href{https://docs.google.com/spreadsheets/d/1aE9Nh2VZpG2zJI70yeJpjNZDdxxaqFA8qwoZakjrK-M/edit?usp=sharing}{Spreadsheet}% Paul
  
-\end{explanation}
-\end{example}
+
  
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% new sections from Trench%%%
  
@@ -911,7 +913,7 @@ two methods with the ``exact'' values of the solution.
 
 
 
-\begin{example}{\color{blue}}\label{example:3.1.6}
+\begin{example}\label{example:3.1.6}
 Applying Euler's method with step sizes $h=0.1$, $h=0.05$, and
 $h=0.025$ to  the initial value problem
 \begin{equation}\label{eq:3.1.26}
