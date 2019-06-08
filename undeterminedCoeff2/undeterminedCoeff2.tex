@@ -1,23 +1,23 @@
 \documentclass{ximera}
-
+ 
 \input{../preamble.tex}
-
-
-
-
-\title{The Method of Undetermined Coefficients II}
-
-
+ 
+ 
+ 
+ 
+\title{5.5 The Method of Undetermined Coefficients II}
+ 
+ 
 \begin{document}
-
+ 
 \begin{abstract}
-
+  We explore the solution of nonhomogeneous linear equations with other forcing functions.
 \end{abstract}
-
+ 
 \maketitle
-
+ 
 \section*{The Method of Undetermined Coefficients II}
-
+ 
 In this section we consider the constant coefficient equation
 \begin{equation} \label{eq:5.5.1}
 ay''+by'+cy=e^{\lambda x}\left(P(x)\cos \omega x+Q(x)\sin \omega x\right)
@@ -26,9 +26,9 @@ where $\lambda$ and $\omega$ are real numbers, $\omega\neq 0$, and $P$
 and $Q$ are polynomials. We want to find a particular solution of
 \eqref{eq:5.5.1}. As in the previous module, the procedure that we
 will use is called \textit{the method of undetermined coefficients}.
-
+ 
 \subsection*{Forcing Functions Without Exponential Factors}
-
+ 
 We begin with the case where $\lambda=0$ in \eqref{eq:5.5.1};   thus, we
 we
 want to find a particular solution of
@@ -36,11 +36,11 @@ want to find a particular solution of
 ay''+by'+cy=P(x)\cos\omega x+Q(x)\sin\omega x,
 \end{equation}
 where $P$ and $Q$ are polynomials.
-
+ 
 Differentiating  $x^r\cos\omega x$ and $x^r\sin\omega x$ yields
 $$
 \frac{d}{dx}x^r\cos\omega x=-\omega x^r\sin\omega x+
-rx^{r-1}\cos\omega x 
+rx^{r-1}\cos\omega x
 $$
 and
 $$
@@ -61,7 +61,7 @@ that we try to choose $A$ and $B$ so that $F=P$ and $G=Q$,
 respectively. Then $y_p$ will be a particular solution of
 \eqref{eq:5.5.2}. The next theorem tells us how to choose the proper
 form for $y_p$. %For the proof see Exercise~\ref{exer:5.5.37}.
-
+ 
 \begin{theorem}\label{thmtype:5.5.1}
 Suppose $\omega$ is a positive number and $P$ and $Q$ are
 polynomials. Let $k$ be the larger of the degrees of $P$ and $Q$. Then
@@ -91,16 +91,16 @@ A(x)=A_0x+A_1x^2+\cdots+A_kx^{k+1}\quad \mbox{and}\quad
 B(x)=B_0x+B_1x^2+\cdots+B_kx^{k+1}.
 $$
 \end{theorem}
-
+ 
 %For an analog of this theorem that's applicable to \eqref{eq:5.5.1}, see Exercise~\ref{exer:5.5.38}.
-
+ 
 \begin{example}\label{example:5.5.1}
 Find a particular solution of
 \begin{equation} \label{eq:5.5.4}
 y''-2y'+y=5\cos2x+10\sin2x.
 \end{equation}
-
-
+ 
+ 
 \begin{explanation}
 In \eqref{eq:5.5.4} the coefficients of $\cos2x$ and $\sin2x$ are both zero
 degree polynomials (constants). Therefore Theorem~\ref{thmtype:5.5.1}
@@ -133,14 +133,14 @@ $$
 is a particular solution of \eqref{eq:5.5.4}.
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:5.5.2}
 Find a particular solution of
 \begin{equation} \label{eq:5.5.5}
 y''+4y=8\cos2x+12\sin2x.
 \end{equation}
-
-
+ 
+ 
 \begin{explanation}
 The procedure used in  Example~\ref{example:5.5.1} doesn't work here;
 substituting $y_p=A\cos2x+B\sin2x$ for $y$ in \eqref{eq:5.5.5} yields
@@ -157,7 +157,7 @@ y_p=x(A\cos2x+B\sin2x).
 Then
 \begin{eqnarray*}
 y_p'&=&A\cos2x+B\sin2x+2x(-A\sin2x+B\cos2x)
-\\ 
+\\
 y_p''&=&-4A\sin2x+4B\cos2x-4x(A\cos2x+B\sin2x)\\
 &=&-4A\sin2x+4B\cos2x-4y_p \mbox{ (see \eqref{eq:5.5.6})},
 \end{eqnarray*}
@@ -176,13 +176,13 @@ $$
 is a particular solution of \eqref{eq:5.5.5}.
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:5.5.3}
 Find a particular solution of
 \begin{equation} \label{eq:5.5.7}
 y''+3y'+2y=(16+20x)\cos x+10\sin x.
 \end{equation}
-
+ 
 \begin{explanation}
 The coefficients of $\cos x$ and $\sin x$ in \eqref{eq:5.5.7} are
 polynomials of degree one and zero, respectively. Therefore
@@ -232,16 +232,16 @@ $$
 is a particular solution of  \eqref{eq:5.5.7}.
 \end{explanation}
 \end{example}
-
-
+ 
+ 
 \subsection*{A Useful Observation}
-
+ 
 In \eqref{eq:5.5.9}, \eqref{eq:5.5.10}, and \eqref{eq:5.5.11} the polynomials
 multiplying $\sin x$ can be obtained by replacing $A_0,A_1,B_0$,
 and $B_1$ by $B_0$, $B_1$, $-A_0$, and $-A_1$, respectively, in the
 polynomials multiplying $\cos x$. %An analogous result applies in
 %general, as follows (Exercise~\ref{exer:5.5.36}).
-
+ 
 \begin{theorem}\label{thmtype:5.5.2}
 If
 $$
@@ -258,16 +258,16 @@ can be obtained by replacing $A_0$, \dots$,$ $A_k$ by $B_0,$ \dots$,$ $B_k$
 and $B_0,$ \dots$,$  $B_k$ by $-A_0,$ \dots$,$ $-A_k$ in the corresponding
 polynomials multiplying $\cos\omega x$.
 \end{theorem}
-
+ 
 We won't use this theorem in our examples, but we recommend that
 you use it to check your manipulations when you work on the  exercises.
-
+ 
 \begin{example}\label{example:5.5.4}
 Find a particular solution of
 \begin{equation} \label{eq:5.5.12}
 y''+y=(8-4x)\cos x-(8+8x)\sin x.
 \end{equation}
-
+ 
 \begin{explanation}
 According to  Theorem~\ref{thmtype:5.5.1}, we should look for a
 particular solution of the form
@@ -290,11 +290,11 @@ $$
 Since the right side of this equation does not contain $x\cos x$
 or $x\sin x$,  \eqref{eq:5.5.14} can't satisfy
 \eqref{eq:5.5.12} no matter how we choose $A_0$, $A_1$, $B_0$, and $B_1$.
-
+ 
 Now let $y_p$ be as in \eqref{eq:5.5.13}. Then
 \begin{eqnarray*}
 y_p'&=&\left[A_0+(2A_1+B_0)x+B_1x^2\right]\cos x\\ &&
-+\left[B_0+(2B_1-A_0)x-A_1x^2\right]\sin x\\  
++\left[B_0+(2B_1-A_0)x-A_1x^2\right]\sin x\\ 
 y_p''&=&
 \left[2A_1+2B_0-(A_0-4B_1)x-A_1x^2\right]\cos x\\ &&+
 \left[2B_1-2A_0-(B_0+4A_1)x-B_1x^2\right]\sin x,
@@ -323,11 +323,11 @@ $$
 is a particular solution of \eqref{eq:5.5.12}.
 \end{explanation}
 \end{example}
-
-
-
+ 
+ 
+ 
 \subsection*{Forcing Functions with Exponential Factors}
-
+ 
 To find a particular solution of
 \begin{equation} \label{eq:5.5.15}
 ay''+by'+cy=e^{\lambda x}\left(P(x)\cos \omega x+Q(x)\sin \omega x\right)
@@ -339,14 +339,14 @@ function  $P(x)\cos \omega x+Q(x)\sin \omega x$. We can find a
 particular solution $u_p$ of this equation by the procedure that we
 used in Examples~\ref{example:5.5.1}--\ref{example:5.5.4}. Then
 $y_p=u_pe^{\lambda x}$ is a particular solution of \eqref{eq:5.5.15}.
-
+ 
 \begin{example}\label{example:5.5.5}
 Find a particular solution of
 \begin{equation} \label{eq:5.5.16}
 y''-3y'+2y=e^{-2x}\left[2\cos 3x-(34-150x)\sin 3x\right].
 \end{equation}
-
-
+ 
+ 
 \begin{explanation}
 Let $y=ue^{-2x}$. Then
 \begin{eqnarray*}
@@ -409,14 +409,14 @@ $$
 is a particular solution of   \eqref{eq:5.5.16}.
 \end{explanation}
 \end{example}
-
-\begin{example}\label{example:5.5.6} 
+ 
+\begin{example}\label{example:5.5.6}
 Find a particular solution of
 \begin{equation} \label{eq:5.5.20}
 y''+2y'+5y=e^{-x}\left[(6-16x)\cos2x-(8+8x)\sin2x\right].
 \end{equation}
-
-
+ 
+ 
 \begin{explanation}
 Let $y=ue^{-x}$. Then
 \begin{eqnarray*}
@@ -441,7 +441,7 @@ $$
 Then
 \begin{eqnarray*}
 u_p'&=&\left[A_0+(2A_1+2B_0)x+2B_1x^2\right]\cos2x \\ &&
-+\left[B_0+(2B_1-2A_0)x-2A_1x^2\right]\sin2x\\ 
++\left[B_0+(2B_1-2A_0)x-2A_1x^2\right]\sin2x\\
 u_p''&=&\left[2A_1+4B_0-(4A_0-8B_1)x-4A_1x^2\right]\cos2x\\ &&
 +\left[2B_1-4A_0-(4B_0+8A_1)x-4B_1x^2\right]\sin2x,
 \end{eqnarray*}
@@ -474,7 +474,7 @@ $$
 is a particular solution of  \eqref{eq:5.5.20}.
 \end{explanation}
 \end{example}
-
+ 
 You can also find a particular solution of \eqref{eq:5.5.20}
 by substituting
 $$
@@ -488,18 +488,16 @@ $$
 y_p''+2y_p'+5y_p
 $$
 with the corresponding coefficients on the right side of
-\eqref{eq:5.5.20}. %(See Exercise~\ref{exer:5.5.38}). 
+\eqref{eq:5.5.20}. %(See Exercise~\ref{exer:5.5.38}).
 This leads to the
 same system \eqref{eq:5.5.22} of equations for $A_0$, $A_1$, $B_0$, and
 $B_1$ that we obtained in Example~\ref{example:5.5.6}. However, if you try
 this approach you'll see that deriving \eqref{eq:5.5.22} this way is
 much more tedious than the way we did it in Example~\ref{example:5.5.6}.
-
+ 
 \section*{Text Source}
 Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
-
+ 
 \href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
-
+ 
 \end{document}
-
-

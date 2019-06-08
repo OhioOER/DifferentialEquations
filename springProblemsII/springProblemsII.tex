@@ -1,25 +1,25 @@
 \documentclass{ximera}
-
+ 
 \input{../preamble.tex}
-
-
-
-
-\title{Spring Problems II}
-
-
+ 
+ 
+ 
+ 
+\title{6.2 Spring Problems II}
+ 
+ 
 \begin{document}
-
+ 
 \begin{abstract}
-
+ We return to our study of harmonic motion as an application of second order linear differential equations, this time considering the cases where damping occurs.
 \end{abstract}
-
+ 
 \maketitle
-
+ 
 \section*{Spring Problems II}
-
+ 
 \subsection*{Free Vibrations With Damping}
-
+ 
 In this section we consider the motion of an object in a spring--mass
 system with damping. We start with unforced motion, so the equation of
 motion is
@@ -39,16 +39,15 @@ mr^2+cr+k=0.
 $$
 The roots of this equation are
 \begin{equation}\label{eq:6.2.2}
-r_1=frac{-c-\sqrt{c^2-4mk}}{2m}\quad\mbox{and}\quad r_2=
+r_1=\frac{-c-\sqrt{c^2-4mk}}{2m}\quad\mbox{and}\quad r_2=
 \frac{-c+\sqrt{c^2-4mk}}{2m}.
 \end{equation}
-%In Section~5.2 
-Earlier we saw that the form of the
+In \href{https://ximera.osu.edu/ode/main/constantCoefficientHomogeneousEquations/constantCoefficientHomogeneousEquations}{Trench 5.2} we saw that the form of the
 solution of  \eqref{eq:6.2.1} depends upon whether $c^2-4mk$ is positive,
 negative, or zero. We'll now consider these three cases.
-
+ 
 \subsection*{Underdamped Motion}
-
+ 
 We say the motion is \textit{underdamped} if $c<\sqrt{4mk}$. In this
 case $r_1$ and $r_2$ in \eqref{eq:6.2.2} are complex conjugates, which we
 write as
@@ -64,7 +63,7 @@ The general solution of  \eqref{eq:6.2.1} in this case is
 $$
 y=e^{-ct/2m}(c_1\cos\omega_1 t+c_2\sin\omega_1 t).
 $$
-By the method used %in Section~6.1 
+By the method used \href{https://ximera.osu.edu/ode/main/springProblemsI/springProblemsI}{Trench 6.1}
 to derive the
 amplitude--phase form of the displacement of an object in simple
 harmonic motion, we can rewrite this equation as
@@ -77,17 +76,17 @@ R=\sqrt{c_1^2+c_2^2},\quad R\cos\phi=c_1,\quad\mbox{and}\quad R\sin\phi=c_2.
 $$
 The factor $Re^{-ct/2m}$ in \eqref{eq:6.2.3} is called the \textit{time--varying amplitude} of the motion, the quantity $\omega_1$ is
 called the \textit{frequency}, and $T=2\pi/\omega_1$ (which is the
-period of the cosine function in \eqref{eq:6.2.3} is called the \textit{quasi--period}. A typical graph of \eqref{eq:6.2.3} is shown below. 
-
+period of the cosine function in \eqref{eq:6.2.3} is called the \textit{quasi--period}. A typical graph of \eqref{eq:6.2.3} is shown below.
+ 
 \begin{image}
-  \includegraphics[height=1.5in]{fig060201.jpg} 
+  \includegraphics[height=1.5in]{fig060201.jpg}
 \end{image}
-
+ 
 As illustrated in that figure, the graph of $y$
 oscillates between the dashed exponential curves $y=\pm Re^{-ct/2m}$.
-
+ 
 \subsection*{Overdamped Motion}
-
+ 
 We say the motion is \textit{overdamped} if $c>\sqrt{4mk}$. In this
 case the zeros $r_1$ and $r_2$ of the characteristic polynomial are
 real, with $r_1<r_2<0$ (see \eqref{eq:6.2.2}), and the general solution of
@@ -99,19 +98,19 @@ Again $\lim_{t\rightarrow\infty}y(t)=0$ as in the
 underdamped case, but the motion isn't  oscillatory, since $y$ can't
 equal zero for more than one value of $t$ unless $c_1=c_2=0$.
 %(Exercise~\ref{exer:6.2.23}.)
-
+ 
 \subsection*{Critically Damped Motion}
-
+ 
 We say the motion is \textit{critically damped} if $c=\sqrt{4mk}$. In
 this case $r_1=r_2=-c/2m$ and the general solution of \eqref{eq:6.2.1} is
 $$
 y=e^{-ct/2m}(c_1+c_2t).
 $$
-
+ 
 Again $\lim_{t\rightarrow\infty}y(t)=0$ and the motion is nonoscillatory,
 since $y$ can't equal zero for more than one value of $t$ unless
 $c_1=c_2=0$. %(Exercise~\ref{exer:6.2.22}).
-
+ 
 \begin{example}\label{example:6.2.1}
 Suppose a 64 lb weight stretches a spring 6 inches in equilibrium
 and a dashpot provides a damping force of $c$ lb for each ft/sec of
@@ -127,7 +126,7 @@ and the initial conditions are $y(0)=1$ and $y'(0)=20$.
  Find the displacement $y$ for $t>0$ if the motion is critically damped
 and the initial conditions are $y(0)=1$ and $y'(0)=-20$.
 \end{enumerate}
-
+ 
 \begin{explanation}\ref{item:6.2.1a}  Here $m=2$ slugs and $k=64/.5=128$
 lb/ft. Therefore the equation of motion  \eqref{eq:6.2.1} is
 \begin{equation}\label{eq:6.2.4}
@@ -145,7 +144,7 @@ Therefore the damping is critical if
 $$
 c=\sqrt{8\cdot128}=32\mbox{ lb--sec/ft}.
 $$
-
+ 
 \ref{item:6.2.1b}
  Setting $c=32$ in  \eqref{eq:6.2.4} and cancelling the common factor $2$
 yields
@@ -172,7 +171,7 @@ y=e^{-8t}(1+28t).
 $$
 Therefore the object approaches equilibrium from above as
 $t\rightarrow\infty$. There's no oscillation.
-
+ 
 \ref{item:6.2.1c}
 Imposing the initial conditions $y(0)=1$ and $y'(0)=-20$ in
 \eqref{eq:6.2.5} and \eqref{eq:6.2.6} yields $1=c_1$ and $-20=-8+c_2$. Hence,
@@ -184,20 +183,20 @@ Therefore the object moves downward through equilibrium just once,
 and then approaches equilibrium from below as $t\rightarrow\infty$. Again,
 there's no oscillation. The solutions of these two initial value
 problems are graphed in the figure below.
-
+ 
 \begin{image}
-  \includegraphics[height=1.5in]{fig060202.jpg} 
+  \includegraphics[height=1.5in]{fig060202.jpg}
 \end{image}
-
+ 
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}
 \label{example:6.2.2}
 Find the displacement of the object in Example~\ref{example:6.2.1} if the
 damping constant is $c=4$ lb--sec/ft and the initial conditions are
 $y(0)=1.5$ ft and $y'(0)=-3$ ft/sec.
-
+ 
 \begin{explanation}
 With $c=4$, the equation of motion \eqref{eq:6.2.4} becomes
 \begin{equation}\label{eq:6.2.7}
@@ -245,11 +244,11 @@ $$
 Therefore $\phi\cong-.125$  radians.
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:6.2.3}
 Let the damping constant in Example 1 be $c=40$ lb--sec/ft. Find the
 displacement $y$ for $t>0$ if $y(0)=1$ and $y'(0)=1$.
-
+ 
 \begin{explanation}
 With $c=40$, the equation of motion \eqref{eq:6.2.4} reduces to
 \begin{equation}\label{eq:6.2.9}
@@ -283,24 +282,24 @@ $$
 y=\frac{17}{12}e^{-4t}-\frac{5}{12}e^{-16t}
 $$
 as the solution of the given initial value problem.
-
+ 
 \begin{image}
-  \includegraphics[height=1.5in]{fig060203.jpg} 
+  \includegraphics[height=1.5in]{fig060203.jpg}
 \end{image}
-
-
+ 
+ 
 \end{explanation}
 \end{example}
-
+ 
 \subsection{Forced Vibrations With Damping}
-
+ 
 Now we consider the motion of an object in a spring-mass system with
 damping, under the influence of a periodic forcing function
 $F(t)=F_0\cos\omega t$, so that the equation of motion is
 \begin{equation}\label{eq:6.2.11}
 my''+cy'+ky=F_0\cos\omega t.
 \end{equation}
-In Section~6.1 we considered this equation with $c=0$ and
+In \href{https://ximera.osu.edu/ode/main/springProblemsI/springProblemsI}{Trench 6.1} we considered this equation with $c=0$ and
 found that the resulting displacement $y$ assumed arbitrarily large
 values in the case of resonance   (that is, when
 $\omega=\omega_0=\sqrt{k/m}$). Here we'll see that in the presence
@@ -313,12 +312,12 @@ y=R\cos(\omega t-\phi),
 \end{equation}
 where the amplitude $R$ depends upon $m$, $c$, $k$, $F_0$, and
 $\omega$. We're interested in the following question:
-
+ 
 \begin{question}Assuming that $m$, $c$, $k$, and $F_0$ are
 held constant, what value of $\omega$ produces the largest amplitude
-$R$ in \eqref{eq:6.2.12}, and what is this largest amplitude? 
+$R$ in \eqref{eq:6.2.12}, and what is this largest amplitude?
 \end{question}
-
+ 
 To answer this question, we must solve \eqref{eq:6.2.11} and determine $R$ in
 terms of $F_0,\omega_0,\omega$, and $c$. We can obtain a particular
 solution of \eqref{eq:6.2.11} by the method of undetermined coefficients.
@@ -350,8 +349,8 @@ $$
 -c\omega A\quad+(k-m\omega^2)B&=&0.
 \end{array}
 $$
-
-
+ 
+ 
  Solving  for $A$ and $B$
 and substituting the results into  \eqref{eq:6.2.13} yields
 $$
@@ -369,7 +368,7 @@ where
 {(k-m\omega^2)^2+c^2\omega^2}}\quad\mbox{and}\quad
 \sin\phi=\frac{c\omega}{\sqrt{(k-m\omega^2)^2+c^2\omega^2}}.
 \end{equation}
-
+ 
   To compare this with the undamped forced vibration
 that we considered in the previous module, it's useful to write
 \begin{equation}\label{eq:6.2.16}
@@ -384,7 +383,7 @@ Substituting  \eqref{eq:6.2.16} into  \eqref{eq:6.2.14} yields
 y_p=\frac{F_0}{\sqrt{m^2(\omega^2_0-\omega^2)^2+
 c^2\omega^2}}\cos(\omega t-\phi).
 \end{equation}
-
+ 
 The solution of an initial value problem
 $$
 my''+cy'+ky=F_0\cos\omega t, \quad  y(0)=y_0,\quad y'(0)=v_0,
@@ -401,7 +400,7 @@ $c_1$ and $c_2$. For this reason we say that $y_c$ is the \textit{transient comp
 large $t$ is determined by $y_p$, which we call the \textit{steady state
 component} of $y$. Thus, for large $t$ the motion is like simple
 harmonic motion at the frequency of the external force.
-
+ 
 The amplitude of $y_p$ in \eqref{eq:6.2.17} is
 \begin{equation}\label{eq:6.2.18}
 R=\frac{F_0}{\sqrt{m^2(\omega^2_0-\omega^2)^2+c^2\omega^2}},
@@ -454,8 +453,8 @@ R_{\max}=\frac{2mF_0}{c\sqrt{4mk-c^2}}\quad \mbox{if}\quad c<
 \sqrt{2mk}.
 $$
 We summarize our results  as follows.
-
-
+ 
+ 
 \begin{theorem} \label{thmtype:6.2.1}
  Suppose we consider the amplitude $R$ of the steady state
 component of the solution of
@@ -464,7 +463,7 @@ my''+cy'+ky=F_0\cos\omega t
 $$
 as a function of $\omega$.
 \begin{enumerate}
-    \item 
+    \item
  If $c\geq\sqrt{2mk}$,  the maximum amplitude is
  $R_{\max}=F_0/k$ and it's attained when $\omega=
 \omega_{\max}=0$.
@@ -482,13 +481,11 @@ and it's attained when
 Note that $R_{\max}$ and $\omega_{\max}$ are continuous functions
 of $c$, for $c\geq0$, since  \eqref{eq:6.2.20} and  \eqref{eq:6.2.21} reduce
 to $R_{\max}=F_0/k$ and $\omega_{\max}=0$ if $c=\sqrt{2km}$.
-
-
+ 
+ 
 \section*{Text Source}
 Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
-
+ 
 \href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
-
+ 
 \end{document}
-
-

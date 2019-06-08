@@ -1,30 +1,30 @@
 \documentclass{ximera}
-
+ 
 \input{../preamble.tex}
 %\input{../../../../fimacros.tex}
-
-
-
-\title{The Method of Undetermined Coefficients I}
-
-
+ 
+ 
+ 
+\title{5.4 The Method of Undetermined Coefficients I}
+ 
+ 
 \begin{document}
-
+ 
 \begin{abstract}
-
+ We explore the solution of nonhomogeneous linear equations in the case where the forcing function is the product of an exponential function and a polynomial.
 \end{abstract}
-
+ 
 \maketitle
-
+ 
 \section*{The Method of Undetermined Coefficients I}
-
+ 
 In this section we consider the constant coefficient equation
 \begin{equation} \label{eq:5.4.1}
 ay''+by'+cy=e^{\alpha x}G(x),
 \end{equation}
 where $\alpha$ is a constant and $G$ is a polynomial.
-
-
+ 
+ 
 From Theorem~\ref{thmtype:5.3.2}, the general solution of (\ref{eq:5.4.1})
 is
 $y=y_p+c_1y_1+c_2y_2$, where $y_p$ is a particular solution of
@@ -33,21 +33,21 @@ solutions of the complementary equation
 $$
 ay''+by'+cy=0.
 $$
-In Section~5.2 we showed how to find $\{y_1,y_2\}$. In this
+In \href{https://ximera.osu.edu/ode/main/constantCoefficientHomogeneousEquations/constantCoefficientHomogeneousEquations}{Trench 5.2} we showed how to find $\{y_1,y_2\}$. In this
 section we'll show how to find $y_p$. The procedure that we'll use
 is called \textit{the method of undetermined coefficients}.
-
+ 
 %Our first example is similar to
 %Exercises~\ref{exer:5.3.16}--\ref{exer:5.3.21}.
-
+ 
 \begin{example}\label{example:5.4.1}
 Find a particular solution of
 \begin{equation} \label{eq:5.4.2}
 y''-7y'+12y=4e^{2x}.
 \end{equation}
 Then find the general solution.
-
-
+ 
+ 
 \begin{explanation}
 Substituting $y_p=Ae^{2x}$ for $y$ in (\ref{eq:5.4.2}) will produce a
 constant multiple of $Ae^{2x}$ on the left side of (\ref{eq:5.4.2}), so it
@@ -68,17 +68,17 @@ solution of (\ref{eq:5.4.2}) is
 $$
  y=2e^{2x}+c_1e^{3x}+c_2e^{4x}.
 $$
-
+ 
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:5.4.2}
 Find a particular solution of
 \begin{equation} \label{eq:5.4.4}
 y''-7y'+12y=5e^{4x}.
 \end{equation}
 Then find the general solution.
-
+ 
 \begin{explanation}
 Fresh from our success in finding a particular solution of
 (\ref{eq:5.4.2}) --- where we chose $y_p=Ae^{2x}$ because the right side
@@ -90,7 +90,7 @@ Example~\ref{example:5.4.1} that $e^{4x}$ is a solution of the
 complementary equation (\ref{eq:5.4.3}), so substituting $y_p=Ae^{4x}$
 into the left side of (\ref{eq:5.4.4}) produces zero on the left, no
 matter how we choose $A$. To discover a suitable form for $y_p$,
-we use the same approach that we used in Section~5.2 to find a
+we use the same approach that we used in \href{https://ximera.osu.edu/ode/main/constantCoefficientHomogeneousEquations/constantCoefficientHomogeneousEquations}{Trench 5.2} to find a
 second solution of
 $$
 ay''+by'+cy=0
@@ -120,13 +120,13 @@ $$
 is the general solution.
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:5.4.3}
 Find a particular solution of
 \begin{equation} \label{eq:5.4.6}
 y''-8y'+16y=2e^{4x}.
 \end{equation}
-
+ 
 \begin{explanation}
 Since the characteristic polynomial of the complementary equation
 \begin{equation} \label{eq:5.4.7}
@@ -155,7 +155,7 @@ $$
 is the general solution.
 \end{explanation}
 \end{example}
-
+ 
 The preceding examples illustrate the following facts concerning
 the form of a particular solution $y_p$
 of a constant coefficent equation
@@ -163,7 +163,7 @@ $$
 ay''+by'+cy=ke^{\alpha x},
 $$
 where $k$ is a nonzero constant:
-
+ 
 \begin{enumerate}
 \item\label{item:ypa} % (a)
 If $e^{\alpha x}$ isn't  a solution of the complementary
@@ -182,9 +182,9 @@ If both $e^{\alpha x}$ and $xe^{\alpha x}$ are solutions of (\ref{eq:5.4.8}),
 then  $y_p=Ax^2e^{\alpha x}$,  where $A$ is a constant.
 (See Example~\ref{example:5.4.3}.)
 \end{enumerate}
-
+ 
 %See Exercise~\ref{exer:5.4.30}  for the proofs of these facts.
-
+ 
 In all three cases you can just substitute the appropriate form for
 $y_p$ and its derivatives directly into
 $$
@@ -220,13 +220,13 @@ reduces to
 $$
 au''=G(x).
 $$
-
+ 
 \begin{example}\label{example:5.4.4}
 Find a particular solution of
 \begin{equation} \label{eq:5.4.10}
 y''-3y'+2y=e^{3x}(-1+2x+x^2).
 \end{equation}
-
+ 
 \begin{explanation}
 Substituting
 $$
@@ -277,13 +277,13 @@ $$
 is a particular solution of  (\ref{eq:5.4.10}).
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:5.4.5}
  Find a particular solution of
 \begin{equation} \label{eq:5.4.12}
 y''-4y'+3y=e^{3x}(6+8x+12x^2).
 \end{equation}
-
+ 
 \begin{explanation}
 Substituting
 $$
@@ -299,8 +299,8 @@ or
 u''+2u'=6+8x+12x^2.
 \end{equation}
 There's no $u$ term in this equation, since $e^{3x}$ is a solution of
-the complementary equation for (\ref{eq:5.4.12}). 
-%(SeeExercise~\ref{exer:5.4.30}.) 
+the complementary equation for (\ref{eq:5.4.12}).
+%(SeeExercise~\ref{exer:5.4.30}.)
 Therefore (\ref{eq:5.4.13}) does not have a
 particular solution of the form $u_p=A+Bx+Cx^2$ that we used
 successfully in Example~\ref{example:5.4.4}, since with this choice of
@@ -317,7 +317,7 @@ u_p''=2B+6Cx
 $$
 together contain all the powers of $x$ that appear on the right side
 of (\ref{eq:5.4.13}).
-
+ 
 Substituting these expressions in place of $u'$ and $u''$  in
 (\ref{eq:5.4.13}) yields
 $$
@@ -345,14 +345,14 @@ $$
 is a particular solution of  (\ref{eq:5.4.12}).
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:5.4.6}
 Find a particular solution of
 \begin{equation} \label{eq:5.4.14}
 4y''+4y'+y=e^{-x/2}(-8+48x+144x^2).
 \end{equation}
-
-
+ 
+ 
 \begin{explanation}  Substituting
 $$
 y=ue^{-x/2},\quad  y'=u'e^{-x/2}-\frac{1}{2}ue^{-x/2},\quad\mbox{and}\quad y''=u''e^{-x/2}-u'e^{-x/2}+\frac{1}{4}ue^{-x/2}
@@ -366,8 +366,8 @@ or
 u''=-2+12x+36x^2,
 \end{equation}
 which does not contain $u$ or $u'$ because $e^{-x/2}$ and $xe^{-x/2}$
-are both solutions of the complementary equation. 
-%(See Exercise~\ref{exer:5.4.30}.) 
+are both solutions of the complementary equation.
+%(See Exercise~\ref{exer:5.4.30}.)
 To obtain a particular solution of
 (\ref{eq:5.4.15}) we integrate twice, taking the constants of integration
 to be zero;   thus,
@@ -382,15 +382,15 @@ $$
 is a particular solution of  (\ref{eq:5.4.14}).
 \end{explanation}
 \end{example}
-
+ 
 \subsection*{Summary}
-
+ 
 The preceding examples illustrate the following facts concerning
  particular solutions of a constant coefficient equation of the form
 $$
 ay''+by'+cy=e^{\alpha x}G(x),
 $$
-where $G$ is a polynomial 
+where $G$ is a polynomial
 %(see Exercise~\ref{exer:5.4.30}):
 \begin{enumerate}
 \item\label{item:partsolutionfactsa} % (a)
@@ -413,7 +413,7 @@ then  $y_p=x^2e^{\alpha x}Q(x)$,
  where $Q$ is a polynomial of the same degree as $G$.
 (See Example~\ref{example:5.4.6}.)
 \end{enumerate}
-
+ 
 In all three cases, you can just substitute the appropriate form for
 $y_p$ and its derivatives directly into
 $$
@@ -423,7 +423,7 @@ and solve for the coefficients of the polynomial $Q$. However, if you
 try this you will see that the computations are more tedious than
 those that you encounter by making the substitution $y=ue^{\alpha x}$
 and finding a particular solution of the resulting equation for $u$.
-%(See Exercises~\ref{exer:5.4.34}-\ref{exer:5.4.36}.) 
+%(See Exercises~\ref{exer:5.4.34}-\ref{exer:5.4.36}.)
 In Case \ref{item:partsolutionfactsa}
 the equation for $u$ will be of the form
 $$
@@ -447,20 +447,20 @@ $$
 with a particular solution of the form $u_p=x^2Q(x)$ that can be
 obtained by integrating $G(x)/a$ twice and taking the constants of
 integration to be zero, as in Example~\ref{example:5.4.6}.
-
+ 
 \subsection*{Using the Principle of Superposition}
-
+ 
 The next example shows how to combine the method of undetermined
 coefficients and Theorem~\ref{thmtype:5.3.3}, the principle of
 superposition.
-
+ 
 \begin{example}\label{example:5.4.7}
 Find a particular solution of
 \begin{equation} \label{eq:5.4.17}
 y''-7y'+12y=4e^{2x}+5e^{4x}.
 \end{equation}
-
-
+ 
+ 
 \begin{explanation}
 In Example~\ref{example:5.4.1} we found that $y_{p_1}=2e^{2x}$
 is a particular solution of
@@ -478,9 +478,7 @@ $y_p=2e^{2x}+5xe^{4x}$ is a particular solution of (\ref{eq:5.4.17}).
 \end{example}
 \section*{Text Source}
 Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
-
+ 
 \href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
-
+ 
 \end{document}
-
-
