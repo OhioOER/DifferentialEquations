@@ -1,24 +1,24 @@
 \documentclass{ximera}
-
+ 
 \input{../preamble.tex}
-
-
-
-
-\title{Spring Problems I}
-
-
+ 
+ 
+ 
+ 
+\title{6.1 Spring Problems I}
+ 
+ 
 \begin{document}
-
+ 
 \begin{abstract}
-
+ We study undamped harmonic motion as an application of second order linear differential equations.
 \end{abstract}
-
+ 
 \maketitle
-
+ 
 \section*{Spring Problems I}
-
-
+ 
+ 
 We consider the motion of an object of mass $m$, suspended from a
 spring of negligible mass. We say that the spring--mass system is
 in \textit{equilibrium} when the object is at rest and the forces
@@ -26,17 +26,17 @@ acting on it sum to zero. The position of the object in this case is
 the \textit{equilibrium position}. We define $y$ to be the displacement
 of the object from its equilibrium position %(Figure~\ref{figure:6.1.1}),
 measured positive upward.
-
+ 
 \begin{image}
-  \includegraphics[height=1.5in]{fig060101.jpg} 
+  \includegraphics[height=1.5in]{fig060101.jpg}
 \end{image}
-
+ 
 Our model accounts for the following kinds of forces acting on the
 object:
-
+ 
 \begin{itemize}
 \item The force $-mg$, due to gravity.
-
+ 
 \item A force $F_s$ exerted by the spring resisting change in its
 length. The \textit{natural length} of the spring is its length with
 no mass attached. We assume that the spring obeys
@@ -48,33 +48,33 @@ L$, where $k$ is a positive number called the \textit{spring constant}.
 If the spring is stretched then  $\Delta L>0$ and $F_s>0$, so the
 spring force is upward, while if the spring is compressed then $\Delta
 L<0$ and $F_s<0$, so the spring force is downward.
-
+ 
 \item A \textit{damping force} $F_d=-cy'$ that resists the motion with
 a force proportional to the velocity of the object. It may be due to
 air resistance or friction in the spring. However, a convenient way to
 visualize a damping force is to assume that the object is rigidly
 attached to a piston with negligible mass immersed in a cylinder
 (called a \textit{dashpot}) filled with a viscous liquid
-%(Figure~\ref{figure:6.1.2}). 
-
+%(Figure~\ref{figure:6.1.2}).
+ 
 \begin{image}
-  \includegraphics[height=1.5in]{fig060102.jpg} 
+  \includegraphics[height=1.5in]{fig060102.jpg}
 \end{image}
-
+ 
 As the piston moves, the liquid exerts a
 damping force. We say that the motion is \textit{undamped} if $c=0$, or
 \textit{damped} if $c>0$.
-
-
+ 
+ 
 \item An external force $F$, other than the force due to gravity, that
 may vary with $t$, but is independent of displacement and velocity. We
 say that the motion is \textit{free} if $F\equiv0$, or \textit{forced}
 if $F\not\equiv0$.
-
+ 
 \end{itemize}
-
-
-
+ 
+ 
+ 
 From Newton's second law of motion,
 \begin{equation}\label{eq:6.1.1}
 my''=-mg+F_d+F_s+F=-mg-cy'+F_s+F.
@@ -82,12 +82,12 @@ my''=-mg+F_d+F_s+F=-mg-cy'+F_s+F.
 We must now relate $F_s$ to $y$. In the absence of external forces the
 object stretches the spring by an amount $\Delta l$ to assume its
 equilibrium position, as shown in the figure below.
-%(Figure~\ref{figure:6.1.3}). 
-
+%(Figure~\ref{figure:6.1.3}).
+ 
 \begin{image}
-  \includegraphics[height=1.5in]{fig060103.jpg} 
+  \includegraphics[height=1.5in]{fig060103.jpg}
 \end{image}
-
+ 
 Since the sum of the forces acting on the object
 is then zero, Hooke's Law implies that $mg=k\Delta l$. If the object
 is displaced $y$ units from its equilibrium position, the total
@@ -105,30 +105,30 @@ Since $mg=k\Delta l$ this can be written as
 my''+cy'+ky=F.
 \end{equation}
 We call this \textit{the equation of motion}.
-
-
+ 
+ 
 \subsection*{Simple Harmonic Motion}
-
+ 
 Throughout the rest of this section we'll consider spring--mass
 systems without damping; that is, $c=0$. We'll consider systems with
 damping in the next section.
-
+ 
 We first consider the case where the motion is also free; that is,
 $F$=0. We begin with an example.
-
+ 
 \begin{example}\label{example:6.1.1}
 An object stretches a spring 6 inches in equilibrium.
 \begin{enumerate}
 \item \label{item:6.1.1a} % (a)
 Set up the equation of motion and find its general solution.
-
+ 
 \item \label{item:6.1.1b} % (b)
 Find the displacement of the object for $t>0$ if it's initially
 displaced 18 inches above equilibrium and given a downward velocity of
 3 ft/s.
 \end{enumerate}
-
-
+ 
+ 
 \begin{explanation}
 \ref{item:6.1.1a}
 Setting $c=0$ and $F=0$ in \eqref{eq:6.1.2} yields the equation of motion
@@ -161,7 +161,7 @@ which has the zeros $r=\pm 8i$. Therefore the general solution of
 \begin{equation}\label{eq:6.1.5}
 y=c_1\cos8t+c_2\sin8t.
 \end{equation}
-
+ 
 \ref{item:6.1.1b}
 The initial upward displacement of 18 inches is positive and must be
 expressed in feet. The initial downward velocity is negative;   thus,
@@ -178,13 +178,13 @@ $$
 y=\frac{3}{2}\cos8t-\frac{3}{8}\sin8t,
 $$
 where $y$ is in feet.
-
+ 
 \begin{image}
-  \includegraphics[height=1.5in]{fig060104.jpg} 
+  \includegraphics[height=1.5in]{fig060104.jpg}
 \end{image}
 \end{explanation}
 \end{example}
-
+ 
 We'll now consider the equation
 $$
 my''+ky=0
@@ -215,15 +215,15 @@ yields
 \begin{equation}\label{eq:6.1.10}
 y=R\cos(\omega_0t-\phi).
 \end{equation}
-
+ 
 From \eqref{eq:6.1.8} and \eqref{eq:6.1.9} we see that the $R$ and $\phi$
 can be interpreted as polar coordinates of the point with rectangular
-coordinates $(c_1,c_2)$. 
-
+coordinates $(c_1,c_2)$.
+ 
 \begin{image}
-  \includegraphics[height=1.5in]{fig060105.jpg} 
+  \includegraphics[height=1.5in]{fig060105.jpg}
 \end{image}
-
+ 
 Given $c_1$ and
 $c_2$, we can compute $R$ from \eqref{eq:6.1.8}. From \eqref{eq:6.1.8} and
 \eqref{eq:6.1.9}, we see that $\phi$ is related to $c_1$ and $c_2$ by
@@ -234,8 +234,8 @@ $$
 There are infinitely many angles $\phi$, differing
  by integer multiples of $2\pi$, that satisfy these equations. We
 will always choose $\phi$ so that $-\pi\leq\phi<\pi$.
-
-
+ 
+ 
 The motion described by \eqref{eq:6.1.7} or \eqref{eq:6.1.10}
 is  \textit{simple harmonic motion}. We see from either of these
 equations that the motion is periodic, with period
@@ -254,7 +254,7 @@ form} of the displacement. If $t$ is in seconds then $\omega_0$ is
 in radians per second (rad/s);   it's  the \textit{frequency} of
 the motion. It is also called the \textit{natural frequency} of
 the spring--mass system without damping.
-
+ 
 \begin{example}\label{example:6.1.2}
 We found the displacement of the object
  in Example~\ref{example:6.1.1} to be
@@ -262,7 +262,7 @@ $$
 y=\frac{3}{2}\cos8t-\frac{3}{8}\sin8t.
 $$
 Find the frequency, period, amplitude, and phase angle of the motion.
-
+ 
 \begin{explanation}
 The frequency is $\omega_0=8$ rad/s, and the period is
 $T=2\pi/\omega_0=\pi/4$ s. Since $c_1=3/2$ and $c_2=-3/8$,
@@ -290,8 +290,8 @@ $$
 $$
 \end{explanation}
 \end{example}
-
-
+ 
+ 
 \begin{example}\label{example:6.1.3}
 The natural length of a spring is 1 m. An object is attached to it and
 the length of the spring increases to 102 cm when the object is in
@@ -299,7 +299,7 @@ equilibrium. Then the object is initially displaced downward 1 cm and
 given an upward velocity of 14 cm/s. Find the displacement for
 $t>0$. Also, find the natural frequency, period, amplitude, and phase
 angle of the resulting motion. Express the answers in cgs units.
-
+ 
 \begin{explanation}
 In cgs units $g=980$ cm/s$^2$. Since $\Delta l=2$ cm,
 $\omega_0^2=g/\Delta l=490$.
@@ -338,10 +338,10 @@ $$
 $$
 \end{explanation}
 \end{example}
-
-
+ 
+ 
 \subsection*{Undamped Forced Oscillation}
-
+ 
 In many mechanical problems a device is subjected to periodic external
 forces. For example, soldiers marching in cadence on a bridge cause
 periodic disturbances in the bridge, and the engines of a propeller
@@ -368,19 +368,19 @@ We'll see from the next two examples that the solutions of
 \eqref{eq:6.1.13}
 with $\omega\ne\omega_0$ behave very differently from the solutions with
 $\omega=\omega_0$.
-
-
-
-
+ 
+ 
+ 
+ 
 \begin{example}\label{example:6.1.4}
  Solve the initial value problem
 \begin{equation}\label{eq:6.1.14}
 y''+\omega_0^2y=\frac{F_0}{m}\cos\omega t, \quad  y(0)=0,\quad y'(0)=0,
 \end{equation}
  given that $\omega\neq\omega_0$.
-
-
-
+ 
+ 
+ 
 \begin{explanation}
 We first obtain a particular solution of \eqref{eq:6.1.13} by the method
 of undetermined coefficients. Since $\omega\ne\omega _0$,
@@ -433,7 +433,7 @@ Substituting these into \eqref{eq:6.1.15} yields
 y=\frac{F_0}{m(\omega_0^2-\omega^2)}(\cos\omega t-\cos\omega
 _0t).
 \end{equation}
-
+ 
 It is revealing to write this in a different form.  We start with the
 trigonometric identities
 \begin{eqnarray*}
@@ -468,7 +468,7 @@ y=R(t)\sin\frac{(\omega_0+\omega)t}{2},
 R(t)=\frac{2F_0}{m(\omega_0^2-\omega^2)}
 \sin\frac{(\omega_0-\omega)t}{2}.
 \end{equation}
-
+ 
 From \eqref{eq:6.1.20} we can regard $y$ as a sinusoidal variation with
 frequency $(\omega_0+\omega)/2$ and variable amplitude
 $|R(t)|$. In the figure below, the dashed curve above the $t$ axis
@@ -476,16 +476,16 @@ is $y=|R(t)|$, the dashed curve below the $t$ axis is $y=-|R(t)|$, and
 the displacement $y$ appears as an oscillation bounded by them. The
 oscillation of $y$ for $t$ on an interval between successive zeros of
 $R(t)$ is called a \textit{beat}.
-
-
-
+ 
+ 
+ 
 \begin{image}
-  \includegraphics[height=1.5in]{fig060106.jpg} 
+  \includegraphics[height=1.5in]{fig060106.jpg}
 \end{image}
-
-
-
-
+ 
+ 
+ 
+ 
 You can see from
 \eqref{eq:6.1.20} and \eqref{eq:6.1.21} that
 $$
@@ -497,18 +497,18 @@ upper bound during each beat. However, the oscillation remains bounded for
 all $t$. (This assumes that the spring can withstand
 deflections of this size and continue to obey Hooke's law.)  The next
 example shows that this isn't  so if $\omega=\omega_0$.
-
+ 
 \end{explanation}
 \end{example}
-
-
-
+ 
+ 
+ 
 \begin{example}\label{example:6.1.5}
 Find the general solution of
 \begin{equation}\label{eq:6.1.22}
 y''+\omega_0^2y=\frac{F_0}{m}\cos\omega_0t.
 \end{equation}
-
+ 
 \begin{explanation}
 We first obtain a particular solution $y_p$ of \eqref{eq:6.1.22}. Since
 $\cos\omega_0t$ is a solution of the complementary equation, the form
@@ -554,13 +554,13 @@ with increasing amplitude that approaches $\infty$ as $t\rightarrow\infty$. Of
 course, this means that the spring must eventually fail to obey Hooke's law
 or break.
 \begin{image}
-  \includegraphics[height=1.5in]{fig060107.jpg} 
+  \includegraphics[height=1.5in]{fig060107.jpg}
 \end{image}
 \end{explanation}
 \end{example}
-
-
-
+ 
+ 
+ 
 This phenomenon of unbounded displacements of a spring--mass system in
 response to a periodic forcing function at its natural
 frequency is called \textit{resonance}. More complicated mechanical
@@ -570,12 +570,10 @@ airplane wing by periodic vibrations of reciprocating engines can
 cause damage or even failure if the frequencies of the disturbances
 are close to critical frequencies determined by the parameters of the
 mechanical system in question.
-
+ 
 \section*{Text Source}
 Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
-
+ 
 \href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
-
+ 
 \end{document}
-
-

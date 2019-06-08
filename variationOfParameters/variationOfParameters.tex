@@ -1,23 +1,23 @@
 \documentclass{ximera}
-
+ 
 \input{../preamble.tex}
-
-
-
-
-\title{Variation of Parameters}
-
-
+ 
+ 
+ 
+ 
+\title{5.7 Variation of Parameters}
+ 
+ 
 \begin{document}
-
+ 
 \begin{abstract}
-
+ We study the method of variation of parameters for finding a particular solution to a nonhomogeneous second order linear differential equation.
 \end{abstract}
-
+ 
 \maketitle
-
+ 
 \section*{Variation of Parameters}
-
+ 
 In this section we give a method called \dfn{variation of
 parameters} for finding a particular solution of
 \begin{equation} \label{eq:5.7.1}
@@ -33,32 +33,32 @@ the general solution of \eqref{eq:5.7.1} as
 $$
 y=y_p+c_1y_1+c_2y_2.
 $$
-
+ 
 Since we need only one nontrivial solution of \eqref{eq:5.7.2} to find the
 general solution of \eqref{eq:5.7.1} by reduction of order, it's natural
 to ask why we're interested in variation of parameters, which requires
 two linearly independent solutions of \eqref{eq:5.7.2} to achieve the same
 goal. Here's the answer:
-
+ 
 \begin{enumerate}
 \item If we already know two linearly independent solutions of
 \eqref{eq:5.7.2} then  variation of parameters will probably  be simpler
 than reduction of order.
-
+ 
 \item Variation of parameters generalizes naturally to a method
 for finding particular solutions of higher order
-linear equations (Section~9.4) and  linear systems of
+linear equations (\href{https://ximera.osu.edu/ode/main/varParHigherOrder/varParHigherOrder}{Trench 9.4}) and  linear systems of
 equations
-(Section~10.7), while reduction of order doesn't.
-
+(\href{https://ximera.osu.edu/ode/main/varParamNonHomLinSys/varParamNonHomLinSys}{Trench 10.7}), while reduction of order doesn't.
+ 
 \item Variation of parameters is a powerful theoretical tool
  used by researchers in differential equations. The discussion of this is beyond the scope of this book.
- 
+  
  %Although a detailed
 %discussion of this is beyond the scope of this book, you can get an
 %idea of what it means from %Exercises~\ref{exer:5.7.37}--\ref{exer:5.7.39}.
  \end{enumerate}
-
+ 
 We'll now derive the method. As usual, we consider solutions of
 \eqref{eq:5.7.1} and \eqref{eq:5.7.2} on an interval $(a,b)$ where  $P_0$,
 $P_1$, $P_2$, and $F$ are continuous and $P_0$ has no zeros. Suppose
@@ -74,7 +74,7 @@ there are now two unknown functions to be determined, rather than one.
 However, since $u_1$ and $u_2$ have to satisfy only one condition
 (that $y_p$ is a solution of \eqref{eq:5.7.1}), we can impose a second
 condition that produces a convenient simplification, as follows.
-
+ 
  Differentiating \eqref{eq:5.7.3} yields
 \begin{equation} \label{eq:5.7.4}
 y_p'=u_1y_1'+u_2y_2'+u_1'y_1+u_2'y_2.
@@ -116,7 +116,7 @@ u_1'y_1'+u_2'y_2' &=& \frac{F}{P_0},
 \end{equation}
 where the first equation is the same as \eqref{eq:5.7.5} and the second is
 from \eqref{eq:5.7.8}.
-
+ 
 We'll now show that you can always solve \eqref{eq:5.7.9} for $u_1'$
 and $u_2'$. (The method that we use here will always work, but simpler
 methods usually work when you're dealing with specific equations.) To
@@ -142,11 +142,11 @@ argument that
 \begin{equation} \label{eq:5.7.12}
 u_2'=\frac{Fy_1}{P_0(y_1y_2'-y_1'y_2)}.
 \end{equation}
-
+ 
 We can now obtain $u_1$ and $u_2$ by integrating $u_1'$ and $u_2'$.
 The constants of integration can be taken to be zero, since any choice
 of $u_1$ and $u_2$ in \eqref{eq:5.7.3} will suffice.
-
+ 
 You should not memorize \eqref{eq:5.7.11} and \eqref{eq:5.7.12}. On the
 other hand, you don't want to rederive the whole procedure for every
 specific problem. We recommend a compromise:
@@ -174,7 +174,7 @@ taking the constants of integration to be zero.
 \item \label{item:compromiseE}% (e)
 Substitute $u_1$ and $u_2$ into \eqref{eq:5.7.13}  to obtain $y_p$.
 \end{enumerate}
-
+ 
 \begin{example}\label{example:5.7.1}
  Find a particular
 solution $y_p$ of
@@ -187,8 +187,8 @@ $$
 x^2y''-2xy'+2y=0.
 $$
  Then find the general solution of \eqref{eq:5.7.15}.
-
-
+ 
+ 
 \begin{explanation}
 We set
 $$
@@ -217,7 +217,7 @@ y=\frac{4}{35}x^{9/2}+c_1x+c_2x^2.
 $$
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:5.7.2}
  Find a particular
 solution $y_p$ of
@@ -230,7 +230,7 @@ $$
 (x-1)y''-xy'+y=0.
 $$
  Then find the general solution of \eqref{eq:5.7.16}.
-
+ 
 \begin{explanation}
 We set
 $$
@@ -265,7 +265,7 @@ y= -x^2-1+c_1x+c_2e^x
 \end{equation}
 \end{explanation}
 \end{example}
-
+ 
 There's nothing \textit{wrong} with leaving the general solution of
 \eqref{eq:5.7.16} in the form \eqref{eq:5.7.17};     however, we think
 you'll agree that \eqref{eq:5.7.18} is preferable. We can also view the
@@ -277,24 +277,24 @@ $-x$, which satisfies the complementary equation. We can
 of the complementary equation; hence, $-x^2-1=(-x^2-x-1)+x$
 is also a solution of \eqref{eq:5.7.16}. In general, it's always
 legitimate to drop linear combinations of $\{y_1,y_2\}$ from
-particular solutions obtained by variation of parameters. 
+particular solutions obtained by variation of parameters.
 %(See
 %Exercise~\ref{exer:5.7.36} for a general discussion of this question.)
 We'll do this in the following  examples and in the answers to
 exercises that ask  for a particular solution. Therefore, don't be
 concerned if your answer to such an exercise differs from ours only by
 a solution of the complementary equation.
-
+ 
 \begin{example}\label{example:5.7.3}
  Find a particular solution of
 \begin{equation}  \label{eq:5.7.19}
 y''+3y'+2y=\frac{1}{1+e^x}.
 \end{equation}
 Then find the general solution.
-
-
+ 
+ 
 \begin{explanation}
-
+ 
 The characteristic polynomial of the complementary equation
 \begin{equation} \label{eq:5.7.20}
 y''+3y'+2y=0
@@ -354,8 +354,8 @@ y=y_p+c_1e^{-x}+c_2e^{-2x}=\left(e^{-x}+e^{-2x}\right)\ln(1+e^x)
 $$
 \end{explanation}
 \end{example}
-
-
+ 
+ 
 \begin{example}\label{example:5.7.4}
 Solve the initial value problem
 \begin{equation} \label{eq:5.7.21}
@@ -370,8 +370,8 @@ equation
 $$
 (x^2-1)y''+4xy'+2y=0.
 $$
-
-
+ 
+ 
 \begin{explanation}
 We first use variation of parameters to find a particular solution
 of
@@ -447,16 +447,16 @@ y&=&\frac{2\ln(x+1)}{x-1}+\frac{2}{x-1}+\frac{1}{x+1}\\
 &=&\frac{2\ln(x+1)}{x-1}+\frac{3x+1}{x^2-1}
 \end{eqnarray*}
 as the solution of  \eqref{eq:5.7.21}. The figure below shows a graph of the solution.
-
-
+ 
+ 
 \begin{image}
-  \includegraphics[height=1.5in]{fig050701.jpg} 
+  \includegraphics[height=1.5in]{fig050701.jpg}
 \end{image}
 \end{explanation}
 \end{example}
-
+ 
 \subsection{Comparison of Methods}
-
+ 
 We've now considered three methods
 for solving  nonhomogeneous linear equations: undetermined
 coefficients, reduction of order, and variation of parameters. It's
@@ -468,7 +468,7 @@ $e^{\lambda x}\cos \omega x$, or $e^{\lambda x}\sin \omega x$.
 Although the other two methods can be used to solve such problems,
 they will be more difficult except in the most trivial cases, because
 of the integrations involved.
-
+ 
 If the equation isn't  a constant coefficient equation or the forcing
 function isn't  of the form just specified,  the method of
 undetermined coefficients does not apply and the choice is necessarily
@@ -478,14 +478,12 @@ complementary equation while variation of parameters requires two.
 However, variation of parameters will probably be easier if you
 already know a fundamental set of solutions of the complementary
 equation.
-
-
-
+ 
+ 
+ 
 \section*{Text Source}
 Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
-
+ 
 \href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
-
+ 
 \end{document}
-
-

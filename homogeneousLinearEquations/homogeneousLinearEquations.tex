@@ -1,20 +1,20 @@
 \documentclass{ximera}
-
+ 
 \input{../preamble.tex}
-
-\title{Homogeneous Linear Equations}%\label{Module 7-ADEF}
-
-
+ 
+\title{5.1 Homogeneous Linear Equations}%\label{Module 7-ADEF}
+ 
+ 
 \begin{document}
-
+ 
 \begin{abstract}
 We develop a technique for solving homogeneous linear differential equations.
 \end{abstract}
-
+ 
 \maketitle
-
+ 
 \section*{Homogeneous Linear Equations}
-
+ 
 A second order differential equation is said to be \textit{linear} if
 it can be written as
 \begin{equation}\label{eq:5.1.1}
@@ -24,7 +24,7 @@ We call the function $f$ on the right a \textit{forcing function},
 since in physical applications it's often related to a force acting
 on some system modeled by the differential equation. We say that
 \eqref{eq:5.1.1} is \textit{homogeneous} if $f\equiv0$ or \textit{nonhomogeneous} if $f\not\equiv0$. Since these definitions are like
-the corresponding definitions in Module \ref{Module 1-B} for the linear
+the corresponding definitions in Module \href{https://ximera.osu.edu/ode/main/linearFirstOrderDiffEq/linearFirstOrderDiffEq}{linearFirstOrderDiffEq} for the linear
 first order equation
 \begin{equation}\label{eq:5.1.2}
 y'+p(x)y=f(x),
@@ -38,8 +38,8 @@ Theorem~\ref{thmtype:2.1.2} gives
 a formula for the case where $f\not\equiv0$, there are no formulas for
 the general solution of \eqref{eq:5.1.1} in either case. Therefore we must
 be content to solve linear second order equations of special forms.
-
-In Module \ref{Module 1-B} %Section~2.1 
+ 
+In Module \href{https://ximera.osu.edu/ode/main/linearFirstOrderDiffEq/linearFirstOrderDiffEq}{linearFirstOrderDiffEq}
 we considered the homogeneous equation
 $y'+p(x)y=0$ first, and then used a nontrivial solution of this
 equation to find the general solution of the nonhomogeneous equation
@@ -51,11 +51,11 @@ y''+p(x)y'+q(x)y=0
 \end{equation}
 in order to solve the nonhomogeneous equation \eqref{eq:5.1.1}. This
 section is devoted to \eqref{eq:5.1.3}.
-
+ 
 The next theorem gives sufficient conditions for existence and
 uniqueness of solutions of initial value problems for \eqref{eq:5.1.3}. We
 omit the proof.
-
+ 
 \begin{theorem} \label{thmtype:5.1.1}
 Suppose $p$ and $q$ are continuous on an open interval $(a,b),$
 let $x_0$ be any point in $(a,b),$ and let $k_0$ and $k_1$ be
@@ -65,7 +65,7 @@ y''+p(x)y'+q(x)y=0,\ y(x_0)=k_0,\ y'(x_0)=k_1
 $$
  has a unique solution  on $(a,b)$.
 \end{theorem}
-
+ 
 Since $y\equiv0$ is obviously a solution of \eqref{eq:5.1.3} we call it
 the \textit{trivial} solution. Any other solution is \textit{nontrivial}.
 Under the assumptions of Theorem~\ref{thmtype:5.1.1}, the only solution of
@@ -75,13 +75,13 @@ y''+p(x)y'+q(x)y=0,\ y(x_0)=0,\ y'(x_0)=0
 $$
 on  $(a,b)$ is the trivial solution.
 %(Exercise~\ref{exer:5.1.24}).
-
+ 
 The next three examples illustrate concepts that we'll develop later
 in this section. You shouldn't be concerned with how to \textit{find}
 the given solutions of the equations in these examples. This will be
 explained in later sections.
-
-\begin{example}\label{example:5.1.1}  
+ 
+\begin{example}\label{example:5.1.1} 
 The coefficients of $y'$ and $y$ in
 \begin{equation}\label{eq:5.1.4}
 y''-y=0
@@ -90,7 +90,7 @@ are the constant functions $p\equiv0$ and $q\equiv-1$, which are
 continuous on $(-\infty,\infty)$. Therefore Theorem~\ref{thmtype:5.1.1}
 implies that every initial value problem for \eqref{eq:5.1.4}  has a
 unique solution on $(-\infty,\infty)$.
-
+ 
 \begin{enumerate}
 \item \label{item:5.1.1a} % (a)
 Verify that $y_1=e^x$ and $y_2=e^{-x}$ are solutions of
@@ -102,16 +102,16 @@ $(-\infty,\infty)$.
 \item \label{item:5.1.1c}% (c)
 Solve the initial value problem
 \begin{equation}\label{eq:5.1.5}
-y''-y=0,\quad y(0)=1,\quad y'(0)=3.22
+y''-y=0,\quad y(0)=1,\quad y'(0)=3
 \end{equation}
 \end{enumerate}
 \begin{explanation}
-
+ 
 \ref{item:5.1.1a} If $y_1=e^x$ then $y_1'=e^x$ and $y_1''=e^x=y_1$,
 so  $y_1''-y_1=0$.
 If $y_2=e^{-x}$, then $y_2'=-e^{-x}$ and $y_2''=e^{-x}=y_2$,
 so  $y_2''-y_2=0$.
-
+ 
 \ref{item:5.1.1b} If
 \begin{equation}\label{eq:5.1.6}
 y=c_1e^x+c_2e^{-x}
@@ -131,7 +131,7 @@ y''-y&=&(c_1e^x+c_2e^{-x})-(c_1e^x+c_2e^{-x})\\
 \end{eqnarray*}
 for all $x$. Therefore $y=c_1e^x+c_2e^{-x}$ is a solution of
 \eqref{eq:5.1.4} on $(-\infty,\infty)$.
-
+ 
 \ref{item:5.1.1c}
 We can solve \eqref{eq:5.1.5} by choosing $c_1$ and $c_2$ in \eqref{eq:5.1.6}
 so that $y(0)=1$ and $y'(0)=3$. Setting $x=0$ in \eqref{eq:5.1.6} and
@@ -143,9 +143,17 @@ c_1-c_2&=&3.
 Solving these equations yields  $c_1=2$  and $c_2=-1$.
 Therefore $y=2e^x-e^{-x}$ is the unique solution of
 \eqref{eq:5.1.5} on $(-\infty,\infty)$.
+
+The interactive below will help you visualize this solution.  Use sliders to adjust the values of $c_1$ and $c_2$.  Initial conditions $y(0)=1$ and $y'(0)=3$ correspond to the $y$-intercept and the slope of the tangent line, respectively.  
+
+\desmos{pqxpq32bij}{800}{600}  
+%https://www.desmos.com/calculator/pqxpq32bij
+
+Find values of $c_1$ and $c_2$ such that the $y$-intercept is $(0,1)$ and the slope of the tangent line is $1$.  (You can solve this problem algebraically, as above, or graphically.  Check your answers graphically.)
+$$c_1=\answer{1},\quad c_2=\answer{0}$$
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:5.1.2}  %\newcommand{\exampletrig}
 Let $\omega$ be a positive constant. The coefficients of $y'$
 and $y$  in
@@ -157,7 +165,7 @@ which are continuous on $(-\infty,\infty)$. Therefore
 Theorem~\ref{thmtype:5.1.1}
 implies that every initial value problem for \eqref{eq:5.1.8}  has a
 unique solution on $(-\infty,\infty)$.
-
+ 
 \begin{enumerate}
     \item \label{item:5.1.2a}  %(a)
 Verify that $y_1=\cos\omega x$ and $y_2=\sin\omega x$ are
@@ -178,7 +186,7 @@ and
 $y_1''=-\omega^2\cos\omega x=-\omega^2y_1$, so  $y_1''+\omega^2y_1=0$.
 If $y_2=\sin\omega x$ then, $y_2'=\omega\cos\omega x$ and
 $y_2''=-\omega^2\sin\omega x=-\omega^2y_2$, so  $y_2''+\omega^2y_2=0$.
-
+ 
 \ref{item:5.1.2b} If
 \begin{equation}\label{eq:5.1.10}
 y=c_1\cos\omega x+c_2\sin\omega x
@@ -200,7 +208,7 @@ c_2\omega^2(-\sin\omega x+\sin\omega x)=0
 \end{eqnarray*}
 for all $x$. Therefore $y=c_1\cos\omega x+c_2\sin\omega x$ is a
 solution of \eqref{eq:5.1.8} on $(-\infty,\infty)$.
-
+ 
 \ref{item:5.1.2c}
 To solve
 \eqref{eq:5.1.9}, we must choosing $c_1$ and $c_2$ in \eqref{eq:5.1.10}
@@ -214,7 +222,7 @@ $$
 $(-\infty,\infty)$.
 \end{explanation}
 \end{example}
-
+ 
 Theorem~\ref{thmtype:5.1.1} implies that if $k_0$ and $k_1$ are
 arbitrary real numbers then the initial value problem
 \begin{equation}\label{eq:5.1.12}
@@ -228,8 +236,8 @@ $$
 y''+\frac{P_1(x)}{P_0(x)}y'+\frac{P_2(x)}{P_0(x)}y=0
 $$
 and apply Theorem~\ref{thmtype:5.1.1} with $p=P_1/P_0$ and $q=P_2/P_0$.
-
-\begin{example}\label{example:5.1.3}  
+ 
+\begin{example}\label{example:5.1.3} 
 The equation
 \begin{equation}\label{eq:5.1.13}
 x^2y''+xy'-4y=0
@@ -243,9 +251,9 @@ implies that the initial value problem
 $$
 x^2y''+xy'-4y=0,\quad y(x_0)=k_0,\quad y'(x_0)=k_1
 $$
-has a unique solution on $(0,\infty)$ if $x_0>0$, or on $(-\infty,0)$
-if $x_0<0$.
-
+has a unique solution on $(0,\infty)$ if $x_0&gt;0$, or on $(-\infty,0)$
+if $x_0&lt;0$.
+ 
 \begin{enumerate}
 \item\label{item:5.1.3a}% (a)
 Verify that $y_1=x^2$ is a solution of \eqref{eq:5.1.13} on
@@ -277,7 +285,7 @@ $$
 x^2y_2''+xy_2'-4y_2=x^2\left(\frac{6}{x^4}\right)-x\left(\frac{2}{x^3}\right)-{\frac{4}{x^2}}=0
 $$
 for $x$ in $(-\infty,0)$ or $(0,\infty)$.
-
+ 
 \ref{item:5.1.3b} If
 \begin{equation}\label{eq:5.1.16}
 y=c_1x^2+\frac{c_2}{x^2}
@@ -301,7 +309,7 @@ x^2y''+xy'-4y&=&x^2\left(2c_1+\frac{6c_2}{x^4}\right)
 &=&c_1\cdot0+c_2\cdot0=0
 \end{eqnarray*}
 for $x$ in $(-\infty,0)$ or $(0,\infty)$.
-
+ 
 \ref{item:5.1.3c}
 To solve
 \eqref{eq:5.1.14}, we choose $c_1$ and $c_2$ in \eqref{eq:5.1.16}
@@ -314,7 +322,7 @@ c_1+c_2&=&2\\
 Solving these equations yields  $c_1=1$  and $c_2=1$.
 Therefore $y=x^2+1/x^2$ is the unique  solution of \eqref{eq:5.1.14}
 on $(0,\infty)$.
-
+ 
 \ref{item:5.1.3d}
 We can solve
 \eqref{eq:5.1.15} by choosing $c_1$ and $c_2$ in \eqref{eq:5.1.16}
@@ -327,12 +335,12 @@ c_1+c_2&=&2\\
 Solving these equations yields  $c_1=1$  and $c_2=1$.
 Therefore $y=x^2+1/x^2$ is the unique solution of \eqref{eq:5.1.15}
 on $(-\infty,0)$.
-
+ 
 \end{explanation}
 \end{example}
-
-
-
+ 
+ 
+ 
 Although the \textit{formulas} for the solutions of \eqref{eq:5.1.14} and
 \eqref{eq:5.1.15} are both $y=x^2+1/x^2$, you should not conclude that
 these two initial value problems have the same solution. Remember that
@@ -342,10 +350,10 @@ that contains the initial point};  therefore, the solution of
 which contains the initial point $x_0=1$, while the solution of
 \eqref{eq:5.1.15} is $y=x^2+1/x^2$ \textit{on the interval} $(-\infty,0)$,
 which contains the initial point $x_0=-1$.
-
+ 
 \subsection*{The General Solution of a Homogeneous Linear Second Order
 Equation}
-
+ 
 If $y_1$ and $y_2$ are defined on an interval
 $(a,b)$ and $c_1$ and $c_2$ are constants, then
 $$
@@ -354,10 +362,10 @@ $$
 is a \textit{linear combination of $y_1$ and $y_2$}. For
 example, $y=2\cos x+7 \sin x$ is a linear combination of $y_1=
 \cos x$ and $y_2=\sin x$, with $c_1=2$ and $c_2=7$.
-
+ 
 The next theorem states a fact that we've already verified in
 Examples~\ref{example:5.1.1}, \ref{example:5.1.2}, and \ref{example:5.1.3}.
-
+ 
 \begin{theorem}\label{thmtype:5.1.2}
 If $y_1$ and $y_2$ are solutions of the homogeneous equation
 \begin{equation}\label{eq:5.1.18}
@@ -369,7 +377,7 @@ y=c_1y_1+c_2y_2
 \end{equation}
 of $y_1$ and $y_2$ is also a solution of $\eqref{eq:5.1.18}$ on $(a,b).$
 \end{theorem}
-
+ 
 \begin{proof}
  If
 $$
@@ -387,7 +395,7 @@ y''+p(x)y'+q(x)y&=&(c_1y_1''+c_2y_2'')+p(x)(c_1y_1'+c_2y_2')
 +c_2\left(y_2''+p(x)y_2'+q(x)y_2\right)\\
 &=&c_1\cdot0+c_2\cdot0=0,
 \end{eqnarray*}
-since $y_1$ and $y_2$ are solutions of \eqref{eq:5.1.18}.  
+since $y_1$ and $y_2$ are solutions of \eqref{eq:5.1.18}. 
 \end{proof}
 We say that  $\{y_1,y_2\}$ is a \textit{fundamental set of
 solutions of $\eqref{eq:5.1.18}$ on}  $(a,b)$ if every solution
@@ -395,14 +403,14 @@ of \eqref{eq:5.1.18} on  $(a,b)$ can be written as a linear
 combination of $y_1$ and $y_2$ as in \eqref{eq:5.1.19}.
 In this case we say that \eqref{eq:5.1.19} is
 \textit{general solution of $\eqref{eq:5.1.18}$ on}  $(a,b)$.
-
+ 
 \subsection*{Linear Independence}
-
+ 
 We need a way to determine whether a given set $\{y_1,y_2\}$
 of solutions of \eqref{eq:5.1.18}  is a fundamental set.
 The next definition will enable us to state necessary and
 sufficient conditions for this.
-
+ 
 We say that two functions $y_1$ and $y_2$ defined on an interval
 $(a,b)$ are \textit{linearly independent on} $(a,b)$ if neither is a
 constant multiple of the other on $(a,b)$. (In
@@ -411,7 +419,7 @@ that neither can be the trivial solution of \eqref{eq:5.1.18}, since, for
 example, if $y_1\equiv0$  we could write $y_1=0y_2$.) We'll also
 say that the set $\{y_1,y_2\}$ \textit{is linearly independent on}
 $(a,b)$.
-
+ 
  \begin{theorem}\label{thmtype:5.1.3}
 Suppose $p$ and $q$ are continuous on $(a,b).$ Then a set
 $\{y_1,y_2\}$ of solutions of
@@ -421,13 +429,13 @@ y''+p(x)y'+q(x)y=0
 on $(a,b)$ is a fundamental set if and only if $\{y_1,y_2\}$ is
 linearly independent on $(a,b).$
 \end{theorem}
-
+ 
 We'll present the proof of Theorem~\ref{thmtype:5.1.3} in steps worth
 regarding as theorems in their own right. However, let's first
 interpret Theorem~\ref{thmtype:5.1.3} in terms of
 Examples~\ref{example:5.1.1}, \ref{example:5.1.2}, and \ref{example:5.1.3}.
-
-\begin{example}\label{example:5.1.4}   
+ 
+\begin{example}\label{example:5.1.4}  
 \begin{enumerate}
 \item\label{item:5.1.4a}% (a)
 Since $e^x/e^{-x}=e^{2x}$ is nonconstant, Theorem~\ref{thmtype:5.1.3}
@@ -445,10 +453,10 @@ Theorem~\ref{thmtype:5.1.3} implies that
 solution of $x^2y''+xy'-4y=0$ on $(-\infty,0)$ and $(0,\infty)$.
 \end{enumerate}
 \end{example}
-
-
+ 
+ 
 \subsection*{The Wronskian and Abel's Formula}
-
+ 
 To motivate a result that we need in order to prove
 Theorem~\ref{thmtype:5.1.3},
  let's see what is required to prove that  $\{y_1,y_2\}$
@@ -477,7 +485,7 @@ c_1y_1'(x_0)+c_2y_2'(x_0)&=&k_1
 \end{equation}
 has  a solution $(c_1,c_2)$ for every choice of $(k_0,k_1)$.
 Let's try to solve \eqref{eq:5.1.22}.
-
+ 
 Multiplying the first equation in \eqref{eq:5.1.22} by $y_2'(x_0)$
 and the second by $y_2(x_0)$ yields
 \begin{eqnarray*}
@@ -527,7 +535,7 @@ c_2&=&\frac{y_1(x_0)k_1-y_1'(x_0)k_0}
 \end{equation}
 no matter how $k_0$ and $k_1$ are chosen. This motivates us to
 consider conditions on $y_1$ and $y_2$ that imply \eqref{eq:5.1.25}.
-
+ 
 \begin{theorem}\label{thmtype:5.1.4}
 Suppose $p$ and $q$ are continuous on $(a,b),$ let $y_1$ and
 $y_2$ be solutions of
@@ -546,9 +554,9 @@ dt}, \quad a<x<b.
 Therefore  either $W$ has no zeros in  $(a,b)$ or $W\equiv0$
 on  $(a,b).$
 \end{theorem}
-
-
-
+ 
+ 
+ 
 \begin{proof}
 Differentiating \eqref{eq:5.1.28} yields
 \begin{equation}\label{eq:5.1.30}
@@ -577,16 +585,16 @@ implies \eqref{eq:5.1.29}. If $W(x_0)\ne0$, \eqref{eq:5.1.29} implies
 that
 $W$ has no zeros in $(a,b)$, since an exponential is never zero. On
 the other hand, if $W(x_0)=0$,  \eqref{eq:5.1.29} implies that $W(x)=0$
-for all $x$ in $(a,b)$. 
+for all $x$ in $(a,b)$.
 \end{proof}
-
+ 
 The function $W$ defined in \eqref{eq:5.1.28} is  the
 \href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Wronski.html}
 {Wronskian of $\{y_1,y_2\}$}.
  Formula \eqref{eq:5.1.29} is
  \href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Abel.html}
 {Abel's formula}.
-
+ 
 The Wronskian of  $\{y_1,y_2\}$ is usually written as the determinant
 $$
 W=\left| \begin{array}{cc}
@@ -611,7 +619,7 @@ y'_1(x_0) &k_1
 $$
 If you've taken linear algebra you may recognize this as
 \href{http://www-history.mcs.st-and.ac.uk/Mathematicians/Cramer.html}{Cramer's rule}.
-
+ 
 \begin{example}\label{example:5.1.5}
 Verify Abel's formula for the following differential equations and the
 corresponding solutions, from  Examples~\ref{example:5.1.1},
@@ -634,7 +642,7 @@ e^x & -e^{-x}
 \end{array} \right|=e^x(-e^{-x})-e^xe^{-x}=-2
 $$
 for all $x$.
-
+ 
 \ref{item:5.1.5b} Again, since $p\equiv0$, we can verify Abel's
 formula
 by showing that $W$ is constant, which is true, since
@@ -647,7 +655,7 @@ W(x)&=&\left| \begin{array}{cc}
 x\\ &=&\omega(\cos^2\omega x+\sin^2\omega x)=\omega
 \end{eqnarray*}
 for all $x$.
-
+ 
 \ref{item:5.1.5c}
 Computing the Wronskian of $y_1=x^2$ and
 $y_2=1/x^2$ directly yields
@@ -679,12 +687,12 @@ W(x)&=&W(x_0)e^{-\ln(x/x_0)}=W(x_0)\frac{x_0}{x}\\
 which is consistent with \eqref{eq:5.1.31}.
 \end{explanation}
 \end{example}
-
-
-
+ 
+ 
+ 
 The next theorem will enable us to complete the proof of
 Theorem~\ref{thmtype:5.1.3}.
-
+ 
 \begin{theorem}\label{thmtype:5.1.5}
  Suppose  $p$ and $q$ are continuous on an open interval $(a,b),$
  let $y_1$ and $y_2$ be solutions of
@@ -695,7 +703,7 @@ on  $(a,b),$ and let $W=y_1y_2'-y_1'y_2.$
 Then $y_1$ and $y_2$ are linearly independent on  $(a,b)$ if and only
 if $W$ has no zeros on  $(a,b).$
 \end{theorem}
-
+ 
 \begin{proof}
 We first show that if $W(x_0)=0$ for some $x_0$ in  $(a,b)$, then
 $y_1$ and $y_2$ are linearly dependent on  $(a,b)$.  Let $I$ be a
@@ -726,7 +734,7 @@ Theorem~\ref{thmtype:5.1.1}. %(See also Exercise~\ref{exer:5.1.24}).
  Hence, $y_2-cy_1\equiv0$
 on  $(a,b)$, which implies that $y_1$ and $y_2$ are not linearly
 independent on  $(a,b)$.
-
+ 
 Now suppose   $W$ has no zeros on  $(a,b)$.  Then $y_1$
 can't be identically zero on  $(a,b)$ (why not?), and therefore there
 is a subinterval $I$ of  $(a,b)$ on which $y_1$ has no zeros. Since
@@ -749,11 +757,11 @@ it,  $\{y_1,y_2\}$ is  a fundamental set of solutions of
 \eqref{eq:5.1.32}  if and only if $W$ has no zeros on  $(a,b)$.
 Therefore  $\{y_1,y_2\}$ is   a fundamental set
 for \eqref{eq:5.1.32} on  $(a,b)$ if and only if  $\{y_1,y_2\}$
-is linearly independent on $(a,b)$.  
+is linearly independent on $(a,b)$. 
 \end{proof}
 The next theorem summarizes the relationships among the
 concepts discussed in this section.
-
+ 
 \begin{theorem}\label{thmtype:5.1.6}
  Suppose  $p$ and $q$ are continuous on an open interval $(a,b)$
 and  let $y_1$ and $y_2$ be solutions of
@@ -777,15 +785,15 @@ The Wronskian of   $\{y_1,y_2\}$ is nonzero at some point in  $(a,b)$.
 The Wronskian of   $\{y_1,y_2\}$ is nonzero at all points in  $(a,b)$.
 \end{enumerate}
 \end{theorem}
-
+ 
 We can apply this theorem to an equation written as
 $$
 P_0(x)y''+P_1(x)y'+P_2(x)y=0
 $$
 on an interval $(a,b)$ where $P_0$, $P_1$, and $P_2$
 are continuous and $P_0$ has no zeros.
-
-
+ 
+ 
 \begin{theorem}\label{thmtype:5.1.7}
 Suppose  $c$ is in $(a,b)$ and $\alpha$ and $\beta$  are real numbers,
 not both zero.
@@ -793,12 +801,12 @@ Under the assumptions of Theorem~\ref{thmtype:5.1.7}, suppose
 $y_{1}$ and $y_{2}$ are  solutions  of \eqref{eq:5.1.34}   such that
 \begin{equation} \label{eq:5.1.35}
 \alpha y_{1}(c)+\beta y_{1}'(c)=0\quad\text{and}\quad
-\alpha y_{2}(c)+\beta y_{2}'(c)=0.
+\alpha y_{2}(c)+\beta y_{2}'(c u)=0.
 \end{equation}
 Then $\{y_{1},y_{2}\}$ isn't  linearly independent on $(a,b)$.
 \end{theorem}
-
-
+ 
+ 
 \begin{proof} Since $\alpha$ and $\beta$ are not both zero,   \eqref{eq:5.1.35}
 implies that
 $$
@@ -811,11 +819,11 @@ y_{1}(c)&y_{2}(c)\\ y_{1}'(c)&y_{2}'(c)
 $$
 and Theorem~\ref{thmtype:5.1.6} implies the stated conclusion.
 \end{proof}
-
+ 
 \section*{Text Source}
 Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
-
+ 
 \href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
-
-
+ 
+ 
 \end{document}
