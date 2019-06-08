@@ -1,25 +1,25 @@
 \documentclass{ximera}
-
+ 
 \input{../preamble.tex}
-
+ 
 \usetikzlibrary{backgrounds} % added by Felipe
-
-
-\title{Direction Fields for First Order Equations}
+ 
+ 
+\title{1.3 Direction Fields for First Order Equations}
 \author{Adapted from Section 1.3 of W.F. Trench}
-
+ 
 \begin{document}%\label{Module 4}
-
+ 
 \begin{abstract}
 We explore direction fields (also called slope fields) for some examples of first order differential equations.
 \end{abstract}
-
+ 
 \maketitle
-
+ 
 \section*{Direction Fields for First Order Equations}
-
+ 
 %this is Anna's addition to Trench
-
+ 
 %Recall that, geometrically speaking, the value of the first derivative of a function at a point is the slope of the tangent line to the graph of the function at that point. So, given a differential equation of the form
 %$$y'=f(x,y)$$
 %we can interpret the value $f(a, b)$ as the slope of the tangent line to the graph of $y(x)$ at the point $(a, b)$.  For example, given the equation
@@ -30,21 +30,21 @@ We explore direction fields (also called slope fields) for some examples of firs
 %\draw[thin,gray!40] (-4,-4) grid (4,4);
 %  \draw[<->] (-4,0)--(4,0);
 %  \draw[<->] (0,-4)--(0,4);
-  
+   
 %  \draw[line width=2pt,red,-stealth](0,0)--(2,1) node[below right]{$\begin{bmatrix}2\\1\end{bmatrix}$};
 %\draw[line width=2pt,red,-stealth, dashed](0,0)--(4,2) node[below right]{$2\begin{bmatrix}2\\1\end{bmatrix}$};
 %  \draw[line width=2pt,blue,-stealth](0,0)--(2,-2) node[right]{$\begin{bmatrix}2\\-2\end{bmatrix}$};
 % \draw[line width=2pt,blue,-stealth, dashed](0,0)--(-2,2) node[above left]{$(-1)\begin{bmatrix}2\\-2\end{bmatrix}$};
-% \draw[line width=2pt,-stealth](0,0)--(2,4); 
+% \draw[line width=2pt,-stealth](0,0)--(2,4);
 %\end{tikzpicture}
 %\end{center}
-
+ 
 %So, the graph satisfying the initial condition $y(1)=3$ passes through the point $(1,3)$ in such a way that the tangent line to the graph has slope $m=-2$.
-
+ 
 %another tikz
-
-%Plotting multiple tangent lines helps us visualize what the solution curves might look like. Plotting tangent lines to solution curves at every point in the plane is impossible, but we can use technology to plot such tangent lines to some select points in the plane.  The resulting plot is called a \dfn{slope field}.  For example, the slope field for $y'=x-y$ looks like this:   
-
+ 
+%Plotting multiple tangent lines helps us visualize what the solution curves might look like. Plotting tangent lines to solution curves at every point in the plane is impossible, but we can use technology to plot such tangent lines to some select points in the plane.  The resulting plot is called a \dfn{slope field}.  For example, the slope field for $y'=x-y$ looks like this:  
+ 
 We cannot (yet!) solve the differential equation
 \[
 y' = x+y
@@ -61,7 +61,7 @@ y' = x+y
 \]
 tells us the \textbf{slope} of any solution passing through a given
 point.
- 
+  
 \begin{question}\label{quest:slopeAt1minus2}
   Consider the solution $y$ to the differential equation $y'=x+y$
   which passes through the point $(1,-2)$. What is the slope of the tangent line to
@@ -78,8 +78,8 @@ point.
     \begin{prompt}
       The slope of $y$ at $x=1$ is $\answer{-1}$.
     \end{prompt}
-\end{question} 
- 
+\end{question}
+  
 %\begin{exploration}\label{init:incDecSlopeField}
 %  Consider the solution $y$ to the differential equation $y'=x+y$
 %  which passes through the point $(1,2)$.  Is $y$ increasing or
@@ -101,15 +101,15 @@ point.
  %   This is positive, so the function is increasing at $x=1$.
  % \end{hint}
 %\end{exploration}
-
-
  
+ 
+  
 Given a differential equation, say $y'=x+y$, we can pick points in the
 plane and compute what the slope of a solution at those points will
 be. Repeating this process, we can generate a \textit{slope field}.
 The slope field for the differential equation $y' = x+y$ looks like
 this:
-
+ 
 \begin{image}
 \begin{tikzpicture}
 \def\length{sqrt(1+(x+y)^2)}
@@ -124,9 +124,9 @@ this:
 ]  \end{axis}
 \end{tikzpicture}
 \end{image}
- 
+  
 Let's be explicit:
-\begin{definition}
+\begin{definition}\label{def:directionField}
   A \dfn{slope field}, also called a \dfn{direction field}, is a
   graphical aid for understanding a differential equation, formed by:
   \begin{itemize}
@@ -138,10 +138,10 @@ Let's be explicit:
           slope.
 \end{itemize}
 \end{definition}
- 
+  
 Here is the slope field for the differential equation $y'=x+y$, with a
 few solutions of the differential equation also graphed.
- 
+  
 \begin{image}
 {\def\length{sqrt(1+(x+y)^2)}
 \begin{tikzpicture}
@@ -163,10 +163,10 @@ few solutions of the differential equation also graphed.
 ]  \end{axis}
 \end{tikzpicture}}
 \end{image}
-
-Each of the many solutions to the differential equation $y'=x+y$ is determined by initial conditions.  
+ 
+Each of the many solutions to the differential equation $y'=x+y$ is determined by initial conditions. 
 The following interactive allows you to input the initial condition $(a, b)$ in the dialog box.  The output displays the slope field together with point $(a, b)$ and the solution that satisfies the initial condition.
-
+ 
 \begin{sageCell}
 @interact
 def _(a=input_box(1, width=5),b=input_box(1, width=5)):
@@ -177,10 +177,10 @@ def _(a=input_box(1, width=5),b=input_box(1, width=5)):
     p=point((a,b),rgbcolor=hue(1))
     show(v+d+p)
 \end{sageCell}
-
+ 
 \begin{question}\label{quest:slopefieldsguess}
 Which of the five slope fields corresponds to the equation $y'=y^2$
-
+ 
 \begin{multipleChoice}
 \choice[correct]{{\def\length{sqrt(1+(y^2+y)^2)}
 \begin{tikzpicture}[framed,scale=.5,baseline=9ex]
@@ -195,7 +195,7 @@ Which of the five slope fields corresponds to the equation $y'=y^2$
 ]  \end{axis}
 \end{tikzpicture}}
 }
- 
+  
 \choice{{\def\length{sqrt(1+(x-y)^2)}
 \begin{tikzpicture}[framed,scale=.5,baseline=9ex]
   \begin{axis}[
@@ -209,7 +209,7 @@ Which of the five slope fields corresponds to the equation $y'=y^2$
 ]  \end{axis}
 \end{tikzpicture}}
 }
- 
+  
 \choice{{\def\length{sqrt(1+(x)^2)}
 \begin{tikzpicture}[framed,scale=.5,baseline=9ex]
   \begin{axis}[
@@ -223,7 +223,7 @@ Which of the five slope fields corresponds to the equation $y'=y^2$
 ]  \end{axis}
 \end{tikzpicture}}
 }
- 
+  
 \choice{{\def\length{sqrt(1+(y)^2)}
 \begin{tikzpicture}[framed,scale=.5,baseline=9ex]
   \begin{axis}[      xmin=-3, xmax=3,ymin=-3,ymax=3,domain=-3:3,view={0}{90},
@@ -236,7 +236,7 @@ Which of the five slope fields corresponds to the equation $y'=y^2$
 ]  \end{axis}
 \end{tikzpicture}}
 }
- 
+  
 \choice{{\def\length{sqrt(1+(-x/y)^2)}
 \begin{tikzpicture}[framed,scale=.5,baseline=9ex]
   \begin{axis}[
@@ -254,22 +254,22 @@ Which of the five slope fields corresponds to the equation $y'=y^2$
 \begin{hint}
   Consider slopes of tangent lines in key areas, such as the origin, each of the four quadrants.  Are the tangent lines getting steeper as $x$ or $y$ increases?
 \end{hint}
-
+ 
 \end{question}
-
+ 
 %\begin{sageCell}
 %x,y=var('x, y')
 %v=plot_slope_field((x-y),(x,-1,1),(y,-1,1),headaxislength=3, headlength=3)
 %show(v)
 %\end{sageCell}
-
+ 
 %Anna's text transitions into Trench.
 Given a differential equation such as $y'=x+y$, it is easy to find an explicit solution to the equation.  (You may want to verify that functions of the form $y=ce^x-x-1$ are solutions.)  However, it's impossible to find explicit formulas for solutions of some
 differential equations. Even if there are such  formulas, they may be
 so complicated that they're useless. In this case we may resort to
 graphical or numerical methods to get some idea of how the solutions
 of the given equation behave. Slope fields offer us one such method.
-
+ 
 % {\color{red}In a later module} we'll take up
 %the question of existence of solutions of a first order equation
 %\begin{equation} \label{eq:1.3.1}
@@ -279,7 +279,7 @@ of the given equation behave. Slope fields offer us one such method.
 %solutions and discuss a graphical method for approximating them.
 %In {\color{red}Chapter~3} we discuss numerical methods for obtaining
 %approximate solutions of \eqref{eq:1.3.1}.
-
+ 
 %Recall that a solution of \eqref{eq:1.3.1} is a function $y=y(x)$ such
 %that
 %$$
@@ -294,7 +294,7 @@ of the given equation behave. Slope fields offer us one such method.
 %slopes of these curves. To be specific, the slope of an integral curve
 %of \eqref{eq:1.3.1} through a given point $(x_0,y_0)$ is given by the
 %number $f(x_0,y_0)$. This is the basis of \dfn{the method of direction fields}.
-
+ 
 %If $f$ is defined on a set $R$, we can construct a direction
 %field for \eqref{eq:1.3.1}  in $R$ by drawing a
 %short
@@ -327,7 +327,7 @@ of the given equation behave. Slope fields offer us one such method.
 %close together, we can draw approximate integral curves of \eqref{eq:1.3.1}
 %by drawing curves through points in the grid tangent to the line
 %segments associated with the points in the grid.
-
+ 
 %Unfortunately, approximating a direction field and graphing integral
 %curves in this way is too tedious to be done effectively by hand.
 %However, there is software  for doing this.
@@ -335,9 +335,9 @@ As we will  see, the combination of  direction fields and
  integral curves gives  useful insights into the behavior of
 the solutions of the differential equation even if
 we can't obtain exact solutions.
-
+ 
 We'll study numerical methods for solving a single first order
-equation \eqref{eq:1.3.1} in Modules \ref{Module 5-1} to \ref{Module 5-3}. These methods can be
+equation \eqref{eq:1.3.1} in \href{https://ximera.osu.edu/ode/main/eulersMethod/eulersMethod}{Trench 3.1} - \href{https://ximera.osu.edu/ode/main/rungeKutta/rungeKutta}{Trench 3.3}. These methods can be
 used
 to plot solution curves of \eqref{eq:1.3.1} in a rectangular region $R$ if $f$ is continuous on $R$. The figures in the three examples below show direction fields and solution
 curves for several differential equations of the form \eqref{eq:1.3.1} with $f$
@@ -350,7 +350,7 @@ $$
   \includegraphics[height=1.5in]{fig010302.jpg}
 \end{image}
 \end{example}
-
+ 
 \begin{example}\label{ex:fig010303}
 $$
 y'=1+xy^2
@@ -367,7 +367,7 @@ $$
    \includegraphics[height=1.5in]{fig010304.jpg}
 \end{image}
 \end{example}
-The methods of Modules \ref{Module 5-1} to \ref{Module 5-3} won't work for the equation
+The methods of \href{https://ximera.osu.edu/ode/main/eulersMethod/eulersMethod}{Trench 3.1} - \href{https://ximera.osu.edu/ode/main/rungeKutta/rungeKutta}{Trench 3.3} won't work for the equation
 \begin{equation} \label{eq:1.3.2}
 y'=-\frac{x}{y}
 \end{equation}
@@ -395,7 +395,7 @@ $$
 y'=\frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{A(x,y)}{B(x,y)},
 $$
 so $y=y(x)$ satisfies \eqref{eq:1.3.4}.
-
+ 
 Eqns.~\eqref{eq:1.3.2} and \eqref{eq:1.3.3} can be reformulated as in
 \eqref{eq:1.3.4} with
 $$
@@ -405,19 +405,19 @@ and
 $$
 \frac{dx}{dt}=1-x^2-y^2,\quad \frac{dy}{dt}=x^2,
 $$
-respectively. 
-
+respectively.
+ 
 The figure below shows a direction field and some integral curves
 for $y'=-\frac{x}{y}$. As we saw in
 Example~\ref{example:1.2.1}, the integral curves of \eqref{eq:1.3.2}
 are circles centered at the origin.
-
+ 
 \begin{image}
 \includegraphics[height=1.5in]{fig010305.jpg}
 \end{image}
-
+ 
 The figure below shows a direction field and some integral curves
-for $y'=\frac{x^2}{1-x^2-y^2}$. 
+for $y'=\frac{x^2}{1-x^2-y^2}$.
 \begin{image}
 \includegraphics[height=1.5in]{fig010306.jpg}
 \end{image}
@@ -426,7 +426,7 @@ solution curves. However, the integral curves near the middle are more
 complicated. For example, the figure below shows the integral
 curve through the origin. The vertices of the dashed rectangle are on
 the circle $x^2+y^2=1$ ($a\approx.846$, $b\approx.533$), where all
-integral curves of \eqref{eq:1.3.3} have infinite slope. 
+integral curves of \eqref{eq:1.3.3} have infinite slope.
 \begin{image}
 \includegraphics[height=1.5in]{fig010307.jpg}
 \end{image}
@@ -436,7 +436,7 @@ figure: the segment above the level $y=b$ is the graph of a solution
 on $(-\infty,a)$, the segment below the level $y=-b$ is the graph of a
 solution on $(-a,\infty)$, and the segment between these two levels is
 the graph of a solution on $(-a,a)$.
-
+ 
 Even if $f$ is continuous and otherwise ``nice''
 throughout $R$, your software  may require you to
 reformulate the equation $y'=f(x,y)$ as
@@ -445,9 +445,9 @@ $$
 $$
 which is of the form \eqref{eq:1.3.5} with $A(x,y)=f(x,y)$ and
 $B(x,y)=1$.
-
+ 
 As you study from this book, you'll often be asked to use
-computer software and graphics. 
+computer software and graphics.
 %Exercises with this intent are marked
 %as \Cex\, (computer or calculator required), \CGex\, (computer and/or
 %graphics required), or \Lex\ (laboratory work requiring software
@@ -459,17 +459,17 @@ automobiles or watch television, and it doesn't decrease the value
 of using modern technology as an aid to learning. Just be careful that
 you use the technology as a supplement to thought rather than a
 substitute for it.
-
-
-
+ 
+ 
+ 
 \section*{Text Source}
-
+ 
 \href{https://github.com/mooculus/calculus}{MOOCulus}, \href{https://github.com/mooculus/calculus/blob/6255bcdf3fae1b17972a7ae4883841bf25464c61/numericalMethods/digInSlopeFieldsAndEulersMethod.tex#L22}{Numerical Methods} (CC-BY-NC-SA)
-
-
+ 
+ 
 Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
-
+ 
 \href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
-
-
+ 
+ 
 \end{document}

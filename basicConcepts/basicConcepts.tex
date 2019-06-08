@@ -1,17 +1,17 @@
 \documentclass{ximera}
-
+ 
 \input{../preamble.tex}
-
-\title{Basic Concepts}
-
+ 
+\title{1.2 Basic Concepts}
+ 
 \begin{document}%\label{Module 0}
-
+ 
 \begin{abstract}
 We define ordinary differential equations and what it means for a function to be a solution to such an equation.
 \end{abstract}
-
+ 
 \maketitle
-
+ 
 \section*{Basic Concepts}
 \subsection*{What is a Differential Equation?}
 A \dfn{differential equation} is an equation that contains one or more
@@ -23,11 +23,11 @@ function of only one variable, or a \dfn{partial differential
 equation} if it involves partial derivatives of a function of more
 than one variable. For now we'll consider only ordinary differential
 equations, and we'll just call them \dfn{differential equations}.
-
+ 
 Throughout this text, all variables and constants are real numbers unless it's
 stated otherwise. We'll usually use $x$ for the independent variable
 unless the independent variable is time; then we'll use $t$.
-
+ 
 The simplest differential equations are first order equations of the
 form
 $$
@@ -50,7 +50,7 @@ equations of the form
 y^{(n)}=f(x)
 \end{equation}
 by repeated integration. Again, this is a calculus problem.
-
+ 
 Except for illustrative purposes in this section, there's no need to
 consider differential equations like \eqref{eq:1.2.1}.  We'll
 usually consider differential equations that can be written as
@@ -81,9 +81,9 @@ y'''&=&\frac{\sin x-y^2}{x}
 \\ y^{(n)}&=&x-xy'-3y
 \end{array}
 $$
-
+ 
 \subsection*{Solutions of Differential Equations}
-
+ 
 A \dfn{solution} of a differential equation is a function that
 satisfies the differential equation on some open interval;   thus, $y$
 is a solution of \eqref{eq:1.2.2} if $y$ is $n$ times differentiable and
@@ -100,7 +100,7 @@ $$
 if and only if $x=0$ or $x=1$, but it's not a solution of this
 differential equation because it does not satisfy the equation on an
 open interval.
-
+ 
 The graph of a solution of a differential equation is  a \dfn{
 solution curve}. More generally, a curve $C$ is said to be an \dfn{
 integral curve} of a differential equation if every function
@@ -108,7 +108,7 @@ $y=y(x)$ whose graph is a segment of $C$ is a solution of the
 differential equation. Thus, any solution curve of a differential
 equation is an integral curve, but an integral curve need not be a
 solution curve.
-
+ 
 \begin{example}
 \label{example:1.2.1}
 If $a$ is any positive constant,  the circle
@@ -129,7 +129,7 @@ We leave it to you to verify that these functions both satisfy
 not a solution
 curve of \eqref{eq:1.2.4}, since it's not the graph of a function.
 \end{example}
-
+ 
 \begin{example}\label{example:1.2.2}
 Verify that
 \begin{equation} \label{eq:1.2.5}
@@ -140,7 +140,7 @@ is a solution of
 xy'+y=x^2
 \end{equation}
  on $(0,\infty)$ and on $(-\infty,0)$.
- 
+  
 \begin{explanation}
 Substituting \eqref{eq:1.2.5} and
 $$
@@ -156,17 +156,17 @@ on $(-\infty,0)$ and $(0,\infty)$.
  However, $y$ isn't  a solution of the differential
 equation on any open interval that contains $x=0$, since  $y$ is
 not defined at  $x=0$.
-
+ 
 The graph of \eqref{eq:1.2.5} appears below
-
+ 
 \desmos{zbsiqyq1os}{800}{600}
-
+ 
 The part
 of the graph of \eqref{eq:1.2.5} on $(0,\infty)$ is a solution curve of
 \eqref{eq:1.2.6}, as is the part of the graph on $(-\infty,0)$.
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:1.2.3}
  Show that if $c_1$ and $c_2$ are constants then
 \begin{equation} \label{eq:1.2.7}
@@ -177,8 +177,8 @@ y=(c_1+c_2x)e^{-x}+2x-4
 y''+2y'+y=2x
 \end{equation}
  on $(-\infty,\infty)$.
-
-\begin{explanation} 
+ 
+\begin{explanation}
 Differentiating \eqref{eq:1.2.7} twice yields
 $$
 y'=-(c_1+c_2x)e^{-x}+c_2e^{-x}+2
@@ -198,13 +198,13 @@ for all values of $x$.
 Therefore $y$ is a solution of \eqref{eq:1.2.8} on $(-\infty,\infty)$.
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:1.2.4}
 Find all solutions of
 \begin{equation} \label{eq:1.2.9}
 y^{(n)}=e^{2x}.
 \end{equation}
-
+ 
 \begin{explanation} Integrating \eqref{eq:1.2.9} yields
 $$
 y^{(n-1)}=\frac{e^{2x}}{2}+k_1,
@@ -229,7 +229,7 @@ in
 \eqref{eq:1.2.10} satisfies \eqref{eq:1.2.9}.
 \end{explanation}
 \end{example}
-
+ 
 Since the constants $k_1, k_2, \dots, k_n$  in \eqref{eq:1.2.10}
 are arbitrary, so are the constants
 $$\frac{k_1}{(n-1)!},\, \frac{k_2}{(n-2)!},\, \cdots, \, k_n.$$
@@ -243,9 +243,9 @@ $$
 general rule, arbitrary constants appearing in solutions  of differential
 equations should be simplified if possible. You'll see examples
 of this throughout the text.
-
+ 
 \subsection*{Initial Value Problems}
-
+ 
 In Example~\ref{example:1.2.4} we saw that the differential equation
 $y^{(n)}=e^{2x}$ has an infinite \dfn{family of solutions} that depend upon
 the $n$ arbitrary constants $c_1, c_2, \dots, c_n$. In the absence of
@@ -254,14 +254,14 @@ differential equation over another. However, we'll often be
 interested in finding a solution of a differential equation that
 satisfies one or more specific conditions. The next example
 illustrates this.
-
+ 
 \begin{example}\label{example:1.2.5}
  Find a solution of
 $$
 y'=x^3
 $$
  such that $y(1)=2$.
-
+ 
 \begin{explanation}  At the beginning of this section we saw
 that the  solutions of $y'=x^3$ are
 $$
@@ -278,18 +278,18 @@ y=\frac{x^4+\answer{7}}{\answer{4}}.
 $$
 The Desmos interactive below allows you to see several members of the family of solutions.  Note that imposing the  condition $y(1)=2$ is equivalent to requiring
  the graph of $y$ to pass through the point $(1,2)$.  Use the slider to find the value of $c$ that makes the solution satisfy $y(1)=2$.  Verify that the value that you have found graphically agrees with the computed value.
+  
+\desmos{zwrgfciyd3}{800}{600}
  
-\desmos{zwrgfciyd3}{800}{600} 
-
 \end{explanation}
 \end{example}
-
+ 
  We can rewrite the problem considered in Example~\ref{example:1.2.5}
 more briefly as
 $$
 y'=x^3,\quad y(1)=2.
 $$
-
+ 
  We call this an \dfn{initial value problem}.
 The requirement $y(1)=2$ is an \dfn{initial condition}.
  Initial value problems can also be
@@ -303,7 +303,7 @@ equation where $y$ and $y'$ are required to have specified values at
 problem for an $n$-th order differential equation requires $y$ and its
 first $n-1$ derivatives to have specified values at some point $x_0$.
 These requirements are the \dfn{initial conditions}.
-
+ 
 We'll denote an initial value problem for a differential equation by
 writing the initial conditions after the equation, as in
 \eqref{eq:1.2.11}. For example, we would write an initial value problem
@@ -324,7 +324,7 @@ and  $y$ satisfies the initial conditions in \eqref{eq:1.2.12}. The
 largest open interval that contains $x_0$ on which $y$ is defined and
 satisfies the differential equation is  the \dfn{interval of
 validity} of $y$.
-
+ 
 \begin{example}\label{example:1.2.6}
 In Example~\ref{example:1.2.5} we saw that
 \begin{equation} \label{eq:1.2.13}
@@ -337,7 +337,7 @@ $$
 Since the function in \eqref{eq:1.2.13} is defined for all $x$, the
 interval of validity of this solution is $(-\infty,\infty)$.
 \end{example}
-
+ 
 \begin{example}\label{example:1.2.7}
 In Example~\ref{example:1.2.2} we verified that
 \begin{equation} \label{eq:1.2.14}
@@ -359,27 +359,27 @@ xy'+y=x^2,\quad y(-1)=-\frac{2}{3}.
 \end{equation}
 The interval of validity of \eqref{eq:1.2.14} as a solution of
 \eqref{eq:1.2.15} is $(0,\infty)$, since this is the largest interval
-that contains $x_0=1$ on which \eqref{eq:1.2.14} is defined. 
-
-\desmos{xzhmpxofig}{800}{600} 
-
+that contains $x_0=1$ on which \eqref{eq:1.2.14} is defined.
+ 
+\desmos{xzhmpxofig}{800}{600}
+ 
 Similarly, the
 interval of validity of \eqref{eq:1.2.14} as a solution of \eqref{eq:1.2.16}
 is $(-\infty,0)$, since this is the largest interval that contains
 $x_0=-1$ on which \eqref{eq:1.2.14} is defined.
-
-\desmos{citkz0ppdp}{800}{600} 
-
+ 
+\desmos{citkz0ppdp}{800}{600}
+ 
 \end{example}
-
+ 
 \subsection*{Free Fall Under Constant Gravity}
-
+ 
 The term \dfn{initial value problem}  originated in problems
 of motion where the independent variable is $t$
 (representing elapsed time), and the initial conditions
 are the position and velocity of an object at the initial
 (starting) time of an experiment.
-
+ 
 \begin{example}\label{example:1.2.8}
 An object falls under the influence of gravity near Earth's
 surface, where it can be assumed that the magnitude of the
@@ -395,8 +395,8 @@ the object.
  Solve the initial value problem derived in Part \ref{part:ex1.2.8partA} to obtain the
 altitude as a function of time.
 \end{enumerate}
-
-
+ 
+ 
 \begin{explanation} Part \ref{part:ex1.2.8partA}. Let $y(t)$ be the altitude of the object at time $t$.
  Since the acceleration of the object has
 constant magnitude $g$ and is in the downward (negative) direction,
@@ -410,7 +410,7 @@ $t=0$, then $y$ is a solution of the initial value problem
 \begin{equation} \label{eq:1.2.17}
 y''=-g,\quad  y(0)=y_0,\quad y'(0)=v_0.
 \end{equation}
-
+ 
 Part \ref{part:ex1.2.8partB}.
 Integrating \eqref{eq:1.2.17} twice yields
 \begin{eqnarray*}
@@ -425,10 +425,10 @@ y=- \frac{gt^2}{2}+v_0t+y_0.
 $$
 \end{explanation}
 \end{example}
-
-
+ 
+ 
 \section*{Text Source}
 Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
-
+ 
 \href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
 \end{document}
