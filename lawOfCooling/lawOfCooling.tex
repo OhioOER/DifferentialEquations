@@ -1,22 +1,22 @@
 \documentclass{ximera}
-
+ 
 \input{../preamble.tex}
-
-\title{Newton's Law of Cooling}
-
-
+ 
+\title{4.2A Newton's Law of Cooling}
+ 
+ 
 \begin{document}
-
+ 
 \begin{abstract}
-
+ We study Newton's Law of Cooling as an application of a first order separable differential equation.
 \end{abstract}
-
+ 
 \maketitle
-
-
-
+ 
+ 
+ 
 \section*{Newton's Law of Cooling}
-
+ 
 Newton's law of cooling states that if an object with temperature
 $T(t)$ at time $t$ is in a medium with temperature $T_m(t)$,  the
 rate of change of $T$ at time $t$ is proportional to $T(t)-T_m(t)$;
@@ -27,16 +27,16 @@ T'=-k(T-T_m).
 \end{equation}
  Here $k > 0$, since the temperature of the object must decrease if
 $T > T_m$, or increase if $T < T_m$.  We'll call $k$  the \textit{temperature decay constant of the medium}.
-
+ 
 For simplicity, in this section we'll assume  that the medium is
 maintained at a constant temperature $T_m$. This is another example of
  building a simple mathematical model for a physical
 phenomenon. Like most mathematical models it has its limitations. For
 example, it's reasonable to assume that the temperature of a room
 remains approximately constant if the cooling object is a cup of
-coffee, but perhaps not if it's a huge cauldron of molten metal. 
-
-
+coffee, but perhaps not if it's a huge cauldron of molten metal.
+ 
+ 
 To solve  \eqref{eq:4.2.1}, we rewrite it as
 $$
 T'+kT=kT_m.
@@ -56,8 +56,8 @@ If $T(0)=T_0$,  setting $t=0$ here yields $c=T_0-T_m$, so
 T=T_m+(T_0-T_m)e^{-kt}.
 \end{equation}
 Note that $T-T_m$ decays exponentially, with decay constant $k$.
-
-
+ 
+ 
 \begin{example}\label{example:4.2.1}
 A ceramic insulator is baked at $400^\circ$C and cooled in a room in
 which the temperature is $25^\circ$C. After 4 minutes the
@@ -92,19 +92,19 @@ T(8) & = 25+375 e^{-2 \ln \frac{15}{7}} \\
 & = 25+375 \left(\frac{7}{15}\right)^2 \approx
 107^\circ \mbox{C}.
 \end{array}$$
-
+ 
 \begin{image}
   \includegraphics[height=1.5in]{fig040201.jpg} \end{image}
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:4.2.2}
 An object with temperature $72^\circ$F is placed outside, where the
 temperature is $-20^\circ$F. At 11:05 the temperature of the object
 is $60^\circ$F and at 11:07 its temperature is $50^\circ$F. At what
 time was the object placed outside?
-
-
+ 
+ 
 \begin{explanation} Let $T(t)$ be the temperature of the object at time $t$. For
 convenience, we choose the origin $t_0=0$ of the time scale to be
 11:05 so that $T_0=60$. We must determine the time $\tau$ when
@@ -156,17 +156,17 @@ $$
 Therefore the object was placed outside
 about $\answer{2}$ minutes and $\answer{5}$ seconds before 11:05; that is,
 at $11:\answer{02}:\answer{55}$.
-
+ 
 \begin{image}
   \includegraphics[height=1.5in]{fig040202.jpg} \end{image}
-
+ 
 \end{explanation}
 \end{example}
-
+ 
 \section*{Text Source}
 Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
-
+ 
 \href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
-
-
+ 
+ 
 \end{document}

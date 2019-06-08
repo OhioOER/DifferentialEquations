@@ -2,7 +2,7 @@
 
 \input{../preamble.tex}
 
-\title{Integrating Factors}
+\title{2.6 Integrating Factors}
 
 
 \begin{document}
@@ -16,7 +16,7 @@ We show how multiplying an equation by an integrating factor can make the equati
 
 
 \section*{Integrating Factors}
-In Module \ref{Module 1-C}, Exact Equations, we saw that if $M$, $N$, $M_y$ and $N_x$ are
+In \http{https://ximera.osu.edu/ode/main/exactEquations/exactEquations}{Trench 2.5}, Exact Equations, we saw that if $M$, $N$, $M_y$ and $N_x$ are
 continuous and $M_y=N_x$ on an open rectangle $R$ then
 \begin{equation} \label{eq:2.6.1}
 M(x,y)\,dx+N(x,y)\,dy=0
@@ -34,7 +34,7 @@ $M_y(x,y)=4y\neq  N_x(x,y)=2y$ in \eqref{eq:2.6.2}.
 \end{equation}
 which is exact, since
 $M_y(x,y)=N_x(x,y)=4xy$ in \eqref{eq:2.6.3}.
-Solving \eqref{eq:2.6.3} by the Procedure \ref{proc:solvingExactEq} of Module \ref{Module 1-C},
+Solving \eqref{eq:2.6.3} by Procedure \ref{proc:solvingExactEq} of \http{https://ximera.osu.edu/ode/main/exactEquations/exactEquations}{Trench 2.5},
  yields the implicit solution
 $$
 x^3+x^2y^2=c.
@@ -47,7 +47,7 @@ A function $\mu=\mu(x,y)$ is  an \dfn{integrating factor} for
  \end{equation}
  is exact. If we know an integrating
 factor $\mu$ for \eqref{eq:2.6.1}, we can solve the exact equation
-\eqref{eq:2.6.4} by Procedure \ref{proc:solvingExactEq} of Module \ref{Module 1-C}. It would be
+\eqref{eq:2.6.4} by Procedure \ref{proc:solvingExactEq} \http{https://ximera.osu.edu/ode/main/exactEquations/exactEquations}{Trench 2.5}. It would be
 nice
 if we could say that \eqref{eq:2.6.1} and \eqref{eq:2.6.4} always have the
 same solutions, but this isn't so. For example, a solution
@@ -249,19 +249,13 @@ $$
 is an implicit solution of \eqref{eq:2.6.14}. It is also an implicit solution
 of \eqref{eq:2.6.13}.
 
-Figure~\ref{figure:2.6.1}  shows a  direction field and some integral curves
+The figure below  shows a  direction field and some integral curves
 for \eqref{eq:2.6.13}
 
 \begin{image}
  \includegraphics[height=1.5in]{fig020601.jpg}
 \end{image}
-\begin{center}
-  \begin{figure}
-  \caption{A direction field and  integral curves for
-$(2xy^3-2x^3y^3-4xy^2+2x)\,dx+(3x^2y^2+4y)\,dy=0$}
-  \label{figure:2.6.1}
-\end{figure}
-\end{center}
+
 \end{explanation}
 \end{example}
 
@@ -316,7 +310,7 @@ F(x,y)=x^2y^3e^y+\phi(y).
 \end{equation}
 Differentiating this with respect to $y$ yields
 $$
-F_y=(\answer{3}x^{\answer{2}}y^{\answer{2}}+x^{\answer{2}}y^{\answer{3}})e^y+\phi'(y),
+F_y=(3x^2y^2+x^2y^3)e^y+\phi'(y),
 $$
 and comparing this with \eqref{eq:2.6.21} shows that $\phi'(y)=e^y$.
  Therefore we set $\phi(y)=e^y$ in \eqref{eq:2.6.22} and conclude
@@ -326,17 +320,12 @@ $$
 $$
 is an implicit solution of \eqref{eq:2.6.19}.
 It is also an implicit solution
- of \eqref{eq:2.6.18}. Figure~\ref{figure:2.6.2} shows a direction
+ of \eqref{eq:2.6.18}. The figure below shows a direction
 field and some integral curves for \eqref{eq:2.6.18}.
 \begin{image}
 \includegraphics[height=1.5in]{fig020602.jpg}
 \end{image}
-\begin{figure}
-\caption{
-A direction field and integral curves for
-$2xy^3e^y\,dx+(3x^2y^2+x^2y^3+1)e^y\,dy=0$}
-  \label{figure:2.6.2}
-\end{figure}
+
 \end{explanation}
 \end{example}
 
@@ -417,7 +406,7 @@ Since $x\equiv 0$ and $y\equiv 0$ satisfy \eqref{eq:2.6.25}, you should
 check to see that $x\equiv 0$ and $y\equiv 0$ are also solutions of
 \eqref{eq:2.6.23}. (Why is it necessary to check this?)
 
-Figure~\ref{figure:2.6.3} shows a direction field and integral curves for
+The figure below shows a direction field and integral curves for
 \eqref{eq:2.6.23}.
 
 %See Exercise~\ref{exer:2.6.28} for a general discussion of equations like \eqref{eq:2.6.23}.
@@ -425,14 +414,7 @@ Figure~\ref{figure:2.6.3} shows a direction field and integral curves for
 \begin{image}
 \includegraphics[height=1.5in]{fig020603.jpg}
 \end{image}
-\begin{center}
-\begin{figure}
- \caption{
-A direction field and integral curves for
-$(3xy+6y^2)\,dx+(2x^2+9xy)\,dy=0$}
-  \label{figure:2.6.3}
-\end{figure}
-\end{center}
+
 \end{explanation}
 \end{example}
 
@@ -451,7 +433,7 @@ by the  integrating factor
 $$
 \mu(x,y)=\frac{1}{y(x+x^6)}.
 $$
-However, to solve \eqref{eq:2.6.27} %by the method of Section~2.5
+However, to solve \eqref{eq:2.6.27} by the method of \http{https://ximera.osu.edu/ode/main/exactEquations/exactEquations}{Trench 2.5}
 we would have to evaluate the nasty integral
 $$
 \int \frac{dx}{x+x^6}.
@@ -514,18 +496,13 @@ $$
 by renaming the arbitrary constant.
  This is also a solution of \eqref{eq:2.6.26}.
 
-Figure~\ref{figure:2.6.4} shows a direction field and some integral curves
+The figure below shows a direction field and some integral curves
  for \eqref{eq:2.6.26}.
  
  \begin{image}
 \includegraphics[height=3.66in]{fig020604.jpg}
 \end{image}
-\begin{center}
-\begin{figure}
-  \caption{A direction field and integral curves for $-y\,dx+(x+x^6)\,dy=0$}
-  \label{figure:2.6.4}
-\end{figure}
- \end{center}
+
 \end{example}
 
 \section*{Text Source}

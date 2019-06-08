@@ -1,21 +1,21 @@
 \documentclass{ximera}
-
+ 
 \input{../preamble.tex}
-
-\title{Separable Equations}
-
-
+ 
+\title{2.2 Separable Equations}
+ 
+ 
 \begin{document}%\label{module1-A}
-
+ 
 \begin{abstract}
 We define what it means for a first order equation to be separable, and we work out solutions to a few examples of separable equations.
 \end{abstract}
-
+ 
 \maketitle
-
+ 
 \section*{Separable Equations}
-
-
+ 
+ 
 A first order differential equation  is  \dfn{separable} if it can be written as
 \begin{equation} \label{eq:2.2.1}
 h(y)y'=g(x),
@@ -23,12 +23,12 @@ h(y)y'=g(x),
 where the left side is a product of $y'$ and a function of $y$ and
 the right side is a function of $x$. Rewriting a separable
 differential equation in this form is called \dfn{separation of
-variables}. 
-
+variables}.
+ 
 %In {\color{red}Section~2.1} we used separation of variables
 %to solve homogeneous linear equations. In this section we'll apply
 %this method to nonlinear equations.
-
+ 
 To see how to solve \eqref{eq:2.2.1}, let's first assume that $y$
 is a solution.
 Let  $G(x)$ and $H(y)$ be antiderivatives of $g(x)$
@@ -63,12 +63,12 @@ $$
 h(y(x))y'(x)=g(x)
 $$
 because of \eqref{eq:2.2.2}.
-
+ 
 In conclusion, to solve \eqref{eq:2.2.1} it suffices to find
 functions $G=G(x)$ and $H=H(y)$ that satisfy \eqref{eq:2.2.2}.
 Then any differentiable function  $y=y(x)$  that satisfies
 \eqref{eq:2.2.3} is a solution of \eqref{eq:2.2.1}.
-
+ 
 \begin{example}\label{example:2.2.1}
 Solve the equation
 $$
@@ -90,28 +90,28 @@ y=\tan\left(\frac{x^2}{2}+c\right).
 $$
 \end{explanation}
 \end{example}
-
-\begin{example}\label{example:2.2.2} 
+ 
+\begin{example}\label{example:2.2.2}
 \begin{enumerate}
 \item\label{item:2.2.2a}
 Solve the equation
 \begin{equation} \label{eq:2.2.4}
 y'=-\frac{x}{y}.
 \end{equation}
-
+ 
 \item\label{item:2.2.2b}
 Solve the initial value problem
 \begin{equation} \label{eq:2.2.5}
 y'=-\frac{x}{y}, \quad y(1)=1.
 \end{equation}
-
+ 
 \item \label{item:2.2.2c}
 Solve the initial value problem
 \begin{equation} \label{eq:2.2.6}
 y'=-\frac{x}{y}, \quad y(1)=-2.
 \end{equation}
 \end{enumerate}
-
+ 
 \begin{explanation}
 \ref{item:2.2.2a} Separating variables
 in \eqref{eq:2.2.4}  yields
@@ -141,8 +141,12 @@ y= - \sqrt{a^2-x^2}, \quad -a < x < a.
 The solution curves defined by \eqref{eq:2.2.8}  are semicircles
 above the
 $x$-axis and  those defined by \eqref{eq:2.2.9}  are semicircles below the
-$x$-axis (Figure~\ref{figure:2.2.1}).
-
+$x$-axis (see figure below).
+ 
+\begin{image}
+  \includegraphics[height=1.5in]{fig020201.jpg}
+\end{image} 
+ 
 \ref{item:2.2.2b}  The solution of  \eqref{eq:2.2.5}
 is positive when $x=1$; hence, it  is of the form \eqref{eq:2.2.8}.
  Substituting $x=1$ and $y=1$ into \eqref{eq:2.2.7} to satisfy the
@@ -152,7 +156,7 @@ is
 $$
 y=\sqrt{2-x^2}, \quad - \sqrt{2}< x < \sqrt{2}.
 $$
-
+ 
 \ref{item:2.2.2c}  The solution of  \eqref{eq:2.2.6}
 is negative when $x=1$ and   is therefore of the form \eqref{eq:2.2.9}.
  Substituting $x=1$ and $y=-2$ into \eqref{eq:2.2.7} to satisfy the
@@ -161,19 +165,17 @@ is
 $$
 y=-\sqrt{\answer{5}-x^2}, \quad -\sqrt{\answer{5}} < x < \sqrt{\answer{5}}.
 $$
+ 
+ 
 
-
-\begin{image}
-  \includegraphics[height=1.5in]{fig020201.jpg}
-\end{image}
-
+ 
 \end{explanation}
 \end{example}
-
-
+ 
+ 
 \subsection*{Implicit Solutions of Separable Equations}
-
-
+ 
+ 
 In Examples~\ref{example:2.2.1} and \ref{example:2.2.2} we were able to
 solve the equation $H(y)=G(x)+c$ to obtain explicit formulas for
 solutions of the given separable differential equations. As we'll
@@ -183,7 +185,7 @@ separable equation. The next theorem provides the basis for this
 modification.  We omit the proof, which requires a result from
 advanced calculus called as the \dfn{implicit function
 theorem}.
-
+ 
 \begin{theorem}\label{thmtype:2.2.1}
 Suppose $g=g(x)$ is continuous on $(a,b)$ and $h=h(y)$
 are continuous on $(c,d)$. Let $G$ be an antiderivative of
@@ -205,8 +207,8 @@ Therefore $y$ is a solution of the initial value problem
 h(y)y'=g(x),\quad y(x_0)=x_0.
 \end{equation}
 \end{theorem}
-
-
+ 
+ 
 It's convenient to say that \eqref{eq:2.2.11} with $c$ arbitrary is an
 \dfn{implicit solution} of $h(y)y'=g(x)$. Curves defined by
 \eqref{eq:2.2.11} are integral curves of $h(y)y'=g(x)$. If $c$ satisfies
@@ -219,7 +221,7 @@ functions $y$ that satisfy \eqref{eq:2.2.11}.
 \item  The function $y$ in \eqref{eq:2.2.11} (not \eqref{eq:2.2.11} itself)
 is a solution of $h(y)y'=g(x)$.
 \end{itemize}
-
+ 
 \begin{example}\label{example:2.2.3}
 \begin{enumerate}
 \item\label{item:2.2.3a}
@@ -233,7 +235,7 @@ Find an implicit solution of
 y'=\frac{2x+1}{5y^4+1},\quad y(2)=1.
 \end{equation}
 \end{enumerate}
-
+ 
 \begin{explanation}
 \ref{item:2.2.3a}
  Separating variables yields
@@ -245,7 +247,7 @@ Integrating yields the implicit solution
 y^5+y=x^2+x+ c.
 \end{equation}
 of \eqref{eq:2.2.13}.
-
+ 
 \ref{item:2.2.3b} Imposing the initial condition $y(2)=1$ in
 \eqref{eq:2.2.15} yields $1+1=4+2+c$, so $c=-4$. Therefore
 $$
@@ -255,19 +257,19 @@ is an implicit solution of the initial value problem \eqref{eq:2.2.14}.
 Although more than one differentiable function $y=y(x)$ satisfies
 \ref{eq:2.2.13}) near $x=1$, it can be shown that there's only
 one such function that satisfies the initial condition $y(1)=2$.
-
+ 
 The figure below shows a direction field and some integral curves
 for \eqref{eq:2.2.13}.
-
+ 
 \begin{image}
     \includegraphics[height=1.5in]{fig020202.jpg}
 \end{image}
-
+ 
 \end{explanation}
 \end{example}
-
+ 
 \subsection*{Constant Solutions of Separable Equations}
-
+ 
 An equation of the form
 $$
 y'=g(x)p(y)
@@ -279,14 +281,14 @@ $$
  However, the division by  $p(y)$
 is not legitimate  if $p(y)=0$ for some values of $y$.  The
 next two examples show how to deal with this problem.
-
+ 
 \begin{example}\label{example:2.2.4}
 Find all solutions of
 \begin{equation} \label{eq:2.2.16}
 y'=2xy^2.
 \end{equation}
-
-\begin{explanation} 
+ 
+\begin{explanation}
 Here we must divide by $p(y)=y^2$ to separate variables.
 This isn't  legitimate if $y$ is a solution of \eqref{eq:2.2.16} that
 equals zero for some value of $x$. One such solution can be found by
@@ -305,7 +307,7 @@ which is equivalent to
 \begin{equation} \label{eq:2.2.17}
 y=-\frac{1}{x^2+c}.
 \end{equation}
-
+ 
 We've now shown that if $y$ is a solution of \eqref{eq:2.2.16} that is
 not identically zero, then $y$ must be of the form \eqref{eq:2.2.17}. By
 substituting \eqref{eq:2.2.17} into \eqref{eq:2.2.16}, you can verify that
@@ -313,25 +315,25 @@ substituting \eqref{eq:2.2.17} into \eqref{eq:2.2.16}, you can verify that
  solutions of \eqref{eq:2.2.16} are $y\equiv 0$ and the functions
 of the form \eqref{eq:2.2.17}. Note that the solution $y\equiv 0$ isn't  of
 the form \eqref{eq:2.2.17} for any value of $c$.
-
+ 
 The figure below shows a direction field and some integral
 curves for \eqref{eq:2.2.16}
-
-
+ 
+ 
 \begin{image}
   \includegraphics[height=1.5in]{fig020203.jpg}
 \end{image}
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:2.2.5}
 Find all solutions of
 \begin{equation} \label{eq:2.2.18}
 y'=\frac{1}{2}x(1-y^2).
 \end{equation}
-
+ 
 \begin{explanation}
-
+ 
 Here we must divide by $p(y)=1-y^2$ to separate variables.
 This isn't  legitimate if $y$ is a solution of \eqref{eq:2.2.18} that
 equals $\pm 1$ for some value of $x$. Two such solutions can be found
@@ -369,7 +371,7 @@ interval.
 \begin{equation} \label{eq:2.2.19}
 y=\frac{1+ce^{-x^2/2}}{1-ce^{-x^2/2}}.
 \end{equation}
-
+ 
 We've now shown that if $y$ is a solution of \eqref{eq:2.2.18} that  is
 not identically equal to $\pm 1$, then $y$ must be as in
 \eqref{eq:2.2.19}. By substituting \eqref{eq:2.2.19} into \eqref{eq:2.2.18} you
@@ -379,19 +381,19 @@ are $y\equiv 1$, $y\equiv -1$ and the functions of the form
 \eqref{eq:2.2.19}. Note that the constant solution $y \equiv 1$ can be
 obtained from this formula by taking $c=0$;     however, the other
 constant solution, $y \equiv -1$, can't be obtained in this way.
-
+ 
 The figure below shows a direction field and some integrals for
 \eqref{eq:2.2.18}.
-
-
+ 
+ 
 \begin{image}
   \includegraphics[height=1.5in]{fig020204.jpg}
 \end{image}
 \end{explanation}
 \end{example}
-
+ 
 % \subsection*{Differences Between Linear and Nonlinear Equations}
-
+ 
 % Theorem~\ref{thmtype:2.1.2} states that if $p$ and $f$ are continuous on
 % $(a,b)$ then every solution of
 % $$
@@ -405,7 +407,7 @@ The figure below shows a direction field and some integrals for
 % y'+p(x)y=f(x),\quad y(x_0)=y_0
 % $$
 %  has a solution on  $(a,b)$.
-
+ 
 % The not true for nonlinear equations. First, we
 % saw in Examples~\ref{example:2.2.4} and \ref{example:2.2.5} that a
 % nonlinear
@@ -420,14 +422,14 @@ The figure below shows a direction field and some integrals for
 % \frac{dy}{dx}=-\frac{x}{y},\quad y(x_0)=y_0
 % $$
 % is valid on $(-a,a)$, where $a=\sqrt{x_0^2+y_0^2}$.
-
+ 
 % \begin{example}\label{example:2.2.6}
 % Solve the initial value problem
 % $$
 % y'=2xy^2, \quad y(0)=y_0
 % $$
 %  and determine the  interval of validity of  the solution.
-
+ 
 % \begin{explanation} First suppose   $y_0\neq 0$. From
 % Example~\ref{example:2.2.4}, we know that $y$ must be of the form
 % \begin{equation} \label{eq:2.2.20}
@@ -445,10 +447,10 @@ The figure below shows a direction field and some integrals for
 %  is  valid only on $(-1/\sqrt{y_0},1/\sqrt{y_0})$.
 %  \end{explanation}
 % \end{example}
-
+ 
 \section*{Text Source}
 Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
-
+ 
 \href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
-
+ 
 \end{document}
