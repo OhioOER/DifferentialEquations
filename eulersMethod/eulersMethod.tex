@@ -85,6 +85,7 @@ indicated in Euler's method.
  
 %from Mooculus
 \begin{example}\label{ex:eulerIntro1}
+
 Consider the following differential equation
 $$y' = x+y,\quad y(0)=1$$
  
@@ -189,24 +190,24 @@ Plotting our approximation with the actual solution we find:
 This approximation could be improved by using more subintervals.  Use the Sage Cell below to increase the number of subintervals to improve the approximation.
  
 
-\begin{sageCell}
-@interact
-def _(endPoint=input_box(1, width=5),numberOfIntervals=input_box(1, width=5)):
-    a=var('a')
-    b=function('b')(a)
-    de = diff(b,a) ==  a+b
-    soln = desolve(de, [b, a], ics=[0,1])
-    P3=plot(soln(a), (a, 0, endPoint), color='red')
-
-    from sage.calculus.desolvers import eulers_method
-    x,y = PolynomialRing(QQ,2,"xy").gens()
-    pts=eulers_method(x+y,0,1,endPoint/numberOfIntervals,endPoint-(endPoint/numberOfIntervals),algorithm="none")
-
-    P1 = list_plot(pts)
-    P2 = line(pts)
-
-    (P1+P2+P3).show()
-\end{sageCell}
+%\begin{sageCell}
+%@interact
+%def _(endPoint=input_box(1, width=5),numberOfIntervals=input_box(1, width=5)):
+%    a=var('a')
+%    b=function('b')(a)
+%    de = diff(b,a) ==  a+b
+%    soln = desolve(de, [b, a], ics=[0,1])
+%    P3=plot(soln(a), (a, 0, endPoint), color='red')
+%
+%    from sage.calculus.desolvers import eulers_method
+%    x,y = PolynomialRing(QQ,2,"xy").gens()
+%    pts=eulers_method(x+y,0,1,endPoint/numberOfIntervals,endPoint-(endPoint/numberOfIntervals),algorithm="none")
+%
+%    P1 = list_plot(pts)
+%    P2 = line(pts)
+%
+%    (P1+P2+P3).show()
+%\end{sageCell}
  
 \end{example}
  
@@ -240,25 +241,25 @@ Thus $y(1) \approx \answer{81/128}$.
 The Sage Cell below illustrates Example \ref{ex:eulerIntro2} graphically.  You can adjust the number of subintervals to see how the approximation is affected.  You can also change the the interval, just for fun.
  
 % Commented out by Felipe
-\begin{sageCell}% Anna
-@interact
-def _(endPoint=input_box(1, width=5),numberOfIntervals=input_box(4, width=5)):
-    a=var('a')
-    b=function('b')(a)
-    de = diff(b,a) ==  a-b
-    soln = desolve(de, [b, a], ics=[0,1])
-    P3=plot(soln(a), (a, 0, endPoint), color='red')
-
-    from sage.calculus.desolvers import eulers_method
-    x,y = PolynomialRing(QQ,2,"xy").gens()
-    pts=eulers_method(x-y,0,1,endPoint/numberOfIntervals,endPoint-(endPoint/numberOfIntervals),algorithm="none")
-   
-    tableOfValues=eulers_method(x-y,0,1,endPoint/numberOfIntervals,endPoint,algorithm="table")
-    P1 = list_plot(pts)
-    P2 = line(pts)
-
-    (P1+P2+P3).show()
-\end{sageCell}
+%\begin{sageCell}% Anna
+%@interact
+%def _(endPoint=input_box(1, width=5),numberOfIntervals=input_box(4, width=5)):
+%    a=var('a')
+%    b=function('b')(a)
+%    de = diff(b,a) ==  a-b
+%    soln = desolve(de, [b, a], ics=[0,1])
+%    P3=plot(soln(a), (a, 0, endPoint), color='red')
+%
+%    from sage.calculus.desolvers import eulers_method
+%    x,y = PolynomialRing(QQ,2,"xy").gens()
+%    pts=eulers_method(x-y,0,1,endPoint/numberOfIntervals,endPoint-(endPoint/numberOfIntervals),algorithm="none")
+%   
+%    tableOfValues=eulers_method(x-y,0,1,endPoint/numberOfIntervals,endPoint,algorithm="table")
+%    P1 = list_plot(pts)
+%    P2 = line(pts)
+%
+%    (P1+P2+P3).show()
+%\end{sageCell}
  
 
  
@@ -395,24 +396,24 @@ $$
 Use the Sage Cell below to explore the error in Example \ref{example:3.1.2} visually by changing the size ($h$) of the subintervals.
  
 %Commented out by Felipe
-\begin{sageCell} % Anna
-@interact
-def _(h=input_box(0.1, width=5)):
-    a=var('a')
-    b=function('b')(a)
-    de = diff(b,a) ==  (a^3)*e^(-2*a)-2*b
-    soln = desolve(de, [b, a], ics=[0,1])
-    P3=plot(soln(a), (a, 0, 1), color='red')
-
-    from sage.calculus.desolvers import eulers_method
-    x,y = PolynomialRing(QQ,2,"xy").gens()
-    pts=eulers_method((x^3)*e^(-2*x)-2*y,0,1,h,1-h,algorithm="none")
-
-    P1 = list_plot(pts)
-    P2 = line(pts)
-
-    (P1+P2+P3).show()
-\end{sageCell}
+%\begin{sageCell} % Anna
+%@interact
+%def _(h=input_box(0.1, width=5)):
+%    a=var('a')
+%    b=function('b')(a)
+%    de = diff(b,a) ==  (a^3)*e^(-2*a)-2*b
+%    soln = desolve(de, [b, a], ics=[0,1])
+%    P3=plot(soln(a), (a, 0, 1), color='red')
+%
+%    from sage.calculus.desolvers import eulers_method
+%    x,y = PolynomialRing(QQ,2,"xy").gens()
+%    pts=eulers_method((x^3)*e^(-2*x)-2*y,0,1,h,1-h,algorithm="none")
+%
+%    P1 = list_plot(pts)
+%    P2 = line(pts)
+%
+%    (P1+P2+P3).show()
+%\end{sageCell}
  
 %\href{https://docs.google.com/spreadsheets/d/1aE9Nh2VZpG2zJI70yeJpjNZDdxxaqFA8qwoZakjrK-M/edit?usp=sharing}{Spreadsheet}% Paul
  
@@ -947,7 +948,7 @@ $$
 
 Applying the Euler semilinear method with
 $$
-y=ue^{-x^3}\quad\mbox{and}\quadu'=e^{x^3}(1+u^2e^{-2x^3}),\quad
+y=ue^{-x^3}\quad\mbox{and}\quad u'=e^{x^3}(1+u^2e^{-2x^3}),\quad
 u(2)=2e^8
 $$
 yields the following. 
