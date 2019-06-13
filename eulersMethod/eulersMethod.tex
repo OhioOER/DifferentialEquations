@@ -85,6 +85,7 @@ indicated in Euler's method.
  
 %from Mooculus
 \begin{example}\label{ex:eulerIntro1}
+
 Consider the following differential equation
 $$y' = x+y,\quad y(0)=1$$
  
@@ -189,24 +190,24 @@ Plotting our approximation with the actual solution we find:
 This approximation could be improved by using more subintervals.  Use the Sage Cell below to increase the number of subintervals to improve the approximation.
  
 
-\begin{sageCell}
-@interact
-def _(endPoint=input_box(1, width=5),numberOfIntervals=input_box(1, width=5)):
-    a=var('a')
-    b=function('b')(a)
-    de = diff(b,a) ==  a+b
-    soln = desolve(de, [b, a], ics=[0,1])
-    P3=plot(soln(a), (a, 0, endPoint), color='red')
-
-    from sage.calculus.desolvers import eulers_method
-    x,y = PolynomialRing(QQ,2,"xy").gens()
-    pts=eulers_method(x+y,0,1,endPoint/numberOfIntervals,endPoint-(endPoint/numberOfIntervals),algorithm="none")
-
-    P1 = list_plot(pts)
-    P2 = line(pts)
-
-    (P1+P2+P3).show()
-\end{sageCell}
+%\begin{sageCell}
+%@interact
+%def _(endPoint=input_box(1, width=5),numberOfIntervals=input_box(1, width=5)):
+%    a=var('a')
+%    b=function('b')(a)
+%    de = diff(b,a) ==  a+b
+%    soln = desolve(de, [b, a], ics=[0,1])
+%    P3=plot(soln(a), (a, 0, endPoint), color='red')
+%
+%    from sage.calculus.desolvers import eulers_method
+%    x,y = PolynomialRing(QQ,2,"xy").gens()
+%    pts=eulers_method(x+y,0,1,endPoint/numberOfIntervals,endPoint-(endPoint/numberOfIntervals),algorithm="none")
+%
+%    P1 = list_plot(pts)
+%    P2 = line(pts)
+%
+%    (P1+P2+P3).show()
+%\end{sageCell}
  
 \end{example}
  
@@ -947,7 +948,7 @@ $$
 
 Applying the Euler semilinear method with
 $$
-y=ue^{-x^3}\quad\mbox{and}\quadu'=e^{x^3}(1+u^2e^{-2x^3}),\quad
+y=ue^{-x^3}\quad\mbox{and}\quad u'=e^{x^3}(1+u^2e^{-2x^3}),\quad
 u(2)=2e^8
 $$
 yields the following. 
