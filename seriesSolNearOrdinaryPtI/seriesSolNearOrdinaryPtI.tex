@@ -2,7 +2,7 @@
 
 \input{../preamble.tex}
 
-\title{Series Solutions Near an Ordinary Point I}%\label{Module 7-ADEF}
+\title{7.2 Series Solutions Near an Ordinary Point I}%\label{Module 7-ADEF}
 
 
 \begin{document}
@@ -180,8 +180,10 @@ right sides of \eqref{eq:7.2.10} differ by two, we write \eqref{eq:7.2.10}
 separately for $n$ even $(n=2m)$ and $n$ odd $(n=2m+1)$. This yields
 \begin{eqnarray}
 a_{2m+2}&=&\frac{-a_{2m}}{(2m+2)(2m+1)},\quad m\geq0,
-\label{eq:7.2.11} \\%dummy \eqref{eq:7.2.14}
-\noalign{\mbox{and}}\nonumber\\
+\label{eq:7.2.11} 
+\end{eqnarray}
+and
+\begin{eqnarray}
 a_{2m+3}&=&\frac{-a_{2m+1}}{(2m+3)(2m+2)},\quad  m\geq0.
 \label{eq:7.2.12}
 \end{eqnarray}
@@ -346,8 +348,10 @@ separately for $n=2m$ and $n=2m+1$, as in Example~\ref{example:7.2.1}.
 This yields
 \begin{eqnarray}
 a_{2m+2}&=&-2 \frac{2m+1}{2m+2}a_{2m}=-\frac{2m+1}{m+1}a_{2m},\quad m
-\geq0,\label{eq:7.2.19}\\
-\noalign{\mbox{and}}\nonumber\\
+\geq0,\label{eq:7.2.19}
+\end{eqnarray}
+and
+\begin{eqnarray}
 a_{2m+3}&=&-2\frac{2m+2}{2m+3}a_{2m+1}=-4\frac{m+1}{2m+3}a_{2m+1},\quad
 m\geq0. \label{eq:7.2.20}
 \end{eqnarray}
@@ -424,8 +428,10 @@ p(n)=\alpha n(n-1) +\beta n+\gamma.
 Moreover$,$ the coefficients of the even and odd powers of $x-x_0$ can
 be computed separately as
 \begin{eqnarray}
-a_{2m+2}&=&-\frac{p(2m)}{(2m+2)(2m+1)}a_{2m},\quad m\geq0\label{eq:7.2.26}\\
-\noalign{\mbox{and}}\nonumber\\
+a_{2m+2}&=&-\frac{p(2m)}{(2m+2)(2m+1)}a_{2m},\quad m\geq0\label{eq:7.2.26}
+\end{eqnarray}
+and
+\begin{eqnarray}
 a_{2m+3}&=&-\frac{p(2m+1)}{(2m+3)(2m+2)}a_{2m+1},\quad m\geq0, \label{eq:7.2.27}
 \end{eqnarray}
 where $a_0$ and $a_1$ are arbitrary.
@@ -502,8 +508,10 @@ Hence, Theorem~\ref{thmtype:7.2.2} implies that
 \begin{eqnarray*}
 a_{2m+2}&=&-\frac{p(2m)}{(2m+2)(2m+1)}a_{2m}\\&=&
 \frac{(2m+2)(2m+3)}{2(2m+2)(2m+1)}
-a_{2m}=\frac{2m+3}{2(2m+1)}a_{2m},\quad m\geq0\\
-\noalign{\mbox{and}}\\
+a_{2m}=\frac{2m+3}{2(2m+1)}a_{2m},\quad m\geq0
+\end{eqnarray*}
+and
+\begin{eqnarray*}
 a_{2m+3}&=&-\frac{p(2m+1)}{(2m+3)(2m+2)}a_{2m+1}\\&=&
 \frac{(2m+3)(2m+4)}{2
 (2m+3)(2m+2)}a_{2m+1}=\frac{m+2}{2(m+1)}a_{2m+1},\quad m\geq0.
@@ -547,8 +555,10 @@ $$
 Writing this equation separately for $n=2m$  and $n=2m+1$ yields
 \begin{eqnarray}
 a_{2m+2}&=&-2\frac{(2m+2)}{2m+1}a_{2m}=-4\frac{m+1}{2m+1}a_{2m},\quad m\geq
-0\label{eq:7.2.30}\\
-\noalign{\mbox{and}}\nonumber\\
+0\label{eq:7.2.30}
+\end{eqnarray}
+and
+\begin{eqnarray}
 a_{2m+3}&=&-2\frac{2m+3}{2m+2}a_{2m+1}=-\frac{2m+3}{m+1}a_{2m+1},\quad m\geq0.
 \label{eq:7.2.31}
 \end{eqnarray}
@@ -606,7 +616,7 @@ the interval of convergence that you're interested in. In the
 computational exercises in this  and the next two sections,
 you will often be asked to obtain the solution of a given problem by
 numerical integration with  software  of your choice (see
-the end of Module \ref{Module 15-1}%Section~10.1 
+the end of \href{https://ximera.osu.edu/ode/main/introToSystems/introToSystems}{Trench 10.1} 
 for a brief discussion of one such method),
 and to compare the solution obtained in this way with the
 approximations obtained with $T_N$ for various values of $N$. This is
