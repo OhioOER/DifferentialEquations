@@ -262,7 +262,7 @@ polynomial} of \eqref{eq:7.5.2}, and that $p_0(r)=0$ is the \dfn{indicial equati
 indicial equation has real roots $r_1$ and $r_2$, with $r_1\geq r_2$.
 
 \begin{theorem}\label{thmtype:7.5.3}
-Let $L$ and $\{a_n(r)\}$ be as in Theorem~$\ref{thmtype:7.5.2},$ and
+Let $L$ and $\{a_n(r)\}$ be as in Theorem~\ref{thmtype:7.5.2}, and
 suppose the
 indicial equation $p_0(r)=0$ of $Ly=0$ has real roots $r_1$ and $r_2,$
 where $r_1\geq r_2.$ Then
@@ -442,7 +442,7 @@ Setting $r=1/3$ in \eqref{eq:7.5.22} yields
 a_0(1/3)&=&1,\\
 a_n(1/3)&=&-\frac{3n+4}{9n} a_{n-1}(1/3),\quad n\geq1.
 \end{eqnarray*}
-By using the product notation introduced in Section~7.2 and
+By using the product notation introduced in \href{https://ximera.osu.edu/ode/main/seriesSolNearOrdinaryPtI/seriesSolNearOrdinaryPtI}{Trench 7.2} and
 proceeding as we did in the examples in that section yields
 $$
 a_n(1/3)=\frac{(-1)^n\prod_{j=1}^n(3j+4)}{9^nn!},\quad n\geq0.
@@ -585,7 +585,7 @@ form a fundamental set  Frobenius solutions of \eqref{eq:7.5.23}.
 \end{remark}
 
 \subsection*{A Note on Technology}
-As we said at the end of Section~7.2, if you're interested in
+As we said at the end of \href{https://ximera.osu.edu/ode/main/seriesSolNearOrdinaryPtI/seriesSolNearOrdinaryPtI}{Trench 7.2}, if you're interested in
 actually using series to compute numerical approximations to solutions
 of a differential equation, then whether or not there's a simple
 closed form for the coefficents is essentially irrelevant;   recursive
@@ -626,12 +626,12 @@ $$
 y_N(x;r_i)=x^{r_i}\sum_{n=0}^N a_n(r_i)x^n,
 $$
 where the coefficients $\{a_n(r_i)\}_{n=0}^N$ are computed as in
-$\eqref{eq:7.5.12}$, Theorem~$\ref{thmtype:7.5.2}$. Compute the error
+$\eqref{eq:7.5.12}$, Theorem~\ref{thmtype:7.5.2}. Compute the error
 \begin{equation} \label{eq:7.5.27}
 E_N(x;r_i)=x^{-r_i}Ly_N(x;r_i)/\alpha_0
 \end{equation}
 for various values of $N$ and various values of $x$ in the interval
-$(0,\rho)$, with $\rho$ as defined in Theorem~$\ref{thmtype:7.5.2}$.
+$(0,\rho)$, with $\rho$ as defined in Theorem~\ref{thmtype:7.5.2}.
 \end{procedure}
 
 The multiplier $x^{-r_i}/\alpha_0$ on the right of \eqref{eq:7.5.27}
