@@ -2,7 +2,7 @@
 
 \input{../preamble.tex}
 
-\title{Constant Coefficient Equations with Piecewise Continuous Forcing Functions}%\label{Module 7-ADEF}
+\title{8.5 Constant Coefficient Equations with Piecewise Continuous Forcing Functions}%\label{Module 7-ADEF}
 
 
 \begin{document}
@@ -254,11 +254,10 @@ Here
 $$
 f(t)=t-u(t-1)(t-1),
 $$
-so
+so, using Theorem \ref{thmtype:8.4.1},
 \begin{eqnarray*}
 {\cal L}(f)&=&{\cal L}(t)-{\cal L}\left(u(t-1)(t-1)\right)\\
-&=&{\cal L}(t)-e^{-s}{\cal L}(t)\mbox{ (from
-Theorem~\ref{thmtype:8.4.1})}\\
+&=&{\cal L}(t)-e^{-s}{\cal L}(t)\\
 &=&\frac{1}{s^2}-\frac{e^{-s}}{s^2}.
 \end{eqnarray*}
 Since transforming  \eqref{eq:8.5.8} yields
@@ -317,10 +316,8 @@ f(t)=u(t-\pi/4)\cos2t-u(t-\pi)\cos2t,
 $$
 so
 \begin{eqnarray*}
-{\cal L}(f)&=&{\cal L}\left(u(t-\pi/4)\cos2t\right)-{\cal L}\left(
-u(t-\pi)\cos2t\right)\\[1\jot]
-&=&e^{-{\pi s/4}}{\cal L}\left(\cos2(t+\pi/4)\right)-e^{-\pi s}
-{\cal L}\left(\cos2(t+\pi)\right)\\
+{\cal L}(f)&=&{\cal L}\left(u(t-\pi/4)\cos2t\right)-{\cal L}\left(u(t-\pi)\cos2t\right)\\
+&=&e^{-{\pi s/4}}{\cal L}\left(\cos2(t+\pi/4)\right)-e^{-\pi s}{\cal L}\left(\cos2(t+\pi)\right)\\
 &=&-e^{-{\pi s/4}}{\cal L}(\sin2t)-e^{-\pi s}
 {\cal L}(\cos2t)\\
 &=&-\frac{2e^{-{\pi s/ 4}}}{s^2+4}-\frac{se^{-\pi s}}{s^2+4}.
