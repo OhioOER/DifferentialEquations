@@ -1,23 +1,23 @@
 \documentclass{ximera}
-
+ 
 \input{../preamble.tex}
-
-\title{Newton's Second Law of Motion}
-
-
+ 
+\title{4.3 Elementary Mechanics}
+ 
+ 
 \begin{document}
-
+ 
 \begin{abstract}
-
+We study several applications of first order differential equations to elementary mechanics. 
 \end{abstract}
-
+ 
 \maketitle
-
-
-
+ 
+ 
+ 
 \section*{Newton's Second Law of Motion}
-
-
+ 
+ 
 In this section we consider an object with constant mass $m$ moving
 along a line under a force $F$. Let $y=y(t)$ be the displacement of
 the object from a reference point on the line at time $t$, and let
@@ -29,9 +29,9 @@ equation
 \begin{equation} \label{eq:4.3.1}
 F=ma.
 \end{equation}
-
+ 
 \subsection*{Units}
-
+ 
 In applications there are three main sets of units in use for length,
 mass, force, and time: the cgs, mks, and British systems. All three
 use the second as the unit of time. Table~1 shows the other units.
@@ -39,7 +39,7 @@ use the second as the unit of time. Table~1 shows the other units.
 force in each system is defined to be the force required to impart an
 acceleration of (one unit of length)$/s^2$ to one unit of
 mass.
-
+ 
 \bigskip
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
@@ -49,10 +49,8 @@ mass.
  mks & meter (m) & newton (N) & kilogram (kg) \\\hline
 British & foot (ft) & pound (lb) & slug (sl)\\\hline
 \end{tabular}
-
-Table 1.
-\end{center}
-
+ \end{center}
+ 
 If we assume that Earth is a perfect sphere with constant mass
 density,  Newton's law of gravitation (discussed later in this
 section) asserts that the force exerted on an object by Earth's
@@ -70,7 +68,7 @@ g &=980\ \mbox{cm/s}^2\quad \mbox{(cgs)}   \\
 g &=9.8\ \mbox{m/s}^2\quad \mbox{(mks)}   \\
 g &=32\ \mbox{ft/s}^2\quad \mbox{(British)}
 \end{array}$$
-
+ 
 In general, the force $F$ in (\ref{eq:4.3.1}) may depend upon $t$, $y$, and
 $y'$. Since $a=y''$,  (\ref{eq:4.3.1}) can be written in the
 form
@@ -93,15 +91,15 @@ mv'=F(t,v).
 Solving this equation yields $v$ as a function of $t$. If we know
 $y(t_0)$ for some time $t_0$, we can  integrate $v$ to obtain $y$
 as a function of $t$.
-
+ 
 Equations of the form (\ref{eq:4.3.3}) occur in problems involving motion
 through a resisting medium.
-
-
-
+ 
+ 
+ 
 \subsection*{Motion Through a Resisting Medium Under Constant
 Gravitational Force}
-
+ 
 Now we consider an object moving vertically in some medium. We assume
 that the only forces acting on the object are gravity and resistance
 from the medium. We also assume that the motion takes place close to
@@ -110,7 +108,7 @@ Earth's surface and take the upward direction to be positive, so
  $-mg$. We'll see that, under reasonable assumptions on the
 resisting force, the velocity approaches a limit as $t\to\infty$.
 We call this limit the \textit{terminal velocity}.
-
+ 
 \begin{example}\label{example:4.3.1}
 An object with mass $m$ moves under constant gravitational force
 through a medium that exerts a resistance with magnitude proportional
@@ -118,8 +116,8 @@ to the speed of the object. (Recall that the speed of an object is
 $|v|$, the absolute value of its velocity $v$.) Find the velocity of
 the object as a function of $t$, and find the terminal velocity.
 Assume  that the initial velocity is $v_0$.
+  
  
-
 \begin{explanation}
 The total force acting on the object is
 \begin{equation} \label{eq:4.3.4}
@@ -129,23 +127,23 @@ where $-mg$ is  the force due to  gravity and $F_1$ is the
 resisting force of the medium, which has magnitude $k|v|$, where $k$ is a
 positive constant. If the
 object is moving downward ($v\leq 0$),  the resisting force is
-upward, as shown in the figure. 
-
+upward, as shown in the figure.
+ 
 \begin{image}
-  \includegraphics[height=1in]{fig040301a.jpg} 
+  \includegraphics[height=1in]{fig040301a.jpg}
 \end{image}
-
+ 
 So
 $$
 F_1=k|v|=k(-v)=-kv.
 $$
 On the other hand, if the object is moving upward ($v\geq 0$),
-the resisting force is downward, as shown. 
-
+the resisting force is downward, as shown.
+ 
 \begin{image}
-  \includegraphics[height=1in]{fig040301b.jpg} 
+  \includegraphics[height=1in]{fig040301b.jpg}
 \end{image}
-
+ 
 So
 $$
 F_1=-k|v|=-kv.
@@ -155,7 +153,7 @@ Thus, (\ref{eq:4.3.4}) can be written as
 F=-mg-kv,
 \end{equation}
 regardless of the sign of the velocity.
-
+ 
 From Newton's second law of motion,
 $$
 F=ma=mv',
@@ -198,21 +196,21 @@ $$
 $$
 which  is independent of the
 initial velocity $v_0$ (See figure below).
-
+ 
 \begin{image}
-  \includegraphics[height=1.5in]{fig040302.jpg} 
+  \includegraphics[height=1.5in]{fig040302.jpg}
 \end{image}
-
+ 
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:4.3.2}
 A 960-lb object is given an initial upward velocity of 60 ft/s near
 the surface of Earth. The atmosphere resists the motion with a force
 of 3 lb for each ft/s of speed. Assuming that the only other force
 acting on the object is constant gravity, find its velocity $v$ as a
 function of $t$, and find its  terminal velocity.
-
+ 
 \begin{explanation}
 Since $mg=960$ and $g=32$,   $m=960/32=30$.  The atmospheric
 resistance is $-3v$  lb if $v$ is expressed in feet
@@ -251,6 +249,41 @@ $$
 \end{explanation}
 \end{example}
 
+\begin{example}\label{example:terminalVelocity}
+Refer to Example \ref{example:4.3.2}.  The graph of $v$ is plotted in the interactive below.  Use the slider to change the value of $c$ and answer the questions.
+\desmos{gi4q1t7ost}{800}{600}
+%https://www.desmos.com/calculator/gi4q1t7ost
+\begin{question}
+What feature of the plot represents the terminal velocity?
+\begin{multipleChoice}
+      \choice{Steepness of the graph}
+      \choice[correct]{Horizontal asymptote}
+      \choice{The $y$-intercept}
+      \choice{value $c$}
+\end{multipleChoice}
+\end{question}
+\begin{question}
+Does the terminal velocity depend on the initial velocity?
+\begin{multipleChoice}
+      \choice{Yes}
+      \choice[correct]{No}
+\end{multipleChoice}
+\end{question}
+\begin{question}
+If the initial velocity is $v_0=-100$ ft/s, then $c=\answer{220}$.
+
+If the object is simply dropped from a height, then $c=\answer{320}$
+\end{question}
+\begin{question}
+Which of the following best describes the behavior of the object if $c<0$?
+\begin{multipleChoice}
+        \choice{The object was released from rest.  The object travels towards Earth with increasing speed.}
+      \choice[correct]{The object was hurled towards Earth with initial speed exceeding terminal speed.  The object slows down over time as it continues to travel towards Earth.}
+      \choice{The object was launched upward.  The object slows down, reaches its maximum height, then falls towards Earth.}
+\end{multipleChoice}
+\end{question}      
+\end{example}
+ 
 \begin{example}\label{example:4.3.3}
 A 10 kg mass is given an initial velocity $v_0\leq 0$
  near Earth's surface. The only forces acting on it are
@@ -258,7 +291,7 @@ gravity and atmospheric resistance proportional to the square of the
 speed. Assuming that the resistance is 8 N if the speed is 2 m/s,
 find the velocity of the object as a function of $t$, and
 find the terminal velocity.
-
+ 
 \begin{explanation} Since the object is falling, the resistance is in the upward
 (positive) direction. Hence,
 \begin{equation} \label{eq:4.3.9}
@@ -332,13 +365,13 @@ $$
 \lim_{t\to\infty}v(t)=-\sqrt{\frac{mg}{k}}
 $$
 (See figure below).
-
+ 
 \begin{image}
-  \includegraphics[height=1.5in]{fig040303.jpg} 
+  \includegraphics[height=1.5in]{fig040303.jpg}
 \end{image}
 \end{explanation}
 \end{example}
-
+ 
 \begin{example}\label{example:4.3.4}
 A 10-kg mass is launched vertically upward from Earth's surface with
 an initial velocity of $v_0$ m/s. The only forces acting on the mass
@@ -346,8 +379,8 @@ are gravity and atmospheric resistance proportional to the square of
 the speed. Assuming that the atmospheric resistance is 8 N if the
 speed is 2 m/s, find the time $T$ required for the mass to reach
 maximum altitude.
-
-
+ 
+ 
 \begin{explanation}  The mass will
 climb while $v>0 $ and reach its maximum altitude when $v=0$.
 Therefore $v>0$ for $0\leq t<T$ and $v(T)=0$. Although the mass of
@@ -358,7 +391,7 @@ therefore, we replace (\ref{eq:4.3.10}) by
 \begin{equation} \label{eq:4.3.15}
 10v'=-98-2v^2.
 \end{equation}
-
+ 
 Separating variables  yields
 $$
 \frac{5}{v^2+49}v'=-1,
@@ -392,7 +425,7 @@ we can simplify (\ref{eq:4.3.17}) to
 $$
 v=7\frac{v_0-7\tan(7t/5)}{7+v_0\tan(7t/5)}.
 $$
-
+ 
  Since $v(T)=0$ and $\tan^{-1}(0)=0$, (\ref{eq:4.3.16}) implies that
 $$
 -T+\frac{5}{7} \tan^{-1}\frac{v_0}{7}=0.
@@ -409,15 +442,15 @@ $$
 $$
 regardless of the initial velocity.  The figure below
 shows graphs of $v$ over $[0,T]$ for various values of $v_0$.
-
+ 
 \begin{image}
-  \includegraphics[height=1.5in]{fig040304.jpg} 
+  \includegraphics[height=1.5in]{fig040304.jpg}
 \end{image}
 \end{explanation}
 \end{example}
-
+ 
 \subsection*{Escape Velocity}
-
+ 
 Suppose a space vehicle is launched vertically and its fuel is
 exhausted when the vehicle reaches an altitude $h$ above Earth, where
 $h$ is sufficiently large so that resistance due to Earth's atmosphere
@@ -433,11 +466,11 @@ gravitational force on the vehicle at an altitude $y$ above Earth is
 F=-\frac{K}{(y+R)^2},
 \end{equation}
 where $R$ is  Earth's radius (see figure below).
-
+ 
 \begin{image}
-  \includegraphics[height=1.5in]{fig040305.jpg} 
+  \includegraphics[height=1.5in]{fig040305.jpg}
 \end{image}
-
+ 
  Since $F=-mg$ when $y=0$, setting $y=0$ in
 (\ref{eq:4.3.18}) yields
 $$
@@ -448,7 +481,7 @@ specifically as
 \begin{equation} \label{eq:4.3.19}
 F=-\frac{mgR^2}{(y+R)^2}.
 \end{equation}
-
+ 
 From Newton's second law of motion,
 $$
 F=m\frac{d^2y}{dt^2},
@@ -457,10 +490,10 @@ so (\ref{eq:4.3.19}) implies that
 \begin{equation} \label{eq:4.3.20}
 \frac{d^2y}{dt^2}=-\frac{gR^2}{(y+R)^2}.
 \end{equation}
-
+ 
 We'll show that there's a number $v_e$, called the \textit{escape
 velocity}, with these properties:
-
+ 
 \begin{enumerate}
 \item If $v_0\geq v_e$ then $v(t)>0$ for all $t>0$, and the vehicle
 continues to climb for all $t>0$; that is, it ``escapes'' Earth.
@@ -472,7 +505,7 @@ Therefore
 altitude  $y_m$ and
 falls back to Earth.
  \end{enumerate}
-
+ 
 Since
 (\ref{eq:4.3.20}) is second order, we can't solve it by methods discussed
 so far. However, we're concerned with $v$ rather than $y$, and $v$ is
@@ -491,7 +524,7 @@ obtain $v$ as a function of $y$ by solving the initial value problem
 $$
 v\frac{dv}{dy}=-\frac{gR^2}{(y+R)^2},\quad  v(h)=v_0.
 $$
-
+ 
 Integrating (\ref{eq:4.3.21}) with respect to $y$ yields
 \begin{equation} \label{eq:4.3.22}
 \frac{v^2}{2}=\frac{gR^2}{y+R}+c.
@@ -529,12 +562,12 @@ $$
 $$
 The velocity will be zero at the maximum  altitude, and the object will
 then fall to Earth under the influence of gravity.
-
-
+ 
+ 
 \section*{Text Source}
 Trench, William F., "Elementary Differential Equations" (2013). Faculty Authored and Edited Books \& CDs. 8. (CC-BY-NC-SA)
-
+ 
 \href{https://digitalcommons.trinity.edu/mono/8/}{https://digitalcommons.trinity.edu/mono/8/}
-
-
+ 
+ 
 \end{document}
