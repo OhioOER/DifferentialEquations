@@ -13,13 +13,45 @@ This activity demonstrates the wide ranging applicability of differential equati
 \maketitle
    
 \section*{Overview of population models}
-Differential equations are generally useful in predicting the time rate of change of any quantity.  Application topics vary widely, such as accounting for the changes in a system’s momentum, energy, or mass, describing the rate of production or destruction of a chemical in a reaction, or predicting how any type of population will evolve with time.  Consider any “Generic System” with a well-defined boundary that distinguishes between what is to be counted from everything else.  The quantity being counted could physically move in or out of the system at a certain rate.  If the quantity was the population of people in some country, these rates would correspond to rates of immigration and emigration.  In some systems, it is possible for the quantity to be generated or destroyed.  In a population example, these could be the birth and death rates.  These rates are depicted in the figure below, and tallied in an equation to describe the overall rate of accumulation of that quantity: 
+Differential equations are generally useful in predicting the time rate of change of any quantity.  Application topics vary widely, such as accounting for the changes in a system’s momentum, energy, or mass, describing the rate of production or destruction of a chemical in a reaction, or predicting how any type of population will evolve with time.  Consider any "Generic System" with a well-defined boundary that distinguishes between what is to be counted from everything else.  The quantity being counted could physically move in or out of the system at a certain rate.  If the quantity was the population of people in some country, these rates would correspond to rates of immigration and emigration.  In some systems, it is possible for the quantity to be generated or destroyed.  In a population example, these could be the birth and death rates.  These rates are depicted in the figure below, and tallied in an equation to describe the overall rate of accumulation of that quantity: 
  
-% \begin{image}
-% \includegraphics[height=1.5in]{population/populationModelPic.png} 
-%\end{image}
+ \begin{image}
+ \includegraphics[height=1.5in]{population/populationModelPic.jpg} 
+\end{image}
 
-This concept quickly leads to a differential equation because the rate of accumulation is a first derivative of the quantity with respect to time.  In many interesting problems, some or all of the rates on the left hand side of the equation may depend on the quantity and/or time itself.  There are some physical quantities which are said to be ``conserved."  This means that -- under normal situations – they cannot be created or destroyed and those two terms would be zero.  These conserved quantities include mass, energy, momentum, and charge.  As noted above, a population of individuals is not generally conserved because birth and death may impact the population even in the absence of physical movement of individuals across the system boundary.  In a financial application such as modeling the amount of a given debt, more debt could be ``generated" through interest, which has a compounding effect over time.  Many other applications may begin with this concept of a generic system balance, but the examples below will especially focus on certain types of populations, whether human and animal.
+
+This concept quickly leads to a differential equation because the rate of accumulation is a first derivative of the quantity with respect to time.  In many interesting problems, some or all of the rates on the left hand side of the equation may depend on the quantity and/or time itself.  There are some physical quantities which are said to be ``conserved."  This means that -- under normal situations – they cannot be created or destroyed and those two terms would be zero.  These conserved quantities include mass, energy, momentum, and charge.  As noted above, a population of individuals is not generally conserved because birth and death may impact the population even in the absence of physical movement of individuals across the system boundary.  In a financial application such as modeling the amount of a given debt, more debt could be ``generated" through interest, which has a compounding effect over time.  Many other applications may begin with this concept of a generic system balance, but the examples below will especially focus on certain types of populations, whether human or animal.
+ 
+\begin{problem}
+Select whether the quantities in the following scenarios involve conserved or non-conserved (created or destroyed) quantities:
+
+(a) The quantity of iron atoms in a chemical reaction.  
+\\*(b) The quantity of a particular molecule containing iron in a chemical reaction 
+\\*(c) The mass of water in a container while it drains 
+\\*(d) The population of rabbits in a specific portion of a forest over many years 
+\\*(e) The population of rabbits on an island over many years 
+
+
+ \begin{enumerate}
+     \item \wordChoice {\choice[correct]{conserved},\choice{not conserved}}
+     \item \wordChoice{\choice{conserved}, \choice[correct]{not conserved}}
+     \item \wordChoice {\choice[correct]{conserved},\choice{not conserved}}
+     \item \wordChoice{\choice{conserved}, \choice[correct]{not conserved}}
+     \item \wordChoice{\choice{conserved}, \choice[correct]{not conserved}}
+ \end{enumerate}
+\end{problem} 
+ 
+Expand for discussion.
+
+\begin{expandable}
+(a)  Iron atoms in a chemical reaction are conserved.  That is, they are neither created nor are they destroyed in a \textit{chemical} reaction.
+\\*(b)  The quantity of molecules containing iron in a chemical reaction is not conserved because one specific molecule may be destroyed or created from others.  
+\\*(c)  The mass of water in a container while it drains is conserved because water can neither be created nor destroyed even if it flows out of the container.
+\\*(d)  The total population of rabbits in a specific portion of a forest over many years is not-conserved because rabbits can die or be born even if they can move into or out of that plot of land)
+\\*(e)  The total population of rabbits on an island over many years is also not-conserved, since rabbits can die or be born even if they cannot move off the island.
+
+\end{expandable}
+
  
 \section*{Model of an Epidemic: The spread of a contagious but non-fatal disease} 
 
@@ -38,13 +70,13 @@ $$
 We first enter the data using Sage lists, and plot the data:
  
 \begin{sageCell}
-days = srange(0, 14)
+days = srange(0, 14) #span of 14 days from 0 to 13
 infected = [  1,   3,  25, 72, 222, 282, 256,
-            233, 189, 123, 70,  25,  11,   4]
-points(zip(days, infected))
+            233, 189, 123, 70,  25,  11,   4] #data of number of infected boys
+points(zip(days, infected)) #create a plot of points
 \end{sageCell}
 
-Only one of the 130 adult staff members at the school showed symptoms of the illness, so it is reasonable to ignore the adults in the model.  We begin by subdividing this total population into a susceptible population $S(t)$, an infected population $I(t)$, and a population of those recovered, $R(t)$.  Any one boy may progress from the susceptible, to the infected, and then to the recovered population as time progresses:
+Only one of the 130 adult staff members at the school showed symptoms of the illness, so it is reasonable to ignore the adults in the model.  We begin by subdividing the total population of boys into a susceptible population $S(t)$, an infected population $I(t)$, and a population of those recovered, $R(t)$.  Any one boy may progress from the susceptible, to the infected, and then to the recovered population as time progresses:
 $$S(t)\longrightarrow I(t)\longrightarrow R(t)$$
 The first step in this process represents infection and the second step represents recovery.  If we propose that those boys recovered from the flu are now immune to that strain, the illness only affects each boy at-most once.  Only one of the boys may have originally been infected with the disease, giving the following initial conditions:
 $$S(0)=762,\quad I(0)=1,\quad R(0)=0$$
@@ -70,17 +102,17 @@ I(0)=1,\quad R(0)=0:
 \]
  
 \begin{sageCell}
-I, R = var('I R')
-r = 0.5206
-k = 0.0473
-p = 0.07
-N = 763
-desyst = [p*k*I*(N-I-R) - r*I, r*I]
-ics = [1, 0]
-tvalues = srange(0.0, 13.0, 0.1)
-soln = desolve_odeint(desyst, ics, tvalues, [I, R])
-g = points(zip(days, infected),size=48, color='red')
-g += line(zip(tvalues, soln[:,0]),color='blue')
+I, R = var('I R')  #create variables I and R 
+r = 0.5206  #define r
+k = 0.0473  #define k
+p = 0.07    #define p
+N = 763     #define N
+desyst = [p*k*I*(N-I-R) - r*I, r*I]  #define system of differential equations
+ics = [1, 0]  #initial conditions for I and R
+tvalues = srange(0.0, 13.0, 0.1)  #define range of t values
+soln = desolve_odeint(desyst, ics, tvalues, [I, R])  # solve system of differential equations
+g = points(zip(days, infected),size=48, color='red')  #plot data
+g += line(zip(tvalues, soln[:,0]),color='blue')   #plot fit
 g.show()\end{sageCell}
  
 Click the $\mathtt{Evaluate}$ button to compute the solution and plot the solution.
@@ -88,27 +120,27 @@ Click the $\mathtt{Evaluate}$ button to compute the solution and plot the soluti
 To fit the model to the data, we would like to find the values of the parameters that minimize the sum of squared errors. Use the sliders in the interactive display below to try to guess what are the optimal values of $k$ and $r$, where we assume that $p=0.07$:
  
 \begin{sageOutput}
-days = srange(0, 14)
+days = srange(0, 14)   #create span of days
 infected = [  1,   3,  25, 72, 222, 282, 256,
-            233, 189, 123, 70,  25,  11,   4]
-I, R = var('I R')
-NPop = 763
-@interact
-def _(r=slider(0,1,0.01,0.01),
-      k=slider(0,0.2,0.001,0.01)):
-    p = 0.07
-    N = 763   
-    ics = [1.0, 0.0]
-    desyst = [p*k*I*(N-I-R) - r*I, r*I]
-    tvalues = srange(0.0, 13.0, 0.1)
-    soln = desolve_odeint(desyst, ics, tvalues, [I, R])
-    g = points(zip(days, infected), size=48, color='red')
-    g += line(zip(tvalues, soln[:,0]), color='blue')
-    g.show(xmin=0, xmax=13, ymin=0, ymax=300)
-    soln = desolve_odeint(desyst, ics, days, [I, R])
-    Ivalues = soln[:,0]
-    sse = sum((infected-Ivalues)^2)
-    pretty_print(html('Sum of squared errors: {}'.format(sse)))
+            233, 189, 123, 70,  25,  11,   4]   #data of number of infected boys
+I, R = var('I R')   #create variables I and R
+NPop = 763    #define total population
+@interact    #use interactive to allow inputs to be varied with sliders
+def _(r=slider(0,1,0.01,0.01),   #create slider for r
+      k=slider(0,0.2,0.001,0.01)):    #create slider for k
+    p = 0.07   #define p value
+    N = 763    #define N (total number)
+    ics = [1.0, 0.0]    #define initial conditions
+    desyst = [p*k*I*(N-I-R) - r*I, r*I]   #define system of differential equations
+    tvalues = srange(0.0, 13.0, 0.1)    #create span of days for solver
+    soln = desolve_odeint(desyst, ics, tvalues, [I, R])   #solve system of differential equations
+    g = points(zip(days, infected), size=48, color='red')   #plot data
+    g += line(zip(tvalues, soln[:,0]), color='blue')    #plot fit
+    g.show(xmin=0, xmax=13, ymin=0, ymax=300)   #adjust plot size
+    soln = desolve_odeint(desyst, ics, days, [I, R])  #solve system
+    Ivalues = soln[:,0]  #define values of I (fit)
+    sse = sum((infected-Ivalues)^2)  #calculate sum of squared errors between data and fit
+    pretty_print(html('Sum of squared errors: {}'.format(sse)))   #output value of sse
 \end{sageOutput}
 
 \begin{problem}
@@ -121,18 +153,66 @@ $k=\answer{0.037}$
 
 \section*{Predator-Prey Model with Lynx and Snowshoe Hares}
 
-Another important application of differential equations in modeling population concerns predator-prey dynamics.  In systems where two species -- the predator and prey -- are the primary sources of predation and food for one another, respectively.  In these cases their populations are closely linked.  A growth in predator population causes a decrease in the population of prey, a trend which reverses when the predator population ultimately decreases when less food is available.  Examples include cheetah and gazelle, osprey and fish (as a general grouping of species), and blue whales and krill.  The example we will consider here is the Canadian lynx and snowshoe hare populations.  This is a classic and well-studied example because of the many decades of data compiled by trappers working for The Hudson’s Bay Company.  Periodic fluctuations in both populations were recorded over 90 years:
+Another important application of differential equations in modeling population concerns predator-prey dynamics.  In systems where two species -- the predator and prey -- are the primary sources of predation and food for one another, respectively.  In these cases their populations are closely linked.  A growth in predator population causes a decrease in the population of prey, a trend which reverses when the predator population ultimately decreases when less food is available.  Examples include cheetah and gazelle, osprey and fish (as a general grouping of species), and blue whales and krill.  The example we will consider here is the Canadian lynx and snowshoe hare populations.  This is a classic and well-studied example because of the many decades of data compiled by trappers working for The Hudson’s Bay Company.  Use the Sage code below to plot the hare and lynx populations (in thousands) in blue and red, respectively.
 
-%insert graph of data below in Ximera with Sage code
+\begin{sageCell}
+years = srange(0, 90)  #define data for years
+hare = [20,20,20,17,30,50,72,74,86,60,72,86,64,42,16,20,28,5,150,145,84,48,24,6,7,14,16,72,54,54,100,90,80,60,28,10,10,12,32,48,130,130,80,60,18,22,40,52,58,74,84,34,28,8,6,15,8,7,30,66,48,32,24,22,24,50,64,78,62,42,28,10,8,8,10,50,62,70,80,70,30,12,6,5,6,8,10,40,90,82,20]   #define data for hare population
+lynx = [36,40,50,38,30,10,8,7,10,14,35,35,30,24,17,8,6,7,18,40,54,64,70,39,18,14,8,7,22,30,38,45,44,40,22,12,12,20,32,42,76,80,42,38,26,20,18,24,36,48,54,40,16,20,10,8,12,19,28,58,62,40,7,8,10,14,22,38,40,42,40,30,21,10,7,9,18,22,36,42,54,56,50,40,22,10,10,20,25,32,40]    #define data for lynx population
+#line(zip(years, hare))    #create a line plot
+g = line(zip(years, hare),color='blue')   #plot hare data
+g += line(zip(years, lynx),color='red')   #plot lynx data
+g.show()   #show plot
+\end{sageCell}
 
 While more advanced models of predator-prey relationships have been proposed, the differential equations commonly employed here are called the Lotka-Volterra equations, named for the scientists who developed them independently.  They are a pair of non-linear differential equations that contain four parameters that may be adjusted for different systems.  To model, the population of hare ($h$) and the population of lynx ($l$), these are:
 $$\frac{dh}{dt}=ah-bhl,\quad\frac{dl}{dt}=-ml+nhl$$
 The parameter a in the hare equation is the relative rate of growth of hare without any predation by the lynx.  If the lynx population, which appears in the second term ($bhl$) were zero, then the hare population would simply grow exponentially (at a rate proportional to its size).  This second term captures the actual effect of predation, which reduces the hare population at a rate proportional to the hare and lynx population.  This constant of proportionality is $b$.  The second equation, modeling the lynx population, includes a term to account for the relative death rate m of lynx if no hares were present as their food.  The parameter n in the second term is the constant of proportionality specifying the growth of lynx due to their predation of hares.  Just as the decrease in hares due to predation is proportional to the product of predator and prey populations, so too is the increase in lynx.  Many implicit assumptions are made in formulating this model.  It is assumed that the population of snowshoe hares is limitless in the absence of the lynx and that the appetite of the lynx is limitless even with very large populations of hares.  We are essentially assuming that the prey is not limited in any fundamental way by its own food (plant) population, or other resources including space.  Another key assumption that is never entirely true is that the predator is the only source of attack on the prey population and that the prey is the only source of food for the predator.  In spite of their obvious importance, outside environmental factors, seasonal dynamics, and impacts by other species including humans -- such as by trapping -- are ignored.  More complicated approaches could account for the actual limits to both populations (through a logistic model), the limits to the predation capacity of the lynx, and any other predator-prey dynamics with other species (such as between the snowshoe hare and its various plant food sources).  Nevertheless, the Lotka-Volterra equations have sufficient predictive power for us to adjust these parameters and make a rudimentary fit to the recorded data.
 Initial conditions for the lynx and hare populations are taken directly from the first available data beginning in 1845:
 $$h(0)=20,\quad l(0)=36$$
-Here again, SageMath code numerically solves the system of differential equations given values for the four parameters:
+The SageMath code below numerically solves the system of differential equations given values for the four parameters, which you can modify to achieve a better fit.  Use the total sum of squared errors for the hare and lynx together as a metric for the goodness of your fit.  The best fit will minimize this number.  Try this for a while by yourself before viewing the hint below.
 
-%need sage code
+\begin{sageCell}
+years = srange(0, 90)  #define data for years
+hare = [20,20,20,17,30,50,72,74,86,60,72,86,64,42,16,20,28,5,150,145,84,48,24,6,7,14,16,72,54,54,100,90,80,60,28,10,10,12,32,48,130,130,80,60,18,22,40,52,58,74,84,34,28,8,6,15,8,7,30,66,48,32,24,22,24,50,64,78,62,42,28,10,8,8,10,50,62,70,80,70,30,12,6,5,6,8,10,40,90,82,20]  #define data for hare population
+lynx = [36,40,50,38,30,10,8,7,10,14,35,35,30,24,17,8,6,7,18,40,54,64,70,39,18,14,8,7,22,30,38,45,44,40,22,12,12,20,32,42,76,80,42,38,26,20,18,24,36,48,54,40,16,20,10,8,12,19,28,58,62,40,7,8,10,14,22,38,40,42,40,30,21,10,7,9,18,22,36,42,54,56,50,40,22,10,10,20,25,32,40]    #define data for lynx population
+h, l = var('h l')   #define variables h and l
+@interact   #use interactive to allow inputs to be varied with sliders
+def _(a=slider(1,2,0.001,1.5),  #slider for rate of growth of hare  
+    b=slider(0,0.1,0.00001,0.05), #slider for prop. hare decline as food
+    m=slider(0,0.3,0.00001,0.15),    #slider for lynx death rate
+    n=slider(0,0.01,0.00001,0.005)):  #slider for prop. lynx growth w/hare as food 
+    ics = [20, 36]    #initial conditions for h and l
+    desyst = [a*h-b*h*l, -m*l+n*h*l]   #define system of differential equations
+    tvalues = srange(91)  #define time values for solver
+    soln = desolve_odeint(desyst, ics, tvalues, [h, l])  #solve system of differential equations
+    g = line(zip(years, hare),color='blue')   #create line plot with hare data in blue
+    g += line(zip(years, lynx),color='red')   #overlay line plot with lynx data in red
+    g += line(zip(tvalues, soln[:,0]),color='blue',linestyle="--")   #overlay line plot with hare fit to data
+    g += line(zip(tvalues, soln[:,1]),color='red',linestyle="--")   #overlay line plot with lynx fit to data
+    g.show()  #show plot
+    harevalues = soln[:,0]   #define hare values
+    lynxvalues = soln[:,1]   #define lynx values
+    ssehare = sum((hare-harevalues)^2)  #calculate sum of squared errors for hare fit
+    pretty_print(html('Sum of squared errors for Hare: {}'.format(ssehare)))   #output sse for hare fit
+    sselynx = sum((lynx-lynxvalues)^2)   #calculate sum of squared errors for lynx fit
+    pretty_print(html('Sum of squared errors for Lynx: {}'.format(sselynx)))  #output sse for lynx fit
+    ssetotal = ssehare + sselynx  #calculate total (sum) of squared errors for both fits
+    pretty_print(html('Total sum of squared errors: {}'.format(ssetotal)))  #report total sse
+\end{sageCell}
+
+Since there are many possible combinations, it may take some time for you to vary these four parameters and improve the fit.  Through repeated tests with this model, the minimum sum of (total) squared errors is found to be just above 100,000.  The model cannot be improved to further decrease this total sum of squared errors.  If you are able to to achieve this minimum, you will notice that there are still noticeable discrepancies between the timing and depth of a few peaks and troughs for the two populations.  Note that we have made many simplifications and assumptions that do not adequately capture the more complex dynamics of this real system over almost a century.  Thus, we should both expect that there will be discrepancies between theory and reality and be satisfied that we have gained partial insight into some key dynamics in this complex system.
+
+Expand for hint
+
+\begin{expandable}
+A combination of parameters that produces a decent fit is as follows:
+\\* a $\approx$ 1.134
+\\* b $\approx$ 0.034
+\\* m $\approx$ 0.265
+\\* n $\approx$ 0.00631
+\\*You can use the sliders to approximate these inputs.
+\end{expandable}
 
 \section*{Sources}
 Influenza in a boarding school (1978 British Medical Journal): 
