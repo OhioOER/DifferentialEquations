@@ -15,6 +15,8 @@ Optional extra's
 * select 'Bake standard PDFs' under the 'Extra' menu in the bottom status bar
 * push 'SERVE' again
 * You'll get download links for all activities that correctly compile to PDF
+* edit XIMERA_REPO and/or XIMERA_URL in scripts/config.txt to publish elsewhere; you'll need proper 'codespace secrets' GPG_KEY and GPG_KEY_ID in your github account.
+* as of 10-2024, there are still inconvenient differences between the ximera.osu.edu server and the local testserver in your own Codespace.
 
 
 
