@@ -13,6 +13,7 @@ pictures/*
 !pictures/*.PDF
 !pictures/*.PNG
 ## Core latex/pdflatex auxiliary files:
+*.toc
 *.aux
 *.lof
 *.log
