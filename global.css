@@ -1042,3 +1042,14 @@ span#prev-activity-label {
 .nl-text {
       display: none;
 }
+
+
+/* temporary horrible hack for 'Klap uit' in expandable */
+h3.ui-accordion-header.ui-corner-top.ui-state-default.ui-accordion-icons {
+	  font-size: 0 !important;
+  }
+  
+h3.ui-accordion-header.ui-corner-top.ui-state-default.ui-accordion-icons:after {
+	content:"Expand";
+    font-size: 1rem !important;
+  }
