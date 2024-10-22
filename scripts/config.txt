@@ -1,0 +1,35 @@
+#
+# version of Ximera xake container to use (with xmlatex)
+#
+: "${XAKE_BASE:=xake2024}"
+: "${XAKE_VERSION:=medium_a}"
+# Alternatives:
+#: "${XAKE_BASE:=xake2023}"
+#: "${XAKE_VERSION:=v2.1.3_a}"
+
+#
+# For publishing  (you'll also need a GPG key in .ximeraserve)
+#
+: "${XIMERA_NAME:=ode24}"
+## : "${XIMERA_URL:=http://localhost:2000/}"
+## : "${XIMERA_URL:=https://ximera.osu.edu}"
+## : "${XIMERA_URL:=https://set-p-dsb-zomercursus-latest.cloud-ext.icts.kuleuven.be/}"
+## : "${XIMERA_URL:=https://set.kuleuven.be/voorkennis/}"
+
+#
+# For a local ximeraserver
+#
+
+: "${SERVER_PORT:=2000}"
+: "${SERVER_NAME:=ximeraserver}"
+: "${SERVER_IMAGE:=registry.gitlab.kuleuven.be/wet/ximera/ximeradocker:2.3_b}"
+
+#
+# For testing/debugging
+#
+: "${COMMAND:=./scripts/xmlatex.test}"
+#
+# for LOCALLY generated/tagged images, use:
+# export DOCKER_REPO=" "
+# export XM_PUSH_FORCE=1
+# export XM_FROST_WITH_UNCOMMITTED_CHANGES=1
