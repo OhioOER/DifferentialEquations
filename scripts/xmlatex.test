@@ -208,9 +208,12 @@ if [[ -f .ximera/pgfsys-dvisvgm4ht.def ]]; then
     cp .ximera/pgfsys-dvisvgm4ht.def /root/texmf/tex/generic/
 fi
 
-# HACK (202410) : install missing packages
-echo "Installing tkz-euclide tikz-3dplot tikz-cd in docker image"
-tlmgr install tkz-euclide tikz-3dplot tikz-cd
+# HACK (202410) : install potentially missing packages
+if [[ ! -d /usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide ]]
+then 
+    echo "Installing tkz-euclide tikz-3dplot tikz-cd in docker image"
+    tlmgr install tkz-euclide tikz-3dplot tikz-cd
+fi
 
 # Use a local xmlatex.full if available
 # Needed for call-xmlatex-from-xake, which DOES NOT use COMMAND/XMLATEX variable...
@@ -285,8 +288,8 @@ then
     debug pdflatex -file-line-error -shell-escape "\\PassOptionsToClass{tikzexport}{ximera}\\PassOptionsToClass{xake}{ximera}\\PassOptionsToClass{xake}{xourse}\\nonstopmode\\input{$FILE}"
           pdflatex -file-line-error -shell-escape "\\PassOptionsToClass{tikzexport}{ximera}\\PassOptionsToClass{xake}{ximera}\\PassOptionsToClass{xake}{xourse}\\nonstopmode\\input{$FILE}"
 
-    debug make4ht -s -c ximera -f html5+dvisvgm_hashes -u  -a debug $FILE "svg,htex4ht,mathjax,-css,info" "" "" "--interaction=nonstopmode -shell-escape -file-line-error" 
-          make4ht -s -c ximera -f html5+dvisvgm_hashes -u  -a debug $FILE "svg,htex4ht,mathjax,-css,info" "" "" "--interaction=nonstopmode -shell-escape -file-line-error" | tee $FILE.log
+    debug make4ht -s -c ximera -f html5 -u  -a debug $FILE "svg,htex4ht,mathjax,-css,info,tikz+" "" "" "--interaction=nonstopmode -shell-escape -file-line-error" 
+          make4ht -s -c ximera -f html5 -u  -a debug $FILE "svg,htex4ht,mathjax,-css,info,tikz+" "" "" "--interaction=nonstopmode -shell-escape -file-line-error" | tee $FILE.log
 #          make4ht -s -c ximera -f xhtml -u  -a debug $FILE "svg,htex4ht,mathjax,-css,info" "" "" "--interaction=nonstopmode -shell-escape -file-line-error" | tee $FILE.log
     # make4ht -s -c ximera -f xhtml+tidy -u  -a debug $FILE "svg,htex4ht, mathjax,-css,Gin-percent,info" "" "" "--interaction=nonstopmode -shell-escape -file-line-error" | tee $FILE.log
     # make4ht  $FILE "ximera,charset=utf-8,-css" "-cunihtf -utf8" "" "--interaction=nonstopmode -shell-escape -file-line-error"
