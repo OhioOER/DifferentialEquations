@@ -12,7 +12,7 @@
           "requireLocalPort": true
         }
       },    
-    "postStartCommand": "echo 'Adding missing packages'; cp ./scripts/xmlatex.test /usr/local/bin/xmlatex; tlmgr install tkz-euclide tikz-3dplot tikz-cd",
+    // "postStartCommand": "echo 'this is the postStartCommand'",
     "customizations": {
         // Configure properties specific to VS Code.
         "vscode": {
