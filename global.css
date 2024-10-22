@@ -656,6 +656,8 @@ footer .page-link {
     max-width: 100%;
     /* max-width: 60% !important; */
 	background: transparent;
+	width: 100%;    /* HACK 202410 */
+    height: auto;
 }
 
 /* maximize, eg for formularium */
