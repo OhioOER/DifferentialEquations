@@ -208,6 +208,10 @@ if [[ -f .ximera/pgfsys-dvisvgm4ht.def ]]; then
     cp .ximera/pgfsys-dvisvgm4ht.def /root/texmf/tex/generic/
 fi
 
+# HACK (202410) : install missing packages
+echo "Installing tkz-euclide tikz-3dplot tikz-cd in docker image"
+tlmgr install tkz-euclide tikz-3dplot tikz-cd
+
 # Use a local xmlatex.full if available
 # Needed for call-xmlatex-from-xake, which DOES NOT use COMMAND/XMLATEX variable...
 if [[ -f ./scripts/xmlatex.full ]]; then

@@ -12,7 +12,7 @@
           "requireLocalPort": true
         }
       },    
-    // "postStartCommand": "echo 'Ximera DevContainer started!'",
+    "postStartCommand": "echo 'Adding missing packages'; tlmgr install tkz-euclide tikz-3dplot tikz-cd",
     "customizations": {
         // Configure properties specific to VS Code.
         "vscode": {
