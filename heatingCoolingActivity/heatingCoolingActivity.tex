@@ -184,7 +184,8 @@ With a given oven temperature $T_m$ and an initial temperature of the object $T_
 This solution is used to produce a plot of temperature vs. time for a potato heating from room temperature towards an oven temperature of $425^{\text{o}}\text{F}$.  Different sample values of the temperature decay constant  are used.  Higher values of the temperature decay constant correspond to faster heating towards the final temperature.
  
 \begin{image}
-\includegraphics{hotpotato_1.png}
+%%\includegraphics{hotpotato_1.png}
+picture missing from repo
 \end{image}
  
 Though we don't yet have an estimate of $k$ for the potato and oven, we do have a general idea of the shape and features of the heating curve.  Before we proceed with the experiment, we must discuss a complexity that has not yet been dealt with that will limit the temperature of the potato while baking.  This has to do with the significant water content within the potato itself.  Online sources suggest that it takes almost an hour to bake potatoes at an oven temperature of $425^{\text{o}}\text{F}$  but that it is ideal for the potato to reach an internal temperature of $210^{\text{o}}\text{F}$.  Recall that the boiling point of water is $212^{\text{o}}\text{F}$, well below the oven temperature.  This means that the temperature of the potato will not exceed $210^{\text{o}}\text{F}$  until all of the water vaporizes and leaves the potato, which will not actually occur. This is fundamentally the same phenomenon that one sees when boiling a pot of water at ambient pressure; the water temperature will remain at the boiling point during the boiling process.  Uncooked potatoes are composed mainly of water and even baked potatoes still have a significant water content.  Therefore, these practical limitations limit our potato's temperature to about $212^{\text{o}}\text{F}$.  We do not expect the temperature of the potato to get anywhere near the temperature of the oven.
@@ -203,7 +204,8 @@ Assemble the following items in your kitchen while you preheat your oven to bake
 Here, a variety of potato sizes were baked at the same time, but only the middle sized one marked with an arrow is monitored throughout the baking process.  The largest and smallest potatoes can be measured once later in the process, but this is optional.  (The largest and smallest potato were both found to be very close to the temperature of the middle potato at the end of baking.)
  
 \begin{image}
-\includegraphics{hotpotato_2.png}
+% \includegraphics{hotpotato_2.png}
+picture missing from repo
 \end{image}
  
 \textbf{Caution: Avoid touching the hot potato, oven, or the thermometer wire.  Use oven mitts, hot pads, or tongs to avoid a burn.}
@@ -233,7 +235,8 @@ Your data and curve should be smooth but may only match this data approximately.
 For smaller time steps, note that the change in temperature with time (the slope in the plot above) does not change very much after the initial lag period:
  
 \begin{image}
-\includegraphics{hotpotato_3.png}
+%\includegraphics{hotpotato_3.png}
+picture missing from repo
 \end{image}
  
 After about ten minutes, $\frac{\Delta T}{\Delta t}$ is averaging around $4.5^{\text{o}}\text{F}/\text{min}$. Since this rate of change in temperature is roughly constant, we may replace the derivative in the differential equation with an average rate of change over some time step:
@@ -263,7 +266,8 @@ k\approx\frac{120-97}{(15-10)\times316.5}\approx 0.01453\text{min}^{-1}
 If this value of $k$ is used in the solution above, the prediction overestimates the trajectory of the temperature after an hour of heating:
  
 \begin{image}
-\includegraphics{hotpotato_4.png}
+%\includegraphics{hotpotato_4.png}
+picture missing from repo
 \end{image}
  
 The first reason for this overestimation is the effect of the lag which is explained above.  As Newton's Law of Heating does not predict this lag, the actual experimental data remains well below the predicted temperature.  The second reason for overestimation is the effect of water vaporization.  The potato's temperature rises to $212^{\text{o}}\text{F}$ by the last couple minutes of the hour.  By then the temperature has leveled off in an asymptotic way, approaching the boiling point of water and falling well below the predicted temperature.  Just as with the temperature lag, Newton's Law of Heating has no way of predicting this complicated aspect of water vaporization.  The temperature of the potato would rise past this temperature only after all of the water had evaporated, which would take a very long time and leave a very tough and unappetizing spud.
@@ -277,7 +281,8 @@ Using the numbers in this example, the necessary cooling time is found to be abo
 In this experiment, the potato cools to the target temperature of $180^{\text{o}}\text{F}$ after about $17$ minutes, which means our prediction had a high degree of accuracy as it was within one minute of the observed time.  The following figure shows a very good correlation between the prediction and the experimental cooling data over an entire hour:
  
 \begin{image}
-\includegraphics{hotpotato_5.png}
+%\includegraphics{hotpotato_5.png}
+picture missing from repo
 \end{image}
  
 How close was your prediction?  Do you see a lag with the cooling process as well?  A small lag is noticeable in the figure above, with the potato temperature staying slightly warmer than predicted in the first several minutes.  It is remarkable that an uncut potato can stay warm for so long.  In days past, those who lived in cold climates would use hot potatoes as hand warmers (and then lunch!).  One such use of hot potatoes in coat pockets is mentioned in the novel \textit{Little House in the Big Woods} by Laura Ingalls Wilder.
