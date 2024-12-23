@@ -1,7 +1,13 @@
 %% You can put user macros here
 %% However, you cannot make new environments
 
-\listfiles
+%\listfiles
+
+% Get the 'old' hints/expandables, for use on ximera.osu.edu
+\def\xmNotHintAsExpandable{true}
+\def\xmNotExpandableAsAccordion{true}
+
+
 
 %\graphicspath{{./}{firstExample/}{secondExample/}}
 \graphicspath{{./}
@@ -88,7 +94,8 @@
 
 \renewcommand{\vec}[1]{\mathbf{#1}}
 \newcommand{\RR}{\mathbb{R}}
-\newcommand{\dfn}{\textit}
+\providecommand{\dfn}{\textit}
+\renewcommand{\dfn}{\textit}
 \newcommand{\dotp}{\cdot}
 \newcommand{\id}{\text{id}}
 \newcommand\norm[1]{\left\lVert#1\right\rVert}
