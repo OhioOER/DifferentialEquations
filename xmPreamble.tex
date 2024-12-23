@@ -1,0 +1,94 @@
+
+\makeatletter
+\@ifclassloaded{xourse}{%
+    \typeout{Start loading xmPreamble.tex (in a XOURSE)}%
+    \def\isXourse{true}   % automatically defined; pre 112022 it had to be set 'manually' in a xourse
+}{%
+    \typeout{Start loading xmPreamble.tex (NOT in a XOURSE)}%
+}
+\makeatother
+
+
+\usepackage{currfile}
+
+% 201908/202301: PAS OP: babel en doclicense lijken problemen te veroorzaken in .jax bestand
+% (wegens syntax error met toegevoegde \newcommands ...)
+\pdfOnly{
+    %\usepackage[type={CC},modifier={by-nc-sa},version={4.0}]{doclicense}
+    \usepackage[hyperxmp=false,type={CC},modifier={by-nc-sa},version={4.0}]{doclicense}
+}
+
+
+\providecommand{\blue}[1]{{\color{blue}#1}}    
+\providecommand{\red}[1]{{\color{red}#1}}
+
+\newcommand{\onlineChoice}[1]{\pdfOnly{\wordchoicegiventrue}\wordChoice{#1}\pdfOnly{\wordchoicegivenfalse}}
+
+
+% Omdat multicols niet werkt in html: enkel in pdf  (in html zijn langere pagina's misschien ook minder storend)
+\newenvironment{xmmulticols}[1][2]{
+ \pdfOnly{\begin{multicols}{#1}}%
+}{ \pdfOnly{\end{multicols}}}
+
+
+% Aanpassen printversie
+%  (hier gedefinieerd, zodat ze in xourse kunnen worden gezet/overschreven)
+\providebool{parttoc}
+\providebool{printpartfrontpage}
+\providebool{printactivitytitle}
+\providebool{printactivityqrcode}
+\providebool{printactivityurl}
+\providebool{printcontinuouspagenumbers}
+\providebool{numberactivitiesbysubpart}
+\providebool{addtitlenumber}
+\providebool{addsectiontitlenumber}
+\addtitlenumbertrue
+\addsectiontitlenumbertrue
+
+% The following three commands are hardcoded in xake, you can't create other commands like these, without adding them to xake as well
+%  ( gebruikt in xourses om juiste soort titelpagina te krijgen voor verschillende ximera's )
+\newcommand{\activitychapter}[2][]{
+    {    
+    \ifstrequal{#1}{notnumbered}{
+        \addtitlenumberfalse
+    }{}
+    \typeout{ACTIVITYCHAPTER #2}   % logging
+	\chapterstyle
+	\activity{#2}
+    }
+}
+\newcommand{\activitysection}[2][]{
+    {
+    \ifstrequal{#1}{notnumbered}{
+        \addsectiontitlenumberfalse
+    }{}
+	\typeout{ACTIVITYSECTION #2}   % logging
+	\sectionstyle
+	\activity{#2}
+    }
+}
+% Practices worden als activity getoond om de grote blokken te krijgen online
+\newcommand{\practicesection}[2][]{
+    {
+    \ifstrequal{#1}{notnumbered}{
+        \addsectiontitlenumberfalse
+    }{}
+    \typeout{PRACTICESECTION #2}   % logging
+	\sectionstyle
+	\activity{#2}
+    }
+}
+
+%  
+% references: Ximera heeft adhoc logica	 om online labels te doen werken over verschillende files heen
+% met \hyperref kan de getoonde tekst toch worden opgegeven, in plaats van af te hangen van de label-text
+\ifdefined\HCode
+% Link to standard \labels, but give your own description
+% Usage:  Volg \hyperref[my_very_verbose_label]{deze link} voor wat tijdverlies
+%   (01/2020: Ximera-server aangepast om bij class reference-keeptext de link-text NIET te vervangen door de label-text !!!) 
+\renewcommand{\hyperref}[2][]{\HCode{<a class="reference reference-keeptext" href="\##1">}#2\HCode{</a>}}
+%
+%  Link to specific targets  (not tested ?)
+\renewcommand{\hypertarget}[1]{\HCode{<a class="ximera-label" id="#1"></a>}}
+\renewcommand{\hyperlink}[2]{\HCode{<a class="reference reference-keeptext" href="\##1">}#2\HCode{</a>}}
+\fi

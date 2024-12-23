@@ -1,0 +1,77 @@
+\documentclass[12pt]{xourse}
+
+\input{xmPreamble.tex}   % Mmm, should be auto-loaded ???
+\input{preamble.tex}
+\setcounter{secnumdepth}{6}
+\setcounter{tocdepth}{4}
+
+\printcontinuouspagenumberstrue
+\printpartfrontpagefalse
+\printactivityqrcodefalse
+
+\pdfOnly{\input{printstyle.sty}}
+
+\setcounter{secnumdepth}{6}
+\setcounter{tocdepth}{4}
+
+\printcontinuouspagenumberstrue
+\printpartfrontpagefalse
+\printactivityqrcodefalse
+\printactivitytitlefalse
+
+
+\begin{document}
+
+%% HACKS: TODO TO BE SOLVED 
+%% does not solve it ???? \renewcommand\caption[1]{\textbf{DUMMYCAPTION:} #1}    % PROBLEM eg in nonlineartoseparable.tex
+
+
+
+\setcounter{secnumdepth}{6}
+\setcounter{tocdepth}{4}
+
+
+\title{Ordinary Differential Equations}{}
+
+\begin{abstract}
+This is a course on Ordinary Differential Equations. 
+\end{abstract} 
+
+\maketitle
+
+\chapterstyle
+
+\activity{aboutDiffEq/aboutDiffEq}
+\part{Introduction}
+\activity{basicConcepts/basicConcepts}
+\activity{applicationsLeadingToDiffEq/applicationsLeadingToDiffEq}
+\activity{directionFields/directionFields}
+
+
+\part{First Order Equations}
+\activity{linearFirstOrderDiffEq/linearFirstOrderDiffEq}     %% no text after \end{document} ???
+\activity{separableEquations/separableEquations}
+\activity{existUniqueNonlinear/existUniqueNonlinear}
+%% caption % \activity{nonlinearToSeparable/nonlinearToSeparable}
+\activity{bernoulli/bernoulli}
+%% caption % \activity{exactEquations/exactEquations}
+\activity{integratingFactors/integratingFactors}
+
+
+\chapterstyle
+\part{Numerical Methods}
+\activity{eulersMethod/eulersMethod}
+\activity{improvedEuler/improvedEuler}    %%% "}  - > ''}  
+\activity{rungeKutta/rungeKutta}
+
+\chapterstyle
+\part{Applications of First Order Equations}
+\activity{growthDecay/growthDecay}
+\activity{lawOfCooling/lawOfCooling}
+\activity{mixingProblems/mixingProblems}
+\activity{secondLawOfMotion/secondLawOfMotion}
+\activity{autonomousSecondOrder/autonomousSecondOrder}
+\activity{applicationsToCurves/applicationsToCurves}
+
+\end{document}
+
